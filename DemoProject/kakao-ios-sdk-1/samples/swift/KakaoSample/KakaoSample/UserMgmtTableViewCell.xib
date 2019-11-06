@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" rowHeight="348" id="KGk-i7-Jjw" customClass="UserMgmtTableViewCell" customModule="KakaoSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="397"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="396.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="vxB-qX-fRI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="168"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5ZX-OK-Hp5">
+                        <rect key="frame" x="122" y="21" width="76" height="76"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름을 입력하세요." clearsOnBeginEditing="YES" minimumFontSize="17" id="PXb-to-vIl" customClass="InsetableTextField" customModule="KakaoSample" customModuleProvider="target">
+                        <rect key="frame" x="15" y="186" width="290" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="cGp-Zq-c39"/>
+                        </connections>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="별명을 입력하세요." clearsOnBeginEditing="YES" minimumFontSize="17" id="v5g-bn-GKD" customClass="InsetableTextField" customModule="KakaoSample" customModuleProvider="target">
+                        <rect key="frame" x="15" y="236" width="290" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="zqT-vR-UdY"/>
+                        </connections>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="나이를 입력하세요." clearsOnBeginEditing="YES" minimumFontSize="17" id="24Q-RV-err" customClass="InsetableTextField" customModule="KakaoSample" customModuleProvider="target">
+                        <rect key="frame" x="15" y="286" width="290" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="ubV-4V-z28"/>
+                        </connections>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="성별을 입력하세요. (남성/여성)" clearsOnBeginEditing="YES" minimumFontSize="17" id="phn-YG-Rlj" customClass="InsetableTextField" customModule="KakaoSample" customModuleProvider="target">
+                        <rect key="frame" x="15" y="336" width="290" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="Y6E-yM-XsK"/>
+                        </connections>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Eb-ob-MOF">
+                        <rect key="frame" x="8" y="105" width="304" height="21"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qvv-iY-Ijp" userLabel="Phone Number">
+                        <rect key="frame" x="8" y="134" width="304" height="21"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="age" destination="24Q-RV-err" id="IF5-DV-oIy"/>
+                <outlet property="email" destination="6Eb-ob-MOF" id="vOB-n1-AYy"/>
+                <outlet property="gender" destination="phn-YG-Rlj" id="viV-h2-g2L"/>
+                <outlet property="name" destination="PXb-to-vIl" id="gZV-qb-Awv"/>
+                <outlet property="nickName" destination="v5g-bn-GKD" id="WsG-fh-ZsK"/>
+                <outlet property="phoneNumber" destination="Qvv-iY-Ijp" id="LsI-4n-pgd"/>
+                <outlet property="thumbnail" destination="5ZX-OK-Hp5" id="Bfl-Jh-do1"/>
+            </connections>
+            <point key="canvasLocation" x="568" y="402"/>
+        </tableViewCell>
+    </objects>
+</document>

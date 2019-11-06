@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="213" id="KGk-i7-Jjw" customClass="StoryProfileTableViewCell" customModule="KakaoSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="94s-Uj-GDz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="Px0-6O-7hR">
+                        <rect key="frame" x="8" y="125" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="82Y-3G-wc4"/>
+                            <constraint firstAttribute="height" constant="80" id="pJg-Yd-ikw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NickName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YP7-FO-ZiO">
+                        <rect key="frame" x="96" y="125" width="216" height="24"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9g-ud-yrD">
+                        <rect key="frame" x="96" y="159" width="216" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YP7-FO-ZiO" firstAttribute="top" secondItem="Px0-6O-7hR" secondAttribute="top" id="20d-XA-LMF"/>
+                    <constraint firstItem="94s-Uj-GDz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="27X-8I-tSy"/>
+                    <constraint firstItem="94s-Uj-GDz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7QT-QI-qKI"/>
+                    <constraint firstItem="O9g-ud-yrD" firstAttribute="top" secondItem="YP7-FO-ZiO" secondAttribute="bottom" constant="10" id="FSy-CP-Ias"/>
+                    <constraint firstItem="O9g-ud-yrD" firstAttribute="leading" secondItem="YP7-FO-ZiO" secondAttribute="leading" id="N5C-43-gsS"/>
+                    <constraint firstAttribute="bottom" secondItem="94s-Uj-GDz" secondAttribute="bottom" id="OED-VE-cK5"/>
+                    <constraint firstAttribute="trailing" secondItem="94s-Uj-GDz" secondAttribute="trailing" id="QbQ-Eo-sh7"/>
+                    <constraint firstItem="94s-Uj-GDz" firstAttribute="leading" secondItem="Px0-6O-7hR" secondAttribute="trailing" constant="-88" id="VhL-eq-rse"/>
+                    <constraint firstAttribute="bottom" secondItem="94s-Uj-GDz" secondAttribute="bottom" id="ZYG-OI-mnh"/>
+                    <constraint firstItem="YP7-FO-ZiO" firstAttribute="leading" secondItem="Px0-6O-7hR" secondAttribute="trailing" constant="8" id="bgT-L1-416"/>
+                    <constraint firstItem="O9g-ud-yrD" firstAttribute="trailing" secondItem="YP7-FO-ZiO" secondAttribute="trailing" id="eo1-7j-w94"/>
+                    <constraint firstItem="Px0-6O-7hR" firstAttribute="top" secondItem="94s-Uj-GDz" secondAttribute="bottom" constant="-88" id="h60-YE-eKK"/>
+                    <constraint firstItem="YP7-FO-ZiO" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hhq-3D-b1v"/>
+                    <constraint firstAttribute="trailing" secondItem="94s-Uj-GDz" secondAttribute="trailing" id="s2p-Jq-ESN"/>
+                    <constraint firstItem="94s-Uj-GDz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vSM-aD-kn0"/>
+                    <constraint firstItem="94s-Uj-GDz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ym7-gc-e3S"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backgroundImageView" destination="94s-Uj-GDz" id="0e7-et-SFc"/>
+                <outlet property="birthdayLabel" destination="O9g-ud-yrD" id="Vch-lQ-idz"/>
+                <outlet property="nickNameLabel" destination="YP7-FO-ZiO" id="XwT-IC-D1G"/>
+                <outlet property="profileImageView" destination="Px0-6O-7hR" id="ZnG-un-wJ1"/>
+            </connections>
+            <point key="canvasLocation" x="45" y="329.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="PlaceHolder" width="75" height="75"/>
+    </resources>
+</document>

@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A0C881B1C8EE023006DD91B /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0C881A1C8EE023006DD91B /* ConfigConstants.swift */; };
+		9A78AF0F1B71F9EC00349BD6 /* UserMgmtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78AF0B1B71F9EC00349BD6 /* UserMgmtTableViewCell.swift */; };
+		9A78AF101B71F9EC00349BD6 /* UserMgmtTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A78AF0C1B71F9EC00349BD6 /* UserMgmtTableViewCell.xib */; };
+		9A78AF111B71F9EC00349BD6 /* TalkProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78AF0D1B71F9EC00349BD6 /* TalkProfileTableViewCell.swift */; };
+		9A78AF121B71F9EC00349BD6 /* TalkProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A78AF0E1B71F9EC00349BD6 /* TalkProfileTableViewCell.xib */; };
+		9A78AF141B72002500349BD6 /* InsetableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A78AF131B72002500349BD6 /* InsetableTextField.swift */; };
+		9ADC77731B43BC9A004F0863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC77721B43BC9A004F0863 /* AppDelegate.swift */; };
+		9ADC77751B43BC9A004F0863 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC77741B43BC9A004F0863 /* LoginViewController.swift */; };
+		9ADC77781B43BC9A004F0863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC77761B43BC9A004F0863 /* Main.storyboard */; };
+		9ADC777A1B43BC9A004F0863 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC77791B43BC9A004F0863 /* Images.xcassets */; };
+		9ADC777D1B43BC9A004F0863 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ADC777B1B43BC9A004F0863 /* LaunchScreen.xib */; };
+		9ADC77B21B451F78004F0863 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADC77B11B451F78004F0863 /* MainViewController.swift */; };
+		B6A402F722E18A3700500F30 /* KakaoMessageTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A402F622E18A3700500F30 /* KakaoMessageTemplate.framework */; };
+		E9006E1A1B6B4219000D775C /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9006E191B6B4219000D775C /* KakaoOpenSDK.framework */; };
+		E9006E1E1B6B5232000D775C /* UserMgmtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5668A81B5F5E75006188CD /* UserMgmtViewController.swift */; };
+		E9006E1F1B6B57CA000D775C /* TalkProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF7C571B4BB10A006699FC /* TalkProfileViewController.swift */; };
+		E9006E211B6B5A93000D775C /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9006E201B6B5A93000D775C /* AlertExtension.swift */; };
+		E9006E221B6B5B86000D775C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAF7C5D1B4BB11F006699FC /* StoryViewController.swift */; };
+		E9006E231B6B6207000D775C /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98830431B5905B100DC1672 /* ProfileImageViewController.swift */; };
+		E9006E271B6B67F8000D775C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE3921B6A119300FEFBC0 /* MessageViewController.swift */; };
+		E91AE2371B672E2400FEFBC0 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE22C1B672E2400FEFBC0 /* Delay.swift */; };
+		E91AE2381B672E2400FEFBC0 /* ImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE22D1B672E2400FEFBC0 /* ImageDownloadOperation.swift */; };
+		E91AE2391B672E2400FEFBC0 /* ImageGifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE22E1B672E2400FEFBC0 /* ImageGifExtension.swift */; };
+		E91AE23A1B672E2400FEFBC0 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE22F1B672E2400FEFBC0 /* ImageManager.swift */; };
+		E91AE23B1B672E2400FEFBC0 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE2301B672E2400FEFBC0 /* ImageViewExtension.swift */; };
+		E91AE23D1B672E2400FEFBC0 /* Resizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE2321B672E2400FEFBC0 /* Resizer.swift */; };
+		E91AE23E1B672E2400FEFBC0 /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE2331B672E2400FEFBC0 /* DiskStorage.swift */; };
+		E91AE23F1B672E2400FEFBC0 /* InMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE2341B672E2400FEFBC0 /* InMemoryStorage.swift */; };
+		E91AE2411B672E2400FEFBC0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE2361B672E2400FEFBC0 /* Storage.swift */; };
+		E91AE2551B6758E900FEFBC0 /* ThumbnailImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE2541B6758E900FEFBC0 /* ThumbnailImageViewCell.swift */; };
+		E91AE2E51B69CADB00FEFBC0 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE2E41B69CADB00FEFBC0 /* ButtonExtension.swift */; };
+		E91AE3851B6A0E9700FEFBC0 /* IconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AE3841B6A0E9700FEFBC0 /* IconTableViewCell.swift */; };
+		E9C771B91B57B156003A352E /* StoryProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C771B71B57B156003A352E /* StoryProfileTableViewCell.swift */; };
+		E9C771BA1B57B156003A352E /* StoryProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9C771B81B57B156003A352E /* StoryProfileTableViewCell.xib */; };
+		E9E62F601B958DBA00E755C0 /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E62F5F1B958DBA00E755C0 /* ChatMessageViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9A0C881A1C8EE023006DD91B /* ConfigConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigConstants.swift; sourceTree = "<group>"; };
+		9A5668A81B5F5E75006188CD /* UserMgmtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMgmtViewController.swift; sourceTree = "<group>"; };
+		9A78AF0B1B71F9EC00349BD6 /* UserMgmtTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMgmtTableViewCell.swift; sourceTree = "<group>"; };
+		9A78AF0C1B71F9EC00349BD6 /* UserMgmtTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserMgmtTableViewCell.xib; sourceTree = "<group>"; };
+		9A78AF0D1B71F9EC00349BD6 /* TalkProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkProfileTableViewCell.swift; sourceTree = "<group>"; };
+		9A78AF0E1B71F9EC00349BD6 /* TalkProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkProfileTableViewCell.xib; sourceTree = "<group>"; };
+		9A78AF131B72002500349BD6 /* InsetableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetableTextField.swift; sourceTree = "<group>"; };
+		9AAF7C571B4BB10A006699FC /* TalkProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkProfileViewController.swift; sourceTree = "<group>"; };
+		9AAF7C5D1B4BB11F006699FC /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		9ADC776D1B43BC9A004F0863 /* KakaoSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KakaoSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ADC77711B43BC9A004F0863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ADC77721B43BC9A004F0863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9ADC77741B43BC9A004F0863 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9ADC77771B43BC9A004F0863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9ADC77791B43BC9A004F0863 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9ADC777C1B43BC9A004F0863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9ADC77B11B451F78004F0863 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B6A402F622E18A3700500F30 /* KakaoMessageTemplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoMessageTemplate.framework; path = ../../../KakaoMessageTemplate.framework; sourceTree = "<group>"; };
+		E9006E181B6B4205000D775C /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9006E191B6B4219000D775C /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = ../../../KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		E9006E201B6B5A93000D775C /* AlertExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
+		E91AE22C1B672E2400FEFBC0 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Delay.swift; path = Libraries/MapleBacon/Delay.swift; sourceTree = "<group>"; };
+		E91AE22D1B672E2400FEFBC0 /* ImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDownloadOperation.swift; path = Libraries/MapleBacon/ImageDownloadOperation.swift; sourceTree = "<group>"; };
+		E91AE22E1B672E2400FEFBC0 /* ImageGifExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageGifExtension.swift; path = Libraries/MapleBacon/ImageGifExtension.swift; sourceTree = "<group>"; };
+		E91AE22F1B672E2400FEFBC0 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Libraries/MapleBacon/ImageManager.swift; sourceTree = "<group>"; };
+		E91AE2301B672E2400FEFBC0 /* ImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewExtension.swift; path = Libraries/MapleBacon/ImageViewExtension.swift; sourceTree = "<group>"; };
+		E91AE2321B672E2400FEFBC0 /* Resizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resizer.swift; path = Libraries/MapleBacon/Resizer.swift; sourceTree = "<group>"; };
+		E91AE2331B672E2400FEFBC0 /* DiskStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiskStorage.swift; path = Libraries/MapleBacon/Storage/DiskStorage.swift; sourceTree = "<group>"; };
+		E91AE2341B672E2400FEFBC0 /* InMemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InMemoryStorage.swift; path = Libraries/MapleBacon/Storage/InMemoryStorage.swift; sourceTree = "<group>"; };
+		E91AE2361B672E2400FEFBC0 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = Libraries/MapleBacon/Storage/Storage.swift; sourceTree = "<group>"; };
+		E91AE2541B6758E900FEFBC0 /* ThumbnailImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailImageViewCell.swift; sourceTree = "<group>"; };
+		E91AE2E41B69CADB00FEFBC0 /* ButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		E91AE3841B6A0E9700FEFBC0 /* IconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTableViewCell.swift; sourceTree = "<group>"; };
+		E91AE3921B6A119300FEFBC0 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		E98830431B5905B100DC1672 /* ProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
+		E9C771B71B57B156003A352E /* StoryProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryProfileTableViewCell.swift; sourceTree = "<group>"; };
+		E9C771B81B57B156003A352E /* StoryProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryProfileTableViewCell.xib; sourceTree = "<group>"; };
+		E9E62F5F1B958DBA00E755C0 /* ChatMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9ADC776A1B43BC9A004F0863 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6A402F722E18A3700500F30 /* KakaoMessageTemplate.framework in Frameworks */,
+				E9006E1A1B6B4219000D775C /* KakaoOpenSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9ADC77641B43BC9A004F0863 = {
+			isa = PBXGroup;
+			children = (
+				E9006E181B6B4205000D775C /* KakaoOpenSDK-Bridging-Header.h */,
+				9ADC776F1B43BC9A004F0863 /* KakaoSample */,
+				9ADC776E1B43BC9A004F0863 /* Products */,
+				B6BFA91A1E4D8B550046A753 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9ADC776E1B43BC9A004F0863 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9ADC776D1B43BC9A004F0863 /* KakaoSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9ADC776F1B43BC9A004F0863 /* KakaoSample */ = {
+			isa = PBXGroup;
+			children = (
+				E91AE2E61B69E9A000FEFBC0 /* TableCell */,
+				9ADC77721B43BC9A004F0863 /* AppDelegate.swift */,
+				9ADC77741B43BC9A004F0863 /* LoginViewController.swift */,
+				9ADC77B11B451F78004F0863 /* MainViewController.swift */,
+				9A5668A81B5F5E75006188CD /* UserMgmtViewController.swift */,
+				9AAF7C571B4BB10A006699FC /* TalkProfileViewController.swift */,
+				9AAF7C5D1B4BB11F006699FC /* StoryViewController.swift */,
+				E98830431B5905B100DC1672 /* ProfileImageViewController.swift */,
+				E91AE3921B6A119300FEFBC0 /* MessageViewController.swift */,
+				E9E62F5F1B958DBA00E755C0 /* ChatMessageViewController.swift */,
+				E91AE2E41B69CADB00FEFBC0 /* ButtonExtension.swift */,
+				9A78AF131B72002500349BD6 /* InsetableTextField.swift */,
+				E9006E201B6B5A93000D775C /* AlertExtension.swift */,
+				9A0C881A1C8EE023006DD91B /* ConfigConstants.swift */,
+				9ADC77761B43BC9A004F0863 /* Main.storyboard */,
+				9ADC77791B43BC9A004F0863 /* Images.xcassets */,
+				9ADC777B1B43BC9A004F0863 /* LaunchScreen.xib */,
+				E91AE22A1B672DEE00FEFBC0 /* Libraries */,
+				9ADC77701B43BC9A004F0863 /* Supporting Files */,
+			);
+			path = KakaoSample;
+			sourceTree = "<group>";
+		};
+		9ADC77701B43BC9A004F0863 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9ADC77711B43BC9A004F0863 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6BFA91A1E4D8B550046A753 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9006E191B6B4219000D775C /* KakaoOpenSDK.framework */,
+				B6A402F622E18A3700500F30 /* KakaoMessageTemplate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E91AE22A1B672DEE00FEFBC0 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				E91AE22B1B672DFF00FEFBC0 /* MapleBacon-ImageLoader */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		E91AE22B1B672DFF00FEFBC0 /* MapleBacon-ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				E91AE2421B672E2F00FEFBC0 /* Storage */,
+				E91AE22C1B672E2400FEFBC0 /* Delay.swift */,
+				E91AE22D1B672E2400FEFBC0 /* ImageDownloadOperation.swift */,
+				E91AE22E1B672E2400FEFBC0 /* ImageGifExtension.swift */,
+				E91AE22F1B672E2400FEFBC0 /* ImageManager.swift */,
+				E91AE2301B672E2400FEFBC0 /* ImageViewExtension.swift */,
+				E91AE2321B672E2400FEFBC0 /* Resizer.swift */,
+			);
+			name = "MapleBacon-ImageLoader";
+			sourceTree = "<group>";
+		};
+		E91AE2421B672E2F00FEFBC0 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E91AE2331B672E2400FEFBC0 /* DiskStorage.swift */,
+				E91AE2341B672E2400FEFBC0 /* InMemoryStorage.swift */,
+				E91AE2361B672E2400FEFBC0 /* Storage.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		E91AE2E61B69E9A000FEFBC0 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				9A78AF0B1B71F9EC00349BD6 /* UserMgmtTableViewCell.swift */,
+				9A78AF0C1B71F9EC00349BD6 /* UserMgmtTableViewCell.xib */,
+				9A78AF0D1B71F9EC00349BD6 /* TalkProfileTableViewCell.swift */,
+				9A78AF0E1B71F9EC00349BD6 /* TalkProfileTableViewCell.xib */,
+				E9C771B71B57B156003A352E /* StoryProfileTableViewCell.swift */,
+				E9C771B81B57B156003A352E /* StoryProfileTableViewCell.xib */,
+				E91AE2541B6758E900FEFBC0 /* ThumbnailImageViewCell.swift */,
+				E91AE3841B6A0E9700FEFBC0 /* IconTableViewCell.swift */,
+			);
+			name = TableCell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9ADC776C1B43BC9A004F0863 /* KakaoSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9ADC778C1B43BC9A004F0863 /* Build configuration list for PBXNativeTarget "KakaoSample" */;
+			buildPhases = (
+				9ADC77691B43BC9A004F0863 /* Sources */,
+				9ADC776A1B43BC9A004F0863 /* Frameworks */,
+				9ADC776B1B43BC9A004F0863 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KakaoSample;
+			productName = KakaoSample;
+			productReference = 9ADC776D1B43BC9A004F0863 /* KakaoSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9ADC77651B43BC9A004F0863 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Daumkakao;
+				TargetAttributes = {
+					9ADC776C1B43BC9A004F0863 = {
+						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0900;
+					};
+				};
+			};
+			buildConfigurationList = 9ADC77681B43BC9A004F0863 /* Build configuration list for PBXProject "KakaoSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 9ADC77641B43BC9A004F0863;
+			productRefGroup = 9ADC776E1B43BC9A004F0863 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9ADC776C1B43BC9A004F0863 /* KakaoSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9ADC776B1B43BC9A004F0863 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ADC77781B43BC9A004F0863 /* Main.storyboard in Resources */,
+				9A78AF101B71F9EC00349BD6 /* UserMgmtTableViewCell.xib in Resources */,
+				E9C771BA1B57B156003A352E /* StoryProfileTableViewCell.xib in Resources */,
+				9ADC777D1B43BC9A004F0863 /* LaunchScreen.xib in Resources */,
+				9ADC777A1B43BC9A004F0863 /* Images.xcassets in Resources */,
+				9A78AF121B71F9EC00349BD6 /* TalkProfileTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9ADC77691B43BC9A004F0863 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E91AE2371B672E2400FEFBC0 /* Delay.swift in Sources */,
+				E9006E1F1B6B57CA000D775C /* TalkProfileViewController.swift in Sources */,
+				E91AE23E1B672E2400FEFBC0 /* DiskStorage.swift in Sources */,
+				E9006E1E1B6B5232000D775C /* UserMgmtViewController.swift in Sources */,
+				9ADC77751B43BC9A004F0863 /* LoginViewController.swift in Sources */,
+				9ADC77731B43BC9A004F0863 /* AppDelegate.swift in Sources */,
+				E9006E231B6B6207000D775C /* ProfileImageViewController.swift in Sources */,
+				9A78AF0F1B71F9EC00349BD6 /* UserMgmtTableViewCell.swift in Sources */,
+				E9006E271B6B67F8000D775C /* MessageViewController.swift in Sources */,
+				9A78AF141B72002500349BD6 /* InsetableTextField.swift in Sources */,
+				9ADC77B21B451F78004F0863 /* MainViewController.swift in Sources */,
+				E91AE2411B672E2400FEFBC0 /* Storage.swift in Sources */,
+				E91AE23B1B672E2400FEFBC0 /* ImageViewExtension.swift in Sources */,
+				E91AE2E51B69CADB00FEFBC0 /* ButtonExtension.swift in Sources */,
+				E91AE3851B6A0E9700FEFBC0 /* IconTableViewCell.swift in Sources */,
+				9A78AF111B71F9EC00349BD6 /* TalkProfileTableViewCell.swift in Sources */,
+				E9006E221B6B5B86000D775C /* StoryViewController.swift in Sources */,
+				9A0C881B1C8EE023006DD91B /* ConfigConstants.swift in Sources */,
+				E91AE23A1B672E2400FEFBC0 /* ImageManager.swift in Sources */,
+				E9C771B91B57B156003A352E /* StoryProfileTableViewCell.swift in Sources */,
+				E91AE2551B6758E900FEFBC0 /* ThumbnailImageViewCell.swift in Sources */,
+				E91AE23D1B672E2400FEFBC0 /* Resizer.swift in Sources */,
+				E91AE2391B672E2400FEFBC0 /* ImageGifExtension.swift in Sources */,
+				E91AE23F1B672E2400FEFBC0 /* InMemoryStorage.swift in Sources */,
+				E9E62F601B958DBA00E755C0 /* ChatMessageViewController.swift in Sources */,
+				E91AE2381B672E2400FEFBC0 /* ImageDownloadOperation.swift in Sources */,
+				E9006E211B6B5A93000D775C /* AlertExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9ADC77761B43BC9A004F0863 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9ADC77771B43BC9A004F0863 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9ADC777B1B43BC9A004F0863 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9ADC777C1B43BC9A004F0863 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9ADC778A1B43BC9A004F0863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9ADC778B1B43BC9A004F0863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9ADC778D1B43BC9A004F0863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					../../../,
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KakaoSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kakao.sdk.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/KakaoOpenSDK-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		9ADC778E1B43BC9A004F0863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					../../../,
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KakaoSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kakao.sdk.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/KakaoOpenSDK-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9ADC77681B43BC9A004F0863 /* Build configuration list for PBXProject "KakaoSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ADC778A1B43BC9A004F0863 /* Debug */,
+				9ADC778B1B43BC9A004F0863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9ADC778C1B43BC9A004F0863 /* Build configuration list for PBXNativeTarget "KakaoSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ADC778D1B43BC9A004F0863 /* Debug */,
+				9ADC778E1B43BC9A004F0863 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9ADC77651B43BC9A004F0863 /* Project object */;
+}

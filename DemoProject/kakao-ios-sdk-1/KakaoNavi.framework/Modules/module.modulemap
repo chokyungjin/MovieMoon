@@ -1,0 +1,6 @@
+framework module KakaoNavi {
+  umbrella header "KakaoNavi.h"
+
+  export *
+  module * { export * }
+}
