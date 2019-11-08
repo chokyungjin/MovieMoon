@@ -8,7 +8,7 @@
 
 import UIKit
 
-class movieDetailCell : UITableViewCell {
+class movieRatingCell : UITableViewCell {
     
     //var titleLabel: UILabel?
     var yearLabel: UILabel?

@@ -28,7 +28,7 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: nil, action: nil)
         
-        self.navigationItem.backBarButtonItem?.tintColor = .white
+        self.navigationItem.backBarButtonItem?.tintColor = .darkGray
       
         if let revealVC = revealViewController(), let menuVC = revealVC.rearViewController as? MenuTableViewController {
             menuVC.delegate = self

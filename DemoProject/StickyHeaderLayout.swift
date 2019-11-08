@@ -24,7 +24,8 @@ class StickyHeadersLayout: UITableViewController {
     //inits..
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(movieDetailCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(movieRatingCell.self, forCellReuseIdentifier: "cell1")
+        tableView.register(movieContentCell.self, forCellReuseIdentifier: "cell2")
         tableView.contentInset = UIEdgeInsets(top: view.frame.height / 2.5, left: 0, bottom: 0, right: 0)
             
         tableView.delegate = self
@@ -45,31 +46,42 @@ class StickyHeadersLayout: UITableViewController {
      }
   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        if indexPath == [0,0] {
+            return 50
+        }
+        else if indexPath == [1,0] {
+            return 150
+        }
+        
+        return 50
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! movieDetailCell
-
         if indexPath == [0,0]{
-        
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        cell.backgroundColor = .white
-       
-     //  cell.titleLabel.text = "여기에 어떻게 쳐넣지"
-     //   cell.descriptionLabel.text = "진짜 존나 빡치네"
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! movieRatingCell
+            cell.backgroundColor = .red
+            return cell
+    
 
         }
-        return cell
+        else if indexPath == [1,0] {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! movieContentCell
+            cell.backgroundColor = .blue
+            return cell
+        }
+        else {
+            return UITableViewCell()
+        }
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

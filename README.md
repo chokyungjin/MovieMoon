@@ -13,6 +13,7 @@
 
 * KakaoOpenSDK
 * SWRevealViewController
+* SwiftyGIF
 
 ---
 

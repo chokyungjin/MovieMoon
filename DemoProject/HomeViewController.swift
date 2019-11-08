@@ -14,6 +14,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     
     //IB
+    @IBOutlet weak var splash: UICollectionView!
     @IBOutlet weak var movieCollectionView: UICollectionView!
     @IBOutlet weak var homeBoxofficeLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!

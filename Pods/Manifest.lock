@@ -1,16 +1,20 @@
 PODS:
   - PagingCollectionViewLayout (0.0.2)
+  - SwiftGifOrigin (1.7.0)
 
 DEPENDENCIES:
   - PagingCollectionViewLayout
+  - SwiftGifOrigin (~> 1.7.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - PagingCollectionViewLayout
+    - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   PagingCollectionViewLayout: cd56e5bcdf084d4296c0c07ec2203d0d6de96ecf
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
 
-PODFILE CHECKSUM: 894823aa0d3e31c6e82914dd7af6c8ee31450f89
+PODFILE CHECKSUM: 64fa87dccb6bebe5abc54755dd6d318be767f5e7
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.4
