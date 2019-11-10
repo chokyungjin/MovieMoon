@@ -7,73 +7,98 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0141A95DB1F647899CC5D4DB824C065C /* SwiftGifOrigin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DFE501229A7B8F7D07020BD06DEC18 /* SwiftGifOrigin-dummy.m */; };
-		224BAD87E92E0520DBB7D12E01998F0A /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB994EFCB79BA53F52775DAFD556201 /* UIImage+Gif.swift */; };
-		41C1E61E3DD46F05A8B2DBE386D2BC73 /* Pods-DemoProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F11A4C255F9BD536545489AF6D5DB2A2 /* Pods-DemoProject-dummy.m */; };
-		8991C75CE8321B02706767B01D29890A /* SwiftGifOrigin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 265DE6FD72CAB9335C760285FE168329 /* SwiftGifOrigin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0141A95DB1F647899CC5D4DB824C065C /* SwiftGifOrigin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B7BB12AA6B7AD7CD267A4E8B4A5DEA /* SwiftGifOrigin-dummy.m */; };
+		1EE9E5A700E63BD57BEF10D683341A0C /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E45A9F2FA6D9588C482F5868EA537 /* SwiftyGifManager.swift */; };
+		224BAD87E92E0520DBB7D12E01998F0A /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC3489224EEC309D53E54CA3E3958C /* UIImage+Gif.swift */; };
+		45C87BF8F436388A396FB2C643378885 /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38974A439C98FEC8CEB9E454FE84D037 /* UIImage+SwiftyGif.swift */; };
+		5E15F97881DAA1FCA5F8927D0EA61967 /* SwiftyGif.h in Headers */ = {isa = PBXBuildFile; fileRef = 85454D9F4B9C84D8BF2070297BCD5E94 /* SwiftyGif.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		677F3D8BEE5A2B1459168DC62EB16EB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		7054EEB1CB3DD574C77BB2A5818FD46B /* SwiftyGif-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C1428DE4E20848EE2A22617D13EDC430 /* SwiftyGif-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		757DEB32536704E2FFDD216065E81323 /* Pods-DemoProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F11A4C255F9BD536545489AF6D5DB2A2 /* Pods-DemoProject-dummy.m */; };
+		8991C75CE8321B02706767B01D29890A /* SwiftGifOrigin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BB022239BB86AC831A7C52A3DC3F2CA /* SwiftGifOrigin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92174BEDF07B7EDD4322CC497FF0D8C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		93F9C5EACE3E3A1D5A47B2BEAF564D30 /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3812A0A294016971B62DC266501C9E2F /* PagingCollectionViewLayout.swift */; };
-		A3F1204351BE5B19DD271A1337C007B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		A4885DD6FF2FF842EBE8372EB4A9C3B9 /* PagingCollectionViewLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3760B29123F45DB863AD6BAD0661F740 /* PagingCollectionViewLayout-dummy.m */; };
-		B701D9210E77390C60798878CA59AABA /* PagingCollectionViewLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A97E6F9F23975FE5A374915199CF581C /* PagingCollectionViewLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93F9C5EACE3E3A1D5A47B2BEAF564D30 /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B243940C767E5021809A3D133F7F6 /* PagingCollectionViewLayout.swift */; };
+		9A2C71113E0D2B872D7A461A5F67E46A /* Pods-DemoProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC0922CBCF0BF60EE32BF7C6C9B7B82 /* Pods-DemoProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4885DD6FF2FF842EBE8372EB4A9C3B9 /* PagingCollectionViewLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 452CE1A88F639991244EF52DDBE9DA54 /* PagingCollectionViewLayout-dummy.m */; };
+		A9E70330524A80D4D04AF50A838666F5 /* SwiftyGif-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A12A7A5101B7AC850E4EF70FD7A17E10 /* SwiftyGif-dummy.m */; };
+		AF6FF1855E227D3C93BB642FFB68EBB6 /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C2468FC6C9FC8F6B16E2E443A8CB5C /* UIImageView+SwiftyGif.swift */; };
+		B701D9210E77390C60798878CA59AABA /* PagingCollectionViewLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC7672BC0500615AFE6B64B623C0336 /* PagingCollectionViewLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF94D6F06C198E5C3BB5F98385FC3E1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		C9E3E1BED332170FC1FDD12950536494 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		F540A55789D4D249C438C69733EC0616 /* Pods-DemoProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC0922CBCF0BF60EE32BF7C6C9B7B82 /* Pods-DemoProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		100610F6C0368D7EC85794E7A9432C6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 821DAE73BAD04E30C664D9BD78CC814B;
-			remoteInfo = PagingCollectionViewLayout;
-		};
-		D5DAB49EA334C3857A9208BCA4C1C235 /* PBXContainerItemProxy */ = {
+		30D8239978B40C1C4DAA8863599A6D84 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A7F9119A842E66F127E010A97169E4F4;
 			remoteInfo = SwiftGifOrigin;
 		};
+		8A1D41A4671CC333923B9BFA6D8D30D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15AEBAFA43912F898FC2E1A73025C946;
+			remoteInfo = SwiftyGif;
+		};
+		BCB9C2D6889C5519A178055F3FEFE26A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 821DAE73BAD04E30C664D9BD78CC814B;
+			remoteInfo = PagingCollectionViewLayout;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		017AE99A24EAC40C9418C476F5D52A70 /* SwiftyGif-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyGif-Info.plist"; sourceTree = "<group>"; };
+		05EF563707FEF92CFB79CD4456D3175E /* SwiftyGif.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyGif.modulemap; sourceTree = "<group>"; };
+		07E5BE682407C6EB647CABBC75D7B0C2 /* SwiftGifOrigin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-prefix.pch"; sourceTree = "<group>"; };
+		0BB022239BB86AC831A7C52A3DC3F2CA /* SwiftGifOrigin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-umbrella.h"; sourceTree = "<group>"; };
 		146DA159EBB7ACF5660A4E0FA6370825 /* Pods_DemoProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DemoProject.framework; path = "Pods-DemoProject.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18AC280D5207291A9C4F0FCF216FD8DD /* SwiftGifOrigin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGifOrigin.xcconfig; sourceTree = "<group>"; };
 		213D78E2B03DB00666D2265C591C658E /* Pods-DemoProject-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DemoProject-frameworks.sh"; sourceTree = "<group>"; };
-		222654B9E306558E58DF268A5373A077 /* SwiftGifOrigin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftGifOrigin-Info.plist"; sourceTree = "<group>"; };
-		265DE6FD72CAB9335C760285FE168329 /* SwiftGifOrigin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-umbrella.h"; sourceTree = "<group>"; };
+		2602A81ADD55DAEAAA99C29558C49CFA /* SwiftyGif-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyGif-prefix.pch"; sourceTree = "<group>"; };
+		2BA95313C65D075F4221D77674A4BCFD /* PagingCollectionViewLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PagingCollectionViewLayout-Info.plist"; sourceTree = "<group>"; };
+		2CC7672BC0500615AFE6B64B623C0336 /* PagingCollectionViewLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PagingCollectionViewLayout-umbrella.h"; sourceTree = "<group>"; };
 		3106DBC94B770A79E4794FBB8B1E9041 /* Pods-DemoProject-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DemoProject-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3760B29123F45DB863AD6BAD0661F740 /* PagingCollectionViewLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PagingCollectionViewLayout-dummy.m"; sourceTree = "<group>"; };
-		3812A0A294016971B62DC266501C9E2F /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
+		38974A439C98FEC8CEB9E454FE84D037 /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+SwiftyGif.swift"; path = "SwiftyGif/UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		4219E74CB37E3DDC1109A3E084586E5B /* Pods-DemoProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DemoProject.modulemap"; sourceTree = "<group>"; };
-		43DFE501229A7B8F7D07020BD06DEC18 /* SwiftGifOrigin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftGifOrigin-dummy.m"; sourceTree = "<group>"; };
-		4EB994EFCB79BA53F52775DAFD556201 /* UIImage+Gif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "SwiftGifCommon/UIImage+Gif.swift"; sourceTree = "<group>"; };
+		452CE1A88F639991244EF52DDBE9DA54 /* PagingCollectionViewLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PagingCollectionViewLayout-dummy.m"; sourceTree = "<group>"; };
+		476B243940C767E5021809A3D133F7F6 /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
+		59B7BB12AA6B7AD7CD267A4E8B4A5DEA /* SwiftGifOrigin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftGifOrigin-dummy.m"; sourceTree = "<group>"; };
+		5CCF4C5FB0D8EB0C4FA92CCF71428506 /* PagingCollectionViewLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PagingCollectionViewLayout.modulemap; sourceTree = "<group>"; };
 		62E6B6E576D1C87863238DD650C0D8E3 /* Pods-DemoProject-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DemoProject-Info.plist"; sourceTree = "<group>"; };
-		6785114F2E1EB033A9B20D38157769F9 /* PagingCollectionViewLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PagingCollectionViewLayout.xcconfig; sourceTree = "<group>"; };
-		6AC4CC48FB74FFA96C03E9A8113B3521 /* PagingCollectionViewLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PagingCollectionViewLayout-Info.plist"; sourceTree = "<group>"; };
-		7CB537BB5EB01E595E4799C61B4FAE52 /* SwiftGifOrigin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-prefix.pch"; sourceTree = "<group>"; };
+		6C72811BD6A35E59F7928A74EDEB7334 /* SwiftGifOrigin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftGifOrigin-Info.plist"; sourceTree = "<group>"; };
+		7AD67EFB9A7864151301DC2890207AA2 /* SwiftyGif.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyGif.framework; path = SwiftyGif.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1E45A9F2FA6D9588C482F5868EA537 /* SwiftyGifManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyGifManager.swift; path = SwiftyGif/SwiftyGifManager.swift; sourceTree = "<group>"; };
+		7FAE162AE1429FDAFEA745EB7D965223 /* SwiftyGif.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyGif.xcconfig; sourceTree = "<group>"; };
 		84FBCF66331FDEEC793EA148AD487C8D /* Pods-DemoProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DemoProject.release.xcconfig"; sourceTree = "<group>"; };
-		893EC681BFA81D5BB1EC541E1F73B93B /* PagingCollectionViewLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PagingCollectionViewLayout-prefix.pch"; sourceTree = "<group>"; };
+		85454D9F4B9C84D8BF2070297BCD5E94 /* SwiftyGif.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftyGif.h; path = SwiftyGif/SwiftyGif.h; sourceTree = "<group>"; };
+		899CC436C35F42F5F413971BAC2350C1 /* PagingCollectionViewLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PagingCollectionViewLayout.xcconfig; sourceTree = "<group>"; };
 		8E11114EB42D9DA49AD3DCEAD6567E79 /* SwiftGifOrigin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftGifOrigin.framework; path = SwiftGifOrigin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A97E6F9F23975FE5A374915199CF581C /* PagingCollectionViewLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PagingCollectionViewLayout-umbrella.h"; sourceTree = "<group>"; };
-		B0B40574CC6F6F477A212EC890CCEC9F /* SwiftGifOrigin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftGifOrigin.modulemap; sourceTree = "<group>"; };
+		A12A7A5101B7AC850E4EF70FD7A17E10 /* SwiftyGif-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyGif-dummy.m"; sourceTree = "<group>"; };
 		B1D76F982DA0793866252C70565AEB74 /* PagingCollectionViewLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PagingCollectionViewLayout.framework; path = PagingCollectionViewLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B80E7CB61CD817A091A720A71EEF20F0 /* SwiftGifOrigin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGifOrigin.xcconfig; sourceTree = "<group>"; };
+		B2C2468FC6C9FC8F6B16E2E443A8CB5C /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+SwiftyGif.swift"; path = "SwiftyGif/UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
 		B8F2FD1415B749E89D4A83025B7655BE /* Pods-DemoProject-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DemoProject-acknowledgements.plist"; sourceTree = "<group>"; };
 		BEC0922CBCF0BF60EE32BF7C6C9B7B82 /* Pods-DemoProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DemoProject-umbrella.h"; sourceTree = "<group>"; };
-		E0846DF49ED4F9AA49BC1E2B9C3F48A1 /* PagingCollectionViewLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PagingCollectionViewLayout.modulemap; sourceTree = "<group>"; };
+		C1428DE4E20848EE2A22617D13EDC430 /* SwiftyGif-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyGif-umbrella.h"; sourceTree = "<group>"; };
+		C20FE41B6CA8B7045C10107D24FDD7ED /* PagingCollectionViewLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PagingCollectionViewLayout-prefix.pch"; sourceTree = "<group>"; };
+		C99653C969BCF47B59B07A685E36EED8 /* SwiftGifOrigin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftGifOrigin.modulemap; sourceTree = "<group>"; };
+		DCFC3489224EEC309D53E54CA3E3958C /* UIImage+Gif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "SwiftGifCommon/UIImage+Gif.swift"; sourceTree = "<group>"; };
 		EAD599481C91A693CF8B5851B429F2DD /* Pods-DemoProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DemoProject.debug.xcconfig"; sourceTree = "<group>"; };
 		F11A4C255F9BD536545489AF6D5DB2A2 /* Pods-DemoProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DemoProject-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		33D2874A3B0BC54E003DAE86C21960AD /* Frameworks */ = {
+		06FDAE763919A7B12DBE5F3E67445C32 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3F1204351BE5B19DD271A1337C007B3 /* Foundation.framework in Frameworks */,
+				677F3D8BEE5A2B1459168DC62EB16EB3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +107,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				92174BEDF07B7EDD4322CC497FF0D8C3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F87DD36F7E8BF2B61449A1CD069E1CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF94D6F06C198E5C3BB5F98385FC3E1D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,13 +129,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27115178E7BD66E43FC060373A2D16DB /* Pods */ = {
+		04BE6895CDC716E95C757D41F8126802 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5CA6875A7658F1B41EDE3AEE3A10D923 /* PagingCollectionViewLayout */,
-				A1BCD168208D8542623AF32057FD7024 /* SwiftGifOrigin */,
+				5CCF4C5FB0D8EB0C4FA92CCF71428506 /* PagingCollectionViewLayout.modulemap */,
+				899CC436C35F42F5F413971BAC2350C1 /* PagingCollectionViewLayout.xcconfig */,
+				452CE1A88F639991244EF52DDBE9DA54 /* PagingCollectionViewLayout-dummy.m */,
+				2BA95313C65D075F4221D77674A4BCFD /* PagingCollectionViewLayout-Info.plist */,
+				C20FE41B6CA8B7045C10107D24FDD7ED /* PagingCollectionViewLayout-prefix.pch */,
+				2CC7672BC0500615AFE6B64B623C0336 /* PagingCollectionViewLayout-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/PagingCollectionViewLayout";
+			sourceTree = "<group>";
+		};
+		14BE9F67AEFDF61AC6F1EA1AA25D44C3 /* PagingCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				476B243940C767E5021809A3D133F7F6 /* PagingCollectionViewLayout.swift */,
+				04BE6895CDC716E95C757D41F8126802 /* Support Files */,
+			);
+			name = PagingCollectionViewLayout;
+			path = PagingCollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		26A3CE88EE7EA4E06ED8B62D5CF2FFED /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				05EF563707FEF92CFB79CD4456D3175E /* SwiftyGif.modulemap */,
+				7FAE162AE1429FDAFEA745EB7D965223 /* SwiftyGif.xcconfig */,
+				A12A7A5101B7AC850E4EF70FD7A17E10 /* SwiftyGif-dummy.m */,
+				017AE99A24EAC40C9418C476F5D52A70 /* SwiftyGif-Info.plist */,
+				2602A81ADD55DAEAAA99C29558C49CFA /* SwiftyGif-prefix.pch */,
+				C1428DE4E20848EE2A22617D13EDC430 /* SwiftyGif-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyGif";
+			sourceTree = "<group>";
+		};
+		294FED59D492B4F6C4A45782022463B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1D76F982DA0793866252C70565AEB74 /* PagingCollectionViewLayout.framework */,
+				146DA159EBB7ACF5660A4E0FA6370825 /* Pods_DemoProject.framework */,
+				8E11114EB42D9DA49AD3DCEAD6567E79 /* SwiftGifOrigin.framework */,
+				7AD67EFB9A7864151301DC2890207AA2 /* SwiftyGif.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		4EA470F2DB009821F6493D85F2E7C5AB /* Pods-DemoProject */ = {
@@ -122,14 +195,27 @@
 			path = "Target Support Files/Pods-DemoProject";
 			sourceTree = "<group>";
 		};
-		5CA6875A7658F1B41EDE3AEE3A10D923 /* PagingCollectionViewLayout */ = {
+		6A61F7EF1820031E7E1136E1BBDB3754 /* SwiftyGif */ = {
 			isa = PBXGroup;
 			children = (
-				3812A0A294016971B62DC266501C9E2F /* PagingCollectionViewLayout.swift */,
-				AC54980FBBC6C4F4E04129BC08128157 /* Support Files */,
+				85454D9F4B9C84D8BF2070297BCD5E94 /* SwiftyGif.h */,
+				7E1E45A9F2FA6D9588C482F5868EA537 /* SwiftyGifManager.swift */,
+				38974A439C98FEC8CEB9E454FE84D037 /* UIImage+SwiftyGif.swift */,
+				B2C2468FC6C9FC8F6B16E2E443A8CB5C /* UIImageView+SwiftyGif.swift */,
+				26A3CE88EE7EA4E06ED8B62D5CF2FFED /* Support Files */,
 			);
-			name = PagingCollectionViewLayout;
-			path = PagingCollectionViewLayout;
+			name = SwiftyGif;
+			path = SwiftyGif;
+			sourceTree = "<group>";
+		};
+		6E050339FE15028A4A4BFA27C80B25CF /* SwiftGifOrigin */ = {
+			isa = PBXGroup;
+			children = (
+				DCFC3489224EEC309D53E54CA3E3958C /* UIImage+Gif.swift */,
+				FA1561AFEF73B2842D6AEE336F5918CE /* Support Files */,
+			);
+			name = SwiftGifOrigin;
+			path = SwiftGifOrigin;
 			sourceTree = "<group>";
 		};
 		81DAE07B36BBEC44332F7CE84A46A4ED /* Targets Support Files */ = {
@@ -140,38 +226,14 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A1BCD168208D8542623AF32057FD7024 /* SwiftGifOrigin */ = {
+		981A8BDF126C95CC97AD7B9F5BE45EC3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4EB994EFCB79BA53F52775DAFD556201 /* UIImage+Gif.swift */,
-				C5FC3C441644E4E9A877912BD071BD19 /* Support Files */,
+				14BE9F67AEFDF61AC6F1EA1AA25D44C3 /* PagingCollectionViewLayout */,
+				6E050339FE15028A4A4BFA27C80B25CF /* SwiftGifOrigin */,
+				6A61F7EF1820031E7E1136E1BBDB3754 /* SwiftyGif */,
 			);
-			name = SwiftGifOrigin;
-			path = SwiftGifOrigin;
-			sourceTree = "<group>";
-		};
-		AC54980FBBC6C4F4E04129BC08128157 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E0846DF49ED4F9AA49BC1E2B9C3F48A1 /* PagingCollectionViewLayout.modulemap */,
-				6785114F2E1EB033A9B20D38157769F9 /* PagingCollectionViewLayout.xcconfig */,
-				3760B29123F45DB863AD6BAD0661F740 /* PagingCollectionViewLayout-dummy.m */,
-				6AC4CC48FB74FFA96C03E9A8113B3521 /* PagingCollectionViewLayout-Info.plist */,
-				893EC681BFA81D5BB1EC541E1F73B93B /* PagingCollectionViewLayout-prefix.pch */,
-				A97E6F9F23975FE5A374915199CF581C /* PagingCollectionViewLayout-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/PagingCollectionViewLayout";
-			sourceTree = "<group>";
-		};
-		BAAB1F230639B2D3DB7748313A10B728 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B1D76F982DA0793866252C70565AEB74 /* PagingCollectionViewLayout.framework */,
-				146DA159EBB7ACF5660A4E0FA6370825 /* Pods_DemoProject.framework */,
-				8E11114EB42D9DA49AD3DCEAD6567E79 /* SwiftGifOrigin.framework */,
-			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -182,27 +244,13 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C5FC3C441644E4E9A877912BD071BD19 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B0B40574CC6F6F477A212EC890CCEC9F /* SwiftGifOrigin.modulemap */,
-				B80E7CB61CD817A091A720A71EEF20F0 /* SwiftGifOrigin.xcconfig */,
-				43DFE501229A7B8F7D07020BD06DEC18 /* SwiftGifOrigin-dummy.m */,
-				222654B9E306558E58DF268A5373A077 /* SwiftGifOrigin-Info.plist */,
-				7CB537BB5EB01E595E4799C61B4FAE52 /* SwiftGifOrigin-prefix.pch */,
-				265DE6FD72CAB9335C760285FE168329 /* SwiftGifOrigin-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftGifOrigin";
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				27115178E7BD66E43FC060373A2D16DB /* Pods */,
-				BAAB1F230639B2D3DB7748313A10B728 /* Products */,
+				981A8BDF126C95CC97AD7B9F5BE45EC3 /* Pods */,
+				294FED59D492B4F6C4A45782022463B5 /* Products */,
 				81DAE07B36BBEC44332F7CE84A46A4ED /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -215,9 +263,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA1561AFEF73B2842D6AEE336F5918CE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C99653C969BCF47B59B07A685E36EED8 /* SwiftGifOrigin.modulemap */,
+				18AC280D5207291A9C4F0FCF216FD8DD /* SwiftGifOrigin.xcconfig */,
+				59B7BB12AA6B7AD7CD267A4E8B4A5DEA /* SwiftGifOrigin-dummy.m */,
+				6C72811BD6A35E59F7928A74EDEB7334 /* SwiftGifOrigin-Info.plist */,
+				07E5BE682407C6EB647CABBC75D7B0C2 /* SwiftGifOrigin-prefix.pch */,
+				0BB022239BB86AC831A7C52A3DC3F2CA /* SwiftGifOrigin-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftGifOrigin";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1B3658701CDECD8C2DAEDB3E9B87228B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7054EEB1CB3DD574C77BB2A5818FD46B /* SwiftyGif-umbrella.h in Headers */,
+				5E15F97881DAA1FCA5F8927D0EA61967 /* SwiftyGif.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		57955EB18946BAC567B3B69A90AC6C9C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,11 +297,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C52CB99ABCEEF0B0598BD56DA69D447A /* Headers */ = {
+		BA574C7F2E58329BD1CCDEA66F8A50CD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F540A55789D4D249C438C69733EC0616 /* Pods-DemoProject-umbrella.h in Headers */,
+				9A2C71113E0D2B872D7A461A5F67E46A /* Pods-DemoProject-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,20 +316,39 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2443674F756B3314267E7AD76BC62FF2 /* Pods-DemoProject */ = {
+		15AEBAFA43912F898FC2E1A73025C946 /* SwiftyGif */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97EE40A9FE43595BD9C7C0F9194AF75A /* Build configuration list for PBXNativeTarget "Pods-DemoProject" */;
+			buildConfigurationList = 31E29D2E3ED1D800E63F012CC892648F /* Build configuration list for PBXNativeTarget "SwiftyGif" */;
 			buildPhases = (
-				C52CB99ABCEEF0B0598BD56DA69D447A /* Headers */,
-				416D42C36B5E0611449FA523F95F00A9 /* Sources */,
-				33D2874A3B0BC54E003DAE86C21960AD /* Frameworks */,
-				F4B3E4FA89B8E352E8D1E017247F7559 /* Resources */,
+				1B3658701CDECD8C2DAEDB3E9B87228B /* Headers */,
+				35B51FE3E3AA700057167B2F17DB182E /* Sources */,
+				06FDAE763919A7B12DBE5F3E67445C32 /* Frameworks */,
+				08219B7DC6E8BC3A0C88C5A0F5540AB7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				09B63D05E24611A59043AB1D9B555A6A /* PBXTargetDependency */,
-				64151AD86B5A0C22F47A1A33F32943F6 /* PBXTargetDependency */,
+			);
+			name = SwiftyGif;
+			productName = SwiftyGif;
+			productReference = 7AD67EFB9A7864151301DC2890207AA2 /* SwiftyGif.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2443674F756B3314267E7AD76BC62FF2 /* Pods-DemoProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A761F1C6ADB06ADC9A598093BBFD36D6 /* Build configuration list for PBXNativeTarget "Pods-DemoProject" */;
+			buildPhases = (
+				BA574C7F2E58329BD1CCDEA66F8A50CD /* Headers */,
+				BDE36F506012E35EAB6632198A3A10F1 /* Sources */,
+				5F87DD36F7E8BF2B61449A1CD069E1CD /* Frameworks */,
+				109ED5FF580C700ECE00CA5279ED7967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87768C9AF0CB85F23CCF2CE997B34C2B /* PBXTargetDependency */,
+				78A7BA8110B67BF473297943A201F862 /* PBXTargetDependency */,
+				272DABEE00423AF3E8C4A5720D325B2B /* PBXTargetDependency */,
 			);
 			name = "Pods-DemoProject";
 			productName = "Pods-DemoProject";
@@ -319,18 +409,33 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = BAAB1F230639B2D3DB7748313A10B728 /* Products */;
+			productRefGroup = 294FED59D492B4F6C4A45782022463B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				821DAE73BAD04E30C664D9BD78CC814B /* PagingCollectionViewLayout */,
 				2443674F756B3314267E7AD76BC62FF2 /* Pods-DemoProject */,
 				A7F9119A842E66F127E010A97169E4F4 /* SwiftGifOrigin */,
+				15AEBAFA43912F898FC2E1A73025C946 /* SwiftyGif */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		08219B7DC6E8BC3A0C88C5A0F5540AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		109ED5FF580C700ECE00CA5279ED7967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		323512513E6D8537DE269E8202601852 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,21 +450,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4B3E4FA89B8E352E8D1E017247F7559 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		416D42C36B5E0611449FA523F95F00A9 /* Sources */ = {
+		35B51FE3E3AA700057167B2F17DB182E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41C1E61E3DD46F05A8B2DBE386D2BC73 /* Pods-DemoProject-dummy.m in Sources */,
+				A9E70330524A80D4D04AF50A838666F5 /* SwiftyGif-dummy.m in Sources */,
+				1EE9E5A700E63BD57BEF10D683341A0C /* SwiftyGifManager.swift in Sources */,
+				45C87BF8F436388A396FB2C643378885 /* UIImage+SwiftyGif.swift in Sources */,
+				AF6FF1855E227D3C93BB642FFB68EBB6 /* UIImageView+SwiftyGif.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +470,14 @@
 			files = (
 				0141A95DB1F647899CC5D4DB824C065C /* SwiftGifOrigin-dummy.m in Sources */,
 				224BAD87E92E0520DBB7D12E01998F0A /* UIImage+Gif.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDE36F506012E35EAB6632198A3A10F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				757DEB32536704E2FFDD216065E81323 /* Pods-DemoProject-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,24 +493,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		09B63D05E24611A59043AB1D9B555A6A /* PBXTargetDependency */ = {
+		272DABEE00423AF3E8C4A5720D325B2B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = PagingCollectionViewLayout;
-			target = 821DAE73BAD04E30C664D9BD78CC814B /* PagingCollectionViewLayout */;
-			targetProxy = 100610F6C0368D7EC85794E7A9432C6C /* PBXContainerItemProxy */;
+			name = SwiftyGif;
+			target = 15AEBAFA43912F898FC2E1A73025C946 /* SwiftyGif */;
+			targetProxy = 8A1D41A4671CC333923B9BFA6D8D30D2 /* PBXContainerItemProxy */;
 		};
-		64151AD86B5A0C22F47A1A33F32943F6 /* PBXTargetDependency */ = {
+		78A7BA8110B67BF473297943A201F862 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftGifOrigin;
 			target = A7F9119A842E66F127E010A97169E4F4 /* SwiftGifOrigin */;
-			targetProxy = D5DAB49EA334C3857A9208BCA4C1C235 /* PBXContainerItemProxy */;
+			targetProxy = 30D8239978B40C1C4DAA8863599A6D84 /* PBXContainerItemProxy */;
+		};
+		87768C9AF0CB85F23CCF2CE997B34C2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PagingCollectionViewLayout;
+			target = 821DAE73BAD04E30C664D9BD78CC814B /* PagingCollectionViewLayout */;
+			targetProxy = BCB9C2D6889C5519A178055F3FEFE26A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0792AD4139305E209A26C5813779ADA2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6785114F2E1EB033A9B20D38157769F9 /* PagingCollectionViewLayout.xcconfig */;
+			baseConfigurationReference = 899CC436C35F42F5F413971BAC2350C1 /* PagingCollectionViewLayout.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -435,9 +550,9 @@
 			};
 			name = Release;
 		};
-		60CB5AEE82B3564FB1DE86FABEEAD045 /* Release */ = {
+		1642780CAD2AED3657AF5C38382DB577 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B80E7CB61CD817A091A720A71EEF20F0 /* SwiftGifOrigin.xcconfig */;
+			baseConfigurationReference = 7FAE162AE1429FDAFEA745EB7D965223 /* SwiftyGif.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -448,8 +563,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyGif/SwiftyGif-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyGif/SwiftyGif-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,9 +572,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin.modulemap";
-				PRODUCT_MODULE_NAME = SwiftGifOrigin;
-				PRODUCT_NAME = SwiftGifOrigin;
+				MODULEMAP_FILE = "Target Support Files/SwiftyGif/SwiftyGif.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyGif;
+				PRODUCT_NAME = SwiftyGif;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -471,7 +586,7 @@
 			};
 			name = Release;
 		};
-		630C5832E953C7671738A8A8D4D3DE8C /* Release */ = {
+		4ACA5F73FFE4ECB15FB015E73011B9C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84FBCF66331FDEEC793EA148AD487C8D /* Pods-DemoProject.release.xcconfig */;
 			buildSettings = {
@@ -503,6 +618,42 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		60CB5AEE82B3564FB1DE86FABEEAD045 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18AC280D5207291A9C4F0FCF216FD8DD /* SwiftGifOrigin.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin.modulemap";
+				PRODUCT_MODULE_NAME = SwiftGifOrigin;
+				PRODUCT_NAME = SwiftGifOrigin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -576,7 +727,7 @@
 		};
 		6B7484ACE84F33E56B26B953971AD760 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B80E7CB61CD817A091A720A71EEF20F0 /* SwiftGifOrigin.xcconfig */;
+			baseConfigurationReference = 18AC280D5207291A9C4F0FCF216FD8DD /* SwiftGifOrigin.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -611,7 +762,7 @@
 		};
 		8F44011A0F2661E649C57E805A0AF972 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6785114F2E1EB033A9B20D38157769F9 /* PagingCollectionViewLayout.xcconfig */;
+			baseConfigurationReference = 899CC436C35F42F5F413971BAC2350C1 /* PagingCollectionViewLayout.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -704,7 +855,42 @@
 			};
 			name = Release;
 		};
-		B88C794B7E473326BE8129CD0E7115EE /* Debug */ = {
+		C1B1B6E3C0E1EB742C07C0F19CA30A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FAE162AE1429FDAFEA745EB7D965223 /* SwiftyGif.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyGif/SwiftyGif-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyGif/SwiftyGif-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftyGif/SwiftyGif.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyGif;
+				PRODUCT_NAME = SwiftyGif;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CC354754F13E9C04DD61C9A80261140C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EAD599481C91A693CF8B5851B429F2DD /* Pods-DemoProject.debug.xcconfig */;
 			buildSettings = {
@@ -745,6 +931,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		31E29D2E3ED1D800E63F012CC892648F /* Build configuration list for PBXNativeTarget "SwiftyGif" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1B1B6E3C0E1EB742C07C0F19CA30A9D /* Debug */,
+				1642780CAD2AED3657AF5C38382DB577 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -763,20 +958,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97EE40A9FE43595BD9C7C0F9194AF75A /* Build configuration list for PBXNativeTarget "Pods-DemoProject" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B88C794B7E473326BE8129CD0E7115EE /* Debug */,
-				630C5832E953C7671738A8A8D4D3DE8C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		99A19CAE5BD75E33445174D268501EC6 /* Build configuration list for PBXNativeTarget "SwiftGifOrigin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6B7484ACE84F33E56B26B953971AD760 /* Debug */,
 				60CB5AEE82B3564FB1DE86FABEEAD045 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A761F1C6ADB06ADC9A598093BBFD36D6 /* Build configuration list for PBXNativeTarget "Pods-DemoProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC354754F13E9C04DD61C9A80261140C /* Debug */,
+				4ACA5F73FFE4ECB15FB015E73011B9C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

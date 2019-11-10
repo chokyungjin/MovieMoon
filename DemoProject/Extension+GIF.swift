@@ -89,7 +89,7 @@ extension UIImage {
     }
 
     internal class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
-        var delay = 0.1
+        var delay = 0.3
 
         // Get dictionaries
         let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
@@ -197,7 +197,6 @@ extension UIImage {
             for val: Int in delays {
                 sum += val
             }
-
             return sum
             }()
 
@@ -219,7 +218,6 @@ extension UIImage {
         // Heyhey
         let animation = UIImage.animatedImage(with: frames,
             duration: Double(duration) / 1000.0)
-
         return animation
     }
 

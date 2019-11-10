@@ -172,6 +172,7 @@ extension UIImage {
     }
 
     internal class func animatedImageWithSource(_ source: CGImageSource) -> UIImage? {
+        
         let count = CGImageSourceGetCount(source)
         var images = [CGImage]()
         var delays = [Int]()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qJ5-YH-RLp">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Root View Controller-->
         <scene sceneID="14l-Pm-tKo">
             <objects>
-                <viewController storyboardIdentifier="RootVC" id="YVc-Z4-sVU" customClass="RootViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootVC" id="YVc-Z4-sVU" customClass="RootViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o66-1P-oae">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,10 +27,39 @@
             </objects>
             <point key="canvasLocation" x="465" y="-1334"/>
         </scene>
+        <!--Launch Screen Controller-->
+        <scene sceneID="exl-Of-iKZ">
+            <objects>
+                <viewController id="qJ5-YH-RLp" customClass="LaunchScreenController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wih-Q8-lFi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xqj-iX-pXG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xqj-iX-pXG" firstAttribute="top" secondItem="Oxg-Hq-igG" secondAttribute="top" id="913-eC-SbA"/>
+                            <constraint firstItem="Oxg-Hq-igG" firstAttribute="bottom" secondItem="xqj-iX-pXG" secondAttribute="bottom" id="KOj-8o-aAc"/>
+                            <constraint firstItem="Oxg-Hq-igG" firstAttribute="trailing" secondItem="xqj-iX-pXG" secondAttribute="trailing" id="c9M-OW-JS3"/>
+                            <constraint firstItem="xqj-iX-pXG" firstAttribute="leading" secondItem="Oxg-Hq-igG" secondAttribute="leading" id="vkt-j3-8Zb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oxg-Hq-igG"/>
+                    </view>
+                    <connections>
+                        <outlet property="loadingImage" destination="xqj-iX-pXG" id="AB4-NP-r9I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLc-kk-oY1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1454" y="-663"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +100,6 @@
                                             <constraint firstItem="NsJ-sC-yhL" firstAttribute="top" secondItem="hPG-qG-QcB" secondAttribute="bottom" constant="16" id="0PC-ub-L0r"/>
                                             <constraint firstItem="hPG-qG-QcB" firstAttribute="leading" secondItem="Kxm-Tc-1cR" secondAttribute="trailing" constant="19" id="8gB-AB-A98"/>
                                             <constraint firstItem="Kxm-Tc-1cR" firstAttribute="leading" secondItem="hOD-Gj-TbE" secondAttribute="leading" constant="17" id="EoD-tX-wly"/>
-                                            <constraint firstItem="hPG-qG-QcB" firstAttribute="top" secondItem="hOD-Gj-TbE" secondAttribute="top" constant="25" id="LW5-ks-wv1"/>
                                             <constraint firstAttribute="bottom" secondItem="Kxm-Tc-1cR" secondAttribute="bottom" constant="18" id="QVZ-p7-sgQ"/>
                                             <constraint firstAttribute="trailing" secondItem="NsJ-sC-yhL" secondAttribute="trailing" constant="8" id="Rha-fF-jih"/>
                                             <constraint firstAttribute="bottom" secondItem="NsJ-sC-yhL" secondAttribute="bottom" constant="3" id="bAp-Ht-9OO"/>
@@ -223,7 +251,7 @@
         <!--Navigation View Controller-->
         <scene sceneID="G7m-kH-rTP">
             <objects>
-                <navigationController storyboardIdentifier="NaviVC" id="O2N-09-xMZ" customClass="NavigationViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NaviVC" id="O2N-09-xMZ" customClass="NavigationViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="afH-am-3mk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -239,7 +267,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="FKz-7Y-yzP">
             <objects>
-                <tabBarController storyboardIdentifier="TabbarVC" automaticallyAdjustsScrollViewInsets="NO" id="kOA-Mg-AqO" customClass="TabBarViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarVC" automaticallyAdjustsScrollViewInsets="NO" id="kOA-Mg-AqO" customClass="TabBarViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="S1Z-rf-13M">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="ic_menu_white_3x" id="0CQ-pj-fMK">
@@ -316,7 +344,7 @@
         <!--Register View Controller-->
         <scene sceneID="Ejh-u0-zM6">
             <objects>
-                <viewController storyboardIdentifier="RegisterVC" id="ec5-AL-EMo" customClass="RegisterViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" id="ec5-AL-EMo" customClass="RegisterViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2KN-hF-AUP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

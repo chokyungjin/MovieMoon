@@ -25,4 +25,4 @@
 * 영화 검색
 * 서버 통신
 * 푸쉬 알림
-* gif 사용하는법
+* LaunchScreen Using GIF
