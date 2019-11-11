@@ -16,7 +16,6 @@
 		396DBF292347AE990025507B /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396DBF282347AE990025507B /* Extensions+UIView.swift */; };
 		396DBF2B2347B0B20025507B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396DBF2A2347B0B20025507B /* HeaderView.swift */; };
 		396ED70623758F3400C8BB3C /* Extension+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396ED70523758F3400C8BB3C /* Extension+GIF.swift */; };
-		396ED70823759C1D00C8BB3C /* testGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 396ED70723759C1D00C8BB3C /* testGIF.gif */; };
 		3974D88B234485FC00422D91 /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974D88A234485FC00422D91 /* StickyHeaderLayout.swift */; };
 		39856F182323DF930006B58E /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39856F172323DF930006B58E /* TabbarViewController.swift */; };
 		39856F1A2323E34F0006B58E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39856F192323E34E0006B58E /* RegisterViewController.swift */; };
@@ -70,7 +69,6 @@
 		396DBF282347AE990025507B /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		396DBF2A2347B0B20025507B /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		396ED70523758F3400C8BB3C /* Extension+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+GIF.swift"; sourceTree = "<group>"; };
-		396ED70723759C1D00C8BB3C /* testGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = testGIF.gif; path = ../../../Desktop/testGIF.gif; sourceTree = "<group>"; };
 		3974D88A234485FC00422D91 /* StickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderLayout.swift; sourceTree = "<group>"; };
 		39856F172323DF930006B58E /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		39856F192323E34E0006B58E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				39938B832328931400FCE733 /* Protocols.swift */,
 				396ED70523758F3400C8BB3C /* Extension+GIF.swift */,
 				398810022376F7D40055F25D /* test2.gif */,
-				396ED70723759C1D00C8BB3C /* testGIF.gif */,
 			);
 			name = "Protocol + Extension";
 			sourceTree = "<group>";
@@ -402,7 +399,6 @@
 				39B7CA1E23228D7600A765A9 /* LaunchScreen.storyboard in Resources */,
 				39E26431232B7EC000EC8CBC /* HomeScreen.storyboard in Resources */,
 				39E26437232B823100EC8CBC /* RecommendScreen.storyboard in Resources */,
-				396ED70823759C1D00C8BB3C /* testGIF.gif in Resources */,
 				39E26435232B819100EC8CBC /* DiaryScreen.storyboard in Resources */,
 				398810032376F7D40055F25D /* test2.gif in Resources */,
 				39B7CA1B23228D7600A765A9 /* Assets.xcassets in Resources */,

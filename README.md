@@ -18,12 +18,25 @@
 
 ---
 
-### TODO list 
+## TODO list
 
-* 박스 오피스 화면
-* 추천 화면
-* 상세설정
-* 영화 검색
-* 서버 통신
-* 푸쉬 알림
-* ~~LaunchScreen Using GIF~~
+서버 통신
+
+박스 오피스 화면 (진행 중!)
+
+추천 화면
+
+상세 설정
+
+영화 검색바 (통신)
+
+푸쉬 알림 (통신)
+
+평점 주기 (통신)
+
+~~StickyHeader~~
+
+~~LaunchScreen Using GIF~~
+
+---
+
