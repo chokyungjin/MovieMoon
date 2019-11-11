@@ -16,7 +16,7 @@ class MovieDetailViewController: UIViewController {
     var heartBtn: UIButton!
     var imageView: UIImageView!
     var titleLabel: UILabel!
-    var descriptionLabel: UILabel!
+    var dateLabel: UILabel!
     
     //init..
     override func viewDidLoad() {
@@ -57,9 +57,9 @@ class MovieDetailViewController: UIViewController {
         titleLabel.bounds.size = CGSize(width: 200, height: 30)
         view.addSubview(titleLabel)
         
-        descriptionLabel = UILabel()
-        descriptionLabel.bounds.size = CGSize(width: 200, height: 30)
-        view.addSubview(descriptionLabel)
+        dateLabel = UILabel()
+        dateLabel.bounds.size = CGSize(width: 200, height: 30)
+        view.addSubview(dateLabel)
         
         
 
@@ -68,7 +68,7 @@ class MovieDetailViewController: UIViewController {
         myTable.thumbView = thumbView
         myTable.heartBtn = heartBtn
         myTable.titleLabel = titleLabel
-        myTable.descriptionLabel = descriptionLabel
+        myTable.dateLabel = dateLabel
         
         heartBtn.addTarget(self, action: #selector(heartClick), for: .touchUpInside)
 

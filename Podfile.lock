@@ -1,24 +1,28 @@
 PODS:
+  - FloatRatingView (4.0)
   - PagingCollectionViewLayout (0.0.2)
   - SwiftGifOrigin (1.7.0)
   - SwiftyGif (5.2.0)
 
 DEPENDENCIES:
+  - FloatRatingView (~> 4)
   - PagingCollectionViewLayout
   - SwiftGifOrigin (~> 1.7.0)
   - SwiftyGif
 
 SPEC REPOS:
   trunk:
+    - FloatRatingView
     - PagingCollectionViewLayout
     - SwiftGifOrigin
     - SwiftyGif
 
 SPEC CHECKSUMS:
+  FloatRatingView: bb6bdddfbeec51b1d387b4bd50abc27b4dfccd48
   PagingCollectionViewLayout: cd56e5bcdf084d4296c0c07ec2203d0d6de96ecf
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
 
-PODFILE CHECKSUM: 8a5051f1cf17d43c580e28b0806eef36f3ee4902
+PODFILE CHECKSUM: c0be7b4fd31a433e5eb88b10f6c7f6cb4bb29856
 
 COCOAPODS: 1.8.4

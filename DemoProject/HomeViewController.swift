@@ -14,7 +14,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     
     //IB
-    @IBOutlet weak var splash: UICollectionView!
     @IBOutlet weak var movieCollectionView: UICollectionView!
     @IBOutlet weak var homeBoxofficeLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -31,6 +30,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     var selectedImage: UIImage!
     var selectedTitle: String!
     var selectedRating: Double!
+    var selectedDate: String!
     
 //    var tmpLabel: UILabel = {
 //        let label = UILabel()
@@ -158,6 +158,9 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     func getRating(rating: Double) -> Double? {
         return rating
     }
+    func getDate(date: String) -> String? {
+        return date
+    }
     
     func getThumnailImage(withURL thumnailURL: String) -> UIImage? {
         guard let imageURL = URL(string: thumnailURL) else {
@@ -252,6 +255,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let movieRating = self.getRating(rating: movie.userRating)
         self.selectedRating = movieRating
         dataManager.setRating(haveRating: self.selectedRating)
+        
+        let movieDate = self.getDate(date: movie.date)
+        self.selectedDate = movieDate
+        dataManager.setDate(haveDate: self.selectedDate)
+        
+        
         //ImageManager.imageManager.setTitle(haveTitle: self.)
        // performSegue(withIdentifier: Storyboard.showDetailVC , sender: nil)
         

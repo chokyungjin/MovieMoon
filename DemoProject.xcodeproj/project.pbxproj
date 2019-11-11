@@ -10,6 +10,7 @@
 		390382E0232BAD67009379F1 /* SettingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390382DF232BAD67009379F1 /* SettingMenuTableViewCell.swift */; };
 		3907913923446F9E00576E17 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907913823446F9E00576E17 /* MovieDetailViewController.swift */; };
 		3916597B2346604900CCF20F /* movieRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916597A2346604900CCF20F /* movieRatingCell.swift */; };
+		392A4B112377E70300B1ABF0 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392A4B102377E70300B1ABF0 /* FloatRatingView.swift */; };
 		39447D422369243800C56BE6 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39447D412369243800C56BE6 /* WishListViewController.swift */; };
 		39583FCE23684C5300B10497 /* PopupLogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */; };
 		396DBF292347AE990025507B /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396DBF282347AE990025507B /* Extensions+UIView.swift */; };
@@ -63,6 +64,7 @@
 		3907913823446F9E00576E17 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		39163FCE232F6C7700B7EAC0 /* Lumina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lumina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3916597A2346604900CCF20F /* movieRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieRatingCell.swift; sourceTree = "<group>"; };
+		392A4B102377E70300B1ABF0 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatRatingView.swift; path = ../../../Desktop/FloatRatingView.swift; sourceTree = "<group>"; };
 		39447D412369243800C56BE6 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupLogoutViewController.swift; sourceTree = "<group>"; };
 		396DBF282347AE990025507B /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
@@ -146,6 +148,15 @@
 			name = HamburgerMenu;
 			sourceTree = "<group>";
 		};
+		392A4B122378055000B1ABF0 /* Login,SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				39856F192323E34E0006B58E /* RegisterViewController.swift */,
+				39BC021F232A3E99002737B4 /* LoginViewController.swift */,
+			);
+			name = "Login,SignUp";
+			sourceTree = "<group>";
+		};
 		398810042376F9810055F25D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +174,7 @@
 		39938B822328930500FCE733 /* Protocol + Extension */ = {
 			isa = PBXGroup;
 			children = (
+				392A4B102377E70300B1ABF0 /* FloatRatingView.swift */,
 				396DBF282347AE990025507B /* Extensions+UIView.swift */,
 				39938B832328931400FCE733 /* Protocols.swift */,
 				396ED70523758F3400C8BB3C /* Extension+GIF.swift */,
@@ -202,13 +214,12 @@
 		399DE53E23262C15002703D1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				392A4B122378055000B1ABF0 /* Login,SignUp */,
 				3929EC832338CCC600AA853C /* HamburgerMenu */,
 				39BC0210232A3CD7002737B4 /* FourthTab */,
 				39BC020F232A3CCE002737B4 /* ThirdTab */,
 				39BC020E232A3CC6002737B4 /* SecondTab */,
 				39BC020D232A3CB6002737B4 /* FirstTab */,
-				39856F192323E34E0006B58E /* RegisterViewController.swift */,
-				39BC021F232A3E99002737B4 /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -266,8 +277,8 @@
 		39BC020D232A3CB6002737B4 /* FirstTab */ = {
 			isa = PBXGroup;
 			children = (
-				3907913723446F8900576E17 /* MovieSearchResult */,
 				39938B7E2328916B00FCE733 /* HomeViewController.swift */,
+				3907913723446F8900576E17 /* MovieSearchResult */,
 			);
 			name = FirstTab;
 			sourceTree = "<group>";
@@ -482,6 +493,7 @@
 				39938B7F2328916B00FCE733 /* HomeViewController.swift in Sources */,
 				39E26403232B559900EC8CBC /* MovieCollectionViewCell.swift in Sources */,
 				39BC0220232A3E99002737B4 /* LoginViewController.swift in Sources */,
+				392A4B112377E70300B1ABF0 /* FloatRatingView.swift in Sources */,
 				396ED70623758F3400C8BB3C /* Extension+GIF.swift in Sources */,
 				3907913923446F9E00576E17 /* MovieDetailViewController.swift in Sources */,
 				39B2A6C52375884B00646400 /* movieContentCell.swift in Sources */,

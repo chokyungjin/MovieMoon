@@ -2,7 +2,7 @@
 
 ---
 
-> VAE를 이용한 영화 추천 어플리케이션
+> ### VAE를 이용한 영화 추천 어플리케이션
 
 
 ![ ](https://user-images.githubusercontent.com/46750574/68401034-6351b500-01bc-11ea-877f-be41f2d93318.png)
@@ -14,6 +14,7 @@
 * KakaoOpenSDK
 * SWRevealViewController
 * SwiftyGIF
+* FloatRatingView
 
 ---
 
@@ -25,4 +26,4 @@
 * 영화 검색
 * 서버 통신
 * 푸쉬 알림
-* LaunchScreen Using GIF
+* ~~LaunchScreen Using GIF~~

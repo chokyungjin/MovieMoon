@@ -1,0 +1,6 @@
+framework module FloatRatingView {
+  umbrella header "FloatRatingView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -36,6 +36,15 @@ class DataManager {
         self.haveTitle = haveTitle
     }
     
+    private var haveDate: String!
+
+    func getDate() -> String {
+        return haveDate
+    }
+    func setDate(haveDate : String) {
+        self.haveDate = haveDate
+    }
+    
     private var haveRating: Double!
 
     func getRating() -> Double {

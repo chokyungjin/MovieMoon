@@ -12,21 +12,22 @@ class movieContentCell : UITableViewCell {
     
     //var titleLabel: UILabel?
     var yearLabel: UILabel?
-    var plotField: UITextView?
+   // var plotField: UITextView?
     
-    var titleLabel: UILabel = {
-        let label = UILabel()
+    var plotField: UITextView = {
+        let label = UITextView()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
-        label.frame = CGRect(x: 15, y: 0, width: 150, height: 20)
+        label.frame = CGRect(x: 15, y: 15, width: 350, height: 100)
         return label
     }()
-    var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.frame = CGRect(x: 15, y: 25, width: 150, height: 20)
-        return label
+    var stealcutImage: UIImageView = {
+        let ImageView = UIImageView()
+        let defaultImage = UIImage(named: "testImage.jpg")
+        ImageView.image = defaultImage
+        ImageView.frame = CGRect(x: 15, y: 120, width: 100, height: 150)
+       
+        return ImageView
     }()
    
   
@@ -34,8 +35,8 @@ class movieContentCell : UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.addSubview(titleLabel)
-        self.addSubview(descriptionLabel)
+        self.addSubview(plotField)
+        self.addSubview(stealcutImage)
     }
     
     required init?(coder: NSCoder) {
