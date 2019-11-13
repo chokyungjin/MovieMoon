@@ -24,6 +24,7 @@
 		398854642367FB07008765FF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398854632367FB07008765FF /* MenuTableViewController.swift */; };
 		398854662367FC22008765FF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398854652367FC22008765FF /* ProfileViewController.swift */; };
 		39890C6D2328C03400389FFC /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39890C6C2328C03400389FFC /* NavigationViewController.swift */; };
+		39899C9D237C1D6E007DBF76 /* moon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 39899C9C237C1D6E007DBF76 /* moon.gif */; };
 		39938B7F2328916B00FCE733 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39938B7E2328916B00FCE733 /* HomeViewController.swift */; };
 		39938B842328931400FCE733 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39938B832328931400FCE733 /* Protocols.swift */; };
 		39938B862328933D00FCE733 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39938B852328933D00FCE733 /* MenuOption.swift */; };
@@ -77,6 +78,7 @@
 		398854632367FB07008765FF /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		398854652367FC22008765FF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		39890C6C2328C03400389FFC /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		39899C9C237C1D6E007DBF76 /* moon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = moon.gif; path = ../../../Desktop/moon.gif; sourceTree = "<group>"; };
 		39938B7E2328916B00FCE733 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		39938B832328931400FCE733 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		39938B852328933D00FCE733 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				396DBF282347AE990025507B /* Extensions+UIView.swift */,
 				39938B832328931400FCE733 /* Protocols.swift */,
 				396ED70523758F3400C8BB3C /* Extension+GIF.swift */,
+				39899C9C237C1D6E007DBF76 /* moon.gif */,
 				398810022376F7D40055F25D /* test2.gif */,
 			);
 			name = "Protocol + Extension";
@@ -403,6 +406,7 @@
 				398810032376F7D40055F25D /* test2.gif in Resources */,
 				39B7CA1B23228D7600A765A9 /* Assets.xcassets in Resources */,
 				39E26433232B80E200EC8CBC /* BoxOfficeScreen.storyboard in Resources */,
+				39899C9D237C1D6E007DBF76 /* moon.gif in Resources */,
 				39B7CA1623228D7500A765A9 /* Main.storyboard in Resources */,
 				39E26439232B830800EC8CBC /* HamburgerMenuScreen.storyboard in Resources */,
 			);

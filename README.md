@@ -34,6 +34,10 @@
 
 평점 주기 (통신)
 
+포토 슬라이드 
+
+URL 링크를 통한 동영상 플레이어
+
 ~~StickyHeader~~
 
 ~~LaunchScreen Using GIF~~

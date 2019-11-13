@@ -16,7 +16,7 @@ class LaunchScreenController : UIViewController {
     
  
     //vars..
-    var gifName : String = "test2"
+    var gifName : String = "moon"
     let gifManager = SwiftyGifManager(memoryLimit: 60)
     var mTimer:  Timer? = nil
     var number: Double = 0.0
