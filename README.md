@@ -15,18 +15,19 @@
 * SWRevealViewController
 * SwiftyGIF
 * FloatRatingView
+* ~~imageSlideShow~~
 
 ---
 
 ## TODO list
 
-서버 통신
+#### 서버 통신(중요)
 
-박스 오피스 화면 (진행 중!)
+박스 오피스 화면 (진행 중)
 
 추천 화면
 
-상세 설정
+상세 설정 화면
 
 영화 검색바 (통신)
 
