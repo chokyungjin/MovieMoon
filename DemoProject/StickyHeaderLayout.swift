@@ -27,14 +27,9 @@ class StickyHeadersLayout: UITableViewController {
         tableView.register(movieRatingCell.self, forCellReuseIdentifier: "cell1")
         tableView.register(movieContentCell.self, forCellReuseIdentifier: "cell2")
         tableView.contentInset = UIEdgeInsets(top: view.frame.height / 2.5, left: 0, bottom: 0, right: 0)
-            
         tableView.delegate = self
         tableView.dataSource = self
-        
-//        floatRatingView!.delegate = self
-//        floatRatingView!.contentMode = UIView.ContentMode.scaleAspectFit
-//        floatRatingView!.type = .halfRatings
-        
+        view.backgroundColor = UIColor.init(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
 
     }
   
@@ -73,24 +68,24 @@ class StickyHeadersLayout: UITableViewController {
         if indexPath == [0,0]{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! movieRatingCell
-           // cell.backgroundColor = .red
-           // cell.ratingView.delegate = self as! FloatRatingViewDelegate
-           // floatRatingView = cell.ratingView
-           // cell.titleLabel.text = String(format: "%.2f" + "점", cell.ratingView.rating)
-         //   cell.myRatingLabel.text = "testest"
             
+            cell.backgroundColor = UIColor.init(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
             cell.myRatingLabel.text = "내 기준" + String(format:"%.2f", cell.myRatingView.rating) + "점"
-            
             cell.appRatingLabel.text = "앱 기준" + String(describing: DataManager.sharedManager.getRating()) + "점"
+            cell.myRatingLabel.textColor = UIColor.init(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+            cell.appRatingLabel.textColor = UIColor.init(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+
             return cell
     
 
         }
         else if indexPath == [1,0] {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! movieContentCell
+            cell.backgroundColor = UIColor.init(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
             cell.stealcutImage.image = DataManager.sharedManager.getImage()
             cell.plotField.text = "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!"
+            cell.plotField.backgroundColor = UIColor.init(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
+            cell.plotField.textColor = UIColor.init(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
 
             return cell
         }

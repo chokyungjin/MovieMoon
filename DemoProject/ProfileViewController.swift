@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.addSubview(profileImage)
         
         
-        self.navigationItem.title = "Profile"
+       // self.navigationItem.title = "Configuration"
         let backBtn = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close(_:)))
         self.navigationItem.leftBarButtonItem = backBtn
         

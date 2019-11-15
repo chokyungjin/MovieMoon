@@ -16,7 +16,7 @@ class LaunchScreenController : UIViewController {
     
  
     //vars..
-    var gifName : String = "moon"
+    var gifName : String = "moonFix"
     let gifManager = SwiftyGifManager(memoryLimit: 60)
     var mTimer:  Timer? = nil
     var number: Double = 0.0
@@ -25,7 +25,7 @@ class LaunchScreenController : UIViewController {
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
+       // self.view.backgroundColor = .black
         
         if let image = try? UIImage(imageName: gifName) {
             self.loadingImage.setImage(image, manager: gifManager)
@@ -52,8 +52,8 @@ class LaunchScreenController : UIViewController {
     
     @objc func timerCallback(){
         number += 1
-        if number == 4 {
-            Thread.sleep(forTimeInterval: 1) //1초만 재우기
+        if number == 3 {
+            //Thread.sleep(forTimeInterval: 1) //1초만 재우기
             loadingImage.stopAnimatingGif()
             
             loadingImage.removeFromSuperview()

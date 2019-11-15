@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Diary-->
+        <!--Diary Collection View Controller-->
         <scene sceneID="f3F-SA-c55">
             <objects>
-                <collectionViewController storyboardIdentifier="DiaryVC" id="2C7-r3-iNe" customClass="DiaryCollectionViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="DiaryVC" id="2C7-r3-iNe" customClass="DiaryCollectionViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="SOT-Ks-O6z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +39,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieListCell" id="tgL-9d-aVk" customClass="MovieCollectionViewCell" customModule="DemoProject" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieListCell" id="tgL-9d-aVk" customClass="MovieCollectionViewCell" customModule="MovieMoon" customModuleProvider="target">
                                 <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -68,7 +68,7 @@
                             <outlet property="delegate" destination="2C7-r3-iNe" id="ud5-on-Bmk"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Diary" id="7WQ-Mf-QaI"/>
+                    <tabBarItem key="tabBarItem" title="" image="2" id="7WQ-Mf-QaI"/>
                     <navigationItem key="navigationItem" id="t8a-Ru-RGP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -82,6 +82,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="2" width="25" height="25"/>
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

@@ -21,12 +21,17 @@ class MovieDetailViewController: UIViewController {
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        //view.backgroundColor = UIColor.init(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
+
         let myTable = StickyHeadersLayout()
 
         self.addChild(myTable)
         view.addSubview(myTable.tableView)
        
+       // let url = URL(string: "http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPK004440.JPG")
+        //let data = try! Data(contentsOf: url!)
+        // self.profileImageLabel.image = UIImage(data: data)
+        
         imageView = UIImageView(image: DataManager.sharedManager.getImage())
         imageView.frame = CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: view.bounds.height / 4))
 
@@ -37,6 +42,7 @@ class MovieDetailViewController: UIViewController {
         
         view.addSubview(imageView)
         
+        
         thumbView = UIImageView(image: imageView.image)
         thumbView.contentMode = .scaleAspectFit
         thumbView.clipsToBounds = true
@@ -44,14 +50,12 @@ class MovieDetailViewController: UIViewController {
         
         heartBtn = UIButton(type: .custom)
         let image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
-        //heartBtn.tintColor = .white
         heartBtn.setImage(image, for: .normal)
         heartBtn.contentMode = .scaleAspectFit
         heartBtn.bounds.size = CGSize(width: 30, height: 30)
         heartBtn.isSelected = false
-       
-        //heartBtn.tintColor = UIColor.white
         view.addSubview(heartBtn)
+        heartBtn.addTarget(self, action: #selector(heartClick), for: .touchUpInside)
         
         titleLabel = UILabel()
         titleLabel.bounds.size = CGSize(width: 200, height: 30)
@@ -62,15 +66,12 @@ class MovieDetailViewController: UIViewController {
         view.addSubview(dateLabel)
         
         
-
-        
         myTable.imageView = imageView
         myTable.thumbView = thumbView
         myTable.heartBtn = heartBtn
         myTable.titleLabel = titleLabel
         myTable.dateLabel = dateLabel
         
-        heartBtn.addTarget(self, action: #selector(heartClick), for: .touchUpInside)
 
     }
     

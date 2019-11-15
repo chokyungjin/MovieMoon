@@ -21,8 +21,7 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         delegate = self
         hamburgerMenu.tintColor = .lightGray
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        //네비게이션 바 오랜지색 만들기.
-        //햄버거 메뉴 흰색으로 만들기
+       
         self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
         
@@ -37,13 +36,14 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
     
         //뒤로가기 흰색으로 만들기
         self.navigationController?.navigationBar.topItem?.title = "Home"
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(red: 0/255.0, green: 127.0/255.0, blue: 255.0/255.0, alpha: 1.0)]
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(red: 211/255.0, green: 211.0/255.0, blue: 255.0/255.0, alpha: 1.0)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
        
         UITabBar.appearance().tintColor = UIColor.init(red: 0/255.0, green: 127.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        UITabBar.appearance().barTintColor = UIColor.init(red: 188/255.0, green: 224.0/255.0, blue: 253.0/255.0, alpha: 1.0)
+        UITabBar.appearance().barTintColor = UIColor.init(red: 104/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1.0)
 
         self.tabBar.itemSpacing = UIScreen.main.bounds.width / 4
+    
         
     }
     
@@ -84,20 +84,18 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
     var menuTableViewController: MenuTableViewController!
     
     func menuViewController(_ viewController: UIViewController, didSelect indexPath: IndexPath) {
-           if indexPath.row == 0 {
+        if indexPath.row == 0{
+               self.showWishVC()
+           }
+        
+        if indexPath.row == 1 {
             self.showProfileVC()
-           
            }
-           if indexPath.row == 1 {
-               self.showSettingVC()
+    
+        if indexPath.row == 2{
+            self.showLogoutVC()
            }
-           
-           if indexPath.row == 2{
-               self.showLogoutVC()
-           }
-        if indexPath.row == 3{
-            self.showWishVC()
-        }
+        
        }
         
         func showProfileVC(){
@@ -111,21 +109,7 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
                           self.revealViewController().revealToggle(animated: true)
                       }
         }
-       func showSettingVC(){
-           
-           if let revealVc = revealViewController(){
-               revealVc.revealToggle(animated: true)
-            let storyboard = UIStoryboard(name: "HamburgerMenuScreen", bundle: nil)
-               guard let vc = storyboard.instantiateViewController(withIdentifier: "SettingVC") as? SettingViewController else{
-                   return
-               }
-               if let navigationController = revealVc.frontViewController as? UINavigationController{
-                   navigationController.pushViewController(vc, animated: true)
-                   
-               }
-               
-           }
-       }
+    
        func showLogoutVC(){
            
         guard let revealVc = revealViewController() else {return}
@@ -171,7 +155,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
         print( self.selectedIndex)
                if self.selectedIndex == 1 {
                    self.navigationController?.navigationBar.topItem?.title = "Box Office"
-                
+        
                 
                      }
                else if self.selectedIndex == 2{
@@ -181,6 +165,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
                    self.navigationController?.navigationBar.topItem?.title = "Recommend"
                }
                else {
+
                    self.navigationController?.navigationBar.topItem?.title = "Home"
                }
                

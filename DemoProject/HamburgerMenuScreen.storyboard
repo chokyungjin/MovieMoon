@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Menu Table View Controller-->
         <scene sceneID="Mgh-op-rmq">
             <objects>
-                <tableViewController storyboardIdentifier="HamburgerMenuVC" id="OpF-bN-fdI" customClass="MenuTableViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HamburgerMenuVC" id="OpF-bN-fdI" customClass="MenuTableViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5ig-Fy-oMI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                             <viewLayoutGuide key="safeArea" id="113-me-Reo"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingMenuCell" id="7ov-3w-3Sg" customClass="SettingMenuTableViewCell" customModule="DemoProject" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingMenuCell" id="7ov-3w-3Sg">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7ov-3w-3Sg" id="E6f-x8-boo">
@@ -46,51 +46,26 @@
             </objects>
             <point key="canvasLocation" x="124" y="-6.746626686656672"/>
         </scene>
-        <!--Setting View Controller-->
-        <scene sceneID="zmO-P4-DdU">
-            <objects>
-                <viewController storyboardIdentifier="SettingVC" id="fHZ-Yb-1xv" customClass="SettingViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YEZ-Ec-Yng">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd0-pp-NzH">
-                                <rect key="frame" x="139" y="323" width="96" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="N14-OS-URQ"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="1Bu-92-TQ4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xjn-LI-Lu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2032.8" y="-7.6461769115442282"/>
-        </scene>
-        <!--Profile-->
+        <!--Configuration-->
         <scene sceneID="MNJ-6d-40r">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="k3n-lO-8Ce" customClass="ProfileViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="k3n-lO-8Ce" customClass="ProfileViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fuL-zu-XL4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pCn-Nu-xnu"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="s1y-e5-P8y"/>
+                    <navigationItem key="navigationItem" title="Configuration" id="s1y-e5-P8y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuj-XA-RSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2033" y="758"/>
+            <point key="canvasLocation" x="2073" y="-7"/>
         </scene>
         <!--Wish List View Controller-->
         <scene sceneID="c7f-Ie-cvL">
             <objects>
-                <viewController storyboardIdentifier="WishVC" id="Vua-jc-mhF" customClass="WishListViewController" customModule="DemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WishVC" id="Vua-jc-mhF" customClass="WishListViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qor-AY-NvB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,25 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXY-Pt-gMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2033" y="1530"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yRZ-yh-SOA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M2b-Ai-pFN" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yGY-hq-u1o">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fHZ-Yb-1xv" kind="relationship" relationship="rootViewController" id="KWO-BS-omH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0z4-qo-2G1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1095" y="-7"/>
+            <point key="canvasLocation" x="2073" y="758"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hgH-zZ-gtZ">
@@ -141,12 +98,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="k3n-lO-8Ce" kind="relationship" relationship="rootViewController" id="JZr-cA-0eg"/>
+                        <segue destination="k3n-lO-8Ce" kind="relationship" relationship="rootViewController" id="gfv-KI-HYx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rc9-Ps-o8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="758"/>
+            <point key="canvasLocation" x="1178" y="-8"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3Fb-wj-KOo">
@@ -235,12 +192,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Vua-jc-mhF" kind="relationship" relationship="rootViewController" id="KnC-MV-hKh"/>
+                        <segue destination="Vua-jc-mhF" kind="relationship" relationship="rootViewController" id="wFi-WC-Kzh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAB-UG-gEE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="1530"/>
+            <point key="canvasLocation" x="1177" y="758"/>
         </scene>
     </scenes>
 </document>

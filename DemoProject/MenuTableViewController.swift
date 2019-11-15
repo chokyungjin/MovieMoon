@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifer = "SettingMenuCell"
+
 protocol MenuViewDelegate {
     func menuViewController(_ viewController: UIViewController , didSelect indexPath: IndexPath)
 }
@@ -21,10 +22,10 @@ class MenuTableViewController: UITableViewController {
     
     //Variables
     let titles = [
-        "Profile",
-        "Setting",
-        "Logout",
-        "WishList"
+        "WishList",
+        "Configuration",
+        "Logout"
+
     ]
     
     let accountLabel = UILabel()
@@ -36,6 +37,8 @@ class MenuTableViewController: UITableViewController {
     //init
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.init(red: 104/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1.0)
+        
         
         nameLabel.frame = CGRect(x:70, y:15, width: 100, height: 30)
         nameLabel.text = "조경진"
@@ -70,7 +73,7 @@ class MenuTableViewController: UITableViewController {
         
         // ③ 생성한 뷰 v를 테이블 헤더 뷰 영역에 등록한다.
         self.tableView.tableHeaderView = v
-        
+        self.tableView.tableFooterView?.backgroundColor = UIColor.init(red: 104/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1.0)
        
 
     }
@@ -84,7 +87,7 @@ class MenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 3
     }
     
     
@@ -94,11 +97,13 @@ class MenuTableViewController: UITableViewController {
         //let id = "SettingMenuCell" // 재사용 큐에 등록할 식별자
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifer) ?? UITableViewCell(style: .default, reuseIdentifier: reuseIdentifer)
         
+        cell.backgroundColor = UIColor.init(red: 104/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1.0)
         // 타이틀과 이미지를 대입한다.
         cell.textLabel?.text = self.titles[indexPath.row]
-        
+        cell.textLabel?.textColor =  UIColor.init(red: 211/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1.0)
         // 폰트 설정
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
+        
         return cell
         
     }
@@ -106,7 +111,6 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         delegate?.menuViewController(self, didSelect: indexPath)
-        
         
     }
    

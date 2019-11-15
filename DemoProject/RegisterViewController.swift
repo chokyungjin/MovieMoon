@@ -15,7 +15,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
 
    //IBOutlet..
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var birthDayTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var pwCheckTextField: UITextField!
@@ -43,6 +42,28 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         return text != ""
     }
     
+    
+    override func viewDidLoad() {
+        SignUpBut.isEnabled = false
+        super.viewDidLoad()
+      // nameTextField.returnKeyType = .next
+        nameTextField.delegate = self
+        idTextField.delegate = self
+        pwTextField.delegate = self
+        pwCheckTextField.delegate = self
+        nickNameTextField.delegate = self
+
+        idTextField.attributedPlaceholder = NSAttributedString(string: "아이디를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        nickNameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        pwTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "이름를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        pwCheckTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 다시 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        self.SignUpBut.layer.cornerRadius = 20
+        self.CancelBut.layer.cornerRadius = 20
+        
+    }
+    
  
     @IBAction func nameInput(_ sender: UITextField) {
         if validate1(text: sender.text!){
@@ -51,12 +72,14 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             
         }
     }
-    @IBAction func birthDatInput(_ sender: UITextField) {
+    
+    @IBAction func nickNameInput(_ sender: UITextField) {
+        
         if validate2(text: sender.text!){
-            count += 1
-            print(count)
-            
-        }
+                   count += 1
+                   print(count)
+                   
+               }
     }
     
     @IBAction func idInput(_ sender: UITextField) {
@@ -70,6 +93,12 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         if validate4(text: sender.text!){
             count += 1
             print(count)
+            
+        }
+        if count >= 3 && nickNameTextField.text != "" {
+            //            SignUpBut.setImage(registerOk, for: UIControlState.normal)
+            //나중에 image로 바꿔보자!
+            SignUpBut.isEnabled = true
         }
     }
     
@@ -79,14 +108,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             print(count)
         }
     }
-    @IBAction func nickNameInput(_ sender: UITextField) {
-        
-        if count >= 4 && nickNameTextField.text != "" {
-            //            SignUpBut.setImage(registerOk, for: UIControlState.normal)
-            //나중에 image로 바꿔보자!
-            SignUpBut.isEnabled = true
-        }
-    }
+    
     @IBAction func SignUp(_ sender: Any) {
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVc") as? LoginViewController {
             
@@ -98,18 +120,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        SignUpBut.isEnabled = false
-        super.viewDidLoad()
-      // nameTextField.returnKeyType = .next
-        nameTextField.delegate = self
-        birthDayTextField.delegate = self
-        idTextField.delegate = self
-        pwTextField.delegate = self
-        pwCheckTextField.delegate = self
-        nickNameTextField.delegate = self
-
-    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -118,9 +129,10 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
-            birthDayTextField.becomeFirstResponder() // id입력시에는 enter가 화살표 표시로 다음 텍스트 입력으로 이동
-        } else if textField == birthDayTextField{
-            idTextField.becomeFirstResponder()    //pass입력시에는 enter가 return으로 표시
+            nickNameTextField.becomeFirstResponder()    //pass입력시에는 enter가 return으로 표시
+        }
+        else if textField == nickNameTextField {
+            idTextField.becomeFirstResponder()
         }
         else if textField == idTextField{
             pwTextField.becomeFirstResponder()    //pass입력시에는 enter가 return으로 표시
@@ -128,9 +140,10 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         else if textField == pwTextField{
             pwCheckTextField.becomeFirstResponder()    //pass입력시에는 enter가 return으로 표시
         }
-        else if textField == pwCheckTextField{
-            nickNameTextField.resignFirstResponder()    //pass입력시에는 enter가 return으로 표시
+        else if textField == pwCheckTextField {
+            pwCheckTextField.resignFirstResponder()
         }
+        
         return true
     }
 

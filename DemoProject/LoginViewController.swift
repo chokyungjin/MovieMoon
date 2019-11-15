@@ -10,8 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    
-    @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var signUpBut: UIButton!
     @IBOutlet weak var loginBut: UIButton!
     @IBOutlet weak var idTextField: UITextField!
@@ -24,6 +22,10 @@ class LoginViewController: UIViewController {
         self.signUpBut.layer.cornerRadius = 20
         self.loginBut.layer.cornerRadius = 20
         initGestureRecognizer()
+        
+        
+        idTextField.attributedPlaceholder = NSAttributedString(string: "아이디를 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        pwTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
     }
     @IBAction func LoginBut(_ sender: Any) {
