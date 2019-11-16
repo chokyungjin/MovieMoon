@@ -12,43 +12,29 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
     
     //IBOutlet..
     @IBOutlet weak var hamburgerMenu: UIBarButtonItem!
- 
+    @IBOutlet weak var plusBut: UIBarButtonItem!
+    
+    //Vars, lets ..
+    var menuTableViewController: MenuTableViewController!
+    let dataManager = DataManager.sharedManager
 
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationColor()
+        navigationSetup()
         delegate = self
-        hamburgerMenu.tintColor = .lightGray
-        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-       
-        self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
-        
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: nil, action: nil)
-        
-        self.navigationItem.backBarButtonItem?.tintColor = .darkGray
-      
+        hamburgerMenu.tintColor = .textGray
+       // plusBut.isEnabled = false
+       // plusBut.tintColor = UIColor.clear
+
         if let revealVC = revealViewController(), let menuVC = revealVC.rearViewController as? MenuTableViewController {
             menuVC.delegate = self
         }
         
-    
-        //뒤로가기 흰색으로 만들기
-        self.navigationController?.navigationBar.topItem?.title = "Home"
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(red: 211/255.0, green: 211.0/255.0, blue: 255.0/255.0, alpha: 1.0)]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-       
-        UITabBar.appearance().tintColor = UIColor.init(red: 0/255.0, green: 127.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        UITabBar.appearance().barTintColor = UIColor.init(red: 104/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1.0)
-
+        UITabBar.appearance().barTintColor = .blurGray
         self.tabBar.itemSpacing = UIScreen.main.bounds.width / 4
     
-        
     }
-    
-    
-   
     
     
     func revealViewSetup(){
@@ -60,7 +46,12 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
 
     }
     
-    func navigationColor() { //네비게이션 투명색만들기
+    func navigationSetup() { //네비게이션 투명색만들기
+         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+         self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
+         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
+         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem?.tintColor = .white
         //투명하게 만드는 공식처럼 기억하기
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         //네비게이션바의 백그라운드색 지정. UIImage와 동일
@@ -70,10 +61,13 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         //false면 반투명이다.
         self.navigationController?.view.backgroundColor = UIColor.white.withAlphaComponent(0.0)
         //뷰의 배경색 지정
+        self.navigationController?.navigationBar.topItem?.title = "Home"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(red: 211/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1.0)]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
     }
-
-    let dataManager = DataManager.sharedManager
-
+    
+    
     //IBActions...
     @IBAction func menuAction(sender: AnyObject) {
         if let revealVc = revealViewController() {
@@ -81,8 +75,8 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
             
         }
     }
-    var menuTableViewController: MenuTableViewController!
     
+    //HamburgerMenu didSelect Handling..
     func menuViewController(_ viewController: UIViewController, didSelect indexPath: IndexPath) {
         if indexPath.row == 0{
                self.showWishVC()
@@ -99,7 +93,6 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
        }
         
         func showProfileVC(){
-        
         let storyboard = UIStoryboard(name: "HamburgerMenuScreen", bundle: nil)
                       let uv = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
                       
@@ -148,26 +141,88 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         }
     }
     
+    
 }
+
 
 extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         print( self.selectedIndex)
                if self.selectedIndex == 1 {
                    self.navigationController?.navigationBar.topItem?.title = "Box Office"
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
+                self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
         
                 
                      }
                else if self.selectedIndex == 2{
                    self.navigationController?.navigationBar.topItem?.title = "My Diary"
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plusBut"), style: .plain, target: self, action: #selector(addMovie(_:)))
+                self.navigationItem.rightBarButtonItem?.tintColor = .textGray
+
                }
                else if self.selectedIndex == 3{
                    self.navigationController?.navigationBar.topItem?.title = "Recommend"
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_settings_white_24dp"), style: .plain, target: self, action: #selector(changeType(_ :)))
+                self.navigationItem.rightBarButtonItem?.tintColor = .textGray
+
+
+         
                }
                else {
 
                    self.navigationController?.navigationBar.topItem?.title = "Home"
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
+                self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+        
                }
                
     }
+
+    @objc func addMovie(_ sender: Any) {
+    
+    let addAlert = UIAlertController(title: "영화 추가", message: "아 검색하려는 곳으로 가면되지", preferredStyle: .alert)
+    let subview = (addAlert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+    subview.backgroundColor = UIColor(red: (104/255.0), green: (104/255.0), blue: (104/255.0), alpha: 1.0)
+        
+    addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
+        print("검색확인")
+                     }))
+    present(addAlert, animated: true, completion: nil)
+       }
+    
+    @objc func changeType(_ sender: Any) {
+        
+        let alert = UIAlertController(title: nil, message: "영화를 어떤 순서로 추천할까요?", preferredStyle: .actionSheet)
+        
+        let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+        subview.backgroundColor = UIColor(red: (104/255.0), green: (104/255.0), blue: (104/255.0), alpha: 1.0)
+      
+        let latestAction: UIAlertAction = UIAlertAction(title: "최신순", style: .default)
+        latestAction.setValue(UIColor.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1), forKey:
+            "titleTextColor")
+       
+        let popularAction: UIAlertAction = UIAlertAction(title: "인기순", style: .default)
+        popularAction.setValue(UIColor.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1), forKey: "titleTextColor")
+        
+        let interestAction: UIAlertAction = UIAlertAction(title: "흥미순", style: .default)
+        interestAction.setValue(UIColor.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1), forKey: "titleTextColor")
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel)
+        cancelAction.setValue(UIColor.init(red: 104.0/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1), forKey:
+            "titleTextColor")
+        
+        alert.addAction(latestAction)
+        alert.addAction(popularAction)
+        alert.addAction(interestAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
+           
+
+
+
+

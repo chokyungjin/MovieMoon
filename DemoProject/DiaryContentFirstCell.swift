@@ -8,63 +8,45 @@
 
 import UIKit
 
-class movieRatingCell : UITableViewCell {
-    
-    //앱이 준 별점 , 내가 준 별점.
-    
+class DiaryContentFirstCell : UITableViewCell {
     
     var yearLabel: UILabel?
     var plotField: UITextView?
     
-    var myRatingView: FloatRatingView = {
-        let label = FloatRatingView()
-        label.frame = CGRect(x: 10, y: 0, width: 150, height: 30)
-        label.type = .halfRatings
-        label.emptyImage = UIImage(named: "ic_star_large")
-        label.fullImage = UIImage(named: "ic_star_large_full")
-        //label.backgroundColor = .red
-        label.contentMode = UIView.ContentMode.scaleAspectFit
-        
-        return label
-    }()
     var myRatingLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
-        label.frame = CGRect(x: 10, y: 40, width: 150, height: 20)
-        return label
-    }()
-    var appRatingView: FloatRatingView = {
-        let label = FloatRatingView()
-        label.frame = CGRect(x: 10, y: 65, width: 150, height: 30)
-        label.type = .floatRatings
-        label.emptyImage = UIImage(named: "ic_star_large")
-        label.fullImage = UIImage(named: "ic_star_large_full")
-        label.contentMode = UIView.ContentMode.scaleAspectFit
-        label.rating = (DataManager.sharedManager.getRating()) / 2
-        label.isUserInteractionEnabled = false
-
+        label.frame = CGRect(x: 10, y: 15, width: 100, height: 30)
         return label
     }()
     
-    var appRatingLabel: UILabel = {
+    var myRatingView: FloatRatingView = {
+        let label = FloatRatingView()
+        label.frame = CGRect(x: 100, y: 20, width: 100, height: 30)
+        label.type = .halfRatings
+        label.emptyImage = UIImage(named: "ic_star_large")
+        label.fullImage = UIImage(named: "ic_star_large_full")
+        label.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        return label
+    }()
+    
+    var myDateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
-        label.frame = CGRect(x: 10, y: 105, width: 150, height: 20)
+        label.frame = CGRect(x: 10, y: 40, width: 100, height: 30)
         return label
     }()
    
-  
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(myRatingView)
         self.addSubview(myRatingLabel)
-        
-        self.addSubview(appRatingLabel)
-        self.addSubview(appRatingView)
+        self.addSubview(myDateLabel)
 
         self.myRatingView.delegate = self
     }
@@ -79,16 +61,17 @@ class movieRatingCell : UITableViewCell {
 
 }
 
-extension movieRatingCell: FloatRatingViewDelegate {
+extension DiaryContentFirstCell: FloatRatingViewDelegate {
 
     // MARK: FloatRatingViewDelegate
     
     func floatRatingView(_ ratingView: FloatRatingView, isUpdating rating: Double) {
-        myRatingLabel.text = String(format: "내 기준 "  + "%.2f" + "점", ratingView.rating)
+        myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
     }
     
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Double) {
-        myRatingLabel.text = String(format: "내 기준 "  + "%.2f" + "점", ratingView.rating)
+        myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
     }
+    
     
 }

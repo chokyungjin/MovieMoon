@@ -1,14 +1,14 @@
 //
-//  StickyHeaderLayout.swift
-//  sticky header
+//  DiaryStickHeaderLayout.swift
+//  DemoProject
 //
-//  Created by 조경진 on 26/08/2019.
+//  Created by 조경진 on 2019/11/16.
 //  Copyright © 2019 조경진. All rights reserved.
 //
 
 import UIKit
 
-class StickyHeadersLayout: UITableViewController {
+class DiaryStickHeaderLayout: UITableViewController {
 
     //vars..
     var imageView: UIImageView? = nil
@@ -22,7 +22,7 @@ class StickyHeadersLayout: UITableViewController {
     //inits..
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(movieRatingCell.self, forCellReuseIdentifier: "cell1")
+        tableView.register(DiaryContentFirstCell.self, forCellReuseIdentifier: "cell1")
         tableView.register(movieContentCell.self, forCellReuseIdentifier: "cell2")
         tableView.contentInset = UIEdgeInsets(top: view.frame.height / 2.8, left: 0, bottom: 0, right: 0)
         tableView.delegate = self
@@ -65,13 +65,17 @@ class StickyHeadersLayout: UITableViewController {
        
         if indexPath == [0,0]{
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! movieRatingCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! DiaryContentFirstCell
             
             cell.backgroundColor = .blackgroundBlack
-            cell.myRatingLabel.text = "내 기준 " + String(format:"%.2f", cell.myRatingView.rating) + "점"
-            cell.appRatingLabel.text = "앱 기준 " + String(describing: DataManager.sharedManager.getRating()) + "점"
+            cell.myRatingLabel.text = "Rate " + String(format:"%.2f", cell.myRatingView.rating) + "점"
             cell.myRatingLabel.textColor = .textGray
-            cell.appRatingLabel.textColor = .textGray
+            
+            cell.myDateLabel.text = "Date"
+            cell.myDateLabel.textColor = .textGray
+            
+            //피커뷰 구현해야함!
+            
             cell.selectionStyle = .none
             
             return cell
@@ -107,7 +111,7 @@ class StickyHeadersLayout: UITableViewController {
         
         thumbView.frame = CGRect(origin: CGPoint(x: 20, y: thumbPosition), size: thumbView.bounds.size)
         
-        heartBtn.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 60, y: thumbView.frame.origin.y + 130), size: heartBtn.bounds.size)
+        //heartBtn.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 60, y: thumbView.frame.origin.y + 130), size: heartBtn.bounds.size)
         
         titleLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 70), size: titleLabel.bounds.size)
         titleLabel.text = DataManager.sharedManager.getTitle()
@@ -123,4 +127,5 @@ class StickyHeadersLayout: UITableViewController {
         
     }
 }
+
 

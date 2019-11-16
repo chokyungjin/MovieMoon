@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		390382E0232BAD67009379F1 /* SettingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390382DF232BAD67009379F1 /* SettingMenuTableViewCell.swift */; };
 		3907913923446F9E00576E17 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907913823446F9E00576E17 /* MovieDetailViewController.swift */; };
 		3916597B2346604900CCF20F /* movieRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916597A2346604900CCF20F /* movieRatingCell.swift */; };
 		392F6B6C237E507B0032E9C6 /* moonFix.gif in Resources */ = {isa = PBXBuildFile; fileRef = 392F6B6B237E507B0032E9C6 /* moonFix.gif */; };
 		39447D422369243800C56BE6 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39447D412369243800C56BE6 /* WishListViewController.swift */; };
 		39464885237E3770004EFBF4 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39464884237E3770004EFBF4 /* FloatRatingView.swift */; };
 		39583FCE23684C5300B10497 /* PopupLogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */; };
+		3959674623801AB600D63C8A /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959674523801AB600D63C8A /* Extension+UITextField.swift */; };
+		3959674A23801B9900D63C8A /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959674923801B9900D63C8A /* UIColor+Additions.swift */; };
+		395967512380446F00D63C8A /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395967502380446F00D63C8A /* DiaryDetailViewController.swift */; };
+		395967532380447B00D63C8A /* DiaryStickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395967522380447B00D63C8A /* DiaryStickyHeaderLayout.swift */; };
+		395967552380487900D63C8A /* DiaryContentFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395967542380487900D63C8A /* DiaryContentFirstCell.swift */; };
+		395967572380488600D63C8A /* DiaryContentSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395967562380488600D63C8A /* DiaryContentSecondCell.swift */; };
+		395967592380489600D63C8A /* DiaryContentThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395967582380489600D63C8A /* DiaryContentThirdCell.swift */; };
 		396DBF292347AE990025507B /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396DBF282347AE990025507B /* Extensions+UIView.swift */; };
 		396DBF2B2347B0B20025507B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396DBF2A2347B0B20025507B /* HeaderView.swift */; };
 		396ED70623758F3400C8BB3C /* Extension+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396ED70523758F3400C8BB3C /* Extension+GIF.swift */; };
@@ -55,7 +61,6 @@
 
 /* Begin PBXFileReference section */
 		0BB94780510C4D3BA88D47CC /* Pods-DemoProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoProject.debug.xcconfig"; path = "Target Support Files/Pods-DemoProject/Pods-DemoProject.debug.xcconfig"; sourceTree = "<group>"; };
-		390382DF232BAD67009379F1 /* SettingMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMenuTableViewCell.swift; sourceTree = "<group>"; };
 		3907913823446F9E00576E17 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		39163FCE232F6C7700B7EAC0 /* Lumina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lumina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3916597A2346604900CCF20F /* movieRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieRatingCell.swift; sourceTree = "<group>"; };
@@ -63,6 +68,13 @@
 		39447D412369243800C56BE6 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		39464884237E3770004EFBF4 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupLogoutViewController.swift; sourceTree = "<group>"; };
+		3959674523801AB600D63C8A /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
+		3959674923801B9900D63C8A /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		395967502380446F00D63C8A /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
+		395967522380447B00D63C8A /* DiaryStickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryStickyHeaderLayout.swift; sourceTree = "<group>"; };
+		395967542380487900D63C8A /* DiaryContentFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryContentFirstCell.swift; sourceTree = "<group>"; };
+		395967562380488600D63C8A /* DiaryContentSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryContentSecondCell.swift; sourceTree = "<group>"; };
+		395967582380489600D63C8A /* DiaryContentThirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryContentThirdCell.swift; sourceTree = "<group>"; };
 		396DBF282347AE990025507B /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		396DBF2A2347B0B20025507B /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		396ED70523758F3400C8BB3C /* Extension+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+GIF.swift"; sourceTree = "<group>"; };
@@ -147,6 +159,15 @@
 			name = "Login,SignUp";
 			sourceTree = "<group>";
 		};
+		3959674F2380441B00D63C8A /* DiarySearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				395967502380446F00D63C8A /* DiaryDetailViewController.swift */,
+				395967522380447B00D63C8A /* DiaryStickyHeaderLayout.swift */,
+			);
+			name = DiarySearchResult;
+			sourceTree = "<group>";
+		};
 		398810042376F9810055F25D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +187,9 @@
 				396DBF282347AE990025507B /* Extensions+UIView.swift */,
 				39464884237E3770004EFBF4 /* FloatRatingView.swift */,
 				396ED70523758F3400C8BB3C /* Extension+GIF.swift */,
+				3959674923801B9900D63C8A /* UIColor+Additions.swift */,
 				392F6B6B237E507B0032E9C6 /* moonFix.gif */,
+				3959674523801AB600D63C8A /* Extension+UITextField.swift */,
 			);
 			name = "Protocol + Extension";
 			sourceTree = "<group>";
@@ -215,10 +238,12 @@
 			children = (
 				39938B89232893A300FCE733 /* MenuOptionCell.swift */,
 				39E26402232B559900EC8CBC /* MovieCollectionViewCell.swift */,
-				390382DF232BAD67009379F1 /* SettingMenuTableViewCell.swift */,
 				3916597A2346604900CCF20F /* movieRatingCell.swift */,
 				399884FF234B35ED00E1C5A7 /* MovieListCollectionViewCell.swift */,
 				39B2A6C42375884B00646400 /* movieContentCell.swift */,
+				395967542380487900D63C8A /* DiaryContentFirstCell.swift */,
+				395967562380488600D63C8A /* DiaryContentSecondCell.swift */,
+				395967582380489600D63C8A /* DiaryContentThirdCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -280,6 +305,7 @@
 		39BC020F232A3CCE002737B4 /* ThirdTab */ = {
 			isa = PBXGroup;
 			children = (
+				3959674F2380441B00D63C8A /* DiarySearchResult */,
 				3988545F2367E90D008765FF /* DiaryCollectionViewController.swift */,
 			);
 			name = ThirdTab;
@@ -445,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3916597B2346604900CCF20F /* movieRatingCell.swift in Sources */,
+				395967592380489600D63C8A /* DiaryContentThirdCell.swift in Sources */,
 				399DE54123263B9B002703D1 /* ServerURLs.swift in Sources */,
 				398854642367FB07008765FF /* MenuTableViewController.swift in Sources */,
 				39447D422369243800C56BE6 /* WishListViewController.swift in Sources */,
@@ -452,21 +479,26 @@
 				39856F1A2323E34F0006B58E /* RegisterViewController.swift in Sources */,
 				398854662367FC22008765FF /* ProfileViewController.swift in Sources */,
 				39583FCE23684C5300B10497 /* PopupLogoutViewController.swift in Sources */,
+				395967572380488600D63C8A /* DiaryContentSecondCell.swift in Sources */,
+				3959674623801AB600D63C8A /* Extension+UITextField.swift in Sources */,
 				399DE54223263B9B002703D1 /* DataManager.swift in Sources */,
 				399DE54823263BBC002703D1 /* Comment.swift in Sources */,
 				39E2642F232B6CD100EC8CBC /* SWRevealViewController.m in Sources */,
 				39890C6D2328C03400389FFC /* NavigationViewController.swift in Sources */,
 				39B7CA1923228D7500A765A9 /* DemoProject.xcdatamodeld in Sources */,
+				395967512380446F00D63C8A /* DiaryDetailViewController.swift in Sources */,
 				3974D88B234485FC00422D91 /* StickyHeaderLayout.swift in Sources */,
 				39938B8A232893A300FCE733 /* MenuOptionCell.swift in Sources */,
 				396DBF292347AE990025507B /* Extensions+UIView.swift in Sources */,
+				3959674A23801B9900D63C8A /* UIColor+Additions.swift in Sources */,
 				39B7CA1123228D7500A765A9 /* AppDelegate.swift in Sources */,
 				39BC0218232A3DAF002737B4 /* BoxOfficeViewController.swift in Sources */,
 				39856F182323DF930006B58E /* TabbarViewController.swift in Sources */,
 				39988500234B35ED00E1C5A7 /* MovieListCollectionViewCell.swift in Sources */,
 				396DBF2B2347B0B20025507B /* HeaderView.swift in Sources */,
 				399DE54623263BBC002703D1 /* MovieDetail.swift in Sources */,
-				390382E0232BAD67009379F1 /* SettingMenuTableViewCell.swift in Sources */,
+				395967532380447B00D63C8A /* DiaryStickyHeaderLayout.swift in Sources */,
+				395967552380487900D63C8A /* DiaryContentFirstCell.swift in Sources */,
 				C65D32142338FCA6003FE49B /* RootViewController.swift in Sources */,
 				399728FD2376DB8100D259D0 /* LaunchScreenController.swift in Sources */,
 				398854602367E90D008765FF /* DiaryCollectionViewController.swift in Sources */,

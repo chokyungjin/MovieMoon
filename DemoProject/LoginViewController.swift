@@ -14,13 +14,23 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginBut: UIButton!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var kakaoBut: KOLoginButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.signUpBut.layer.cornerRadius = 20
-        self.loginBut.layer.cornerRadius = 20
+        
+        self.signUpBut.makeRounded(cornerRadius: 20)
+        self.loginBut.makeRounded(cornerRadius: 20)
+        self.kakaoBut.makeRounded(cornerRadius: 20)
+        self.view.backgroundColor = .blackgroundBlack
+        self.signUpBut.backgroundColor = .blurGray
+        self.loginBut.backgroundColor = .blurGray
+        self.kakaoBut.tintColor = .textGray
+        self.signUpBut.tintColor = .textGray
+        self.loginBut.tintColor = .textGray
+        
         initGestureRecognizer()
         
         

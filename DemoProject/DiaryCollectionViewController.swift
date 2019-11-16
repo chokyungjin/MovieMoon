@@ -12,8 +12,6 @@ class DiaryCollectionViewController: UICollectionViewController {
     
     //MARK: IBOutlets
     @IBOutlet weak var MovielistCollectionView: UICollectionView!
-    @IBOutlet weak var plusBut: UIButton!
-    
     
     //MARK: Variables
     let dataManager = DataManager.sharedManager
@@ -21,8 +19,12 @@ class DiaryCollectionViewController: UICollectionViewController {
     let baseURL: String = {
         return ServerURLs.base.rawValue
     }()
-    
     var movies: [Movie] = []
+       var selectedImage: UIImage!
+       var selectedTitle: String!
+       var selectedRating: Double!
+       var selectedDate: String!
+    
     struct Storyboard {
            static let leftAndRightPaddings: CGFloat = 5.0
            static let numberOfItemsPerRow: CGFloat = 3.0
@@ -35,9 +37,8 @@ class DiaryCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setMovielistCollectionView()
-        self.plusBut.layer.cornerRadius = (self.plusBut.frame.width / 2)
-               self.plusBut.layer.borderWidth = 0
-               self.plusBut.layer.masksToBounds = true
+        MovielistCollectionView.backgroundColor = .blackgroundBlack
+       
         // Do any additional setup after loading the view.
     }
     
@@ -57,16 +58,7 @@ class DiaryCollectionViewController: UICollectionViewController {
         
     }
     
-
-    @IBAction func addMovie(_ sender: Any) {
-        let addAlert = UIAlertController(title: "영화 추가", message: "아 검색하려는 곳으로 가면되지", preferredStyle: .alert)
-               
-               addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
-                   print("검색확인")
-                  
-               }))
-               present(addAlert, animated: true, completion: nil)
-    }
+   
 }
 
 extension DiaryCollectionViewController {
@@ -145,6 +137,16 @@ extension DiaryCollectionViewController {
         return UIImage(data: imageData)
     }
     
+    func getTitle(title: String) -> String? {
+        return title
+    }
+    func getRating(rating: Double) -> Double? {
+        return rating
+    }
+    func getDate(date: String) -> String? {
+        return date
+    }
+    
     func getGradeImage(grade: Int) -> UIImage? {
         switch grade {
         case 0:
@@ -172,19 +174,10 @@ extension DiaryCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Storyboard.movieListCellID, for: indexPath) as! MovieCollectionViewCell
-        print(cell.frame.size)
     
-        
+        cell.backgroundColor = .blackgroundBlack
         let movie = movies[indexPath.row]
         
-       // cell.titlelabel.text = movie.title
-      //  cell.datelabel.text = movie.date
-        
-      //  let rateString = "\(movie.reservationGrade)위 / \(movie.reservationRate)"
-       // cell.ratingslabel.text = rateString
-        
-      //  let gradeIamge = getGradeImage(grade: movie.grade)
-      //  cell.gradeimageView.image = gradeIamge
         
         OperationQueue().addOperation {
             let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
@@ -196,6 +189,37 @@ extension DiaryCollectionViewController {
         
         return cell
     }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+           
+        let movie = movies[indexPath.row]
+        let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
+        self.selectedImage = thumnailImage
+        dataManager.setImage(haveImage: self.selectedImage)
+        
+        let movietitle = self.getTitle(title: movie.title)
+        self.selectedTitle = movietitle
+        dataManager.setTitle(haveTitle: self.selectedTitle)
+        
+        let movieRating = self.getRating(rating: movie.userRating)
+        self.selectedRating = movieRating
+        dataManager.setRating(haveRating: self.selectedRating)
+        
+        let movieDate = self.getDate(date: movie.date)
+        self.selectedDate = movieDate
+        dataManager.setDate(haveDate: self.selectedDate)
+        
+        
+        //ImageManager.imageManager.setTitle(haveTitle: self.)
+       // performSegue(withIdentifier: Storyboard.showDetailVC , sender: nil)
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "DiaryScreen", bundle: nil)
+
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailViewController
+               
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                  
+       }
     
     
 }

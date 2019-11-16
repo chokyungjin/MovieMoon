@@ -22,7 +22,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var SignUpBut: UIButton!
     @IBOutlet weak var CancelBut: UIButton!
     
-    
+    //SignUp_Check_Func..
      func validate1(text: String) -> Bool {
         return text != ""
     }
@@ -42,29 +42,35 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         return text != ""
     }
     
-    
+    //inits..
     override func viewDidLoad() {
-        SignUpBut.isEnabled = false
         super.viewDidLoad()
-      // nameTextField.returnKeyType = .next
+        SignUpBut.isEnabled = false
         nameTextField.delegate = self
         idTextField.delegate = self
         pwTextField.delegate = self
         pwCheckTextField.delegate = self
         nickNameTextField.delegate = self
-
-        idTextField.attributedPlaceholder = NSAttributedString(string: "아이디를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        nickNameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        pwTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "이름를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        pwCheckTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 다시 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        self.SignUpBut.layer.cornerRadius = 20
-        self.CancelBut.layer.cornerRadius = 20
+        //Placeholder_Colors..
+        idTextField.attributedPlaceholder = NSAttributedString(string: "아이디를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        nickNameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        pwTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "이름를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        pwCheckTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 다시 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        
+        self.view.backgroundColor = .blackgroundBlack
+        self.SignUpBut.makeRounded(cornerRadius: 20)
+        self.CancelBut.makeRounded(cornerRadius: 20)
+        self.SignUpBut.backgroundColor = .blurGray
+        self.CancelBut.backgroundColor = .blurGray
+        self.SignUpBut.tintColor = .textGray
+        self.CancelBut.tintColor = .textGray
+        
         
     }
     
- 
+    //IBAction..
     @IBAction func nameInput(_ sender: UITextField) {
         if validate1(text: sender.text!){
             count += 1
@@ -96,7 +102,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             
         }
         if count >= 3 && nickNameTextField.text != "" {
-            //            SignUpBut.setImage(registerOk, for: UIControlState.normal)
+            //SignUpBut.setImage(registerOk, for: UIControlState.normal)
             //나중에 image로 바꿔보자!
             SignUpBut.isEnabled = true
         }
@@ -129,16 +135,16 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
-            nickNameTextField.becomeFirstResponder()    //pass입력시에는 enter가 return으로 표시
+            nickNameTextField.becomeFirstResponder()
         }
         else if textField == nickNameTextField {
             idTextField.becomeFirstResponder()
         }
         else if textField == idTextField{
-            pwTextField.becomeFirstResponder()    //pass입력시에는 enter가 return으로 표시
+            pwTextField.becomeFirstResponder()
         }
         else if textField == pwTextField{
-            pwCheckTextField.becomeFirstResponder()    //pass입력시에는 enter가 return으로 표시
+            pwCheckTextField.becomeFirstResponder()
         }
         else if textField == pwCheckTextField {
             pwCheckTextField.resignFirstResponder()

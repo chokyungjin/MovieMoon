@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jsW-uS-t9t">
-                                <rect key="frame" x="0.0" y="310" width="375" height="349.5"/>
-                                <color key="backgroundColor" red="0.15686541800000001" green="0.15685787800000001" blue="0.156863004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="0.0" y="310" width="375" height="315.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ilK-ll-pVY">
                                     <size key="itemSize" width="238" height="230"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -28,19 +27,24 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieListCell" id="hGq-S4-cGj" customClass="MovieCollectionViewCell" customModule="MovieMoon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="250" height="230"/>
+                                        <rect key="frame" x="0.0" y="33" width="250" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="250" height="230"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mCe-u7-CCF">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mCe-u7-CCF">
                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="250" height="230"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="mCe-u7-CCF" secondAttribute="bottom" id="9WM-cj-I7w"/>
+                                            <constraint firstItem="mCe-u7-CCF" firstAttribute="leading" secondItem="hGq-S4-cGj" secondAttribute="leading" id="Jrf-0x-mqn"/>
+                                            <constraint firstItem="mCe-u7-CCF" firstAttribute="top" secondItem="hGq-S4-cGj" secondAttribute="top" id="Vcb-LE-KrU"/>
+                                            <constraint firstAttribute="trailing" secondItem="mCe-u7-CCF" secondAttribute="trailing" id="fGV-Av-NsH"/>
+                                        </constraints>
+                                        <size key="customSize" width="250" height="250"/>
                                         <connections>
                                             <outlet property="imageThumbnail" destination="mCe-u7-CCF" id="pKU-3M-I0z"/>
                                         </connections>
@@ -55,26 +59,21 @@
                             </label>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="영화, 배우, 감독으로 검색" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOL-a3-zCA">
                                 <rect key="frame" x="0.0" y="198" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartQuotesType="no"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Moon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8p-9a-Aoc">
                                 <rect key="frame" x="16" y="150" width="343" height="36"/>
-                                <color key="backgroundColor" red="0.15686541800000001" green="0.15685787800000001" blue="0.156863004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <color key="textColor" red="0.62329816819999995" green="0.62816083430000003" blue="0.59215277430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.15686541800000001" green="0.15685787800000001" blue="0.156863004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="jsW-uS-t9t" firstAttribute="trailing" secondItem="KMX-mX-a8f" secondAttribute="trailing" id="5Sg-DP-vRs"/>
                             <constraint firstItem="nSo-cD-siI" firstAttribute="top" secondItem="YOL-a3-zCA" secondAttribute="bottom" constant="17" id="97a-bG-WNV"/>
                             <constraint firstItem="YOL-a3-zCA" firstAttribute="leading" secondItem="KMX-mX-a8f" secondAttribute="leading" id="AKd-57-7fD"/>
                             <constraint firstItem="jsW-uS-t9t" firstAttribute="leading" secondItem="KMX-mX-a8f" secondAttribute="leading" id="Ak5-Zh-A3i"/>
-                            <constraint firstItem="KMX-mX-a8f" firstAttribute="bottom" secondItem="jsW-uS-t9t" secondAttribute="bottom" constant="7.5" id="FjN-UR-tBs"/>
+                            <constraint firstAttribute="bottom" secondItem="jsW-uS-t9t" secondAttribute="bottom" constant="41.333333333333258" id="FjN-UR-tBs"/>
                             <constraint firstItem="K8p-9a-Aoc" firstAttribute="top" secondItem="KMX-mX-a8f" secondAttribute="top" constant="150" id="I2D-8O-MmS"/>
                             <constraint firstItem="jsW-uS-t9t" firstAttribute="top" secondItem="nSo-cD-siI" secondAttribute="bottom" constant="17.5" id="Skl-mz-tiv"/>
                             <constraint firstItem="jsW-uS-t9t" firstAttribute="trailing" secondItem="KMX-mX-a8f" secondAttribute="trailing" id="VHJ-ct-ceS"/>
@@ -90,6 +89,7 @@
                     <tabBarItem key="tabBarItem" title="" image="home" id="dUR-xG-pDy"/>
                     <connections>
                         <outlet property="homeBoxofficeLabel" destination="nSo-cD-siI" id="yZk-D5-set"/>
+                        <outlet property="hometitle" destination="K8p-9a-Aoc" id="Foh-Yp-5Yx"/>
                         <outlet property="movieCollectionView" destination="jsW-uS-t9t" id="ZGI-5C-1LX"/>
                         <outlet property="searchBar" destination="YOL-a3-zCA" id="1QL-yb-MPQ"/>
                     </connections>
@@ -113,41 +113,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yp8-es-yrM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1679" y="-123"/>
-        </scene>
-        <!--Stretchy Header Controller-->
-        <scene sceneID="PZt-rZ-1lR">
-            <objects>
-                <collectionViewController storyboardIdentifier="StrectchVC" id="wD7-GU-8Pe" customClass="StretchyHeaderController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tQw-gd-PKo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oB3-ii-5Gt">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="cZr-Gd-GcV">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xtd-9q-YYH">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="wD7-GU-8Pe" id="ztZ-79-f0I"/>
-                            <outlet property="delegate" destination="wD7-GU-8Pe" id="Bfz-k3-mfo"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="0xH-9F-LQ0"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ott-I4-L3R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1661" y="561"/>
         </scene>
     </scenes>
     <resources>

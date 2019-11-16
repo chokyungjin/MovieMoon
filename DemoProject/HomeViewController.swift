@@ -17,29 +17,21 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var movieCollectionView: UICollectionView!
     @IBOutlet weak var homeBoxofficeLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var hometitle: UILabel!
     
     //Variables
     var menuTableViewController: MenuTableViewController!
-    
     let dataManager = DataManager.sharedManager
     let baseURL: String = {
         return ServerURLs.base.rawValue
     }()
+    
     let movieListCellID: String = "MovieListCell"
     var movies: [Movie] = []
     var selectedImage: UIImage!
     var selectedTitle: String!
     var selectedRating: Double!
     var selectedDate: String!
-    
-//    var tmpLabel: UILabel = {
-//        let label = UILabel()
-//        label.textColor = .black
-//        label.font = UIFont.systemFont(ofSize: 16)
-//        label.frame = CGRect(x: 15, y: 25, width: 150, height: 20)
-//        return label
-//    }()
-    
     
     struct Storyboard {
            static let photoCell = "PhotoCell"
@@ -54,20 +46,25 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     //init
     override func viewDidLoad() {
         super.viewDidLoad()
-            movieCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        movieCollectionView.translatesAutoresizingMaskIntoConstraints = false
         movieCollectionView.showsHorizontalScrollIndicator = false
         movieCollectionView.decelerationRate = .fast
     
+        self.view.backgroundColor = .blackgroundBlack
+        movieCollectionView.backgroundColor = .blackgroundBlack
+        
         self.homeBoxofficeLabel.text = "흥행 예상작"
+        self.homeBoxofficeLabel.textColor = .textGray
+        
+        self.hometitle.textColor = .bigTextGray
+        self.hometitle.backgroundColor = .blackgroundBlack
+
         setMovieListCollectionView()
-        
-        
         self.searchBar.delegate = self
         
-       
-
-
-        // Do any additional setup after loading the view.
+        searchBar.showsCancelButton = false
+        searchBar.accessibilityAttributedHint = NSAttributedString(string: "영화, 배우, 감독으로 검색", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+  
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -215,7 +212,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieListCellID, for: indexPath) as! MovieCollectionViewCell
-       // cell.backgroundColor = .lightGray
         
         
         let movie = movies[indexPath.row]
@@ -272,15 +268,5 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                     
                   
        }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if segue.identifier == Storyboard.showDetailVC {
-//            ImageManager.imageManager.setImage(haveImage: self.selectedImage)
-//
-//            }
-//        }
-    
-    
     
 }

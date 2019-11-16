@@ -16,7 +16,8 @@ class BoxOfficeViewController: UIViewController {
     // MARK: - Init    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       self.view.backgroundColor = .blackgroundBlack
+
     }
     
     

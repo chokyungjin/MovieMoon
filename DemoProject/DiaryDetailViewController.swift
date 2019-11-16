@@ -1,15 +1,14 @@
 //
-//  MovieDetailViewController.swift
+//  DiaryDetailViewController.swift
 //  DemoProject
 //
-//  Created by 조경진 on 02/10/2019.
+//  Created by 조경진 on 2019/11/16.
 //  Copyright © 2019 조경진. All rights reserved.
 //
 
 import UIKit
 
-class MovieDetailViewController: UIViewController {
-    
+class DiaryDetailViewController: UIViewController {
     
     //Vars..
     var thumbView: UIImageView!
@@ -22,7 +21,7 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let myTable = StickyHeadersLayout()
+        let myTable = DiaryStickHeaderLayout()
 
         self.addChild(myTable)
         view.addSubview(myTable.tableView)
@@ -54,8 +53,8 @@ class MovieDetailViewController: UIViewController {
         heartBtn.contentMode = .scaleAspectFit
         heartBtn.bounds.size = CGSize(width: 30, height: 30)
         heartBtn.isSelected = false
-        view.addSubview(heartBtn)
-        heartBtn.addTarget(self, action: #selector(heartClick), for: .touchUpInside)
+        heartBtn.tintColor = UIColor.clear
+        //view.addSubview(heartBtn)
         
         titleLabel = UILabel()
         titleLabel.bounds.size = CGSize(width: 200, height: 30)
@@ -74,31 +73,5 @@ class MovieDetailViewController: UIViewController {
         
 
     }
-    
-    @objc func heartClick(sender: UIButton) {
-           
-        print(heartBtn.isSelected)
-        
-        if (heartBtn.isSelected) == false{
-        let image = UIImage(named: "like")?.withRenderingMode(.alwaysTemplate)
-        heartBtn!.setImage(image, for: .normal)
-        heartBtn.isSelected = true
-        let Alert = UIAlertController(title: "", message: "heart", preferredStyle: .alert)
-        Alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-        }))
-        present(Alert, animated: true, completion: nil)
-        }
-        else if heartBtn.isSelected
-        {
-            let image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
-            heartBtn!.setImage(image, for: .normal)
-            heartBtn.isSelected = false
-            let Alert = UIAlertController(title: "", message: "cancel", preferredStyle: .alert)
-            Alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            }))
-            present(Alert, animated: true, completion: nil)
-        }
-        
-       }
        
 }
