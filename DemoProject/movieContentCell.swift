@@ -21,7 +21,7 @@ class movieContentCell : UITableViewCell {
         label.frame = CGRect(x: 15, y: 15, width: 350, height: 100)
         return label
     }()
-    var stealcutImage: UIImageView = {
+    var stillcutImage: UIImageView = {
         let ImageView = UIImageView()
         let defaultImage = UIImage(named: "testImage.jpg")
         ImageView.image = defaultImage
@@ -36,7 +36,7 @@ class movieContentCell : UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(plotField)
-        self.addSubview(stealcutImage)
+        self.addSubview(stillcutImage)
     }
     
     required init?(coder: NSCoder) {

@@ -8,27 +8,28 @@
 
 import UIKit
 
-class DiaryStickHeaderLayout: UITableViewController {
+class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITextFieldDelegate{
 
     //vars..
     var imageView: UIImageView? = nil
     var thumbView: UIImageView? = nil
-    var heartBtn: UIButton? = nil
     var titleLabel: UILabel? = nil
     var dateLabel: UILabel? = nil
     var movies: [Movie] = []
+    var myDateField: UITextField = .init()
     let caLayer: CAGradientLayer = CAGradientLayer()
+
 
     //inits..
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(DiaryContentFirstCell.self, forCellReuseIdentifier: "cell1")
-        tableView.register(movieContentCell.self, forCellReuseIdentifier: "cell2")
+        tableView.register(DiaryContentSecondCell.self, forCellReuseIdentifier: "cell2")
         tableView.contentInset = UIEdgeInsets(top: view.frame.height / 2.8, left: 0, bottom: 0, right: 0)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
-
+        
     }
   
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +44,7 @@ class DiaryStickHeaderLayout: UITableViewController {
         imageView!.layer.addSublayer(caLayer)
      }
   
+   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -74,7 +76,7 @@ class DiaryStickHeaderLayout: UITableViewController {
             cell.myDateLabel.text = "Date"
             cell.myDateLabel.textColor = .textGray
             
-            //피커뷰 구현해야함!
+            cell.myDateField.layer.addBorder([.bottom], color: .textGray, width: 1)
             
             cell.selectionStyle = .none
             
@@ -84,10 +86,14 @@ class DiaryStickHeaderLayout: UITableViewController {
         }
         else if indexPath == [1,0] {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! movieContentCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! DiaryContentSecondCell
             
             cell.backgroundColor = .blackgroundBlack
-            cell.stealcutImage.image = DataManager.sharedManager.getImage()
+            cell.stillcutImage.image = DataManager.sharedManager.getImage()
+            cell.stillcutImage2.image = DataManager.sharedManager.getImage()
+            cell.stillcutImage3.image = DataManager.sharedManager.getImage()
+
+            
             cell.plotField.text = "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!"
             cell.plotField.backgroundColor = .blackgroundBlack
             cell.plotField.textColor = .textGray
@@ -102,7 +108,7 @@ class DiaryStickHeaderLayout: UITableViewController {
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let imageView = imageView, let thumbView = thumbView, let heartBtn = heartBtn , let titleLabel = titleLabel, let dateLabel = dateLabel else{return}
+        guard let imageView = imageView, let thumbView = thumbView, let titleLabel = titleLabel, let dateLabel = dateLabel else{return}
         
         let stretchedHeight = -scrollView.contentOffset.y + 10
         let thumbPosition = stretchedHeight - thumbView.bounds.height - 50

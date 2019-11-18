@@ -10,6 +10,7 @@
 		3907913923446F9E00576E17 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907913823446F9E00576E17 /* MovieDetailViewController.swift */; };
 		3916597B2346604900CCF20F /* movieRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916597A2346604900CCF20F /* movieRatingCell.swift */; };
 		392F6B6C237E507B0032E9C6 /* moonFix.gif in Resources */ = {isa = PBXBuildFile; fileRef = 392F6B6B237E507B0032E9C6 /* moonFix.gif */; };
+		393A1ED5238057BA0038DA1B /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A1ED4238057BA0038DA1B /* Extension+CALayer.swift */; };
 		39447D422369243800C56BE6 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39447D412369243800C56BE6 /* WishListViewController.swift */; };
 		39464885237E3770004EFBF4 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39464884237E3770004EFBF4 /* FloatRatingView.swift */; };
 		39583FCE23684C5300B10497 /* PopupLogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */; };
@@ -65,6 +66,7 @@
 		39163FCE232F6C7700B7EAC0 /* Lumina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lumina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3916597A2346604900CCF20F /* movieRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieRatingCell.swift; sourceTree = "<group>"; };
 		392F6B6B237E507B0032E9C6 /* moonFix.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = moonFix.gif; sourceTree = "<group>"; };
+		393A1ED4238057BA0038DA1B /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		39447D412369243800C56BE6 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		39464884237E3770004EFBF4 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupLogoutViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				3959674923801B9900D63C8A /* UIColor+Additions.swift */,
 				392F6B6B237E507B0032E9C6 /* moonFix.gif */,
 				3959674523801AB600D63C8A /* Extension+UITextField.swift */,
+				393A1ED4238057BA0038DA1B /* Extension+CALayer.swift */,
 			);
 			name = "Protocol + Extension";
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				39B7CA1923228D7500A765A9 /* DemoProject.xcdatamodeld in Sources */,
 				395967512380446F00D63C8A /* DiaryDetailViewController.swift in Sources */,
 				3974D88B234485FC00422D91 /* StickyHeaderLayout.swift in Sources */,
+				393A1ED5238057BA0038DA1B /* Extension+CALayer.swift in Sources */,
 				39938B8A232893A300FCE733 /* MenuOptionCell.swift in Sources */,
 				396DBF292347AE990025507B /* Extensions+UIView.swift in Sources */,
 				3959674A23801B9900D63C8A /* UIColor+Additions.swift in Sources */,

@@ -83,7 +83,9 @@ class StickyHeadersLayout: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! movieContentCell
             
             cell.backgroundColor = .blackgroundBlack
-            cell.stealcutImage.image = DataManager.sharedManager.getImage()
+            cell.stillcutImage.image = DataManager.sharedManager.getImage()
+            
+                        
             cell.plotField.text = "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!"
             cell.plotField.backgroundColor = .blackgroundBlack
             cell.plotField.textColor = .textGray

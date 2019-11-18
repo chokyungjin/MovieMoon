@@ -67,7 +67,6 @@ class DiaryDetailViewController: UIViewController {
         
         myTable.imageView = imageView
         myTable.thumbView = thumbView
-        myTable.heartBtn = heartBtn
         myTable.titleLabel = titleLabel
         myTable.dateLabel = dateLabel
         

@@ -8,11 +8,12 @@
 
 import UIKit
 
-class DiaryContentFirstCell : UITableViewCell {
+class DiaryContentFirstCell : UITableViewCell, UITextFieldDelegate{
     
     var yearLabel: UILabel?
     var plotField: UITextView?
-    
+    let datePickerView:UIDatePicker = UIDatePicker()    //데이트피커로 객체 선언
+
     var myRatingLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -36,10 +37,18 @@ class DiaryContentFirstCell : UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
-        label.frame = CGRect(x: 10, y: 40, width: 100, height: 30)
+        label.frame = CGRect(x: 10, y: 44, width: 100, height: 30)
         return label
     }()
    
+    var myDateField: UITextField = {
+        let label = UITextField()
+        label.textColor = .textGray
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.frame = CGRect(x: 100, y: 45, width: 100, height: 30)
+        return label
+    }()
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -47,8 +56,15 @@ class DiaryContentFirstCell : UITableViewCell {
         self.addSubview(myRatingView)
         self.addSubview(myRatingLabel)
         self.addSubview(myDateLabel)
-
+        self.addSubview(myDateField)
+        
         self.myRatingView.delegate = self
+        self.myDateField.delegate = self
+        
+        datePickerView.datePickerMode = UIDatePicker.Mode.date   //날짜 넣어줌
+        datePickerView.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: .valueChanged)
+        myDateField.inputView = datePickerView
+
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +74,24 @@ class DiaryContentFirstCell : UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
            super.setSelected(selected, animated: animated)
        }
-
+    
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        //날짜 바뀌면 쓰는 메소드
+        let componenets = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        //현재의 날짜를 보냄 ,year, month , day
+        if let day = componenets.day, let month = componenets.month, let year = componenets.year {
+            //옵셔널 바인딩 묵시적 해제 -> day, month, year
+            if month <= 9 && day <= 9{
+                myDateField.text = "\(year)-0\(month)-0\(day)"    //앞에 0 붙여서 두자리 수 만들어줌
+            }else if month <= 9 && day >= 10{
+                myDateField.text = "\(year)-0\(month)-\(day)"     //앞에 0 붙여서 두자리 수 만들어줌
+            }else if month >= 10 && day <= 9{
+                myDateField.text = "\(year)-\(month)-0\(day)"     //앞에 0 붙여서 두자리 수 만들어줌
+            }else if month >= 10 && day >= 10{
+                myDateField.text = "\(year)-\(month)-\(day)"
+            }
+        }
+    }
 }
 
 extension DiaryContentFirstCell: FloatRatingViewDelegate {
@@ -73,5 +106,6 @@ extension DiaryContentFirstCell: FloatRatingViewDelegate {
         myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
     }
     
-    
+
+        
 }
