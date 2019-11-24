@@ -17,23 +17,23 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
     //Vars, lets ..
     var menuTableViewController: MenuTableViewController!
     let dataManager = DataManager.sharedManager
-
+    
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationSetup()
         delegate = self
         hamburgerMenu.tintColor = .textGray
-       // plusBut.isEnabled = false
-       // plusBut.tintColor = UIColor.clear
-
+        
+        
         if let revealVC = revealViewController(), let menuVC = revealVC.rearViewController as? MenuTableViewController {
             menuVC.delegate = self
         }
         
         UITabBar.appearance().barTintColor = .blurGray
         self.tabBar.itemSpacing = UIScreen.main.bounds.width / 4
-    
+        
+        print(DataManager.sharedManager.getSwitch())
     }
     
     
@@ -41,16 +41,16 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         if let menuVc = revealViewController() {
             menuVc.rearViewRevealWidth = 275
             menuVc.rightViewRevealWidth = 160
-          //  view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
+        
     }
     
     func navigationSetup() { //네비게이션 투명색만들기
-         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-         self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
-         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
-         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 255/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         self.navigationItem.backBarButtonItem?.tintColor = .white
         //투명하게 만드는 공식처럼 기억하기
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -67,11 +67,33 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         
     }
     
-    
     //IBActions...
     @IBAction func menuAction(sender: AnyObject) {
         if let revealVc = revealViewController() {
+            
             revealVc.revealToggle(sender)
+            if DataManager.sharedManager.getSwitch() == false {
+                DataManager.sharedManager.setSwitch(toggleSwitch: true)
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
+                guard let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController else{
+                    return
+                }
+                vc.searchBar.isUserInteractionEnabled = false
+                vc.movieCollectionView.isUserInteractionEnabled = false
+                print(DataManager.sharedManager.getSwitch())
+            }
+            else if DataManager.sharedManager.getSwitch() == true {
+                DataManager.sharedManager.setSwitch(toggleSwitch: false)
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
+                guard let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController else{
+                    return
+                }
+                vc.searchBar.isUserInteractionEnabled = true
+                vc.movieCollectionView.isUserInteractionEnabled = true
+                print(DataManager.sharedManager.getSwitch())
+            }
+            
+            // print(DataManager.sharedManager.getSwitch())
             
         }
     }
@@ -79,60 +101,62 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
     //HamburgerMenu didSelect Handling..
     func menuViewController(_ viewController: UIViewController, didSelect indexPath: IndexPath) {
         if indexPath.row == 0{
-               self.showWishVC()
-           }
+            self.showWishVC()
+        }
         
         if indexPath.row == 1 {
             self.showProfileVC()
-           }
-    
+        }
+        
         if indexPath.row == 2{
             self.showLogoutVC()
-           }
-        
-       }
-        
-        func showProfileVC(){
-        let storyboard = UIStoryboard(name: "HamburgerMenuScreen", bundle: nil)
-                      let uv = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
-                      
-                    //  uv!.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-
-                   self.present(uv, animated: true) {
-                          self.revealViewController().revealToggle(animated: true)
-                      }
         }
+        
+    }
     
-       func showLogoutVC(){
-           
+    func showProfileVC(){
+        let storyboard = UIStoryboard(name: "HamburgerMenuScreen", bundle: nil)
+        let uv = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
+        
+        //  uv!.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        
+        self.present(uv, animated: true) {
+            self.revealViewController().revealToggle(animated: true)
+        }
+    }
+    
+    func showLogoutVC(){
+        
         guard let revealVc = revealViewController() else {return}
-               revealVc.revealToggle(animated: true)
-                       
+        revealVc.revealToggle(animated: true)
+        
         let alert = UIAlertController(title: "로그아웃",
-                                         message: "로그아웃 하시겠습니까?",
-                                         preferredStyle: .alert)
+                                      message: "로그아웃 하시겠습니까?",
+                                      preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                  let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-                      vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-                      self.present(vc, animated: true, completion: nil)   
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+            self.present(vc, animated: true, completion: nil)
         }))
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
-           
-       }
-       
+        
+    }
+    
     func showWishVC(){
         
         if let revealVc = revealViewController(){
             revealVc.revealToggle(animated: true)
-         let storyboard = UIStoryboard(name: "HamburgerMenuScreen", bundle: nil)
+            let storyboard = UIStoryboard(name: "HamburgerMenuScreen", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "WishVC") as? WishListViewController else{
                 return
             }
+            
+            
             if let navigationController = revealVc.frontViewController as? UINavigationController{
                 navigationController.pushViewController(vc, animated: true)
                 
@@ -147,44 +171,44 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
 extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
-               if self.selectedIndex == 1 {
-                   self.navigationController?.navigationBar.topItem?.title = "Box Office"
-                self.navigationItem.rightBarButtonItem?.isEnabled = false
-                self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+        if self.selectedIndex == 1 {
+            self.navigationController?.navigationBar.topItem?.title = "Box Office"
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+            
+        }
+        else if self.selectedIndex == 2 {
+            self.navigationController?.navigationBar.topItem?.title = "My Diary"
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plusBut"), style: .plain, target: self, action: #selector(addMovie(_:)))
+            self.navigationItem.rightBarButtonItem?.tintColor = .textGray
+            
+        }
+        else if self.selectedIndex == 3 {
+            self.navigationController?.navigationBar.topItem?.title = "Recommend"
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_settings_white_24dp"), style: .plain, target: self, action: #selector(changeType(_ :)))
+            self.navigationItem.rightBarButtonItem?.tintColor = .textGray
+            
+        }
+        else {
+            self.navigationController?.navigationBar.topItem?.title = "Home"
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+            
+        }
         
-                     }
-               else if self.selectedIndex == 2 {
-                   self.navigationController?.navigationBar.topItem?.title = "My Diary"
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plusBut"), style: .plain, target: self, action: #selector(addMovie(_:)))
-                self.navigationItem.rightBarButtonItem?.tintColor = .textGray
-
-               }
-               else if self.selectedIndex == 3 {
-                   self.navigationController?.navigationBar.topItem?.title = "Recommend"
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_settings_white_24dp"), style: .plain, target: self, action: #selector(changeType(_ :)))
-                self.navigationItem.rightBarButtonItem?.tintColor = .textGray
-
-               }
-               else {
-                   self.navigationController?.navigationBar.topItem?.title = "Home"
-                self.navigationItem.rightBarButtonItem?.isEnabled = false
-                self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
-        
-               }
-               
     }
-
-    @objc func addMovie(_ sender: Any) {
     
-    let addAlert = UIAlertController(title: "영화 추가", message: "아 검색하려는 곳으로 가면되지", preferredStyle: .alert)
-    let subview = (addAlert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
-    subview.backgroundColor = UIColor(red: (104/255.0), green: (104/255.0), blue: (104/255.0), alpha: 1.0)
+    @objc func addMovie(_ sender: Any) {
+        
+        let addAlert = UIAlertController(title: "영화 추가", message: "아 검색하려는 곳으로 가면되지", preferredStyle: .alert)
+        let subview = (addAlert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
+        subview.backgroundColor = UIColor(red: (104/255.0), green: (104/255.0), blue: (104/255.0), alpha: 1.0)
         
         addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
-        print("검색확인")
-                     }))
+            print("검색확인")
+        }))
         present(addAlert, animated: true, completion: nil)
-       }
+    }
     
     @objc func changeType(_ sender: Any) {
         
@@ -192,11 +216,11 @@ extension TabBarViewController: UITabBarControllerDelegate {
         
         let subview = (alert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
         subview.backgroundColor = UIColor(red: (104/255.0), green: (104/255.0), blue: (104/255.0), alpha: 1.0)
-      
+        
         let latestAction: UIAlertAction = UIAlertAction(title: "최신순", style: .default)
         latestAction.setValue(UIColor.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1), forKey:
             "titleTextColor")
-       
+        
         let popularAction: UIAlertAction = UIAlertAction(title: "인기순", style: .default)
         popularAction.setValue(UIColor.init(red: 211.0/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1), forKey: "titleTextColor")
         
@@ -216,7 +240,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
     }
     
 }
-           
+
 
 
 

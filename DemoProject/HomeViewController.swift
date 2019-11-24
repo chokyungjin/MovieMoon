@@ -66,11 +66,13 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         
         searchBar.showsCancelButton = false
         searchBar.accessibilityAttributedHint = NSAttributedString(string: "영화, 배우, 감독으로 검색", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
-  
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        
         if dataManager.getDidOrderTypeChangedAndDownloaded() {
             reloadMovieLists()
         }

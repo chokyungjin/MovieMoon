@@ -18,17 +18,27 @@ class DataManager {
     private init() {
         
     }
+    private var toggleSwitch: Bool = false
+    
+    func getSwitch() -> Bool {
+        return toggleSwitch
+    }
+    func setSwitch(toggleSwitch : Bool){
+        self.toggleSwitch = toggleSwitch
+    }
+    
+    
     private var haveImage: UIImage!
     
     func getImage() -> UIImage {
-           return haveImage
-       }
-       func setImage(haveImage : UIImage) {
-           self.haveImage = haveImage
-       }
+        return haveImage
+    }
+    func setImage(haveImage : UIImage) {
+        self.haveImage = haveImage
+    }
     
     private var haveTitle: String!
-
+    
     func getTitle() -> String {
         return haveTitle
     }
@@ -37,7 +47,7 @@ class DataManager {
     }
     
     private var haveDate: String!
-
+    
     func getDate() -> String {
         return haveDate
     }
@@ -46,7 +56,7 @@ class DataManager {
     }
     
     private var haveRating: Double!
-
+    
     func getRating() -> Double {
         return haveRating
     }

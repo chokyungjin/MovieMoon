@@ -15,7 +15,7 @@
 * SWRevealViewController
 * SwiftyGIF
 * FloatRatingView
-* ~~imageSlideShow~~
+* ImageSlideShow
 * ~~Alamofire~~
 
 ---
@@ -31,8 +31,9 @@
 * 박스 오피스 화면
 * 추천 화면
 * 상세 설정 화면
-* 포토 슬라이드 
-* 외부 font import
+* 햄버거 메뉴 클릭시 이전 뷰 터치 비할성화
+* ~~포토 슬라이드~~
+* ~~외부 font import~~
 * URL 링크를 통한 동영상 플레이어 - UIApplication.shared.canOpenURL(url) 을 쓰자!
 * Extension+Color, UIView, UITextField
 * ~~StickyHeaderLayout~~
