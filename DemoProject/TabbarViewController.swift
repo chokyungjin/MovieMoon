@@ -144,33 +144,28 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
     
 }
 
-
 extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print( self.selectedIndex)
+        
                if self.selectedIndex == 1 {
                    self.navigationController?.navigationBar.topItem?.title = "Box Office"
                 self.navigationItem.rightBarButtonItem?.isEnabled = false
                 self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
         
-                
                      }
-               else if self.selectedIndex == 2{
+               else if self.selectedIndex == 2 {
                    self.navigationController?.navigationBar.topItem?.title = "My Diary"
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plusBut"), style: .plain, target: self, action: #selector(addMovie(_:)))
                 self.navigationItem.rightBarButtonItem?.tintColor = .textGray
 
                }
-               else if self.selectedIndex == 3{
+               else if self.selectedIndex == 3 {
                    self.navigationController?.navigationBar.topItem?.title = "Recommend"
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_settings_white_24dp"), style: .plain, target: self, action: #selector(changeType(_ :)))
                 self.navigationItem.rightBarButtonItem?.tintColor = .textGray
 
-
-         
                }
                else {
-
                    self.navigationController?.navigationBar.topItem?.title = "Home"
                 self.navigationItem.rightBarButtonItem?.isEnabled = false
                 self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
@@ -185,10 +180,10 @@ extension TabBarViewController: UITabBarControllerDelegate {
     let subview = (addAlert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
     subview.backgroundColor = UIColor(red: (104/255.0), green: (104/255.0), blue: (104/255.0), alpha: 1.0)
         
-    addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
+        addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
         print("검색확인")
                      }))
-    present(addAlert, animated: true, completion: nil)
+        present(addAlert, animated: true, completion: nil)
        }
     
     @objc func changeType(_ sender: Any) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationViewController: UINavigationController { //네비게이션 컨트롤러 사용할예정.
+class NavigationViewController: UINavigationController { 
     
     override func viewDidLoad() {
         super.viewDidLoad()

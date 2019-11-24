@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
         self.signUpBut.makeRounded(cornerRadius: 20)
         self.loginBut.makeRounded(cornerRadius: 20)
         self.kakaoBut.makeRounded(cornerRadius: 20)
@@ -33,17 +32,16 @@ class LoginViewController: UIViewController {
         
         initGestureRecognizer()
         
-        
         idTextField.attributedPlaceholder = NSAttributedString(string: "아이디를 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         pwTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
     }
+    
     @IBAction func LoginBut(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RootVC") as! RootViewController
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
-        //self.show(vc, sender: nil)
         
     }
     
@@ -52,7 +50,6 @@ class LoginViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
         vc.modalPresentationStyle = .fullScreen
         self.show(vc, sender: nil)
-        //self.navigationController?.pushViewController(vc, animated: true)
     }
   
     @IBAction func loginKakao(_ sender : UIButton){
@@ -119,7 +116,6 @@ extension LoginViewController: UIGestureRecognizerDelegate {
         self.idTextField.resignFirstResponder()
         self.pwTextField.resignFirstResponder()
     }
-    
     
     func gestureRecognizer(_ gestrueRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if (touch.view?.isDescendant(of: idTextField))! || (touch.view?.isDescendant(of: pwTextField))! {

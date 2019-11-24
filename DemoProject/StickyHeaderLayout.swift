@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class StickyHeadersLayout: UITableViewController {
 
     //vars..
-    var imageView: UIImageView? = nil
+    var imageSlideView: ImageSlideshow? = nil
     var thumbView: UIImageView? = nil
     var heartBtn: UIButton? = nil
     var titleLabel: UILabel? = nil
@@ -28,24 +29,15 @@ class StickyHeadersLayout: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
-
+        
+        
     }
   
-    override func viewWillAppear(_ animated: Bool) {
-        createGradient()
-    }
-   
-    //gradient function..
-    func createGradient() {
-       caLayer.startPoint = CGPoint(x: 0, y: 0)
-       caLayer.endPoint = CGPoint(x: 1, y: 1)
-       caLayer.colors = [UIColor.clear.cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor]
-        imageView!.layer.addSublayer(caLayer)
-     }
-  
+    //override...
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -100,7 +92,7 @@ class StickyHeadersLayout: UITableViewController {
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let imageView = imageView, let thumbView = thumbView, let heartBtn = heartBtn , let titleLabel = titleLabel, let dateLabel = dateLabel else{return}
+        guard let imageView = imageSlideView, let thumbView = thumbView, let heartBtn = heartBtn , let titleLabel = titleLabel, let dateLabel = dateLabel else{return}
         
         let stretchedHeight = -scrollView.contentOffset.y + 10
         let thumbPosition = stretchedHeight - thumbView.bounds.height - 50
@@ -125,4 +117,5 @@ class StickyHeadersLayout: UITableViewController {
         
     }
 }
+
 

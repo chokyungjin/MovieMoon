@@ -54,9 +54,13 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         //Placeholder_Colors..
         idTextField.attributedPlaceholder = NSAttributedString(string: "아이디를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        
         nickNameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        
         pwTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        
         nameTextField.attributedPlaceholder = NSAttributedString(string: "이름를 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        
         pwCheckTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 다시 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
         
         self.view.backgroundColor = .blackgroundBlack
@@ -102,24 +106,25 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             
         }
         if count >= 3 && nickNameTextField.text != "" {
-            //SignUpBut.setImage(registerOk, for: UIControlState.normal)
-            //나중에 image로 바꿔보자!
-            SignUpBut.isEnabled = true
+            
+            SignUpBut.backgroundColor = .ceruleanBlue
         }
     }
     
     @IBAction func passwordCheck(_ sender: UITextField) {
         if validate5(text: sender.text!) && pwCheckTextField.text == pwTextField.text {
             count += 1
-            print(count)
+            print("Ask and Go to the Blue!")
+            SignUpBut.isEnabled = true
         }
     }
     
     @IBAction func SignUp(_ sender: Any) {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVc") as? LoginViewController {
-            
-            self.present(vc, animated: true, completion: nil)   // 식별자 가르키는 곳으로 이동
-        }
+        self.dismiss(animated: true, completion: nil)
+        
+//        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController {
+//            self.present(vc, animated: true, completion: nil)   // 식별자 가르키는 곳으로 이동
+//        }
     
     }
     @IBAction func CancelButton(_ sender: Any) {

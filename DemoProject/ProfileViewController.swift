@@ -34,11 +34,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let backBtn = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close(_:)))
         self.navigationItem.leftBarButtonItem = backBtn
         
-        let bg = UIImage(named: "testImage.png")
+        let bg = UIImage(named: "AppleLogo.jpg")
+        
         
         let bgImg = UIImageView(image: bg)
-        bgImg.frame.size = CGSize(width: bgImg.frame.size.width / 2, height: bgImg.frame.size.height / 2)
-        bgImg.center = CGPoint(x: self.view.frame.width / 2, y: 200)
+        bgImg.contentMode = .scaleAspectFit
+        bgImg.frame.size = CGSize(width: bgImg.frame.size.width / 2, height: bgImg.frame.size.height / 3)
+        bgImg.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 3)
+        
         bgImg.layer.cornerRadius = bgImg.frame.size.width / 2
         bgImg.layer.borderWidth = 0
         bgImg.layer.masksToBounds = true

@@ -9,5 +9,9 @@ target 'DemoProject' do
 pod 'PagingCollectionViewLayout'
 pod 'SwiftGifOrigin', '~> 1.7.0'
 pod 'SwiftyGif'
+pod 'Kingfisher', '~> 5.0'
+pod 'Alamofire', '~> 4.8'
+pod 'AlamofireImage', '~> 3.5'
+pod 'ImageSlideshow', '~> 1.8.1'
 pod 'FloatRatingView', '~> 4'
 end

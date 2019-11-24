@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyGif
 
-class LaunchScreenController : UIViewController {
+class LaunchScreenViewController : UIViewController {
     
     //IBO...
     @IBOutlet weak var loadingImage: UIImageView!
@@ -25,7 +25,6 @@ class LaunchScreenController : UIViewController {
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.view.backgroundColor = .black
         
         if let image = try? UIImage(imageName: gifName) {
             self.loadingImage.setImage(image, manager: gifManager)
@@ -60,8 +59,8 @@ class LaunchScreenController : UIViewController {
             
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-        vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-        self.present(vc, animated: true, completion: nil)   // 식별자 가르키는 곳으로 이동
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil) 
             
         }
     }

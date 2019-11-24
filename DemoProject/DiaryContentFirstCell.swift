@@ -46,10 +46,9 @@ class DiaryContentFirstCell : UITableViewCell, UITextFieldDelegate{
         label.textColor = .textGray
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18)
-        label.frame = CGRect(x: 100, y: 45, width: 100, height: 30)
+        label.frame = CGRect(x: 100, y: 45, width: 110, height: 30)
         return label
     }()
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -61,9 +60,11 @@ class DiaryContentFirstCell : UITableViewCell, UITextFieldDelegate{
         self.myRatingView.delegate = self
         self.myDateField.delegate = self
         
-        datePickerView.datePickerMode = UIDatePicker.Mode.date   //날짜 넣어줌
+        datePickerView.datePickerMode = UIDatePicker.Mode.date
         datePickerView.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: .valueChanged)
         myDateField.inputView = datePickerView
+        
+        initGestureRecognizer()
 
     }
     
@@ -80,7 +81,6 @@ class DiaryContentFirstCell : UITableViewCell, UITextFieldDelegate{
         let componenets = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         //현재의 날짜를 보냄 ,year, month , day
         if let day = componenets.day, let month = componenets.month, let year = componenets.year {
-            //옵셔널 바인딩 묵시적 해제 -> day, month, year
             if month <= 9 && day <= 9{
                 myDateField.text = "\(year)-0\(month)-0\(day)"    //앞에 0 붙여서 두자리 수 만들어줌
             }else if month <= 9 && day >= 10{
@@ -105,7 +105,26 @@ extension DiaryContentFirstCell: FloatRatingViewDelegate {
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Double) {
         myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
     }
-    
+            
+}
 
-        
+extension DiaryContentFirstCell {
+    
+    func initGestureRecognizer() {
+        let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
+        textFieldTap.delegate = self
+        addGestureRecognizer(textFieldTap)
+    }
+    
+    @objc func handleTapTextField(_ sender: UITapGestureRecognizer) {
+        print(111)
+        self.myDateField.resignFirstResponder()
+    }
+    
+    override func gestureRecognizer(_ gestrueRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view?.isDescendant(of: myDateField))! {
+            return false
+        }
+        return true
+    }
 }

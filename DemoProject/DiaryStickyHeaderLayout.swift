@@ -30,6 +30,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
         
+
     }
   
     override func viewWillAppear(_ animated: Bool) {
@@ -133,5 +134,4 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         
     }
 }
-
 

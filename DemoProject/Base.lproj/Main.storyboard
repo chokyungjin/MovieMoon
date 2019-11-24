@@ -15,6 +15,7 @@
                     <view key="view" contentMode="scaleToFill" id="o66-1P-oae">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.15686541800000001" green="0.15685787800000001" blue="0.156863004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="6bX-FD-BOf"/>
                     </view>
                     <connections>
@@ -26,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="465" y="-1334"/>
         </scene>
-        <!--Launch Screen Controller-->
+        <!--Launch Screen View Controller-->
         <scene sceneID="exl-Of-iKZ">
             <objects>
-                <viewController id="qJ5-YH-RLp" customClass="LaunchScreenController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qJ5-YH-RLp" customClass="LaunchScreenViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wih-Q8-lFi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,6 +229,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cNw-JF-j1Z" firstAttribute="top" secondItem="mJ7-lZ-Iix" secondAttribute="bottom" constant="32" id="KPY-dV-Lmq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ALA-HU-Fvn" secondAttribute="trailing" constant="68" id="VPV-8c-hod"/>
@@ -310,7 +312,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8h-4h-fuZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2610" y="-1314"/>
+            <point key="canvasLocation" x="2941" y="-1460"/>
         </scene>
         <!--HamburgerMenuVC-->
         <scene sceneID="zTf-cW-YN5">
@@ -328,7 +330,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Egb-C2-xX6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597" y="-1126"/>
+            <point key="canvasLocation" x="2954" y="-1120"/>
         </scene>
         <!--DiaryVC-->
         <scene sceneID="i4k-Fo-jhn">
@@ -338,7 +340,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fOj-YV-GT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2893" y="-949"/>
+            <point key="canvasLocation" x="2920" y="-1285"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="iBx-EH-dw7">
@@ -348,7 +350,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAF-wi-zPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2610" y="-1400"/>
+            <point key="canvasLocation" x="2942" y="-1658"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Ejh-u0-zM6">
@@ -620,6 +622,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" red="0.15686541800000001" green="0.15685787800000001" blue="0.156863004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="W7R-HT-nEM" firstAttribute="leading" secondItem="8Jk-Un-uh1" secondAttribute="leading" constant="68" id="2Eb-Ez-rlI"/>
                             <constraint firstItem="4eY-G8-AcU" firstAttribute="leading" secondItem="W7R-HT-nEM" secondAttribute="leading" id="9Qy-zv-OAA"/>

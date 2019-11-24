@@ -55,6 +55,8 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         
         self.homeBoxofficeLabel.text = "흥행 예상작"
         self.homeBoxofficeLabel.textColor = .textGray
+       // self.homeBoxofficeLabel.font = UIFont(name: "NanumSquareBold", size: 20)
+        self.homeBoxofficeLabel.font = .NanumSquare(type: .Bold, size: 21.5 - 3.5, isFix: true)
         
         self.hometitle.textColor = .bigTextGray
         self.hometitle.backgroundColor = .blackgroundBlack

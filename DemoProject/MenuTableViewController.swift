@@ -47,7 +47,7 @@ class MenuTableViewController: UITableViewController {
         nameLabel.backgroundColor = .clear
         
         accountLabel.frame = CGRect(x:70, y:30, width: 100, height: 30)
-        accountLabel.text = "ccc@ccc.com"
+        accountLabel.text = "201501528@inu.ac.kr"
         accountLabel.textColor = UIColor.white
         accountLabel.font = UIFont.boldSystemFont(ofSize: 11)
         accountLabel.backgroundColor = .clear
