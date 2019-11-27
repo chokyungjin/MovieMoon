@@ -34,11 +34,11 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     var selectedDate: String!
     
     struct Storyboard {
-           static let photoCell = "PhotoCell"
-           static let showDetailVC = "ShowMovieDetail"
-           static let leftAndRightPaddings: CGFloat = 2.0
-           static let numberOfItemsPerRow: CGFloat = 3.0
-       }
+        static let photoCell = "PhotoCell"
+        static let showDetailVC = "ShowMovieDetail"
+        static let leftAndRightPaddings: CGFloat = 2.0
+        static let numberOfItemsPerRow: CGFloat = 3.0
+    }
     
     var filterdData: [String]!
     var location = [String]()
@@ -49,18 +49,18 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         movieCollectionView.translatesAutoresizingMaskIntoConstraints = false
         movieCollectionView.showsHorizontalScrollIndicator = false
         movieCollectionView.decelerationRate = .fast
-    
+        
         self.view.backgroundColor = .blackgroundBlack
         movieCollectionView.backgroundColor = .blackgroundBlack
         
         self.homeBoxofficeLabel.text = "흥행 예상작"
         self.homeBoxofficeLabel.textColor = .textGray
-       // self.homeBoxofficeLabel.font = UIFont(name: "NanumSquareBold", size: 20)
+        // self.homeBoxofficeLabel.font = UIFont(name: "NanumSquareBold", size: 20)
         self.homeBoxofficeLabel.font = .NanumSquare(type: .Bold, size: 21.5 - 3.5, isFix: true)
         
         self.hometitle.textColor = .bigTextGray
         self.hometitle.backgroundColor = .blackgroundBlack
-
+        
         setMovieListCollectionView()
         self.searchBar.delegate = self
         
@@ -82,7 +82,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         }
     }
     
-
+    
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
@@ -220,29 +220,29 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         let movie = movies[indexPath.row]
         
-//        cell.titleLabel.text = movie.title
-//        cell.dateLabel.text = movie.date
-//
-//        let rateString = "\(movie.reservationGrade)위 / \(movie.reservationRate)"
-//        cell.ratingsLabel.text = rateString
-//
-//        let gradeIamge = getGradeImage(grade: movie.grade)
-//        cell.gradeImageView.image = gradeIamge
+        //        cell.titleLabel.text = movie.title
+        //        cell.dateLabel.text = movie.date
+        //
+        //        let rateString = "\(movie.reservationGrade)위 / \(movie.reservationRate)"
+        //        cell.ratingsLabel.text = rateString
+        //
+        //        let gradeIamge = getGradeImage(grade: movie.grade)
+        //        cell.gradeImageView.image = gradeIamge
         
         
         OperationQueue().addOperation {
             let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
             DispatchQueue.main.async {
                 cell.imageThumbnail.image = thumnailImage
-
+                
             }
         }
         
         return cell
     }
     
-     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-           
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let movie = movies[indexPath.row]
         let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
         self.selectedImage = thumnailImage
@@ -262,15 +262,15 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         
         //ImageManager.imageManager.setTitle(haveTitle: self.)
-       // performSegue(withIdentifier: Storyboard.showDetailVC , sender: nil)
+        // performSegue(withIdentifier: Storyboard.showDetailVC , sender: nil)
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
-
-            let vc = mainStoryboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailViewController
-               
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    
-                  
-       }
+        
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailViewController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+    }
     
 }
