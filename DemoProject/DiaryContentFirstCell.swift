@@ -110,6 +110,7 @@ extension DiaryContentFirstCell: FloatRatingViewDelegate {
 
 extension DiaryContentFirstCell {
     
+    
     func initGestureRecognizer() {
         let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
         textFieldTap.delegate = self
