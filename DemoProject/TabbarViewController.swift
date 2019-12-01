@@ -78,8 +78,7 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
                 guard let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController else{
                     return
                 }
-                vc.searchBar.isUserInteractionEnabled = false
-                vc.movieCollectionView.isUserInteractionEnabled = false
+               
                 print(DataManager.sharedManager.getSwitch())
             }
             else if DataManager.sharedManager.getSwitch() == true {
@@ -88,8 +87,7 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
                 guard let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController else{
                     return
                 }
-                vc.searchBar.isUserInteractionEnabled = true
-                vc.movieCollectionView.isUserInteractionEnabled = true
+                
                 print(DataManager.sharedManager.getSwitch())
             }
             

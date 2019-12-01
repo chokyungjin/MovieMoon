@@ -40,9 +40,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         static let numberOfItemsPerRow: CGFloat = 3.0
     }
     
-    var filterdData: [String]!
-    var location = [String]()
-    
     //init
     override func viewDidLoad() {
         super.viewDidLoad()
