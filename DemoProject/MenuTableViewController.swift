@@ -42,13 +42,13 @@ class MenuTableViewController: UITableViewController {
         
         nameLabel.frame = CGRect(x:70, y:15, width: 100, height: 30)
         nameLabel.text = "조경진"
-        nameLabel.textColor = UIColor.white
+        nameLabel.textColor = .textGray
         nameLabel.font = UIFont.boldSystemFont(ofSize: 15)
         nameLabel.backgroundColor = .clear
         
-        accountLabel.frame = CGRect(x:70, y:30, width: 100, height: 30)
+        accountLabel.frame = CGRect(x:70, y:30, width: 180, height: 30)
         accountLabel.text = "201501528@inu.ac.kr"
-        accountLabel.textColor = UIColor.white
+        accountLabel.textColor = .textGray
         accountLabel.font = UIFont.boldSystemFont(ofSize: 11)
         accountLabel.backgroundColor = .clear
         
@@ -65,7 +65,6 @@ class MenuTableViewController: UITableViewController {
         // ② 테이블 뷰 상단에 표시될 뷰를 정의한다.
         let v = UIView()
         v.frame = CGRect(x:0, y:0, width: self.view.frame.width, height:70)
-        v.backgroundColor = UIColor.init(red: 0/255.0, green: 127.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         
         v.addSubview(accountLabel)
         v.addSubview(nameLabel)
@@ -100,7 +99,7 @@ class MenuTableViewController: UITableViewController {
         cell.backgroundColor = UIColor.init(red: 104/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1.0)
         // 타이틀과 이미지를 대입한다.
         cell.textLabel?.text = self.titles[indexPath.row]
-        cell.textLabel?.textColor =  UIColor.init(red: 211/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1.0)
+        cell.textLabel?.textColor = .textGray
         // 폰트 설정
         cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
         

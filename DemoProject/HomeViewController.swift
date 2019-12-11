@@ -57,6 +57,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         
         self.hometitle.textColor = .bigTextGray
         self.hometitle.backgroundColor = .blackgroundBlack
+        //이텔릭 적용되는 폰트 받아오기
         
         setMovieListCollectionView()
         self.searchBar.delegate = self
