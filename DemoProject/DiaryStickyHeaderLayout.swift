@@ -9,7 +9,7 @@
 import UIKit
 
 class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITextFieldDelegate{
-
+    
     //vars..
     var imageView: UIImageView? = nil
     var thumbView: UIImageView? = nil
@@ -18,8 +18,8 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     var movies: [Movie] = []
     var myDateField: UITextField = .init()
     let caLayer: CAGradientLayer = CAGradientLayer()
-
-
+    
+    
     //inits..
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,29 +30,30 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
         
-
+        
     }
-  
+    
     override func viewWillAppear(_ animated: Bool) {
         createGradient()
     }
-   
+    
     //gradient function..
     func createGradient() {
-       caLayer.startPoint = CGPoint(x: 0, y: 0)
-       caLayer.endPoint = CGPoint(x: 1, y: 1)
-       caLayer.colors = [UIColor.clear.cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor]
+        caLayer.startPoint = CGPoint(x: 0, y: 0)
+        caLayer.endPoint = CGPoint(x: 1, y: 1)
+        caLayer.locations = [0,1]
+        caLayer.colors = [UIColor.clear.cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor]
         imageView!.layer.addSublayer(caLayer)
-     }
-  
-   
+    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath == [0,0] {
             return 150
@@ -65,7 +66,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         if indexPath == [0,0]{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! DiaryContentFirstCell
@@ -82,8 +83,8 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             cell.selectionStyle = .none
             
             return cell
-    
-
+            
+            
         }
         else if indexPath == [1,0] {
             
@@ -93,21 +94,21 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             cell.stillcutImage.image = DataManager.sharedManager.getImage()
             cell.stillcutImage2.image = DataManager.sharedManager.getImage()
             cell.stillcutImage3.image = DataManager.sharedManager.getImage()
-
+            
             
             cell.plotField.text = "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!"
             cell.plotField.backgroundColor = .blackgroundBlack
             cell.plotField.textColor = .textGray
             cell.plotField.isUserInteractionEnabled = false
             cell.selectionStyle = .none
-
+            
             return cell
         }
         else {
             return UITableViewCell()
         }
     }
-
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let imageView = imageView, let thumbView = thumbView, let titleLabel = titleLabel, let dateLabel = dateLabel else{return}
         

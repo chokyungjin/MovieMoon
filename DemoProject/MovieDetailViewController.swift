@@ -110,7 +110,7 @@ class MovieDetailViewController: UIViewController {
            
         print(heartBtn.isSelected)
         
-        if (heartBtn.isSelected) == false{
+        if (heartBtn.isSelected) == false {
         let image = UIImage(named: "like")?.withRenderingMode(.alwaysTemplate)
         heartBtn!.setImage(image, for: .normal)
         heartBtn.isSelected = true
