@@ -1,6 +1,7 @@
 # Movie Moon 📱 
 
 ---
+![SwiftBadge](https://img.shields.io/badge/Swift-5.1-orange) ![XcodeBadge](https://img.shields.io/badge/Xcode-11.3-blue) ![iOS](https://img.shields.io/badge/iOS-13.3-lightgrey)
 
 > ### VAE를 이용한 영화 추천 어플리케이션
 
