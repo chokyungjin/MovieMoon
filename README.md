@@ -16,6 +16,7 @@
 * SwiftyGIF
 * FloatRatingView
 * ImageSlideShow
+* KingFisher (Have to)
 * Alamofire (Have to)
 
 ---
@@ -34,10 +35,11 @@
 * 햄버거 메뉴 클릭시 이전 뷰 터치 비할성화
 * ~~포토 슬라이드~~
 * ~~외부 font import~~
-* URL 링크를 통한 동영상 플레이어 - UIApplication.shared.canOpenURL(url) 을 쓰자!
+* URL 링크를 통한 동영상 플레이어 - UIApplication.shared.canOpenURL(url)
 * Extension+Color, UIView, UITextField
 * ~~StickyHeaderLayout~~
 * ~~LaunchScreen Using GIF~~
+* Gradient Layer 
 
 ---
 ## Reference
