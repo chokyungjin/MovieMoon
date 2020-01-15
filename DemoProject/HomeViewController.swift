@@ -61,23 +61,40 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         
         setMovieListCollectionView()
         self.searchBar.delegate = self
-        
-        searchBar.showsCancelButton = false
         searchBar.accessibilityAttributedHint = NSAttributedString(string: "영화, 배우, 감독으로 검색", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        
+        //addObserver
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(HomeinteractionObserve),
+                                               name: NSNotification.Name(rawValue: "PostButton"),
+                                               object: nil)
+        
+    }
+    
+    @objc func HomeinteractionObserve() {
+        if DataManager.sharedManager.getSwitch() == false {
+            self.searchBar.isUserInteractionEnabled = false
+            self.movieCollectionView.isUserInteractionEnabled = false
+        }
+        else if DataManager.sharedManager.getSwitch() == true {
+            self.searchBar.isUserInteractionEnabled = true
+            self.movieCollectionView.isUserInteractionEnabled = true
+        }
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        
         if dataManager.getDidOrderTypeChangedAndDownloaded() {
             reloadMovieLists()
         }
-        else {reloadMovieLists()
+        else {
+            reloadMovieLists()
             let orderType: String = dataManager.getMovieOrderType()
             getMovieList(orderType: orderType)
         }
+        
     }
     
     
@@ -205,7 +222,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 250, height: 250)
+        return CGSize(width: 200, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -214,25 +231,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieListCellID, for: indexPath) as! MovieCollectionViewCell
-        
-        
         let movie = movies[indexPath.row]
-        
-        //        cell.titleLabel.text = movie.title
-        //        cell.dateLabel.text = movie.date
-        //
-        //        let rateString = "\(movie.reservationGrade)위 / \(movie.reservationRate)"
-        //        cell.ratingsLabel.text = rateString
-        //
-        //        let gradeIamge = getGradeImage(grade: movie.grade)
-        //        cell.gradeImageView.image = gradeIamge
-        
         
         OperationQueue().addOperation {
             let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
             DispatchQueue.main.async {
                 cell.imageThumbnail.image = thumnailImage
-                
             }
         }
         
@@ -258,10 +262,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         self.selectedDate = movieDate
         dataManager.setDate(haveDate: self.selectedDate)
         
-        
-        //ImageManager.imageManager.setTitle(haveTitle: self.)
-        // performSegue(withIdentifier: Storyboard.showDetailVC , sender: nil)
-        
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
         
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailViewController
@@ -269,6 +269,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         self.navigationController?.pushViewController(vc, animated: true)
         
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 25, bottom: 20, right: 25)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 25
     }
     
 }

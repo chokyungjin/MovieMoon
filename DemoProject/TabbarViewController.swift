@@ -6,6 +6,7 @@
 //  Copyright © 2019 조경진. All rights reserved.
 //
 
+
 import UIKit
 
 class TabBarViewController: UITabBarController ,MenuViewDelegate{
@@ -29,17 +30,17 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         if let revealVC = revealViewController(), let menuVC = revealVC.rearViewController as? MenuTableViewController {
             menuVC.delegate = self
         }
-        
         UITabBar.appearance().barTintColor = .blurGray
         self.tabBar.itemSpacing = UIScreen.main.bounds.width / 4
         
-        print(DataManager.sharedManager.getSwitch())
+        revealViewSetup()
     }
     
     
     func revealViewSetup(){
         if let menuVc = revealViewController() {
             menuVc.rearViewRevealWidth = 275
+            //335 로 사이드 바의 크기를 넓혀서 다른 이벤트를 발생 못하게 막아버릴순 있다
             menuVc.rightViewRevealWidth = 160
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
@@ -69,30 +70,20 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
     
     //IBActions...
     @IBAction func menuAction(sender: AnyObject) {
+        
         if let revealVc = revealViewController() {
-            
             revealVc.revealToggle(sender)
+            //Event 등록 = Post
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "PostButton"), object: nil)
+            
             if DataManager.sharedManager.getSwitch() == false {
                 DataManager.sharedManager.setSwitch(toggleSwitch: true)
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
-                guard let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController else{
-                    return
-                }
-               
                 print(DataManager.sharedManager.getSwitch())
             }
             else if DataManager.sharedManager.getSwitch() == true {
                 DataManager.sharedManager.setSwitch(toggleSwitch: false)
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
-                guard let vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as? HomeViewController else{
-                    return
-                }
-                
                 print(DataManager.sharedManager.getSwitch())
             }
-            
-            // print(DataManager.sharedManager.getSwitch())
-            
         }
     }
     

@@ -37,11 +37,12 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         createGradient()
     }
     
-    //gradient function..
     func createGradient() {
-        caLayer.startPoint = CGPoint(x: 0, y: 0)
-        caLayer.endPoint = CGPoint(x: 1, y: 1)
+       // print(111)
+        caLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        caLayer.endPoint = CGPoint(x: 0.5, y: 1)
         caLayer.locations = [0,1]
+        caLayer.frame = imageView!.frame
         caLayer.colors = [UIColor.clear.cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor]
         imageView!.layer.addSublayer(caLayer)
     }
@@ -132,6 +133,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         
         
         caLayer.frame = CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: stretchedHeight))
+        print(caLayer.frame)
         
     }
 }
