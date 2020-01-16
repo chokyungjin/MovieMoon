@@ -239,17 +239,8 @@ extension BoxOfficeViewController: UITableViewDataSource, UITableViewDelegate {
         let gradeIamge = getGradeImage(grade: movie.grade)
         cell.GradeImageView.image = gradeIamge
         
-        DispatchQueue.global().async {
-            let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
-            DispatchQueue.main.async {
-                if let index: IndexPath = tableView.indexPath(for: cell) {
-                    if index.row == indexPath.row {
-                        cell.ThumnailImageView.image = thumnailImage
-                    }
-                }
-            }
-        }
-        
+        cell.ThumnailImageView.imageFromUrl(movie.thumnailImageURL, defaultImgPath: "img_placeholder")
+            
         return cell
     }
     

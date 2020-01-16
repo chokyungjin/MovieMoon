@@ -8,6 +8,7 @@
 
 // didSelect 해결해야함
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController,UISearchBarDelegate {
     
@@ -97,8 +98,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         
     }
     
-    
-    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
     }
@@ -123,9 +122,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     
     func getMovieList(orderType: String) {
-        
         let url: String = baseURL + ServerURLs.movieList.rawValue + orderType
-        
         guard let finalURL = URL(string: url) else {
             return
         }
@@ -178,18 +175,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         return date
     }
     
-    func getThumnailImage(withURL thumnailURL: String) -> UIImage? {
-        guard let imageURL = URL(string: thumnailURL) else {
-            return UIImage(named: "img_placeholder")
-        }
-        
-        guard let imageData: Data = try? Data(contentsOf: imageURL) else {
-            return UIImage(named: "img_placeholder")
-        }
-        
-        return UIImage(data: imageData)
-    }
-    
     func getGradeImage(grade: Int) -> UIImage? {
         switch grade {
         case 0:
@@ -215,8 +200,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         movieCollectionView.dataSource = self
     }
     
-    
-    
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -232,13 +215,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieListCellID, for: indexPath) as! MovieCollectionViewCell
         let movie = movies[indexPath.row]
-        
-        OperationQueue().addOperation {
-            let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
-            DispatchQueue.main.async {
-                cell.imageThumbnail.image = thumnailImage
-            }
-        }
+        cell.imageThumbnail.imageFromUrl(movie.thumnailImageURL, defaultImgPath: "img_placeholder")
         
         return cell
     }
@@ -246,8 +223,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let movie = movies[indexPath.row]
-        let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
-        self.selectedImage = thumnailImage
+        let thumnailImage = UIImageView()
+        thumnailImage.imageFromUrl(movie.thumnailImageURL, defaultImgPath: "img_placeholder")
+        self.selectedImage = thumnailImage.image
         dataManager.setImage(haveImage: self.selectedImage)
         
         let movietitle = self.getTitle(title: movie.title)
@@ -263,22 +241,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         dataManager.setDate(haveDate: self.selectedDate)
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
-        
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailViewController
-        
         self.navigationController?.pushViewController(vc, animated: true)
         
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
         return UIEdgeInsets(top: 0, left: 25, bottom: 20, right: 25)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
         return 25
     }
     
 }
+

@@ -32,7 +32,6 @@ class DiaryCollectionViewController: UICollectionViewController {
 
        }
    
-    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,14 +177,8 @@ extension DiaryCollectionViewController {
         cell.backgroundColor = .blackgroundBlack
         let movie = movies[indexPath.row]
         
-        
-        OperationQueue().addOperation {
-            let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
-            DispatchQueue.main.async {
-                cell.imageThumbnail.image = thumnailImage
-                cell.imageThumbnail.contentMode = .scaleToFill
-            }
-        }
+        cell.imageThumbnail.imageFromUrl(movie.thumnailImageURL, defaultImgPath: "img_placeholder")
+        cell.imageThumbnail.contentMode = .scaleToFill
         
         return cell
     }
@@ -207,10 +200,6 @@ extension DiaryCollectionViewController {
         let movieDate = self.getDate(date: movie.date)
         self.selectedDate = movieDate
         dataManager.setDate(haveDate: self.selectedDate)
-        
-        
-        //ImageManager.imageManager.setTitle(haveTitle: self.)
-       // performSegue(withIdentifier: Storyboard.showDetailVC , sender: nil)
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "DiaryScreen", bundle: nil)
 

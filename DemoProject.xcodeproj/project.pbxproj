@@ -66,8 +66,6 @@
 		39E26437232B823100EC8CBC /* RecommendScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E26436232B823100EC8CBC /* RecommendScreen.storyboard */; };
 		39E26439232B830800EC8CBC /* HamburgerMenuScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E26438232B830800EC8CBC /* HamburgerMenuScreen.storyboard */; };
 		39F0E078238843FB007C43A8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F0E077238843FB007C43A8 /* Launch Screen.storyboard */; };
-		39FF251C2387C84100B5BD8F /* AlamofireSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF25192387C84100B5BD8F /* AlamofireSource.swift */; };
-		39FF251D2387C84100B5BD8F /* KingfisherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF251A2387C84100B5BD8F /* KingfisherSource.swift */; };
 		7ED7E1A731A8E77941E7D6A4 /* Pods_DemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */; };
 		C65D32142338FCA6003FE49B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65D32132338FCA6003FE49B /* RootViewController.swift */; };
 /* End PBXBuildFile section */
@@ -139,8 +137,6 @@
 		39E26436232B823100EC8CBC /* RecommendScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecommendScreen.storyboard; sourceTree = "<group>"; };
 		39E26438232B830800EC8CBC /* HamburgerMenuScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HamburgerMenuScreen.storyboard; sourceTree = "<group>"; };
 		39F0E077238843FB007C43A8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		39FF25192387C84100B5BD8F /* AlamofireSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireSource.swift; sourceTree = "<group>"; };
-		39FF251A2387C84100B5BD8F /* KingfisherSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KingfisherSource.swift; path = InputSources/KingfisherSource.swift; sourceTree = "<group>"; };
 		39FF25232387C8C400B5BD8F /* ImageSlideshow_framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSlideshow_framework.h; sourceTree = "<group>"; };
 		640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DEF5FE0D619C76049D5B05 /* Pods-DemoProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoProject.release.xcconfig"; path = "Target Support Files/Pods-DemoProject/Pods-DemoProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,8 +185,6 @@
 		393501452385ABE500282D7B /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				39FF25192387C84100B5BD8F /* AlamofireSource.swift */,
-				39FF251A2387C84100B5BD8F /* KingfisherSource.swift */,
 				3935014E2385AF1A00282D7B /* NanumSquareBold.ttf */,
 				3935014C2385AF1900282D7B /* NanumSquareExtraBold.ttf */,
 				3935014B2385AF1900282D7B /* NanumSquareLight.ttf */,
@@ -213,6 +207,20 @@
 			name = DiarySearchResult;
 			sourceTree = "<group>";
 		};
+		395A97EA23D0B0E700552ABE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				396ED70523758F3400C8BB3C /* Extension+GIF.swift */,
+				396DBF282347AE990025507B /* Extensions+UIView.swift */,
+				393501482385AE6B00282D7B /* Extension+Font.swift */,
+				3959674523801AB600D63C8A /* Extension+UITextField.swift */,
+				393A1ED4238057BA0038DA1B /* Extension+CALayer.swift */,
+				3959674923801B9900D63C8A /* UIColor+Additions.swift */,
+				39464884237E3770004EFBF4 /* FloatRatingView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		398810042376F9810055F25D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,15 +238,9 @@
 		39938B822328930500FCE733 /* Protocol + Extension */ = {
 			isa = PBXGroup;
 			children = (
+				395A97EA23D0B0E700552ABE /* Extensions */,
 				39FF25222387C8C400B5BD8F /* ImageSlideshow_framework */,
 				393501452385ABE500282D7B /* Font */,
-				396ED70523758F3400C8BB3C /* Extension+GIF.swift */,
-				396DBF282347AE990025507B /* Extensions+UIView.swift */,
-				393501482385AE6B00282D7B /* Extension+Font.swift */,
-				3959674523801AB600D63C8A /* Extension+UITextField.swift */,
-				393A1ED4238057BA0038DA1B /* Extension+CALayer.swift */,
-				3959674923801B9900D63C8A /* UIColor+Additions.swift */,
-				39464884237E3770004EFBF4 /* FloatRatingView.swift */,
 			);
 			name = "Protocol + Extension";
 			sourceTree = "<group>";
@@ -566,7 +568,6 @@
 				39856F182323DF930006B58E /* TabbarViewController.swift in Sources */,
 				39988500234B35ED00E1C5A7 /* MovieListCollectionViewCell.swift in Sources */,
 				399DE54623263BBC002703D1 /* MovieDetail.swift in Sources */,
-				39FF251C2387C84100B5BD8F /* AlamofireSource.swift in Sources */,
 				395967532380447B00D63C8A /* DiaryStickyHeaderLayout.swift in Sources */,
 				395967552380487900D63C8A /* DiaryContentFirstCell.swift in Sources */,
 				C65D32142338FCA6003FE49B /* RootViewController.swift in Sources */,
@@ -574,7 +575,6 @@
 				398854602367E90D008765FF /* DiaryCollectionViewController.swift in Sources */,
 				39938B7F2328916B00FCE733 /* HomeViewController.swift in Sources */,
 				39E26403232B559900EC8CBC /* MovieCollectionViewCell.swift in Sources */,
-				39FF251D2387C84100B5BD8F /* KingfisherSource.swift in Sources */,
 				39BC0220232A3E99002737B4 /* LoginViewController.swift in Sources */,
 				39464885237E3770004EFBF4 /* FloatRatingView.swift in Sources */,
 				396ED70623758F3400C8BB3C /* Extension+GIF.swift in Sources */,

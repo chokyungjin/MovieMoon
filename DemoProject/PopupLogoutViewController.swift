@@ -25,25 +25,9 @@ class PopUpLogOutViewController: UIViewController {
     
     @IBOutlet weak var PopupView: UIView!   //popupView 선언
     @IBAction func ClosePopup(_ sender: Any) {
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        guard let vc = storyboard.instantiateViewController(withIdentifier: "RootVC") as? RootViewController else{
-//            return
-//        }
-//
-//        //self.navigationController?.popViewController(animated: true)
-//
-//        self.view.removeFromSuperview()
-        
+     
         let logoutAlert = UIAlertController(title: "로그아웃", message: "로그아웃 하시겠습니까?", preferredStyle: .alert)
-        
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-//           let okAction = UIAlertAction(title: "OK", style: .default)
-//
-//           // 3) 버튼을 알림창에 추가한다.
-//           alert.addAction(cancelAction)
-//           alert.addAction(okAction)
-                      
+
                       logoutAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                           print("검색확인")
                          

@@ -35,6 +35,8 @@ class MovieDetailViewController: UIViewController {
     
     let models = [Model(image: DataManager.sharedManager.getImage(), title: "First image"), Model(image: UIImage(named: "img2")!, title: "Second image"), Model(image: UIImage(named: "img3")!, title: "Third image"), Model(image: UIImage(named: "img4")!, title: "Fourth image")]
     
+    
+    
 
     //init..
     override func viewDidLoad() {
@@ -55,19 +57,17 @@ class MovieDetailViewController: UIViewController {
         pageControl.currentPageIndicatorTintColor = UIColor.lightGray
         pageControl.pageIndicatorTintColor = UIColor.black
         imageSlideView.pageIndicator = pageControl
-        
-        // optional way to show activity indicator during image load (skipping the line will show no activity indicator)
-        
+                
         imageSlideView.activityIndicator = DefaultActivityIndicator()
         imageSlideView.delegate = self
         imageSlideView.setImageInputs(models.map { $0.inputSource })
         imageSlideView.frame = CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: self.view.frame.height / 2.8))
 
-       // print(self.view.bounds.height)
-       // print(view.frame.height / 2.8)
+      
         view.addSubview(imageSlideView)
         
         thumbView = UIImageView(image: DataManager.sharedManager.getImage())
+        
         thumbView.contentMode = .scaleAspectFit
         thumbView.clipsToBounds = true
         view.addSubview(thumbView)
@@ -134,7 +134,6 @@ class MovieDetailViewController: UIViewController {
     
         @objc func didTap() {
             print(1111)
-            //guard let imageSlideView = imageSlideView else{return}
             let imageSlideView = ImageSlideshow()
             imageSlideView.setImageInputs(models.map { $0.inputSource })
 
