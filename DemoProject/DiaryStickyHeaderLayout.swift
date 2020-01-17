@@ -13,11 +13,13 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     //vars..
     var imageView: UIImageView? = nil
     var thumbView: UIImageView? = nil
+    var profileImage : [UIImage] = [UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!]
     var titleLabel: UILabel? = nil
     var dateLabel: UILabel? = nil
     var movies: [Movie] = []
     var myDateField: UITextField = .init()
     let caLayer: CAGradientLayer = CAGradientLayer()
+    let picker = UIImagePickerController()
     
     
     //inits..
@@ -29,16 +31,51 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
+        picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         createGradient()
+        registerForKeyboardNotifications()
+
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        unregisterForKeyboardNotifications()
+    }
+   
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        //return 버튼 누르면 키보드 내려갈수있게 설정.
+    }
+    
+    // keyboard가 보여질 때 어떤 동작을 수행
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    // keyboard가 사라질 때 어떤 동작을 수행
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    
+    // observer
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func unregisterForKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func createGradient() {
-       // print(111)
+        // print(111)
         caLayer.startPoint = CGPoint(x: 0.5, y: 0)
         caLayer.endPoint = CGPoint(x: 0.5, y: 1)
         caLayer.locations = [0,1]
@@ -60,7 +97,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             return 150
         }
         else if indexPath == [1,0] {
-            return 500
+            return 670
         }
         
         return 50
@@ -91,18 +128,19 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! DiaryContentSecondCell
             
-            cell.backgroundColor = .blackgroundBlack
-            cell.stillcutImage.image = DataManager.sharedManager.getImage()
-            cell.stillcutImage2.image = DataManager.sharedManager.getImage()
-            cell.stillcutImage3.image = DataManager.sharedManager.getImage()
+            cell.delegate = self
             
-            
+            cell.stillcutImage.image = profileImage[0]
+            cell.stillcutImage2.image = profileImage[1]
+            cell.stillcutImage3.image = profileImage[2]
+              
             cell.plotField.text = "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!"
-            cell.plotField.backgroundColor = .blackgroundBlack
+            cell.plotField.backgroundColor = .color130
             cell.plotField.textColor = .textGray
-            cell.plotField.isUserInteractionEnabled = false
+            cell.plotField.isUserInteractionEnabled = true
             cell.selectionStyle = .none
-            
+            cell.backgroundColor = .blackgroundBlack
+
             return cell
         }
         else {
@@ -133,8 +171,91 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         
         
         caLayer.frame = CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: stretchedHeight))
-        print(caLayer.frame)
         
     }
 }
 
+extension DiaryStickHeaderLayout: PlusActionDelegate {
+    
+    
+    func didClickedOk() {
+        let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
+        
+        addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
+            print("확인")
+        }))
+        present(addAlert, animated: true, completion: nil)
+    }
+    
+    func didClickedCancel() {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func didClickedPlus() {
+        print(11111)
+        
+        let alert =  UIAlertController(title: "", message: "다이어리 사진 추가", preferredStyle: .actionSheet)
+        
+        let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
+        }
+        
+        let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
+            self.openCamera()
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(library)
+        alert.addAction(camera)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    @objc func cancleEvent(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func openLibrary(){
+        picker.sourceType = .photoLibrary
+        present(picker, animated: false, completion: nil)
+    }
+    func openCamera(){
+        if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+            picker.sourceType = .camera
+            present(picker, animated: false, completion: nil)
+        }
+        else{
+            print("Camera not available")
+        }
+        
+    }
+    
+}
+
+// image 가 cell.image에 적용되지 않음!
+extension DiaryStickHeaderLayout : UIImagePickerControllerDelegate,UINavigationControllerDelegate
+{
+    func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            if profileImage[0] == UIImage(named: "img_placeholder") {
+            profileImage[0] = image
+            }
+            else if profileImage[1] == UIImage(named: "img_placeholder") {
+            profileImage[1] = image
+            }
+            else if profileImage[2] == UIImage(named: "img_placeholder") {
+            profileImage[2] = image
+            }
+            
+            print(image)
+        }
+        
+        picker.dismiss(animated: true)
+        tableView.reloadData()
+
+    }
+    
+}

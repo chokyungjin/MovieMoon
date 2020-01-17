@@ -137,7 +137,6 @@
 		39E26436232B823100EC8CBC /* RecommendScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecommendScreen.storyboard; sourceTree = "<group>"; };
 		39E26438232B830800EC8CBC /* HamburgerMenuScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HamburgerMenuScreen.storyboard; sourceTree = "<group>"; };
 		39F0E077238843FB007C43A8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		39FF25232387C8C400B5BD8F /* ImageSlideshow_framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSlideshow_framework.h; sourceTree = "<group>"; };
 		640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DEF5FE0D619C76049D5B05 /* Pods-DemoProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoProject.release.xcconfig"; path = "Target Support Files/Pods-DemoProject/Pods-DemoProject.release.xcconfig"; sourceTree = "<group>"; };
 		C65D32132338FCA6003FE49B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -239,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				395A97EA23D0B0E700552ABE /* Extensions */,
-				39FF25222387C8C400B5BD8F /* ImageSlideshow_framework */,
 				393501452385ABE500282D7B /* Font */,
 			);
 			name = "Protocol + Extension";
@@ -379,15 +377,6 @@
 				39447D412369243800C56BE6 /* WishListViewController.swift */,
 			);
 			name = SideMenu;
-			sourceTree = "<group>";
-		};
-		39FF25222387C8C400B5BD8F /* ImageSlideshow_framework */ = {
-			isa = PBXGroup;
-			children = (
-				39FF25232387C8C400B5BD8F /* ImageSlideshow_framework.h */,
-			);
-			name = ImageSlideshow_framework;
-			path = "../../../Downloads/ImageSlideshow-master/Example/ImageSlideshow_framework";
 			sourceTree = "<group>";
 		};
 		4A10F81444177BF3F0ED2E03 /* Frameworks */ = {
