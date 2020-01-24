@@ -27,6 +27,14 @@ class DataManager {
         self.toggleSwitch = toggleSwitch
     }
     
+    private var haveId: String!
+    
+    func getId() -> String {
+        return haveId
+    }
+    func setId(haveId : String) {
+        self.haveId = haveId
+    }
     
     private var haveImage: UIImage!
     
@@ -98,4 +106,62 @@ class DataManager {
     func getMovieList() -> [Movie] {
         return movieList
     }
+    
+    private var cachedMovies: [String : [Movie]] = [:]
+    private var cachedMovie: [String : MovieDetail] = [:]
+    private let session = URLSession.shared
+    
+    public func fetchData(url: URL, completion: @escaping (Any) -> (), errorHandler: @escaping () -> Void) {
+        
+        session.dataTask(with: url) { [weak self] (data, response, error) in
+            guard let data = data, let self = self else {
+                errorHandler()
+                return
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                
+                DispatchQueue.main.async {
+                    completion(json)
+                }
+            } catch {
+                errorHandler()
+            }
+            
+            DispatchQueue.main.async {
+                print(11)
+            }
+        }.resume()
+    }
+    
+    
+    func fetchMovieDetail(movieId: String, completion: @escaping (MovieDetail) -> Void, errorHandler: @escaping () -> Void) {
+        guard let url: URL = URL(string: ServerURLs.base.rawValue + ServerURLs.movieDetail.rawValue + movieId) else {
+            errorHandler()
+            return
+        }
+        print(url)
+        if let movie = cachedMovie[movieId] {
+            
+            print("movie detail local cache")
+            completion(movie)
+            return
+        }
+        
+        DataManager.sharedManager.fetchData(url: url, completion: { [weak self] (json) in
+            guard let self = self else { return }
+            
+            do {
+                let response = try MovieDetailApiResponse(json: json)
+                
+                self.cachedMovie[movieId] = response.movie
+                
+                completion(response.movie)
+            } catch {
+                errorHandler()
+            }
+        }) { errorHandler() }
+    }
+    
 }

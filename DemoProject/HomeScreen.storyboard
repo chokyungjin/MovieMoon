@@ -47,6 +47,7 @@
                                         <size key="customSize" width="250" height="250"/>
                                         <connections>
                                             <outlet property="imageThumbnail" destination="mCe-u7-CCF" id="pKU-3M-I0z"/>
+                                            <segue destination="82Y-6D-89f" kind="push" id="obf-RB-YRY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -104,7 +105,7 @@
             <objects>
                 <viewController storyboardIdentifier="MovieDetailVC" id="82Y-6D-89f" customClass="MovieDetailViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AWn-M2-6qj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6ba-Ya-mi0"/>

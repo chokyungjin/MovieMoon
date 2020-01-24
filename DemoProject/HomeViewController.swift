@@ -23,16 +23,14 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     //Variables
     var menuTableViewController: MenuTableViewController!
     let dataManager = DataManager.sharedManager
+    
     let baseURL: String = {
         return ServerURLs.base.rawValue
     }()
     
     let movieListCellID: String = "MovieListCell"
     var movies: [Movie] = []
-    var selectedImage: UIImage!
-    var selectedTitle: String!
-    var selectedRating: Double!
-    var selectedDate: String!
+    var movieDetail: MovieDetail?
     
     struct Storyboard {
         static let photoCell = "PhotoCell"
@@ -97,6 +95,36 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let MovieDetailViewController = segue.destination as? MovieDetailViewController else {return}
+        
+        let cell = sender as! MovieCollectionViewCell
+        if let selectedIndex = movieCollectionView.indexPath(for: cell) {
+            let movie = movies[selectedIndex.row]
+            MovieDetailViewController.movieId = movie.id
+            //StickyHeaderLayout에 들어가는 movie.id , RatingImageView는 Cell에서 처리하므로 싱글톤으로 돌려야할듯
+            dataManager.setId(haveId: movie.id)
+            dataManager.setRating(haveRating: movie.userRating)
+            
+            //개선시켜보았으나 Data Loading 과정이 오래걸림 , 애초에  thumbnailImage와 posterImage를 잘 써야할듯
+            //            DataManager.sharedManager.fetchMovieDetail(movieId: movie.id, completion: { [weak self] (movie) in
+            //                 guard let self = self else { return }
+            //                 self.movieDetail = movie
+            //             })
+            //             { self.showAlertController(title: "요청 실패", message: "알 수 없는 네트워크 에러 입니다.") }
+            //            let thumnailImage = UIImageView()
+            //            thumnailImage.imageFromUrl(movieDetail?.image , defaultImgPath: "img_placeholder")
+            //            MovieDetailViewController.imageView = thumnailImage
+            
+            //    기존에 쓰던 방식이지만 thumbanilImage의 화질이 좋지 않음
+            let thumnailImage = UIImageView()
+            thumnailImage.imageFromUrl(movie.thumnailImageURL , defaultImgPath: "img_placeholder")
+            MovieDetailViewController.imageView = thumnailImage
+            
+        }
+    }
+    
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
@@ -218,33 +246,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.imageThumbnail.imageFromUrl(movie.thumnailImageURL, defaultImgPath: "img_placeholder")
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let movie = movies[indexPath.row]
-        let thumnailImage = UIImageView()
-        thumnailImage.imageFromUrl(movie.thumnailImageURL, defaultImgPath: "img_placeholder")
-        self.selectedImage = thumnailImage.image
-        dataManager.setImage(haveImage: self.selectedImage)
-        
-        let movietitle = self.getTitle(title: movie.title)
-        self.selectedTitle = movietitle
-        dataManager.setTitle(haveTitle: self.selectedTitle)
-        
-        let movieRating = self.getRating(rating: movie.userRating)
-        self.selectedRating = movieRating
-        dataManager.setRating(haveRating: self.selectedRating)
-        
-        let movieDate = self.getDate(date: movie.date)
-        self.selectedDate = movieDate
-        dataManager.setDate(haveDate: self.selectedDate)
-        
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
