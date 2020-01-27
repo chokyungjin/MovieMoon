@@ -75,7 +75,7 @@ class DiaryContentSecondCell : UITableViewCell {
         let button = UIButton()
         button.setTitle("Ok", for: .normal)
         button.setTitleColor(.textGray, for: UIControl.State.normal)
-        button.frame = CGRect(x: 0 , y: 635, width: 375 / 2, height: 69.5)
+        button.frame = CGRect(x: 0 , y: 600, width: 375 / 2, height: 69.5)
         return button
     }()
     
@@ -83,7 +83,7 @@ class DiaryContentSecondCell : UITableViewCell {
         let button = UIButton()
         button.setTitle("Cancel", for: .normal)
         button.setTitleColor(.textGray, for: UIControl.State.normal)
-        button.frame = CGRect(x: 375 / 2, y: 635, width: 375 / 2, height: 69.5)
+        button.frame = CGRect(x: 375 / 2, y: 600, width: 375 / 2, height: 69.5)
         return button
     }()
     
@@ -99,8 +99,8 @@ class DiaryContentSecondCell : UITableViewCell {
         self.addSubview(addLabel)
         self.addSubview(CancelButton)
         plusBtn.makeRounded(cornerRadius: nil)
-        OkButton.layer.addBorder([.top , .right], color: .color130, width: 1)
-        CancelButton.layer.addBorder([.top], color: .color130, width: 1)
+        OkButton.layer.addBorder([.top , .right , .bottom], color: .color130, width: 1)
+        CancelButton.layer.addBorder([.top , .bottom], color: .color130, width: 1)
 
         self.addSubview(plusBtn)
         plusBtn.addTarget(self, action: #selector(didClick(_:)), for: .touchUpInside)

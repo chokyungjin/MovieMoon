@@ -6,7 +6,6 @@
 //  Copyright © 2019 조경진. All rights reserved.
 //
 
-// didSelect 해결해야함
 import UIKit
 import Kingfisher
 

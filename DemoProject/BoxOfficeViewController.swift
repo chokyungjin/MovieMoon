@@ -72,7 +72,6 @@ class BoxOfficeViewController: UIViewController,UITextFieldDelegate {
         
         setDefaultMovieOrderType()
         setMovieListTableView()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,6 +84,36 @@ class BoxOfficeViewController: UIViewController,UITextFieldDelegate {
         else {reloadMovieLists()
             let orderType: String = dataManager.getMovieOrderType()
             getMovieList(orderType: orderType)
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let MovieDetailViewController = segue.destination as? MovieDetailViewController else {return}
+        
+        let cell = sender as! MovieListTableViewCell
+        if let selectedIndex = MovieListTableView.indexPath(for: cell) {
+            let movie = movies[selectedIndex.row]
+            MovieDetailViewController.movieId = movie.id
+            //StickyHeaderLayout에 들어가는 movie.id , RatingImageView는 Cell에서 처리하므로 싱글톤으로 돌려야할듯
+            dataManager.setId(haveId: movie.id)
+            dataManager.setRating(haveRating: movie.userRating)
+            
+            //개선시켜보았으나 Data Loading 과정이 오래걸림 , 애초에  thumbnailImage와 posterImage를 잘 써야할듯
+            //            DataManager.sharedManager.fetchMovieDetail(movieId: movie.id, completion: { [weak self] (movie) in
+            //                 guard let self = self else { return }
+            //                 self.movieDetail = movie
+            //             })
+            //             { self.showAlertController(title: "요청 실패", message: "알 수 없는 네트워크 에러 입니다.") }
+            //            let thumnailImage = UIImageView()
+            //            thumnailImage.imageFromUrl(movieDetail?.image , defaultImgPath: "img_placeholder")
+            //            MovieDetailViewController.imageView = thumnailImage
+            
+            //    기존에 쓰던 방식이지만 thumbanilImage의 화질이 좋지 않음
+            let thumnailImage = UIImageView()
+            thumnailImage.imageFromUrl(movie.thumnailImageURL , defaultImgPath: "img_placeholder")
+            MovieDetailViewController.imageView = thumnailImage
+            
         }
     }
     
@@ -102,6 +131,8 @@ class BoxOfficeViewController: UIViewController,UITextFieldDelegate {
             monthtextField.text = "\(month)"    //앞에 0 붙여서 두자리 수 만들어줌
         }
     }
+    
+    
     
 }
 
@@ -263,9 +294,9 @@ extension BoxOfficeViewController: UITableViewDataSource, UITableViewDelegate {
         self.selectedDate = movieDate
         dataManager.setDate(haveDate: self.selectedDate)
         
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
+//        let vc = mainStoryboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailViewController
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
