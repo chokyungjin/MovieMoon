@@ -32,7 +32,7 @@
 
 | Function                    | Implementation | Progressing | Priority |
 | --------------------------- | ------------ | ------------ | ------------ |
-| SignIn / SignUp             | △ | Ing~ |1|
+| SignIn / SignUp             | ⭕️ | Completed , [chokyungjin](https://github.com/chokyungjin) |1|
 | Rating                      | ⭕️            | Completed , [chokyungjin](https://github.com/chokyungjin) |2|
 | Tabbar On Top               | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
 | GradientLayer               | △ | Completed, [chokyungjin](https://github.com/chokyungjin) |2|
@@ -42,15 +42,15 @@
 | Thread Sleep                | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
 | KeyboardConstraint          | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
 | SplashLaunchScreen         | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
-| 로그아웃            | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
+| 로그아웃            | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 닉네임 변경 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 회원탈퇴         | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 프로필사진 업로드 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
+| 프로필사진 업로드 | △      | Ing~ |3|
 | 위시리스트 불러오기 | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 위시리스트 등록 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 위시리스트 삭제   | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 박스오피스 불러오기 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 영화 제목검색     | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
+| 영화 제목검색     | △       | Ing~                                                      |3|
 | 영화 상세검색 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 다이어리 리스트    | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 상세 다이어리 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
