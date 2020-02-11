@@ -49,9 +49,9 @@
 | 위시리스트 불러오기 | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 위시리스트 등록 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 위시리스트 삭제   | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 박스오피스 불러오기 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 영화 제목검색     | △       | Ing~                                                      |3|
-| 영화 상세검색 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
+| 박스오피스 불러오기 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
+| 영화 제목검색     | ⭕️     | Ing~                                                      |3|
+| 영화 상세검색 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 다이어리 리스트    | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 상세 다이어리 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 다이어리 등록   | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
