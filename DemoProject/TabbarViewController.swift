@@ -94,10 +94,6 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         }
         
         if indexPath.row == 1 {
-            self.showProfileVC()
-        }
-        
-        if indexPath.row == 2{
             self.showLogoutVC()
         }
         
@@ -119,12 +115,33 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         guard let revealVc = revealViewController() else {return}
         revealVc.revealToggle(animated: true)
         
+        //logout connection..
         let alert = UIAlertController(title: "로그아웃",
                                       message: "로그아웃 하시겠습니까?",
                                       preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+            let urlString: String = APIConstants.LogoutURL
+            guard let requestURL = URL(string: urlString) else { return }
+            var request = URLRequest(url: requestURL)
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            let session = URLSession.shared
+            let task = session.dataTask(with: request) { (responseData, response, responseError) in
+                print(responseData)
+                guard responseError == nil else { return }
+            }
+            task.resume()
+            
+            UserDefaults.standard.set(nil , forKey: "Nickname")
+            UserDefaults.standard.set(nil , forKey: "Id")
+            UserDefaults.standard.set(nil , forKey: "userId")
+            UserDefaults.standard.set(nil , forKey: "src")
+            UserDefaults.standard.set(nil , forKey: "createdAt")
+            UserDefaults.standard.set(nil , forKey: "updatedAt")
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
@@ -187,16 +204,19 @@ extension TabBarViewController: UITabBarControllerDelegate {
         
     }
     
+    //여기서 영화 추가하는 검색바 화면 만들자
     @objc func addMovie(_ sender: Any) {
         
-        let addAlert = UIAlertController(title: "영화 추가", message: "아 검색하려는 곳으로 가면되지", preferredStyle: .alert)
-        let subview = (addAlert.view.subviews.first?.subviews.first?.subviews.first!)! as UIView
-        subview.backgroundColor = UIColor(red: (104/255.0), green: (104/255.0), blue: (104/255.0), alpha: 1.0)
+        let storyboard = UIStoryboard(name: "DiaryScreen", bundle: nil)
+        let uv = storyboard.instantiateViewController(withIdentifier: "DiarySearchVC")
+        uv.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+        self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
+        self.navigationController?.navigationBar.tintColor = .textGray
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Diary", style: .done, target: nil, action: nil)
+                
+        self.navigationController?.pushViewController(uv, animated: true)
         
-        addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
-            print("검색확인")
-        }))
-        present(addAlert, animated: true, completion: nil)
     }
     
     @objc func changeType(_ sender: Any) {

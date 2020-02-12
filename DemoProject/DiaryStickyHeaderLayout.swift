@@ -37,7 +37,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        createGradient()
+      //  createGradient()
         registerForKeyboardNotifications()
 
     }
@@ -110,7 +110,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! DiaryContentFirstCell
             
             cell.backgroundColor = .blackgroundBlack
-            cell.myRatingLabel.text = "Rate " + String(format:"%.2f", cell.myRatingView.rating) + "점"
+//            cell.myRatingLabel.text = "Rate " + String(format:"%.2f", cell.myRatingView.rating) + "점"
             cell.myRatingLabel.textColor = .textGray
             
             cell.myDateLabel.text = "Date"
@@ -161,12 +161,12 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         //heartBtn.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 60, y: thumbView.frame.origin.y + 130), size: heartBtn.bounds.size)
         
         titleLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 70), size: titleLabel.bounds.size)
-        titleLabel.text = DataManager.sharedManager.getTitle()
+       // titleLabel.text = DataManager.sharedManager.getTitle()
         titleLabel.textColor = .textGray
         
         dateLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 100), size: dateLabel.bounds.size)
         
-        dateLabel.text = "개봉일: " + DataManager.sharedManager.getDate()
+       // dateLabel.text = "개봉일: " + DataManager.sharedManager.getDate()
         dateLabel.textColor = .textGray
         
         
@@ -179,6 +179,7 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
     
     
     func didClickedOk() {
+        //다이어리 post 하는 통신 여기서 하면 됨.
         let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
         
         addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in

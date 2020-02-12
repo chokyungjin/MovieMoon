@@ -17,8 +17,8 @@
 * SwiftyGIF
 * FloatRatingView
 * ImageSlideShow
-* KingFisher (Have to)
-* Alamofire (Have to)
+* KingFisher
+* Alamofire
 
 ---
 
@@ -43,36 +43,36 @@
 | KeyboardConstraint          | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
 | SplashLaunchScreen         | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
 | 로그아웃            | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 닉네임 변경 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 회원탈퇴         | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 프로필사진 업로드 | △      | Ing~ |3|
+| 닉네임 변경 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
+| 회원탈퇴         | △       | △                                                         |3|
+| 프로필사진 업로드 | ⭕️    | Completed, [chokyungjin](https://github.com/chokyungjin)  |3|
 | 위시리스트 불러오기 | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 위시리스트 등록 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 위시리스트 삭제   | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 박스오피스 불러오기 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 영화 제목검색     | ⭕️     | Ing~                                                      |3|
+| 영화 제목검색     | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin)  |3|
 | 영화 상세검색 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 다이어리 리스트    | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 상세 다이어리 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 다이어리 등록   | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 다이어리 이미지 등록 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 다이어리 메모 수정 | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 다이어리 작성 날짜 수정 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 다이어리 사진 수정 | ❌        | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 다이어리 삭제 | ❌       | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
+| 다이어리 리스트    | ❌        | ❌                                                         |3|
+| 상세 다이어리 | ❌       | ❌                                                         |3|
+| 다이어리 등록   | ❌        | ❌                                                         |3|
+| 다이어리 이미지 등록 | ❌       | ❌                                                         |3|
+| 다이어리 메모 수정 | ❌        | ❌                                                         |3|
+| 다이어리 작성 날짜 수정 | ❌       | ❌                                                         |3|
+| 다이어리 사진 수정 | ❌        | ❌                                                         |3|
+| 다이어리 삭제 | ❌       | ❌                                                         |3|
 
 
-* 다이어리 작성 화면(진행 중)
+* ~~다이어리 작성 화면~~
 * ~~박스 오피스 화면~~
 * 추천 화면
-* 상세 설정 화면
+* ~~상세 설정 화면~~
 * ~~햄버거 메뉴 클릭시 이전 뷰 터치 비할성화~~
 * ~~포토 슬라이드~~
 * ~~외부 font import~~
 * ~~Extension+Color, UIView, UITextField~~
 * ~~StickyHeaderLayout~~
 * ~~LaunchScreen Using GIF~~
-* Gradient Layer 
+* Gradient Layer △
 
 ---
 ## Reference

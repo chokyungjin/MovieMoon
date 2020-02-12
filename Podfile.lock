@@ -9,6 +9,7 @@ PODS:
   - Kingfisher (5.10.1):
     - Kingfisher/Core (= 5.10.1)
   - Kingfisher/Core (5.10.1)
+  - lottie-ios (3.1.5)
   - PagingCollectionViewLayout (0.0.2)
   - SwiftGifOrigin (1.7.0)
   - SwiftyGif (5.2.0)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - FloatRatingView (~> 4)
   - ImageSlideshow (~> 1.8.1)
   - Kingfisher (~> 5.0)
+  - lottie-ios
   - PagingCollectionViewLayout
   - SwiftGifOrigin (~> 1.7.0)
   - SwiftyGif
@@ -30,6 +32,7 @@ SPEC REPOS:
     - FloatRatingView
     - ImageSlideshow
     - Kingfisher
+    - lottie-ios
     - PagingCollectionViewLayout
     - SwiftGifOrigin
     - SwiftyGif
@@ -40,10 +43,11 @@ SPEC CHECKSUMS:
   FloatRatingView: bb6bdddfbeec51b1d387b4bd50abc27b4dfccd48
   ImageSlideshow: 634865d7d4e96f21e3830a31b51bde768cc94cea
   Kingfisher: eb36b7dfcc78d60877051c92c119a2865972961a
+  lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
   PagingCollectionViewLayout: cd56e5bcdf084d4296c0c07ec2203d0d6de96ecf
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
 
-PODFILE CHECKSUM: 644ee02313011fc11f24d17dc188a697bae0b86f
+PODFILE CHECKSUM: ad4de7ed51401acfffc17dc9198b37bcf9df55d1
 
 COCOAPODS: 1.8.4

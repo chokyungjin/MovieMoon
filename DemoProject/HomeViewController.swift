@@ -20,7 +20,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var hometitle: UILabel!
     
     //Variables
-    var menuTableViewController: MenuTableViewController!
     let dataManager = DataManager.sharedManager
     
     let baseURL: String = {
@@ -30,6 +29,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     let movieListCellID: String = "MovieListCell"
     var movies: [Movie] = []
     var movieDetail: MovieDetail?
+    var movieSearchData: [SearchTitleModel] = []
     
     struct Storyboard {
         static let photoCell = "PhotoCell"
@@ -41,6 +41,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     //init
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         movieCollectionView.translatesAutoresizingMaskIntoConstraints = false
         movieCollectionView.showsHorizontalScrollIndicator = false
         movieCollectionView.decelerationRate = .fast
@@ -60,6 +61,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         setMovieListCollectionView()
         self.searchBar.delegate = self
         searchBar.accessibilityAttributedHint = NSAttributedString(string: "영화, 배우, 감독으로 검색", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        searchBar.searchTextField.textColor = UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)
         
         //addObserver
         NotificationCenter.default.addObserver(self,
@@ -83,7 +85,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
+
         if dataManager.getDidOrderTypeChangedAndDownloaded() {
             reloadMovieLists()
         }
@@ -101,7 +103,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         let cell = sender as! MovieCollectionViewCell
         if let selectedIndex = movieCollectionView.indexPath(for: cell) {
             let movie = movies[selectedIndex.row]
-            MovieDetailViewController.movieId = movie.id
+            //  MovieDetailViewController.movieId = movie.id
             //StickyHeaderLayout에 들어가는 movie.id , RatingImageView는 Cell에서 처리하므로 싱글톤으로 돌려야할듯
             dataManager.setId(haveId: movie.id)
             dataManager.setRating(haveRating: movie.userRating)
@@ -122,6 +124,10 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
             MovieDetailViewController.imageView = thumnailImage
             
         }
+        
+        
+        
+        
     }
     
     
@@ -136,15 +142,46 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("search text:" , self.searchBar.text!)
         
-        let refreshAlert = UIAlertController(title: "검색결과", message: self.searchBar.text!, preferredStyle: .alert)
+        SearchService.shared.titleSearch(self.searchBar.text!) {
+            data in
+            
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                // DataClass 에서 받은 유저 정보 반환
+                self.movieSearchData = data as! [SearchTitleModel]
+                //                print(self.movieSearchData)
+                
+                
+                let storyboard = UIStoryboard(name: "HomeScreen", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "SearchVC") as! MovieSearchViewController
+                
+                vc.movieSearchData = self.movieSearchData
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            case .requestErr(let message):
+                self.simpleAlert(title: "검색 실패", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
         
-        refreshAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
-            print("검색확인")
-            self.searchBar.showsCancelButton = false
-            self.searchBar.text = ""
-            self.searchBar.resignFirstResponder()
-        }))
-        present(refreshAlert, animated: true, completion: nil)
+        self.searchBar.showsCancelButton = false
+        self.searchBar.text = ""
+        self.searchBar.resignFirstResponder()
+        
     }
     
     

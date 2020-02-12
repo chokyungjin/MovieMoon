@@ -27,16 +27,17 @@ class MovieDetailViewController: UIViewController {
     }
     
     //Vars..
-    var movieId: String?
+    var movieId: Int?
     var movies: [Movie] = []
     var movieDetail: MovieDetail?
-    
+    var movieDetailData: SearchDetailModel!
     var thumbView: UIImageView!
     var heartBtn: UIButton!
     var imageView: UIImageView!
     var titleLabel: UILabel!
     var dateLabel: UILabel!
     var imageSlideView: ImageSlideshow!
+    let pageControl = UIPageControl()
     
     var models = [Model(image: UIImage(named: "img2")! , title: "First image"), Model(image: UIImage(named: "img2")!, title: "Second image"), Model(image: UIImage(named: "img3")!, title: "Third image"), Model(image: UIImage(named: "img4")!, title: "Fourth image")]
     
@@ -47,78 +48,43 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         self.addChild(myTable)
         view.addSubview(myTable.tableView)
-        fetchMovie()
-        
-        models[0].image = imageView.image!
-        
-        let imageSlideView = ImageSlideshow()
-        imageSlideView.slideshowInterval = 0
-        imageSlideView.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
-        imageSlideView.contentScaleMode = UIViewContentMode.scaleToFill
-        
-        let pageControl = UIPageControl()
-        pageControl.currentPageIndicatorTintColor = UIColor.lightGray
-        pageControl.pageIndicatorTintColor = UIColor.black
-        imageSlideView.pageIndicator = pageControl
-        
-        imageSlideView.activityIndicator = DefaultActivityIndicator()
-        imageSlideView.delegate = self
-        imageSlideView.setImageInputs(models.map { $0.inputSource })
-        imageSlideView.frame = CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: self.view.frame.height / 2.8))
-        
-        
-        view.addSubview(imageSlideView)
-        
-        thumbView = UIImageView(image: imageView.image)
-        thumbView.contentMode = .scaleAspectFit
-        thumbView.clipsToBounds = true
-        view.addSubview(thumbView)
-        
-        heartBtn = UIButton(type: .custom)
-        let image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
-        heartBtn.setImage(image, for: .normal)
-        heartBtn.tintColor = .white
-        heartBtn.contentMode = .scaleAspectFit
-        heartBtn.bounds.size = CGSize(width: 30, height: 30)
-        heartBtn.isSelected = false
-        heartBtn.addTarget(self, action: #selector(heartClick), for: .touchUpInside)
-        view.addSubview(heartBtn)
-        
-        titleLabel = UILabel()
-        titleLabel.bounds.size = CGSize(width: 200, height: 30)
-        view.addSubview(titleLabel)
-        
-        dateLabel = UILabel()
-        dateLabel.bounds.size = CGSize(width: 200, height: 30)
-        view.addSubview(dateLabel)
-        
-        myTable.imageSlideView = imageSlideView
-        myTable.thumbView = thumbView
-        myTable.heartBtn = heartBtn
-        myTable.titleLabel = titleLabel
-        myTable.dateLabel = dateLabel
-        
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(MovieDetailViewController.didTap))
-        imageSlideView.addGestureRecognizer(recognizer)
-        
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        movieId = DataManager.sharedManager.getId()
-    }
-    
-    func fetchMovie() {
-        guard let movieId = movieId else { return }
-        DataManager.sharedManager.fetchMovieDetail(movieId: movieId, completion: { [weak self] (movie) in
-            guard let self = self else { return }
-            self.movieDetail = movie
-            self.myTable.movieDetail = self.movieDetail
+        SearchService.shared.detailSearch(movieId!) {
+            data in
             
-            })
-        {
-            self.showAlertController(title: "요청 실패", message: "알 수 없는 네트워크 에러 입니다.") }
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                // DataClass 에서 받은 유저 정보 반환
+                self.movieDetailData = data as! SearchDetailModel
+                self.myTable.movieDetailData = self.movieDetailData
+                print("!!!!!!!!!!!!!")
+                print(self.movieDetailData)
+                print("!!!!!!!!!!!!!")
+                self.UICall()
+                
+                
+            case .requestErr(let message):
+                self.simpleAlert(title: "검색 실패", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
+        
+        
+        
     }
     
     @objc func heartClick(sender: UIButton) {
@@ -155,6 +121,65 @@ class MovieDetailViewController: UIViewController {
         let fullScreenController = imageSlideView.presentFullScreenController(from: self)
         
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+    }
+    
+    func UICall() {
+        let thumnailImage = UIImageView()
+        thumnailImage.imageFromUrl(movieDetailData?.poster , defaultImgPath: "img_placeholder")
+        self.imageView = thumnailImage
+        self.models[0].image = self.imageView.image!
+        
+        let imageSlideView = ImageSlideshow()
+        imageSlideView.slideshowInterval = 0
+        imageSlideView.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
+        imageSlideView.contentScaleMode = UIViewContentMode.scaleToFill
+        
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = UIColor.lightGray
+        pageControl.pageIndicatorTintColor = UIColor.black
+        imageSlideView.pageIndicator = pageControl
+        
+        imageSlideView.activityIndicator = DefaultActivityIndicator()
+        imageSlideView.delegate = self
+        imageSlideView.setImageInputs(self.models.map { $0.inputSource })
+        imageSlideView.frame = CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: self.view.frame.height / 3))
+        
+        view.addSubview(imageSlideView)
+        
+        //여기서 imageView가 nil이다
+ 
+        thumbView = UIImageView(image: imageView.image)
+        thumbView.contentMode = .scaleAspectFit
+        thumbView.clipsToBounds = false
+        view.addSubview(thumbView)
+        
+        heartBtn = UIButton(type: .custom)
+        let image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
+        heartBtn.setImage(image, for: .normal)
+        heartBtn.tintColor = .white
+        heartBtn.contentMode = .scaleAspectFit
+        heartBtn.bounds.size = CGSize(width: 30, height: 30)
+        heartBtn.isSelected = false
+        heartBtn.addTarget(self, action: #selector(heartClick), for: .touchUpInside)
+        view.addSubview(heartBtn)
+        
+        titleLabel = UILabel()
+        titleLabel.bounds.size = CGSize(width: 200, height: 30)
+        view.addSubview(titleLabel)
+        
+        dateLabel = UILabel()
+        dateLabel.bounds.size = CGSize(width: 200, height: 30)
+        view.addSubview(dateLabel)
+        
+        myTable.imageSlideView = imageSlideView
+        myTable.thumbView = thumbView
+        myTable.heartBtn = heartBtn
+        myTable.titleLabel = titleLabel
+        myTable.dateLabel = dateLabel
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(MovieDetailViewController.didTap))
+        imageSlideView.addGestureRecognizer(recognizer)
+        
     }
     
 }

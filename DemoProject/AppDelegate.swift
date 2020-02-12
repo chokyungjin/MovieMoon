@@ -46,9 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let setting = UIUserNotificationSettings(types: [.alert , .badge , .sound], categories: nil)
         application.registerUserNotificationSettings(setting)
         
-//        window = UIWindow()
-//        window?.makeKeyAndVisible()
-//        window?.rootViewController = ContainerViewController()
         return true
     }
 

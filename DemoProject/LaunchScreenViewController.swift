@@ -8,11 +8,12 @@
 
 import UIKit
 import SwiftyGif
+import Lottie
 
 class LaunchScreenViewController : UIViewController {
     
     //IBO...
-    @IBOutlet weak var loadingImage: UIImageView!
+    @IBOutlet weak var loadingImage: LottieView!
     
     
     //vars..
@@ -25,15 +26,28 @@ class LaunchScreenViewController : UIViewController {
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let image = try? UIImage(imageName: gifName) {
-            self.loadingImage.setImage(image, manager: gifManager)
-        } else { self.loadingImage.clear() }
-        
-        self.loadingImage.startAnimatingGif()
+        startAnimation()
+
+//        if let image = try? UIImage(imageName: gifName) {
+//            self.loadingImage.setImage(image, manager: gifManager)
+//        } else { self.loadingImage.clear() }
+//
+//        self.loadingImage.startAnimatingGif()
         
         ticktok()
     }
+    
+    func startAnimation() {
+        let animationView = Lottie.AnimationView(name:"moviemoonsplash")
+        
+        animationView.frame = CGRect(x:0, y:0, width:375, height:812)
+        animationView.center = self.view.center
+        animationView.contentMode = .scaleToFill
+        
+        loadingImage.addSubview(animationView)
+        animationView.play()
+    }
+    
     
     func ticktok(){
         if let timer = mTimer {
@@ -49,20 +63,36 @@ class LaunchScreenViewController : UIViewController {
         }
     }
     
-    @objc func timerCallback(){
-        number += 1
-        if number == 3 {
-            //Thread.sleep(forTimeInterval: 1) //1초만 재우기
-            loadingImage.stopAnimatingGif()
-            
-            loadingImage.removeFromSuperview()
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
-            
+    //for GIF...
+//    @objc func timerCallback(){
+//        number += 1
+//        if number == 3 {
+//            //Thread.sleep(forTimeInterval: 1) //1초만 재우기
+//            loadingImage.stopAnimatingGif()
+//
+//            loadingImage.removeFromSuperview()
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+//            vc.modalPresentationStyle = .fullScreen
+//            self.present(vc, animated: true, completion: nil)
+//
+//        }
+//    }
+    
+    //for Lottie...
+     @objc func timerCallback(){
+            number += 1
+        if number == 3{
+                //Thread.sleep(forTimeInterval: 1) //1초만 재우기
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+//                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                
+            }
         }
-    }
     
 }

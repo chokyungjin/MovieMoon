@@ -10,10 +10,6 @@ import UIKit
 
 class movieContentCell : UITableViewCell {
     
-    //var titleLabel: UILabel?
-    var yearLabel: UILabel?
-   // var plotField: UITextView?
-    
     var plotField: UITextView = {
         let label = UITextView()
         label.textColor = .black

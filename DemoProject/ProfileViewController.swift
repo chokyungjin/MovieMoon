@@ -72,11 +72,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "이름"
-            cell.detailTextLabel?.text = "조경진"
+            cell.detailTextLabel?.text = UserDefaults.standard.value(forKey: "Nickname") as! String
             
-        case 1:
-            cell.textLabel?.text = "계정"
-            cell.detailTextLabel?.text = "chokj1472@gmail.com"
+//        case 1:
+//            cell.textLabel?.text = "계정"
+//            cell.detailTextLabel?.text = "chokj1472@gmail.com"
             
         default:
             ()

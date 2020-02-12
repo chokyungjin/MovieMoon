@@ -12,8 +12,8 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     
     var count : Int = 0
-
-   //IBOutlet..
+    
+    //IBOutlet..
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
@@ -23,10 +23,10 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var CancelBut: UIButton!
     
     //SignUp_Check_Func..
-     func validate1(text: String) -> Bool {
+    func validate1(text: String) -> Bool {
         return text != ""
     }
-     func validate2(text: String) -> Bool {
+    func validate2(text: String) -> Bool {
         return text != ""
     }
     func validate3(text: String) -> Bool {
@@ -86,10 +86,10 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBAction func nickNameInput(_ sender: UITextField) {
         
         if validate2(text: sender.text!){
-                   count += 1
-                   print(count)
-                   
-               }
+            count += 1
+            print(count)
+            
+        }
     }
     
     @IBAction func idInput(_ sender: UITextField) {
@@ -98,7 +98,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             print(count)
         }
     }
-   
+    
     @IBAction func pwInput(_ sender: UITextField) {
         if validate4(text: sender.text!){
             count += 1
@@ -107,12 +107,12 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         }
         if count >= 3 && nickNameTextField.text != "" {
             
-            SignUpBut.backgroundColor = .ceruleanBlue
         }
     }
     
     @IBAction func passwordCheck(_ sender: UITextField) {
         if validate5(text: sender.text!) && pwCheckTextField.text == pwTextField.text {
+            SignUpBut.backgroundColor = .ceruleanBlue
             count += 1
             print("Ask and Go to the Blue!")
             SignUpBut.isEnabled = true
@@ -120,12 +120,41 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func SignUp(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
         
-//        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController {
-//            self.present(vc, animated: true, completion: nil)   // 식별자 가르키는 곳으로 이동
-//        }
-    
+        guard let id = idTextField.text else {return}
+        guard let pw = pwTextField.text else {return}
+        guard let nickname = nickNameTextField.text else {return}
+        
+        AuthService.shared.signup(id, pw, nickname) {
+            data in
+            
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                let user_data = data
+                print(user_data)
+                self.dismiss(animated: true, completion: nil)
+                
+            case .requestErr(let message):
+                self.simpleAlert(title: "이미 존재하는 아이디입니다.", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
+        
+        
+        
     }
     @IBAction func CancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -157,5 +186,5 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         return true
     }
-
+    
 }

@@ -23,16 +23,14 @@ class BoxOfficeViewController: UIViewController,UITextFieldDelegate {
     let yearPickerView:UIDatePicker = UIDatePicker()    //데이트피커로 객체 선언
     let monthPickerView: UIDatePicker = UIDatePicker()
     let movieListCellID: String = "MovieListCell"
-    var movies: [Movie] = []
+    var boxOffices: [BoxOfficeModel] = []
     let dataManager = DataManager.sharedManager
     
-    let baseURL: String = {
-        return ServerURLs.base.rawValue
-    }()
     var selectedImage: UIImage!
     var selectedTitle: String!
     var selectedRating: Double!
     var selectedDate: String!
+    
     
     struct Storyboard {
         static let photoCell = "PhotoCell"
@@ -68,64 +66,72 @@ class BoxOfficeViewController: UIViewController,UITextFieldDelegate {
         
         //2014년 부터 시작
         yearPickerView.minimumDate = Calendar.current.date(byAdding: .year, value: -13, to: Date())
-        yearPickerView.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
-        
-        setDefaultMovieOrderType()
+        //올해 -1 까지 maximum으로 잡음
+        yearPickerView.maximumDate = Calendar.current.date(byAdding: .year, value: -1, to: Date())        
         setMovieListTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        
-        if dataManager.getDidOrderTypeChangedAndDownloaded() {
-            reloadMovieLists()
-        }
-        else {reloadMovieLists()
-            let orderType: String = dataManager.getMovieOrderType()
-            getMovieList(orderType: orderType)
-        }
     }
     
-    
+    //이쪽에서 넘어갈때 id 와 moveid가 달라서 데이터가 잘못 넘어가는데 이 부분을 수정이 필요하긴함
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let MovieDetailViewController = segue.destination as? MovieDetailViewController else {return}
         
         let cell = sender as! MovieListTableViewCell
+        
         if let selectedIndex = MovieListTableView.indexPath(for: cell) {
-            let movie = movies[selectedIndex.row]
-            MovieDetailViewController.movieId = movie.id
-            //StickyHeaderLayout에 들어가는 movie.id , RatingImageView는 Cell에서 처리하므로 싱글톤으로 돌려야할듯
-            dataManager.setId(haveId: movie.id)
-            dataManager.setRating(haveRating: movie.userRating)
+            MovieDetailViewController.movieId = boxOffices[selectedIndex.row].id
             
-            //개선시켜보았으나 Data Loading 과정이 오래걸림 , 애초에  thumbnailImage와 posterImage를 잘 써야할듯
-            //            DataManager.sharedManager.fetchMovieDetail(movieId: movie.id, completion: { [weak self] (movie) in
-            //                 guard let self = self else { return }
-            //                 self.movieDetail = movie
-            //             })
-            //             { self.showAlertController(title: "요청 실패", message: "알 수 없는 네트워크 에러 입니다.") }
-            //            let thumnailImage = UIImageView()
-            //            thumnailImage.imageFromUrl(movieDetail?.image , defaultImgPath: "img_placeholder")
-            //            MovieDetailViewController.imageView = thumnailImage
-            
-            //    기존에 쓰던 방식이지만 thumbanilImage의 화질이 좋지 않음
-            let thumnailImage = UIImageView()
-            thumnailImage.imageFromUrl(movie.thumnailImageURL , defaultImgPath: "img_placeholder")
-            MovieDetailViewController.imageView = thumnailImage
             
         }
     }
     
     @objc func yearPickerValueChanged(sender:UIDatePicker) {
-        //날짜 바뀌면 쓰는 메소드
+        //연도 바뀌면 쓰는 메소드
+        //여기서 연도별 박스오피스 통신을 여기서 해야할듯
         let componenets = Calendar.current.dateComponents([.year], from: sender.date)
         if let year = componenets.year {
             yeartextField.text = "\(year)"
         }
+        guard let temp = yeartextField.text else { return }
+        SearchService.shared.boxOfficeSearch(Int(temp)!) {
+            data in
+            
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                // DataClass 에서 받은 유저 정보 반환
+                self.boxOffices = data as! [BoxOfficeModel]
+                self.MovieListTableView.reloadData()
+                
+                //print(self.boxOffices)
+                
+            case .requestErr(let message):
+                self.simpleAlert(title: "검색 실패", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
+        
+        
     }
     @objc func monthPickerValueChanged(sender:UIDatePicker) {
-        //날짜 바뀌면 쓰는 메소드
+        
+        //달이 바뀌면 쓰는 메소드
         let componenets = Calendar.current.dateComponents([.month], from: sender.date)
         if let month = componenets.month {
             monthtextField.text = "\(month)"    //앞에 0 붙여서 두자리 수 만들어줌
@@ -143,91 +149,6 @@ extension BoxOfficeViewController {
         MovieListTableView.dataSource = self
     }
     
-    func setDefaultMovieOrderType() {
-        let orderType: String = "0"
-        dataManager.setMovieOrderType(orderType: orderType)
-    }
-    func reloadMovieLists() {
-        self.movies = dataManager.getMovieList()
-        DispatchQueue.main.async {
-            self.MovieListTableView.reloadData()
-        }
-    }
-    func getMovieList(orderType: String) {
-        
-        let url: String = baseURL + ServerURLs.movieList.rawValue + orderType
-        
-        guard let finalURL = URL(string: url) else {
-            return
-        }
-        
-        let session = URLSession(configuration: .default)
-        let request = URLRequest(url: finalURL)
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            guard let resultData = data else {
-                return
-            }
-            
-            do {
-                print("Success")
-                let movieLists: ListResponse  = try JSONDecoder().decode(ListResponse.self, from: resultData)
-                
-                self.dataManager.setMovieList(list: movieLists.results)
-                self.dataManager.setDidOrderTypeChangedAndDownloaded(true)
-                self.reloadMovieLists()
-            }
-            catch let error {
-                print(error.localizedDescription)
-            }
-            
-        }
-        
-        task.resume()
-    }
-    
-    func getThumnailImage(withURL thumnailURL: String) -> UIImage? {
-        guard let imageURL = URL(string: thumnailURL) else {
-            return UIImage(named: "img_placeholder")
-        }
-        
-        guard let imageData: Data = try? Data(contentsOf: imageURL) else {
-            return UIImage(named: "img_placeholder")
-        }
-        
-        return UIImage(data: imageData)
-    }
-    
-    func getGradeImage(grade: Int) -> UIImage? {
-        switch grade {
-        case 0:
-            return UIImage(named: "ic_allages")
-        case 12:
-            return UIImage(named: "ic_12")
-        case 15:
-            return UIImage(named: "ic_15")
-        case 19:
-            return UIImage(named: "ic_19")
-        default:
-            return nil
-        }
-    }
-    func getTitle(title: String) -> String? {
-        return title
-    }
-    func getRating(rating: Double) -> Double? {
-        return rating
-    }
-    func getDate(date: String) -> String? {
-        return date
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
@@ -238,66 +159,45 @@ extension BoxOfficeViewController {
 extension BoxOfficeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(movies.count)
-        return movies.count
+        return boxOffices.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height / 5
+        return 160
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieListTableViewCell = tableView.dequeueReusableCell(withIdentifier: movieListCellID) as! MovieListTableViewCell
         
         
-        let movie = movies[indexPath.row]
         
-        cell.backgroundColor = .blackgroundBlack
-        cell.selectionStyle = .none
-        
-        cell.CountLabel.text = "\(indexPath.row + 1)."
-        cell.CountLabel.textColor = .textGray
-        
-        cell.TitleLabel.text = movie.title
-        cell.TitleLabel.textColor = .textGray
-        cell.DateLabel.text = "개봉일 : " + movie.date
-        cell.DateLabel.textColor = .textGray
-        
-        let rateString = "평점 : \(movie.userRating) 예매순위 : \(movie.reservationGrade) 예매율 : \(movie.reservationRate)"
-        cell.RatingsLabel.text = rateString
-        cell.RatingsLabel.textColor = .textGray
-        
-        let gradeIamge = getGradeImage(grade: movie.grade)
-        cell.GradeImageView.image = gradeIamge
-        
-        cell.ThumnailImageView.imageFromUrl(movie.thumnailImageURL, defaultImgPath: "img_placeholder")
+        if boxOffices.isEmpty {
+            cell.CountLabel.text = ""
+            cell.TitleLabel.text = ""
+            cell.DateLabel.text = ""
+            cell.ThumnailImageView.image = #imageLiteral(resourceName: "img_placeholder")
+        }
             
+        else {
+            let movie = boxOffices[indexPath.row]
+            cell.backgroundColor = .blackgroundBlack
+            cell.selectionStyle = .none
+            
+            cell.CountLabel.text = "\(indexPath.row + 1)."
+            cell.CountLabel.textColor = .textGray
+            
+            cell.TitleLabel.text = movie.korTitle
+            cell.TitleLabel.textColor = .textGray
+            cell.DateLabel.text = "개봉일 : " + movie.releaseData
+            cell.DateLabel.textColor = .textGray
+            
+            //       let rateString = "평점 : \(movie.userRating) 예매순위 : \(movie.reservationGrade) 예매율 : \(movie.reservationRate)"
+            cell.RatingsLabel.text = String(describing: movie.ranking) + "위"
+            cell.RatingsLabel.textColor = .textGray
+            
+            cell.ThumnailImageView.imageFromUrl(movie.poster, defaultImgPath: "img_placeholder")
+        }
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let movie = movies[indexPath.row]
-        let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
-        self.selectedImage = thumnailImage
-        dataManager.setImage(haveImage: self.selectedImage)
-        
-        let movietitle = self.getTitle(title: movie.title)
-        self.selectedTitle = movietitle
-        dataManager.setTitle(haveTitle: self.selectedTitle)
-        
-        let movieRating = self.getRating(rating: movie.userRating)
-        self.selectedRating = movieRating
-        dataManager.setRating(haveRating: self.selectedRating)
-        
-        let movieDate = self.getDate(date: movie.date)
-        self.selectedDate = movieDate
-        dataManager.setDate(haveDate: self.selectedDate)
-        
-//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "HomeScreen", bundle: nil)
-//        let vc = mainStoryboard.instantiateViewController(withIdentifier: "MovieDetailVC") as! MovieDetailViewController
-//        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qJ5-YH-RLp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qJ5-YH-RLp">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,37 +35,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Moon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smf-XN-4dF">
-                                <rect key="frame" x="60" y="360" width="255" height="53"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Smf-XN-4dF" secondAttribute="height" multiplier="255:53" id="X7N-Ud-thI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
-                                <color key="textColor" red="0.76079469919999998" green="0.76076573130000003" blue="0.76078540090000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xqj-iX-pXG">
-                                <rect key="frame" x="122" y="230" width="130" height="130"/>
-                                <color key="backgroundColor" red="0.15686541800000001" green="0.15685787800000001" blue="0.156863004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="xqj-iX-pXG" secondAttribute="height" multiplier="1:1" id="LME-j9-ccl"/>
-                                </constraints>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-3l-Cfa" customClass="LottieView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.15686541800000001" green="0.15685787800000001" blue="0.156863004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="xqj-iX-pXG" firstAttribute="top" secondItem="Oxg-Hq-igG" secondAttribute="top" constant="230" id="0fQ-vn-NWp"/>
-                            <constraint firstItem="Oxg-Hq-igG" firstAttribute="trailing" secondItem="Smf-XN-4dF" secondAttribute="trailing" constant="60" id="38C-d2-Jdb"/>
-                            <constraint firstItem="xqj-iX-pXG" firstAttribute="leading" secondItem="Oxg-Hq-igG" secondAttribute="leading" constant="122" id="93K-3P-9WN"/>
-                            <constraint firstItem="Oxg-Hq-igG" firstAttribute="bottom" secondItem="Smf-XN-4dF" secondAttribute="bottom" constant="254" id="AV6-lx-bN2"/>
-                            <constraint firstItem="Smf-XN-4dF" firstAttribute="top" secondItem="xqj-iX-pXG" secondAttribute="bottom" id="GEe-QS-daL"/>
-                            <constraint firstItem="Oxg-Hq-igG" firstAttribute="trailing" secondItem="xqj-iX-pXG" secondAttribute="trailing" constant="123" id="XA8-96-UTt"/>
-                            <constraint firstItem="Smf-XN-4dF" firstAttribute="leading" secondItem="Oxg-Hq-igG" secondAttribute="leading" constant="60" id="jRt-pM-vqb"/>
+                            <constraint firstItem="Mvl-3l-Cfa" firstAttribute="leading" secondItem="Oxg-Hq-igG" secondAttribute="leading" id="WF8-Lp-SUO"/>
+                            <constraint firstItem="Mvl-3l-Cfa" firstAttribute="bottom" secondItem="Oxg-Hq-igG" secondAttribute="bottom" id="Xwq-me-0Pe"/>
+                            <constraint firstItem="Mvl-3l-Cfa" firstAttribute="top" secondItem="Oxg-Hq-igG" secondAttribute="top" id="cOV-wf-Uf3"/>
+                            <constraint firstItem="Mvl-3l-Cfa" firstAttribute="trailing" secondItem="Oxg-Hq-igG" secondAttribute="trailing" id="r9D-zI-Amy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oxg-Hq-igG"/>
                     </view>
                     <connections>
-                        <outlet property="loadingImage" destination="xqj-iX-pXG" id="AB4-NP-r9I"/>
+                        <outlet property="loadingImage" destination="Mvl-3l-Cfa" id="R2n-eH-fI5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLc-kk-oY1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

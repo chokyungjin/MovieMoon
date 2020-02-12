@@ -39,10 +39,60 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func LoginBut(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "RootVC") as! RootViewController
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        
+        guard let id = idTextField.text else {return}
+        guard let pw = pwTextField.text else {return}
+        
+        AuthService.shared.login("cho", "0000") {
+            data in
+            
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                // DataClass 에서 받은 유저 정보 반환
+                // let user_data = data as! DataClass
+                let user_data = data as! LoginModel
+
+                UserDefaults.standard.set(user_data.nickname , forKey: "Nickname")
+                UserDefaults.standard.set(user_data.id , forKey: "Id")
+                UserDefaults.standard.set(user_data.userId , forKey: "userId")
+                UserDefaults.standard.set(user_data.src , forKey: "src")
+                UserDefaults.standard.set(user_data.createdAt , forKey: "createdAt")
+                UserDefaults.standard.set(user_data.updatedAt , forKey: "updatedAt")
+                
+                print("-----------")
+                print(UserDefaults.standard.value(forKey: "Nickname"))
+                print(UserDefaults.standard.value(forKey: "Id"))
+                print(UserDefaults.standard.value(forKey: "userId"))
+                print(UserDefaults.standard.value(forKey: "src"))
+                print(UserDefaults.standard.value(forKey: "createdAt"))
+                print(UserDefaults.standard.value(forKey: "updatedAt"))
+                print("-----------")
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "RootVC") as! RootViewController
+                
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
+                
+            case .requestErr(let message):
+                self.simpleAlert(title: "로그인 실패", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
+        
         
     }
     
@@ -52,7 +102,7 @@ class LoginViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.show(vc, sender: nil)
     }
-  
+    
     @IBAction func loginKakao(_ sender : UIButton){
         let session = KOSession.shared()
         
