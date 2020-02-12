@@ -11,8 +11,6 @@ import Kingfisher
 
 class HomeViewController: UIViewController,UISearchBarDelegate {
     
-    
-    
     //IB
     @IBOutlet weak var movieCollectionView: UICollectionView!
     @IBOutlet weak var homeBoxofficeLabel: UILabel!
@@ -30,6 +28,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     var movies: [Movie] = []
     var movieDetail: MovieDetail?
     var movieSearchData: [SearchTitleModel] = []
+    var expectationList: [WishListModel] = []
     
     struct Storyboard {
         static let photoCell = "PhotoCell"
@@ -85,16 +84,8 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        setMovielistCollectionView()
 
-        if dataManager.getDidOrderTypeChangedAndDownloaded() {
-            reloadMovieLists()
-        }
-        else {
-            reloadMovieLists()
-            let orderType: String = dataManager.getMovieOrderType()
-            getMovieList(orderType: orderType)
-        }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -125,11 +116,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
             
         }
         
-        
-        
-        
     }
-    
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
@@ -184,81 +171,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         
     }
     
-    
-    func getMovieList(orderType: String) {
-        let url: String = baseURL + ServerURLs.movieList.rawValue + orderType
-        guard let finalURL = URL(string: url) else {
-            return
-        }
-        
-        let session = URLSession(configuration: .default)
-        let request = URLRequest(url: finalURL)
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            guard let resultData = data else {
-                return
-            }
-            
-            do {
-                print("Success")
-                let movieLists: ListResponse  = try JSONDecoder().decode(ListResponse.self, from: resultData)
-                
-                self.dataManager.setMovieList(list: movieLists.results)
-                self.dataManager.setDidOrderTypeChangedAndDownloaded(true)
-                self.reloadMovieLists()
-            }
-            catch let error {
-                print(error.localizedDescription)
-            }
-            
-        }
-        
-        task.resume()
-    }
-    
-    func reloadMovieLists() {
-        self.movies = dataManager.getMovieList()
-        DispatchQueue.main.async {
-            self.movieCollectionView.reloadData()
-        }
-    }
-    
-    func getTitle(title: String) -> String? {
-        return title
-    }
-    func getRating(rating: Double) -> Double? {
-        return rating
-    }
-    func getDate(date: String) -> String? {
-        return date
-    }
-    
-    func getGradeImage(grade: Int) -> UIImage? {
-        switch grade {
-        case 0:
-            return UIImage(named: "ic_allages")
-        case 12:
-            return UIImage(named: "ic_12")
-        case 15:
-            return UIImage(named: "ic_15")
-        case 19:
-            return UIImage(named: "ic_19")
-        default:
-            return nil
-        }
-    }
-    
-    func setDefaultMovieOrderType() {
-        let orderType: String = "0"
-        dataManager.setMovieOrderType(orderType: orderType)
-    }
-    
     func setMovieListCollectionView() {
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
@@ -268,29 +180,75 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    func setMovielistCollectionView() {
+        
+        movieCollectionView.delegate = self
+        movieCollectionView.dataSource = self
+        
+//        let collectionViewWidth = (collectionView?.frame.width)!
+//        let itemWidth = ((collectionViewWidth - Storyboard.leftAndRightPaddings * 2 ) / Storyboard.numberOfItemsPerRow )
+//
+//        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.itemSize = CGSize(width: itemWidth, height: 200)
+        
+        
+        WishListService.shared.getWishList() {
+            data in
+            
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                // DataClass 에서 받은 유저 정보 반환
+                self.expectationList = data as! [WishListModel]
+                print("????????????")
+                print(self.expectationList)
+                print("????????????")
+                self.movieCollectionView.reloadData()
+                
+                
+            case .requestErr(let message):
+                self.simpleAlert(title: "다이어리 가져오기 실패", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
+        
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return expectationList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieListCellID, for: indexPath) as! MovieCollectionViewCell
-        let movie = movies[indexPath.row]
-        cell.imageThumbnail.imageFromUrl(movie.thumnailImageURL, defaultImgPath: "img_placeholder")
+        let movie = expectationList[indexPath.row]
+        cell.imageThumbnail.imageFromUrl(movie.poster, defaultImgPath: "img_placeholder")
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 25, bottom: 20, right: 25)
+        return UIEdgeInsets(top: 0, left: 10, bottom: 40, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 25
+        return 10
     }
     
 }
-

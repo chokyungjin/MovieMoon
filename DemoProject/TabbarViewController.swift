@@ -75,15 +75,6 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
             revealVc.revealToggle(sender)
             //Event 등록 = Post
             NotificationCenter.default.post(name: Notification.Name(rawValue: "PostButton"), object: nil)
-            
-            if DataManager.sharedManager.getSwitch() == false {
-                DataManager.sharedManager.setSwitch(toggleSwitch: true)
-                print(DataManager.sharedManager.getSwitch())
-            }
-            else if DataManager.sharedManager.getSwitch() == true {
-                DataManager.sharedManager.setSwitch(toggleSwitch: false)
-                print(DataManager.sharedManager.getSwitch())
-            }
         }
     }
     
@@ -97,17 +88,6 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
             self.showLogoutVC()
         }
         
-    }
-    
-    func showProfileVC(){
-        let storyboard = UIStoryboard(name: "HamburgerMenuScreen", bundle: nil)
-        let uv = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
-        
-        //  uv!.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-        
-        self.present(uv, animated: true) {
-            self.revealViewController().revealToggle(animated: true)
-        }
     }
     
     func showLogoutVC(){

@@ -30,7 +30,6 @@
 		394B0FAA23F04CCE00ADE804 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B0FA923F04CCE00ADE804 /* LoginModel.swift */; };
 		394B0FAC23F04EA800ADE804 /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B0FAB23F04EA800ADE804 /* Extension+ViewController.swift */; };
 		394B0FAE23F070E000ADE804 /* moviemoonsplash.json in Resources */ = {isa = PBXBuildFile; fileRef = 394B0FAD23F070E000ADE804 /* moviemoonsplash.json */; };
-		39583FCE23684C5300B10497 /* PopupLogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */; };
 		3959674623801AB600D63C8A /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959674523801AB600D63C8A /* Extension+UITextField.swift */; };
 		3959674A23801B9900D63C8A /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959674923801B9900D63C8A /* UIColor+Additions.swift */; };
 		395967512380446F00D63C8A /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395967502380446F00D63C8A /* DiaryDetailViewController.swift */; };
@@ -116,7 +115,6 @@
 		394B0FA923F04CCE00ADE804 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		394B0FAB23F04EA800ADE804 /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
 		394B0FAD23F070E000ADE804 /* moviemoonsplash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moviemoonsplash.json; sourceTree = "<group>"; };
-		39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupLogoutViewController.swift; sourceTree = "<group>"; };
 		3959674523801AB600D63C8A /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		3959674923801B9900D63C8A /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		395967502380446F00D63C8A /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 			isa = PBXGroup;
 			children = (
 				398854632367FB07008765FF /* MenuTableViewController.swift */,
-				39583FCD23684C5300B10497 /* PopupLogoutViewController.swift */,
 				39447D412369243800C56BE6 /* WishListCollectionViewController.swift */,
 			);
 			name = SideMenu;
@@ -610,7 +607,6 @@
 				39E06C5523F293CF00267153 /* SearchDetailModel.swift in Sources */,
 				399DE54723263BBC002703D1 /* Movie.swift in Sources */,
 				39856F1A2323E34F0006B58E /* RegisterViewController.swift in Sources */,
-				39583FCE23684C5300B10497 /* PopupLogoutViewController.swift in Sources */,
 				395967572380488600D63C8A /* DiaryContentSecondCell.swift in Sources */,
 				391BC89C23F11AA200074E55 /* SignUpModel.swift in Sources */,
 				395FCB7523F464660040AECB /* WishListService.swift in Sources */,
