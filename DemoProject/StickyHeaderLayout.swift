@@ -112,11 +112,13 @@ class StickyHeadersLayout: UITableViewController {
         let stretchedHeight = -scrollView.contentOffset.y + 10
         let thumbPosition = stretchedHeight - thumbView.bounds.height - 50
         
-        print(heartBtn.frame , titleLabel.frame , dateLabel.frame)
+        
+        //print(heartBtn.frame , titleLabel.frame , dateLabel.frame)
         imageView.frame = CGRect(origin: .zero, size: CGSize(width: scrollView.bounds.width, height: stretchedHeight))
         
         thumbView.frame = CGRect(origin: CGPoint(x: 20, y: thumbPosition), size: CGSize(width: 99.0, height: 141.0))
-        
+        print(imageView.frame, thumbView.frame)
+
         heartBtn.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 60, y: thumbView.frame.origin.y + 120), size: heartBtn.bounds.size)
         
         titleLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 70), size: titleLabel.bounds.size)

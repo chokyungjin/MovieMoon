@@ -27,7 +27,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         super.viewDidLoad()
         tableView.register(DiaryContentFirstCell.self, forCellReuseIdentifier: "cell1")
         tableView.register(DiaryContentSecondCell.self, forCellReuseIdentifier: "cell2")
-        tableView.contentInset = UIEdgeInsets(top: view.frame.height / 2.8, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: view.frame.height / 3, left: 0, bottom: 0, right: 0)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
@@ -37,14 +37,14 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      //  createGradient()
+        //  createGradient()
         registerForKeyboardNotifications()
-
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifications()
     }
-   
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         //return 버튼 누르면 키보드 내려갈수있게 설정.
@@ -110,7 +110,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! DiaryContentFirstCell
             
             cell.backgroundColor = .blackgroundBlack
-//            cell.myRatingLabel.text = "Rate " + String(format:"%.2f", cell.myRatingView.rating) + "점"
+            //            cell.myRatingLabel.text = "Rate " + String(format:"%.2f", cell.myRatingView.rating) + "점"
             cell.myRatingLabel.textColor = .textGray
             
             cell.myDateLabel.text = "Date"
@@ -133,14 +133,14 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             cell.stillcutImage.image = profileImage[0]
             cell.stillcutImage2.image = profileImage[1]
             cell.stillcutImage3.image = profileImage[2]
-              
+            
             cell.plotField.text = "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!"
             cell.plotField.backgroundColor = .color130
             cell.plotField.textColor = .textGray
             cell.plotField.isUserInteractionEnabled = true
             cell.selectionStyle = .none
             cell.backgroundColor = .blackgroundBlack
-
+            
             return cell
         }
         else {
@@ -155,18 +155,17 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         let thumbPosition = stretchedHeight - thumbView.bounds.height - 50
         
         imageView.frame = CGRect(origin: .zero, size: CGSize(width: scrollView.bounds.width, height: stretchedHeight))
-        
-        thumbView.frame = CGRect(origin: CGPoint(x: 20, y: thumbPosition), size: thumbView.bounds.size)
+        thumbView.frame = CGRect(origin: CGPoint(x: 20, y: thumbPosition), size: CGSize(width: 99.0, height: 141.0))
         
         //heartBtn.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 60, y: thumbView.frame.origin.y + 130), size: heartBtn.bounds.size)
         
         titleLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 70), size: titleLabel.bounds.size)
-       // titleLabel.text = DataManager.sharedManager.getTitle()
+        // titleLabel.text = DataManager.sharedManager.getTitle()
         titleLabel.textColor = .textGray
         
         dateLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 100), size: dateLabel.bounds.size)
         
-       // dateLabel.text = "개봉일: " + DataManager.sharedManager.getDate()
+        // dateLabel.text = "개봉일: " + DataManager.sharedManager.getDate()
         dateLabel.textColor = .textGray
         
         
@@ -242,13 +241,13 @@ extension DiaryStickHeaderLayout : UIImagePickerControllerDelegate,UINavigationC
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
             if profileImage[0] == UIImage(named: "img_placeholder") {
-            profileImage[0] = image
+                profileImage[0] = image
             }
             else if profileImage[1] == UIImage(named: "img_placeholder") {
-            profileImage[1] = image
+                profileImage[1] = image
             }
             else if profileImage[2] == UIImage(named: "img_placeholder") {
-            profileImage[2] = image
+                profileImage[2] = image
             }
             
             print(image)
@@ -256,7 +255,7 @@ extension DiaryStickHeaderLayout : UIImagePickerControllerDelegate,UINavigationC
         
         picker.dismiss(animated: true)
         tableView.reloadData()
-
+        
     }
     
 }

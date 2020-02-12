@@ -243,14 +243,14 @@ struct AuthService {
         
     } // func postImage
     
-    func patchImage(_ src: String ,completion: @escaping (NetworkResult<Any>) -> Void) {
+    func patchImage(_ location: String ,completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let header: HTTPHeaders = [
-            "Content-Type" : "multipart/formdata"
+            "Content-Type" : "application/json"
         ]
         
         let body: Parameters = [
-            "src" : src
+            "location" : location
         ]
         
         Alamofire.request(APIConstants.ProfileImageURL, method: .patch, parameters: body, encoding: JSONEncoding.default, headers: header)

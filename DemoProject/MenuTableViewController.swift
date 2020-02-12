@@ -243,10 +243,49 @@ extension MenuTableViewController : UIImagePickerControllerDelegate,UINavigation
                     //이부분에서 로그인이 되어있는지 쿠키검사 등을 해야되나,, 여기서 막힘
                     print("user_data-----")
                     self.locationLink = user_data.location
+                    
+                    
+                    //location 주소를 src로 보내야함
+                    //여기서 patching을 해야하나
+                    AuthService.shared.patchImage(self.locationLink ?? "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png") {
+                        data in
+                        
+                        switch data {
+                        // 매개변수에 어떤 값을 가져올 것인지
+                        case .success(let data):
+                            
+                            // PostImageModel 에서 받은 유저 정보 반환
+                            let user_data2 = data
+                            // self.profileImageLabel.image = image
+                            //self.locationLink에 주소는 있는데
+                            ///"https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581349888953file.jpg"
+                            //이 주소로 이미지를 kingfisher불러오면 nil로 받아옴!
+                            
+                            print("user_data2-----")
+                            print(user_data2)
+                            print("user_data2-----")
+
+                        case .requestErr(let message):
+                            self.simpleAlert(title: "저장 실패", message: "\(message)")
+                            
+                        case .pathErr:
+                            print(".pathErr")
+                            
+                        case .serverErr:
+                            print(".serverErr")
+                            
+                        case .networkFail:
+                            print("네트워크 오류")
+                            
+                        case .dbErr:
+                            print("디비 에러")
+                        }
+                    }
+                    
                     UserDefaults.standard.set(self.locationLink, forKey: "src")
                     self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
-                    print("-----")
-                    
+                    print("user_data-----")
+
                     
                     
                 case .requestErr(let message):
@@ -276,41 +315,4 @@ extension MenuTableViewController : UIImagePickerControllerDelegate,UINavigation
 }
 
 
-////여기서 patching을 해야하나
-//AuthService.shared.patchImage(self.locationLink ?? "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png") {
-//    data in
-//
-//    switch data {
-//    // 매개변수에 어떤 값을 가져올 것인지
-//    case .success(let data):
-//
-//        // PostImageModel 에서 받은 유저 정보 반환
-//        let user_data2 = data
-//        // self.profileImageLabel.image = image
-//        //self.locationLink에 주소는 있는데
-//        ///"https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581349888953file.jpg"
-//        //이 주소로 이미지를 kingfisher불러오면 nil로 받아옴!
-//
-//        UserDefaults.standard.set(self.locationLink, forKey: "src")
-//        self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
-//
-//        print("user_data2-----")
-//        print(user_data2)
-//        print("-----")
-//
-//    case .requestErr(let message):
-//        self.simpleAlert(title: "저장 실패", message: "\(message)")
-//
-//    case .pathErr:
-//        print(".pathErr")
-//
-//    case .serverErr:
-//        print(".serverErr")
-//
-//    case .networkFail:
-//        print("네트워크 오류")
-//
-//    case .dbErr:
-//        print("디비 에러")
-//    }
-//}
+

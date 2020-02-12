@@ -63,7 +63,11 @@ class DiaryCollectionViewController: UICollectionViewController {
             //여기서 아이디로 디테일 통신 시작해야 할듯
             DiaryDetailViewController.movieId = mydiaryLists[selectedIndex.row].movieId
             DiaryDetailViewController.diaryId = mydiaryLists[selectedIndex.row].diaryId
-            
+            DiaryDetailViewController.poster = mydiaryLists[selectedIndex.row].poster
+            print("#############")
+            print(mydiaryLists[selectedIndex.row].poster! )
+            ///http://file.koreafilm.or.kr/thm/02/00/01/05/tn_DPK002911.jpg 포스터 주소가 넘어가는데 nil으로 떠서 앱이 죽어버림
+            print("#############")
     }
     
     }
