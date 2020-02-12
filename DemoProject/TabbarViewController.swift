@@ -158,7 +158,7 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         if let revealVc = revealViewController(){
             revealVc.revealToggle(animated: true)
             let storyboard = UIStoryboard(name: "HamburgerMenuScreen", bundle: nil)
-            guard let vc = storyboard.instantiateViewController(withIdentifier: "WishVC") as? WishListViewController else{
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "WishVC") as? WishListCollectionViewController else{
                 return
             }
             

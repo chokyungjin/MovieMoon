@@ -13,13 +13,6 @@ class DiaryCollectionViewController: UICollectionViewController {
     //MARK: IBOutlets
     @IBOutlet weak var MovielistCollectionView: UICollectionView!
     
-    //MARK: Variables
-    let dataManager = DataManager.sharedManager
-    
-    let baseURL: String = {
-        return ServerURLs.base.rawValue
-    }()
-    
 //    var movies: [Movie] = []
     var mydiaryLists: [DiaryGetList] = []
     

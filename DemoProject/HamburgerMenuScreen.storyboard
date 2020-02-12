@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,30 +62,58 @@
             </objects>
             <point key="canvasLocation" x="2073" y="-7"/>
         </scene>
-        <!--Wish List View Controller-->
-        <scene sceneID="c7f-Ie-cvL">
+        <!--Wish List Collection View Controller-->
+        <scene sceneID="Thi-Al-sD8">
             <objects>
-                <viewController storyboardIdentifier="WishVC" id="Vua-jc-mhF" customClass="WishListViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qor-AY-NvB">
+                <collectionViewController storyboardIdentifier="WishVC" id="UW3-VJ-Np6" customClass="WishListCollectionViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="epP-JQ-QUF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wish View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B56-MX-Tho">
-                                <rect key="frame" x="147" y="323" width="80" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="pMh-PM-VVi"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="LDa-e5-z0M"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HXY-Pt-gMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="ZEp-kw-ms2">
+                            <size key="itemSize" width="200" height="250"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WishListCell" id="QYc-72-nKI" customClass="WishListCollectionViewCell" customModule="MovieMoon" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="0.0" width="200" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9qm-A6-5Ty">
+                                            <rect key="frame" x="5" y="5" width="200" height="250"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9qm-A6-5Ty" secondAttribute="trailing" constant="-5" id="6qm-AR-hIr"/>
+                                    <constraint firstItem="9qm-A6-5Ty" firstAttribute="leading" secondItem="QYc-72-nKI" secondAttribute="leading" constant="5" id="FpF-yl-o6i"/>
+                                    <constraint firstAttribute="bottom" secondItem="9qm-A6-5Ty" secondAttribute="bottom" constant="-5" id="dss-J6-fHP"/>
+                                    <constraint firstItem="9qm-A6-5Ty" firstAttribute="top" secondItem="QYc-72-nKI" secondAttribute="top" constant="5" id="npk-Ja-gTp"/>
+                                </constraints>
+                                <size key="customSize" width="200" height="250"/>
+                                <connections>
+                                    <outlet property="ImageThumbnail" destination="9qm-A6-5Ty" id="LfU-2Z-DRe"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="UW3-VJ-Np6" id="6qc-d2-yZh"/>
+                            <outlet property="delegate" destination="UW3-VJ-Np6" id="EeQ-Ik-61C"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="JL2-IV-PJt"/>
+                    <connections>
+                        <outlet property="WishListCollectionView" destination="epP-JQ-QUF" id="4je-P6-4mV"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUa-Ym-LLy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073" y="758"/>
+            <point key="canvasLocation" x="2014" y="758"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hgH-zZ-gtZ">
@@ -192,7 +220,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Vua-jc-mhF" kind="relationship" relationship="rootViewController" id="wFi-WC-Kzh"/>
+                        <segue destination="UW3-VJ-Np6" kind="relationship" relationship="rootViewController" id="dCh-yW-wTG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAB-UG-gEE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

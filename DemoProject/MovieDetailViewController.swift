@@ -29,7 +29,7 @@ class MovieDetailViewController: UIViewController {
     //Vars..
     var movieId: Int?
     var movies: [Movie] = []
-    var movieDetail: MovieDetail?
+    var WishList : WishListModel!
     var movieDetailData: SearchDetailModel!
     var thumbView: UIImageView!
     var heartBtn: UIButton!
@@ -89,16 +89,53 @@ class MovieDetailViewController: UIViewController {
     
     @objc func heartClick(sender: UIButton) {
         
-        print(heartBtn.isSelected)
-        
         if (heartBtn.isSelected) == false {
             let image = UIImage(named: "like")?.withRenderingMode(.alwaysTemplate)
             heartBtn!.setImage(image, for: .normal)
             heartBtn.isSelected = true
-            let Alert = UIAlertController(title: "", message: "heart", preferredStyle: .alert)
-            Alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            }))
-            present(Alert, animated: true, completion: nil)
+            
+            //self.movieDetailData.id
+            //유저 디폴트로 접근
+            //여기서 위시리스트 등록하는 통신 시작
+            print(self.movieDetailData.id, UserDefaults.standard.integer(forKey: "Id"))
+            
+            WishListService.shared.postWishList(self.movieDetailData.id , UserDefaults.standard.integer(forKey: "Id")) {
+                data in
+                
+                switch data {
+                // 매개변수에 어떤 값을 가져올 것인지
+                case .success(let data):
+                    
+                    // DataClass 에서 받은 유저 정보 반환
+                    self.WishList = data as! WishListModel
+                    print(self.WishList)
+                    let Alert = UIAlertController(title: "", message: "위시리스트에 추가합니다", preferredStyle: .alert)
+                    Alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    }))
+                    self.present(Alert, animated: true, completion: nil)
+                    
+                case .requestErr(let message):
+                    self.simpleAlert(title: "등록된 위시리스트 였네요!", message: "갱신합니다")
+                    let image = UIImage(named: "like")?.withRenderingMode(.alwaysTemplate)
+                    self.heartBtn!.setImage(image, for: .normal)
+                    self.heartBtn.isSelected = true
+                    
+                case .pathErr:
+                    print(".pathErr")
+                    
+                case .serverErr:
+                    print(".serverErr")
+                    
+                case .networkFail:
+                    print("네트워크 오류")
+                    
+                case .dbErr:
+                    print("디비 에러")
+                }
+            }
+            
+            
+            
         }
             
         else if heartBtn.isSelected
@@ -106,11 +143,48 @@ class MovieDetailViewController: UIViewController {
             let image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
             heartBtn!.setImage(image, for: .normal)
             heartBtn.isSelected = false
-            let Alert = UIAlertController(title: "", message: "cancel", preferredStyle: .alert)
-            Alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            }))
-            present(Alert, animated: true, completion: nil)
+            
+            //여기서 위시리스트 삭제하는 통신 시작
+            WishListService.shared.deleteWishList(self.movieDetailData.id , UserDefaults.standard.integer(forKey: "Id")) {
+                data in
+                
+                switch data {
+                // 매개변수에 어떤 값을 가져올 것인지
+                case .success(let data):
+                    
+                    // DataClass 에서 받은 유저 정보 반환
+//                    self.WishList = data as! WishListModel
+//                    print(self.WishList)
+                    
+                    let Alert = UIAlertController(title: "", message: "위시리스트에서 삭제합니다", preferredStyle: .alert)
+                    Alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    }))
+                    self.present(Alert, animated: true, completion: nil)
+                    
+                case .requestErr(let message):
+                    self.simpleAlert(title: "없는 위시리스트 였네요!", message: "갱신합니다")
+                    let image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
+                    self.heartBtn!.setImage(image, for: .normal)
+                    self.heartBtn.isSelected = false
+                    
+                case .pathErr:
+                    print(".pathErr")
+                    
+                case .serverErr:
+                    print(".serverErr")
+                    
+                case .networkFail:
+                    print("네트워크 오류")
+                    
+                case .dbErr:
+                    print("디비 에러")
+                }
+            }
+            
         }
+        
+        print(heartBtn.isSelected)
+        
     }
     
     @objc func didTap() {
@@ -147,7 +221,7 @@ class MovieDetailViewController: UIViewController {
         view.addSubview(imageSlideView)
         
         //여기서 imageView가 nil이다
- 
+        
         thumbView = UIImageView(image: imageView.image)
         thumbView.contentMode = .scaleAspectFit
         thumbView.clipsToBounds = false

@@ -23,7 +23,7 @@ class MovieSearchViewController: UIViewController {
         setMovieSearchListTableView()
         self.view.backgroundColor = .blackgroundBlack
         MovieSearchTableView.backgroundColor = .blackgroundBlack
-        // self.navigationController?.title = "검색 결과"
+        navigationItem.title = "검색 결과"
     }
     
     func navigationSetup() { //네비게이션 투명색만들기

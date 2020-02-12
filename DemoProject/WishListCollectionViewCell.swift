@@ -1,0 +1,15 @@
+//
+//  WishListCollectionViewCell.swift
+//  DemoProject
+//
+//  Created by 조경진 on 2020/02/13.
+//  Copyright © 2020 조경진. All rights reserved.
+//
+
+import UIKit
+
+class WishListCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var ImageThumbnail: UIImageView!
+        
+}
