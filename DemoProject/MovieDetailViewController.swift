@@ -48,6 +48,7 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.view.backgroundColor = .blackgroundBlack
         self.addChild(myTable)
         view.addSubview(myTable.tableView)
         SearchService.shared.detailSearch(movieId!) {
@@ -82,8 +83,6 @@ class MovieDetailViewController: UIViewController {
                 print("디비 에러")
             }
         }
-        
-        
         
     }
     
@@ -197,16 +196,6 @@ class MovieDetailViewController: UIViewController {
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
     
-//    // Status Bar 색상 조절
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        if #available(iOS 13.0, *) {
-//            return .darkContent
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//        return .default
-//    }
-    
     func UICall() {
         let thumnailImage = UIImageView()
         thumnailImage.imageFromUrl(movieDetailData?.poster , defaultImgPath: "img_placeholder")
@@ -229,9 +218,7 @@ class MovieDetailViewController: UIViewController {
         imageSlideView.frame = CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: self.view.frame.height / 3))
         
         view.addSubview(imageSlideView)
-        
-        //여기서 imageView가 nil이다
-        
+                
         thumbView = UIImageView(image: imageView.image)
         thumbView.contentMode = .scaleAspectFit
         thumbView.clipsToBounds = false

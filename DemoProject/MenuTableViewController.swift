@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 import Alamofire
 
 private let reuseIdentifer = "SettingMenuCell"
@@ -54,9 +53,6 @@ class MenuTableViewController: UITableViewController , UITextFieldDelegate{
         accountLabel.font = UIFont.boldSystemFont(ofSize: 11)
         accountLabel.backgroundColor = .clear
         
-        //        let defaultImage = UIImage(named: "account.jpg")
-        //        profileImage.imageFromUrl(UserDefaults.standard.value(forKey: "src") as? String , defaultImgPath: "account")
-        
         self.profileImageLabel.imageFromUrl(UserDefaults.standard.string(forKey: "src"), defaultImgPath: "account")
         self.profileImageLabel.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
         self.pickButton.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
@@ -82,7 +78,6 @@ class MenuTableViewController: UITableViewController , UITextFieldDelegate{
         
         picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         pickButton.addTarget(self, action: #selector(camerabtn(_:)), for: .touchUpInside)
-        
         nameTextView.delegate = self
         
         
@@ -298,8 +293,6 @@ extension MenuTableViewController : UIImagePickerControllerDelegate,UINavigation
             }
             
         }
-        
-        
         
         dismiss(animated: true)
     }

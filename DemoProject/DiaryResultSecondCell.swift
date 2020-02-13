@@ -8,19 +8,35 @@
 
 import Foundation
 
-//protocol PlusActionDelegate {
-//    
-//    func didClickedPlus()
-//    
-//    func didClickedOk()
-//    
-//    func didClickedCancel()
-//    
-//}
+protocol PlusActionDelegate {
+    
+    func didClickedPlus()
+    
+    func didClickedOk()
+    
+    func didClickedCancel()
+    
+}
 
-class DiaryContentSecondCell : UITableViewCell {
+class DiaryResultSecondCell : UITableViewCell {
     
     var delegate : PlusActionDelegate?
+    
+    var plusBtn: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.init(red: 104/255, green: 104/255, blue: 104/255, alpha: 1)
+        button.setImage(#imageLiteral(resourceName: "plusBut"), for: .normal)
+        button.frame = CGRect(x: 15, y: 0, width: 30, height: 30)
+        return button
+    }()
+    
+    var addLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Add Photo : (3장 다 넣으세요)" 
+        label.textColor = .textGray
+        label.frame = CGRect(x: 70, y: 5, width: 250, height: 20)
+        return label
+    }()
     
     
     var plotField: UITextView = {
@@ -80,10 +96,14 @@ class DiaryContentSecondCell : UITableViewCell {
         self.addSubview(stillcutImage2)
         self.addSubview(stillcutImage3)
         self.addSubview(OkButton)
+        self.addSubview(addLabel)
         self.addSubview(CancelButton)
+        plusBtn.makeRounded(cornerRadius: nil)
         OkButton.layer.addBorder([.top , .right , .bottom], color: .color130, width: 1)
         CancelButton.layer.addBorder([.top , .bottom], color: .color130, width: 1)
 
+        self.addSubview(plusBtn)
+        plusBtn.addTarget(self, action: #selector(didClick(_:)), for: .touchUpInside)
         OkButton.addTarget(self, action: #selector(didOk(_:)), for: .touchUpInside)
         CancelButton.addTarget(self, action: #selector(didCancel(_:)), for: .touchUpInside)
 

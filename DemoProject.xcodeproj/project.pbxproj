@@ -80,6 +80,10 @@
 		39E26435232B819100EC8CBC /* DiaryScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E26434232B819100EC8CBC /* DiaryScreen.storyboard */; };
 		39E26437232B823100EC8CBC /* RecommendScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E26436232B823100EC8CBC /* RecommendScreen.storyboard */; };
 		39E26439232B830800EC8CBC /* HamburgerMenuScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E26438232B830800EC8CBC /* HamburgerMenuScreen.storyboard */; };
+		39EDFB9A23F561C700346CEF /* DiaryPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EDFB9923F561C700346CEF /* DiaryPostViewController.swift */; };
+		39EDFB9C23F561E300346CEF /* DiaryPostStickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EDFB9B23F561E300346CEF /* DiaryPostStickyHeaderLayout.swift */; };
+		39EDFB9E23F563B300346CEF /* DiaryResultFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EDFB9D23F563B300346CEF /* DiaryResultFirstCell.swift */; };
+		39EDFBA023F563BF00346CEF /* DiaryResultSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EDFB9F23F563BF00346CEF /* DiaryResultSecondCell.swift */; };
 		39F0E078238843FB007C43A8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F0E077238843FB007C43A8 /* Launch Screen.storyboard */; };
 		39F5972A23F12CFC00467FFF /* PostImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F5972923F12CFC00467FFF /* PostImageModel.swift */; };
 		39F5972C23F1449F00467FFF /* PatchImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F5972B23F1449F00467FFF /* PatchImageModel.swift */; };
@@ -170,6 +174,10 @@
 		39E26434232B819100EC8CBC /* DiaryScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiaryScreen.storyboard; sourceTree = "<group>"; };
 		39E26436232B823100EC8CBC /* RecommendScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecommendScreen.storyboard; sourceTree = "<group>"; };
 		39E26438232B830800EC8CBC /* HamburgerMenuScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HamburgerMenuScreen.storyboard; sourceTree = "<group>"; };
+		39EDFB9923F561C700346CEF /* DiaryPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPostViewController.swift; sourceTree = "<group>"; };
+		39EDFB9B23F561E300346CEF /* DiaryPostStickyHeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPostStickyHeaderLayout.swift; sourceTree = "<group>"; };
+		39EDFB9D23F563B300346CEF /* DiaryResultFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryResultFirstCell.swift; sourceTree = "<group>"; };
+		39EDFB9F23F563BF00346CEF /* DiaryResultSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryResultSecondCell.swift; sourceTree = "<group>"; };
 		39F0E077238843FB007C43A8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		39F5972923F12CFC00467FFF /* PostImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageModel.swift; sourceTree = "<group>"; };
 		39F5972B23F1449F00467FFF /* PatchImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchImageModel.swift; sourceTree = "<group>"; };
@@ -250,13 +258,13 @@
 			name = APIServices;
 			sourceTree = "<group>";
 		};
-		3959674F2380441B00D63C8A /* DiarySearchResult */ = {
+		3959674F2380441B00D63C8A /* DiaryResult */ = {
 			isa = PBXGroup;
 			children = (
 				395967502380446F00D63C8A /* DiaryDetailViewController.swift */,
 				395967522380447B00D63C8A /* DiaryStickyHeaderLayout.swift */,
 			);
-			name = DiarySearchResult;
+			name = DiaryResult;
 			sourceTree = "<group>";
 		};
 		395A97EA23D0B0E700552ABE /* Extensions */ = {
@@ -358,6 +366,8 @@
 				39E06C5223F2867400267153 /* MovieSearchTableViewCell.swift */,
 				39B89DF823F3129300EEABC7 /* MovieDiarySearchViewCell.swift */,
 				395FCB7823F46AD30040AECB /* WishListCollectionViewCell.swift */,
+				39EDFB9D23F563B300346CEF /* DiaryResultFirstCell.swift */,
+				39EDFB9F23F563BF00346CEF /* DiaryResultSecondCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -420,7 +430,8 @@
 		39BC020F232A3CCE002737B4 /* ThirdTab */ = {
 			isa = PBXGroup;
 			children = (
-				3959674F2380441B00D63C8A /* DiarySearchResult */,
+				39EDFB9823F561A700346CEF /* DiaryPostView */,
+				3959674F2380441B00D63C8A /* DiaryResult */,
 				3988545F2367E90D008765FF /* DiaryCollectionViewController.swift */,
 				39B89DEB23F3021200EEABC7 /* DiarySearchViewController.swift */,
 			);
@@ -433,6 +444,15 @@
 				39BC021D232A3E72002737B4 /* RecommendViewController.swift */,
 			);
 			name = FourthTab;
+			sourceTree = "<group>";
+		};
+		39EDFB9823F561A700346CEF /* DiaryPostView */ = {
+			isa = PBXGroup;
+			children = (
+				39EDFB9923F561C700346CEF /* DiaryPostViewController.swift */,
+				39EDFB9B23F561E300346CEF /* DiaryPostStickyHeaderLayout.swift */,
+			);
+			name = DiaryPostView;
 			sourceTree = "<group>";
 		};
 		39FB0592233C789100406C0C /* SideMenu */ = {
@@ -604,6 +624,7 @@
 				399DE54123263B9B002703D1 /* ServerURLs.swift in Sources */,
 				398854642367FB07008765FF /* MenuTableViewController.swift in Sources */,
 				39447D422369243800C56BE6 /* WishListCollectionViewController.swift in Sources */,
+				39EDFBA023F563BF00346CEF /* DiaryResultSecondCell.swift in Sources */,
 				39E06C5523F293CF00267153 /* SearchDetailModel.swift in Sources */,
 				399DE54723263BBC002703D1 /* Movie.swift in Sources */,
 				39856F1A2323E34F0006B58E /* RegisterViewController.swift in Sources */,
@@ -628,11 +649,13 @@
 				393A1ED5238057BA0038DA1B /* Extension+CALayer.swift in Sources */,
 				39938B8A232893A300FCE733 /* MenuOptionCell.swift in Sources */,
 				396DBF292347AE990025507B /* Extensions+UIView.swift in Sources */,
+				39EDFB9E23F563B300346CEF /* DiaryResultFirstCell.swift in Sources */,
 				3959674A23801B9900D63C8A /* UIColor+Additions.swift in Sources */,
 				39B89DEC23F3021200EEABC7 /* DiarySearchViewController.swift in Sources */,
 				39B7CA1123228D7500A765A9 /* AppDelegate.swift in Sources */,
 				39BC0218232A3DAF002737B4 /* BoxOfficeViewController.swift in Sources */,
 				394B0FA823F04C5600ADE804 /* AuthService.swift in Sources */,
+				39EDFB9C23F561E300346CEF /* DiaryPostStickyHeaderLayout.swift in Sources */,
 				39856F182323DF930006B58E /* TabbarViewController.swift in Sources */,
 				39E06C5123F2809600267153 /* MovieSearchViewController.swift in Sources */,
 				39988500234B35ED00E1C5A7 /* MovieListCollectionViewCell.swift in Sources */,
@@ -640,6 +663,7 @@
 				395967532380447B00D63C8A /* DiaryStickyHeaderLayout.swift in Sources */,
 				39E06C5323F2867400267153 /* MovieSearchTableViewCell.swift in Sources */,
 				395967552380487900D63C8A /* DiaryContentFirstCell.swift in Sources */,
+				39EDFB9A23F561C700346CEF /* DiaryPostViewController.swift in Sources */,
 				C65D32142338FCA6003FE49B /* RootViewController.swift in Sources */,
 				399728FD2376DB8100D259D0 /* LaunchScreenViewController.swift in Sources */,
 				398854602367E90D008765FF /* DiaryCollectionViewController.swift in Sources */,

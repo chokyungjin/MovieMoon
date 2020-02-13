@@ -37,4 +37,7 @@ struct SearchTitleModel: Codable {
     var poster: String? = nil
     var id: Int
     
+    
 }
+
+//releaseDate: String을 Date로 바꿔보자

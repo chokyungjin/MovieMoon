@@ -188,7 +188,7 @@ extension BoxOfficeViewController: UITableViewDataSource, UITableViewDelegate {
             
             cell.TitleLabel.text = movie.korTitle
             cell.TitleLabel.textColor = .textGray
-            cell.DateLabel.text = "개봉일 : " + movie.releaseData
+            cell.DateLabel.text = "개봉일 : " + movie.releaseDate
             cell.DateLabel.textColor = .textGray
             
             //       let rateString = "평점 : \(movie.userRating) 예매순위 : \(movie.reservationGrade) 예매율 : \(movie.reservationRate)"

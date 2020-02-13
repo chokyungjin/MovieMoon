@@ -14,7 +14,7 @@ struct DiaryService {
     
     static let shared = DiaryService()
     
-    func diaryPost(_ userId: String, _ movieId: String, _ memo: String, _ createDate: String  ,completion: @escaping (NetworkResult<Any>) -> Void) {
+    func diaryPost(_ userId: Int, _ movieId: String, _ memo: String, _ createDate: String  ,completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let header: HTTPHeaders = [
             "Content-Type" : "application/json"
@@ -43,7 +43,7 @@ struct DiaryService {
                         if let status = response.response?.statusCode {
                             print(status)
                             switch status {
-                            case 200:
+                            case 201:
                                 do {
                                     let decoder = JSONDecoder()
                                     print(value)
@@ -64,7 +64,7 @@ struct DiaryService {
                                 completion(.pathErr)
                                 
                             case 403:
-                                print("이미 존재하는 아이디")
+                                print("이미 존재하는 다이어리입니다.")
                                 completion(.requestErr((Any).self))
                             case 500:
                                 print("500 pathERr")

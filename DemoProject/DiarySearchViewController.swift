@@ -18,7 +18,9 @@ class DiarySearchViewController: UIViewController , UISearchBarDelegate{
     private var movieSearchData = [SearchTitleModel]()
     var searchBar = UISearchBar(frame: CGRect.zero)
     let movieListCellID: String = "MovieDiarySearchViewCell"
-    
+    let dateFormatter = DateFormatter()
+    let realdateFormatter = DateFormatter()
+    var movieDetailData: SearchDetailModel? = nil
     
     ///init....
     override func viewDidLoad() {
@@ -32,27 +34,23 @@ class DiarySearchViewController: UIViewController , UISearchBarDelegate{
         searchBar.searchTextField.textColor = UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)
         setMovieSearchListTableView()
         
+        dateFormatter.locale = Locale.init(identifier: "ko_kr")
+        dateFormatter.dateFormat = "yyyyMMdd"
+        realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let DiaryDetailViewController = segue.destination as? DiaryDetailViewController else {return}
+        guard let DiaryPostViewController = segue.destination as? DiaryPostViewController else {return}
         
         let cell = sender as! MovieDiarySearchViewCell
         
         if let selectedIndex = searchTable.indexPath(for: cell) {
             //여기서 아이디로 디테일 통신 시작해야 할듯
-            DiaryDetailViewController.movieId = movieSearchData[selectedIndex.row].id
-            //방법 0.. select된 데이터 통으로 넘기려고했음.
-            
-            DiaryDetailViewController.movieSearchResultData = movieSearchData[selectedIndex.row]
-            print("#############")
-            print(movieSearchData[selectedIndex.row].poster! )
-            ///http://file.koreafilm.or.kr/thm/02/00/01/05/tn_DPK002911.jpg 포스터 주소가 넘어가는데 nil으로 떠서 앱이 죽어버림
-            print("#############")
-        
-            //방법 2..
-//            DiaryDetailViewController.imageView.imageFromUrl(movieSearchData[selectedIndex.row].poster!, defaultImgPath: "img_placeholder")
-                    
+            DiaryPostViewController.movieId = movieSearchData[selectedIndex.row].id
+            DiaryPostViewController.poster = movieSearchData[selectedIndex.row].poster
+            UserDefaults.standard.set(DiaryPostViewController.movieId , forKey: "movieId")
+
             
         }
     }
@@ -140,8 +138,20 @@ extension DiarySearchViewController: UITableViewDataSource, UITableViewDelegate 
         cell.TitleLabel.text = movie.korTitle
         cell.TitleLabel.adjustsFontSizeToFitWidth = true
         cell.TitleLabel.textColor = .textGray
-        cell.DateLabel.text = "개봉일 : " + movie.releaseDate!
-        cell.DateLabel.textColor = .textGray
+        
+        if movie.releaseDate != "" {
+            
+            let date = dateFormatter.date(from: (movie.releaseDate ?? "2020년 02월 20일"))
+            let releaseDate = realdateFormatter.string(from: date!)
+            cell.DateLabel.text = "개봉일 : " + releaseDate
+            cell.DateLabel.textColor = .textGray
+            
+            
+        }
+        else {
+            cell.DateLabel.text = "개봉일 정보가 없습니다"
+        }
+        
         cell.NationLabel.text = movie.makingNation
         cell.NationLabel.textColor = .textGray
         cell.ThumnailImageView.imageFromUrl(movie.poster, defaultImgPath: "img_placeholder")

@@ -36,7 +36,8 @@ class DiaryCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        self.MovielistCollectionView.reloadData()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,13 +58,12 @@ class DiaryCollectionViewController: UICollectionViewController {
             DiaryDetailViewController.movieId = mydiaryLists[selectedIndex.row].movieId
             DiaryDetailViewController.diaryId = mydiaryLists[selectedIndex.row].diaryId
             DiaryDetailViewController.poster = mydiaryLists[selectedIndex.row].poster
+                     
+            //movieId, diaryId 가지고 통신해야됨
             
             
         }
         
-        //다이어리에 작성 기록이 없으면 이 뷰 컨트롤러로
-        //guard let DiaryNewViewController = segue.destination as? DiaryNewViewController else {return}
-
         
     }
     

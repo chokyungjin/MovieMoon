@@ -59,7 +59,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         
         setMovieListCollectionView()
         self.searchBar.delegate = self
-        searchBar.accessibilityAttributedHint = NSAttributedString(string: "영화, 배우, 감독으로 검색", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
+        searchBar.accessibilityAttributedHint = NSAttributedString(string: "영화 검색", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
         searchBar.searchTextField.textColor = UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)
         
         //addObserver
@@ -138,9 +138,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
                 
                 // DataClass 에서 받은 유저 정보 반환
                 self.movieSearchData = data as! [SearchTitleModel]
-                //                print(self.movieSearchData)
-                
-                
+                                
                 let storyboard = UIStoryboard(name: "HomeScreen", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "SearchVC") as! MovieSearchViewController
                 

@@ -111,7 +111,7 @@
                                                         <constraint firstAttribute="height" constant="24" id="db1-Jz-eOu"/>
                                                         <constraint firstAttribute="width" constant="180" id="lkE-Zx-qeP"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -155,7 +155,7 @@
                                             <outlet property="NationLabel" destination="cSP-Th-zrt" id="nVB-eA-TaJ"/>
                                             <outlet property="ThumnailImageView" destination="VxZ-OQ-svz" id="Waz-oL-khd"/>
                                             <outlet property="TitleLabel" destination="jBF-IM-tV1" id="bWq-zf-fsH"/>
-                                            <segue destination="u7j-9a-Xsk" kind="push" trigger="accessoryAction" id="5xG-4K-Oa8"/>
+                                            <segue destination="ZqE-R6-61Q" kind="push" trigger="accessoryAction" id="jhe-UY-0kc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -172,15 +172,21 @@
             </objects>
             <point key="canvasLocation" x="3189.5999999999999" y="707.49625187406298"/>
         </scene>
-        <!--DiaryDetailVC-->
-        <scene sceneID="dwV-Ck-efj">
+        <!--Diary Post View Controller-->
+        <scene sceneID="IZ7-b2-WOa">
             <objects>
-                <viewControllerPlaceholder storyboardName="DiaryScreen" referencedIdentifier="DiaryDetailVC" id="u7j-9a-Xsk" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Hmq-CJ-qhQ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jib-s1-Uuk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="DiaryPostViewController" id="ZqE-R6-61Q" customClass="DiaryPostViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ebx-ko-xjU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ysR-9g-FrY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wel-N4-koY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pxx-8R-vgh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3914" y="707"/>
+            <point key="canvasLocation" x="4324" y="707"/>
         </scene>
         <!--Diary Detail View Controller-->
         <scene sceneID="J7A-hT-sOZ">

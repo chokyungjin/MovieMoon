@@ -60,7 +60,7 @@
                                 <color key="textColor" red="0.76079469919999998" green="0.76076573130000003" blue="0.76078540090000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="영화, 배우, 감독으로 검색" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOL-a3-zCA">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="영화 검색" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOL-a3-zCA">
                                 <rect key="frame" x="0.0" y="198" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartQuotesType="no"/>
                             </searchBar>

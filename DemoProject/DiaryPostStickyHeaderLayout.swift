@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITextFieldDelegate{
+class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITextFieldDelegate{
     
     //vars..
     var imageView: UIImageView? = nil
@@ -25,11 +25,20 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     var movieDetailData: SearchDetailModel? = nil
     
     
+    //Post하면서 파라미터로 들어갈 Var..
+    var userId: Int? = UserDefaults.standard.integer(forKey: "Id")
+    var movieId:String? = UserDefaults.standard.string(forKey: "movieId")
+    var memo:String? = nil
+    var createDate:String? = UserDefaults.standard.string(forKey: "createDate")
+    var src: [String]? = nil
+    var rating:String? = nil
+    
+    
     //inits..
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(DiaryContentFirstCell.self, forCellReuseIdentifier: "cell1")
-        tableView.register(DiaryContentSecondCell.self, forCellReuseIdentifier: "cell2")
+        tableView.register(DiaryResultFirstCell.self, forCellReuseIdentifier: "cell1")
+        tableView.register(DiaryResultSecondCell.self, forCellReuseIdentifier: "cell2")
         tableView.contentInset = UIEdgeInsets(top: view.frame.height / 3, left: 0, bottom: 0, right: 0)
         tableView.delegate = self
         tableView.dataSource = self
@@ -110,28 +119,26 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         
         if indexPath == [0,0]{
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! DiaryContentFirstCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! DiaryResultFirstCell
             
             cell.backgroundColor = .blackgroundBlack
-            cell.myRatingLabel.text = "내 평점"
-            //cell.myRatingLabel.text = "Rate " + String(format:"%.2f", cell.myRatingView.rating) + "점"
+            cell.myRatingLabel.text = "Rate 0점"
             cell.myRatingLabel.textColor = .textGray
-            
             cell.myDateLabel.text = "Date"
             cell.myDateLabel.textColor = .textGray
-            
-            cell.myDateField.text = "2020년 02월 20일"
             cell.myDateField.layer.addBorder([.bottom], color: .textGray, width: 1)
-            
             cell.selectionStyle = .none
+            
+            rating = cell.myRatingLabel.text
+            print(rating)
             
             return cell
             
-            
         }
+            
         else if indexPath == [1,0] {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! DiaryContentSecondCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! DiaryResultSecondCell
             
             cell.delegate = self
             
@@ -145,6 +152,10 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             cell.plotField.isUserInteractionEnabled = true
             cell.selectionStyle = .none
             cell.backgroundColor = .blackgroundBlack
+            
+            //이미지 또 경로로 전송해야됨
+            // src = [cell.stillcutImage.image , cell.stillcutImage2.image, cell.stillcutImage3.image]
+            memo = cell.plotField.text
             
             return cell
         }
@@ -188,17 +199,51 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     }
 }
 
-extension DiaryStickHeaderLayout: PlusActionDelegate {
+extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
     
     
     func didClickedOk() {
         //다이어리 post 하는 통신 여기서 하면 됨.
-        let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
+        print(userId ?? 1 ,movieId ?? "2",memo ?? "3",createDate ?? "4")
+        DiaryService.shared.diaryPost(userId ?? 1 ,movieId ?? "2",memo ?? "3",createDate ?? "4"){
+            data in
+            
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                // DataClass 에서 받은 유저 정보 반환
+                // let user_data = data as! DataClass
+                
+                print("등록 성공")
+                let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
+                
+                addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
+                    print("확인")
+                }))
+                self.present(addAlert, animated: true, completion: nil)
+                
+                self.dismiss(animated: true, completion: nil)
+
+            case .requestErr(let message):
+                self.simpleAlert(title: "등록 실패", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
         
-        addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
-            print("확인")
-        }))
-        present(addAlert, animated: true, completion: nil)
+        
+        
     }
     
     func didClickedCancel() {
@@ -249,7 +294,7 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
 }
 
 // image 가 cell.image에 적용되지 않음!
-extension DiaryStickHeaderLayout : UIImagePickerControllerDelegate,UINavigationControllerDelegate
+extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINavigationControllerDelegate
 {
     func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {

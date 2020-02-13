@@ -10,16 +10,18 @@ import UIKit
 import ImageSlideshow
 
 class StickyHeadersLayout: UITableViewController {
-
+    
     //vars..
     //영화 상세정보
-    var movieDetailData: SearchDetailModel? = nil
     var imageSlideView: ImageSlideshow? = nil
     var thumbView: UIImageView? = nil
     var heartBtn: UIButton? = nil
     var titleLabel: UILabel? = nil
     var dateLabel: UILabel? = nil
     let caLayer: CAGradientLayer = CAGradientLayer()
+    let dateFormatter = DateFormatter()
+    let realdateFormatter = DateFormatter()
+    var movieDetailData: SearchDetailModel? = nil
 
     //inits..
     override func viewDidLoad() {
@@ -30,8 +32,10 @@ class StickyHeadersLayout: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
-    
-
+        dateFormatter.locale = Locale.init(identifier: "ko_kr")
+        dateFormatter.dateFormat = "yyyyMMdd"
+        realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,7 +44,7 @@ class StickyHeadersLayout: UITableViewController {
         self.heartBtn?.frame = CGRect(origin: CGPoint(x: 315.0, y: 194.5), size: CGSize(width: 30.0, height: 30.0))
         self.titleLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 144.5), size: CGSize(width: 200.0, height: 30.0))
         self.dateLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 174.5), size: CGSize(width: 200.0, height: 30.0))
-
+        
     }
     
     //override...
@@ -51,7 +55,7 @@ class StickyHeadersLayout: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath == [0,0] {
             return 150
@@ -64,7 +68,7 @@ class StickyHeadersLayout: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         if indexPath == [0,0]{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! movieRatingCell
@@ -79,8 +83,8 @@ class StickyHeadersLayout: UITableViewController {
             cell.selectionStyle = .none
             
             return cell
-    
-
+            
+            
         }
         else if indexPath == [1,0] {
             
@@ -89,23 +93,22 @@ class StickyHeadersLayout: UITableViewController {
             cell.backgroundColor = .blackgroundBlack
             cell.stillcutImage.imageFromUrl(movieDetailData?.poster , defaultImgPath: "img_placeholder")
             
-            //이거 옵셔널로 나옴
             if movieDetailData?.director != nil && movieDetailData?.actor != nil {
                 cell.plotField.text = String(describing: "감독 및 배우들:  " + (movieDetailData!.director! + movieDetailData!.actor!) )
             }
-         
+            
             cell.plotField.backgroundColor = .blackgroundBlack
             cell.plotField.textColor = .textGray
             cell.plotField.isUserInteractionEnabled = false
             cell.selectionStyle = .none
-
+            
             return cell
         }
         else {
             return UITableViewCell()
         }
     }
-
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let imageView = imageSlideView, let thumbView = thumbView, let heartBtn = heartBtn , let titleLabel = titleLabel, let dateLabel = dateLabel else{return}
         
@@ -118,18 +121,28 @@ class StickyHeadersLayout: UITableViewController {
         
         thumbView.frame = CGRect(origin: CGPoint(x: 20, y: thumbPosition), size: CGSize(width: 99.0, height: 141.0))
         print(imageView.frame, thumbView.frame)
-
+        
         heartBtn.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 60, y: thumbView.frame.origin.y + 120), size: heartBtn.bounds.size)
         
         titleLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 70), size: titleLabel.bounds.size)
+        
         titleLabel.text = movieDetailData?.korTitle
         titleLabel.textColor = .textGray
         
         dateLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 100), size: dateLabel.bounds.size)
         
-        dateLabel.text = "개봉일: " + (movieDetailData?.releaseDate ?? "2020-02-21")
-        dateLabel.textColor = .textGray
-        
+        if movieDetailData?.releaseDate! != "" {
+            
+            let date = dateFormatter.date(from: (movieDetailData?.releaseDate!)!)
+            let releaseDate = realdateFormatter.string(from: date!)
+            dateLabel.text = "개봉일 : " + releaseDate
+            dateLabel.textColor = .textGray
+
+        }
+        else {
+            dateLabel.text = "개봉일 정보가 없습니다"
+        }
+                
         caLayer.frame = CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: stretchedHeight))
         
     }

@@ -61,14 +61,14 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(user_data.createdAt , forKey: "createdAt")
                 UserDefaults.standard.set(user_data.updatedAt , forKey: "updatedAt")
                 
-//                print("-----------")
-//                print(UserDefaults.standard.value(forKey: "Nickname"))
-//                print(UserDefaults.standard.value(forKey: "Id"))
-//                print(UserDefaults.standard.value(forKey: "userId"))
-//                print(UserDefaults.standard.value(forKey: "src"))
-//                print(UserDefaults.standard.value(forKey: "createdAt"))
-//                print(UserDefaults.standard.value(forKey: "updatedAt"))
-//                print("-----------")
+                print("-----------")
+                print(UserDefaults.standard.value(forKey: "Nickname"))
+                print(UserDefaults.standard.value(forKey: "Id"))
+                print(UserDefaults.standard.value(forKey: "userId"))
+                print(UserDefaults.standard.value(forKey: "src"))
+                print(UserDefaults.standard.value(forKey: "createdAt"))
+                print(UserDefaults.standard.value(forKey: "updatedAt"))
+                print("-----------")
 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "RootVC") as! RootViewController

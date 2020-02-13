@@ -16,35 +16,20 @@ class MovieSearchViewController: UIViewController {
     var movieSearchData: [SearchTitleModel] = []
     let dataManager = DataManager.sharedManager
     let movieListCellID: String = "MovieSearchCell"
+    let dateFormatter = DateFormatter()
+    let realdateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(movieSearchData)
         setMovieSearchListTableView()
         self.view.backgroundColor = .blackgroundBlack
         MovieSearchTableView.backgroundColor = .blackgroundBlack
         navigationItem.title = "검색 결과"
-    }
-    
-    func navigationSetup() { //네비게이션 투명색만들기
-        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 55/255.0, green: 55.0/255.0, blue: 55.0/255.0, alpha: 1.0)
-        self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "roundArrowBackIosBlack48Pt1X")
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
-        self.navigationItem.backBarButtonItem?.tintColor = .black
-        //투명하게 만드는 공식처럼 기억하기
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        //네비게이션바의 백그라운드색 지정. UIImage와 동일
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        //shadowImage는 UIImage와 동일. 구분선 없애줌.
-        self.navigationController?.navigationBar.isTranslucent = true
-        //false면 반투명이다.
-        self.navigationController?.view.backgroundColor = UIColor.white.withAlphaComponent(0.0)
-        //뷰의 배경색 지정
-        //        self.navigationController?.navigationBar.topItem?.title = "Home"
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(red: 211/255.0, green: 211.0/255.0, blue: 211.0/255.0, alpha: 1.0)]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationItem.backBarButtonItem?.tintColor = .white
         
+        dateFormatter.locale = Locale.init(identifier: "ko_kr")
+        dateFormatter.dateFormat = "yyyyMMdd"
+        realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,7 +99,18 @@ extension MovieSearchViewController: UITableViewDataSource, UITableViewDelegate 
         cell.titleLabel.text = movie.korTitle
         cell.titleLabel.adjustsFontSizeToFitWidth = true
         cell.titleLabel.textColor = .textGray
-        cell.dateLabel.text = "개봉일 : " + movie.releaseDate!
+        
+        if movie.releaseDate! != "" {
+            
+            let date = dateFormatter.date(from: movie.releaseDate!)
+            let releaseDate = realdateFormatter.string(from: date!)
+            cell.dateLabel.text = "개봉일 : " + releaseDate
+
+        }
+        else {
+            cell.dateLabel.text = "개봉일 정보가 없습니다"
+        }
+        
         cell.dateLabel.textColor = .textGray
         cell.nationLabel.text = movie.makingNation
         cell.nationLabel.textColor = .textGray
@@ -124,5 +120,8 @@ extension MovieSearchViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
     
+    
+    
 }
+
 

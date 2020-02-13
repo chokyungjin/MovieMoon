@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiaryDetailViewController: UIViewController {
+class DiaryPostViewController: UIViewController {
     
     //Vars..
     var movieId: Int?
@@ -18,7 +18,7 @@ class DiaryDetailViewController: UIViewController {
     var heartBtn: UIButton!
     var titleLabel: UILabel!
     var dateLabel: UILabel!
-    let myTable = DiaryStickHeaderLayout()
+    let myTable = DiaryPostStickyHeaderLayout()
     
     let imageName = "account"
     let image2 = UIImage(named: "account")
@@ -74,11 +74,6 @@ class DiaryDetailViewController: UIViewController {
         myTable.titleLabel = titleLabel
         myTable.dateLabel = dateLabel
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-       /// inputCall()
-
     }
     
     // Status Bar Hidden..

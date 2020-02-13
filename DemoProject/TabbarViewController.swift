@@ -184,7 +184,6 @@ extension TabBarViewController: UITabBarControllerDelegate {
         
     }
     
-    //여기서 영화 추가하는 검색바 화면 만들자
     @objc func addMovie(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "DiaryScreen", bundle: nil)

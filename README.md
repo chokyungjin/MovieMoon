@@ -52,9 +52,9 @@
 | 박스오피스 불러오기 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 영화 제목검색     | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin)  |3|
 | 영화 상세검색 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 다이어리 리스트    | ❌        | ❌                                                         |3|
+| 다이어리 리스트    | ⭕️      | ⭕️                                                       |3|
 | 상세 다이어리 | ❌       | ❌                                                         |3|
-| 다이어리 등록   | ❌        | ❌                                                         |3|
+| 다이어리 등록   | ⭕️      | ❌                                                         |3|
 | 다이어리 이미지 등록 | ❌       | ❌                                                         |3|
 | 다이어리 메모 수정 | ❌        | ❌                                                         |3|
 | 다이어리 작성 날짜 수정 | ❌       | ❌                                                         |3|

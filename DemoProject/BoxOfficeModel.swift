@@ -39,7 +39,7 @@ struct BoxOfficeModel : Codable {
     var id: Int
     var korTitle: String
     var ranking: Int
-    var releaseData: String
+    var releaseDate: String
     var sales: String
     var audience: Int
     var nation: String
