@@ -74,7 +74,7 @@ class TabBarViewController: UITabBarController ,MenuViewDelegate{
         if let revealVc = revealViewController() {
             revealVc.revealToggle(sender)
             //Event 등록 = Post
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "PostButton"), object: nil)
+           // NotificationCenter.default.post(name: Notification.Name(rawValue: "PostButton"), object: nil)
         }
     }
     

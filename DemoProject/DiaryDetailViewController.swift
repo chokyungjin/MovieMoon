@@ -79,10 +79,12 @@ class DiaryDetailViewController: UIViewController {
         myTable.thumbView = thumbView
         myTable.titleLabel = titleLabel
         myTable.dateLabel = dateLabel
-        
-        
-        
-        
+                
+    }
+    
+    // Status Bar Hidden..
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     

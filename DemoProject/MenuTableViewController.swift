@@ -57,7 +57,7 @@ class MenuTableViewController: UITableViewController , UITextFieldDelegate{
         //        let defaultImage = UIImage(named: "account.jpg")
         //        profileImage.imageFromUrl(UserDefaults.standard.value(forKey: "src") as? String , defaultImgPath: "account")
         
-        self.profileImageLabel = profileImage
+        self.profileImageLabel.imageFromUrl(UserDefaults.standard.string(forKey: "src"), defaultImgPath: "account")
         self.profileImageLabel.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
         self.pickButton.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
         
@@ -84,12 +84,6 @@ class MenuTableViewController: UITableViewController , UITextFieldDelegate{
         pickButton.addTarget(self, action: #selector(camerabtn(_:)), for: .touchUpInside)
         
         nameTextView.delegate = self
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
         
         
     }
@@ -244,7 +238,6 @@ extension MenuTableViewController : UIImagePickerControllerDelegate,UINavigation
                     print("user_data-----")
                     self.locationLink = user_data.location
                     
-                    
                     //location 주소를 src로 보내야함
                     //여기서 patching을 해야하나
                     AuthService.shared.patchImage(self.locationLink ?? "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png") {
@@ -254,15 +247,14 @@ extension MenuTableViewController : UIImagePickerControllerDelegate,UINavigation
                         // 매개변수에 어떤 값을 가져올 것인지
                         case .success(let data):
                             
-                            // PostImageModel 에서 받은 유저 정보 반환
                             let user_data2 = data
                             // self.profileImageLabel.image = image
                             //self.locationLink에 주소는 있는데
-                            ///"https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581349888953file.jpg"
-                            //이 주소로 이미지를 kingfisher불러오면 nil로 받아옴!
-                            
+                           
                             print("user_data2-----")
                             print(user_data2)
+                            self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
+                            UserDefaults.standard.set(self.locationLink, forKey: "src")
                             print("user_data2-----")
 
                         case .requestErr(let message):

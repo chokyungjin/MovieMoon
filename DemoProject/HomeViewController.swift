@@ -201,9 +201,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 
                 // DataClass 에서 받은 유저 정보 반환
                 self.expectationList = data as! [WishListModel]
-                print("????????????")
-                print(self.expectationList)
-                print("????????????")
+//                print("????????????")
+//                print(self.expectationList)
+//                print("????????????")
                 self.movieCollectionView.reloadData()
                 
                 
@@ -239,16 +239,17 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieListCellID, for: indexPath) as! MovieCollectionViewCell
         let movie = expectationList[indexPath.row]
         cell.imageThumbnail.imageFromUrl(movie.poster, defaultImgPath: "img_placeholder")
+        cell.imageThumbnail.contentMode = .scaleAspectFit
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 10, bottom: 40, right: 10)
+        return UIEdgeInsets(top: 0, left: 5, bottom: 40, right: 5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
     
 }

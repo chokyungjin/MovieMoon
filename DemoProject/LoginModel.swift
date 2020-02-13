@@ -19,12 +19,12 @@ import Foundation
 
 // 성공했을 때 response body
 struct LoginModel: Codable {
-    let id: Int
-    let userId: String
-    let nickname: String
-    let src: String? = nil
-    let createdAt: String
-    let updatedAt: String
+    var id: Int
+    var userId: String
+    var nickname: String
+    var src: String? = nil
+    var createdAt: String
+    var updatedAt: String
     
 }
 

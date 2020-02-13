@@ -197,6 +197,16 @@ class MovieDetailViewController: UIViewController {
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
     
+//    // Status Bar 색상 조절
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        if #available(iOS 13.0, *) {
+//            return .darkContent
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        return .default
+//    }
+    
     func UICall() {
         let thumnailImage = UIImageView()
         thumnailImage.imageFromUrl(movieDetailData?.poster , defaultImgPath: "img_placeholder")
