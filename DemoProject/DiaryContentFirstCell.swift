@@ -8,9 +8,8 @@
 
 import UIKit
 
-class DiaryContentFirstCell : UITableViewCell{
+class DiaryContentFirstCell : UITableViewCell, UITextFieldDelegate{
     
-    var yearLabel: UILabel?
     var plotField: UITextView?
     let datePickerView:UIDatePicker = UIDatePicker()    //데이트피커로 객체 선언
 
@@ -41,8 +40,8 @@ class DiaryContentFirstCell : UITableViewCell{
         return label
     }()
    
-    var myDateField: UILabel = {
-        let label = UILabel()
+    var myDateField: UITextField = {
+        let label = UITextField()
         label.textColor = .textGray
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 14)
@@ -58,6 +57,11 @@ class DiaryContentFirstCell : UITableViewCell{
         self.addSubview(myDateField)
         
         self.myRatingView.delegate = self
+        self.myDateField.delegate = self
+        
+        datePickerView.datePickerMode = UIDatePicker.Mode.date
+        datePickerView.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: .valueChanged)
+        myDateField.inputView = datePickerView
         
         initGestureRecognizer()
 
@@ -94,6 +98,25 @@ extension DiaryContentFirstCell {
         let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
         textFieldTap.delegate = self
         addGestureRecognizer(textFieldTap)
+    }
+    
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        //날짜 바뀌면 쓰는 메소드
+        let componenets = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        //현재의 날짜를 보냄 ,year, month , day
+        if let day = componenets.day, let month = componenets.month, let year = componenets.year {
+            if month <= 9 && day <= 9{
+                myDateField.text = "\(year)-0\(month)-0\(day)"    //앞에 0 붙여서 두자리 수 만들어줌
+            }else if month <= 9 && day >= 10{
+                myDateField.text = "\(year)-0\(month)-\(day)"     //앞에 0 붙여서 두자리 수 만들어줌
+            }else if month >= 10 && day <= 9{
+                myDateField.text = "\(year)-\(month)-0\(day)"     //앞에 0 붙여서 두자리 수 만들어줌
+            }else if month >= 10 && day >= 10{
+                myDateField.text = "\(year)-\(month)-\(day)"
+            }
+        }
+        print(myDateField.text)
+        UserDefaults.standard.set(myDateField.text, forKey: "createDate")
     }
     
     @objc func handleTapTextField(_ sender: UITapGestureRecognizer) {

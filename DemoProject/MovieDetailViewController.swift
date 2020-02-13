@@ -59,11 +59,12 @@ class MovieDetailViewController: UIViewController {
             case .success(let data):
                 
                 // DataClass 에서 받은 유저 정보 반환
-                self.movieDetailData = data as! SearchDetailModel
+                self.movieDetailData = data as? SearchDetailModel
                 self.myTable.movieDetailData = self.movieDetailData
-                print("!!!!!!!!!!!!!")
-                print(self.movieDetailData)
-                print("!!!!!!!!!!!!!")
+               
+//                print("!!!!!!!!!!!!!")
+//                print(self.movieDetailData)
+//                print("!!!!!!!!!!!!!")
                 self.UICall()
                 
                 
@@ -106,7 +107,7 @@ class MovieDetailViewController: UIViewController {
                 case .success(let data):
                     
                     // DataClass 에서 받은 유저 정보 반환
-                    self.WishList = data as! WishListModel
+                    self.WishList = data as? WishListModel
                     print(self.WishList)
                     let Alert = UIAlertController(title: "", message: "위시리스트에 추가합니다", preferredStyle: .alert)
                     Alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in

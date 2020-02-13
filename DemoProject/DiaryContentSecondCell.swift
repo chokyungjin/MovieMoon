@@ -23,8 +23,8 @@ class DiaryContentSecondCell : UITableViewCell {
     var delegate : PlusActionDelegate?
     
     
-    var plotField: UITextView = {
-        let label = UITextView()
+    var plotField: UITextField = {
+        let label = UITextField()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
         label.frame = CGRect(x: 39, y: 240, width: 298, height: 250)
@@ -81,11 +81,14 @@ class DiaryContentSecondCell : UITableViewCell {
         self.addSubview(stillcutImage3)
         self.addSubview(OkButton)
         self.addSubview(CancelButton)
+        
+        self.plotField.delegate = self
         OkButton.layer.addBorder([.top , .right , .bottom], color: .color130, width: 1)
         CancelButton.layer.addBorder([.top , .bottom], color: .color130, width: 1)
 
         OkButton.addTarget(self, action: #selector(didOk(_:)), for: .touchUpInside)
         CancelButton.addTarget(self, action: #selector(didCancel(_:)), for: .touchUpInside)
+        plotField.addTarget(self, action: #selector(didChange(sender:)), for: .valueChanged)
 
         
     }
@@ -96,6 +99,12 @@ class DiaryContentSecondCell : UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    
+    
+    @objc func didChange(sender: UITextField) {
+        
     }
     
     @objc func didClick(_ sender: Any) {
@@ -110,4 +119,16 @@ class DiaryContentSecondCell : UITableViewCell {
            self.delegate?.didClickedCancel()
        }
     
+}
+
+// MARK: UITextFieldDelegate methods
+extension DiaryContentSecondCell: UITextFieldDelegate {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        print(plotField.text)
+        UserDefaults.standard.set(plotField.text, forKey: "memo")
+        print("changed")
+        return true
+    }
 }

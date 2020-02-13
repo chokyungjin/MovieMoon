@@ -146,7 +146,7 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
             cell.stillcutImage2.image = profileImage[1]
             cell.stillcutImage3.image = profileImage[2]
             
-            cell.plotField.text = "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!"
+            cell.plotField.text = ""
             cell.plotField.backgroundColor = .color130
             cell.plotField.textColor = .textGray
             cell.plotField.isUserInteractionEnabled = true
@@ -212,9 +212,6 @@ extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
             // 매개변수에 어떤 값을 가져올 것인지
             case .success(let data):
                 
-                // DataClass 에서 받은 유저 정보 반환
-                // let user_data = data as! DataClass
-                
                 print("등록 성공")
                 let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
                 
@@ -224,7 +221,7 @@ extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
                 self.present(addAlert, animated: true, completion: nil)
                 
                 self.dismiss(animated: true, completion: nil)
-
+                
             case .requestErr(let message):
                 self.simpleAlert(title: "등록 실패", message: "\(message)")
                 

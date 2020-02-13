@@ -81,7 +81,6 @@ class DiarySearchViewController: UIViewController , UISearchBarDelegate{
                 
                 // DataClass 에서 받은 유저 정보 반환
                 self.movieSearchData = data as! [SearchTitleModel]
-                //                print(self.movieSearchData)
                 self.searchTable.reloadData()
                 
             case .requestErr(let message):

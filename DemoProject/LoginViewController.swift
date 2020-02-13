@@ -60,6 +60,10 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(user_data.src , forKey: "src")
                 UserDefaults.standard.set(user_data.createdAt , forKey: "createdAt")
                 UserDefaults.standard.set(user_data.updatedAt , forKey: "updatedAt")
+                UserDefaults.standard.set(nil, forKey: "titleLabel")
+                UserDefaults.standard.set(nil, forKey: "dateLabel")
+                UserDefaults.standard.set(nil, forKey: "memo")
+                UserDefaults.standard.set(nil, forKey: "createDate")
                 
                 print("-----------")
                 print(UserDefaults.standard.value(forKey: "Nickname"))
@@ -68,6 +72,10 @@ class LoginViewController: UIViewController {
                 print(UserDefaults.standard.value(forKey: "src"))
                 print(UserDefaults.standard.value(forKey: "createdAt"))
                 print(UserDefaults.standard.value(forKey: "updatedAt"))
+                print(UserDefaults.standard.value(forKey: "titleLabel"))
+                print(UserDefaults.standard.value(forKey: "dateLabel"))
+                print(UserDefaults.standard.value(forKey: "memo"))
+                print(UserDefaults.standard.value(forKey: "createDate"))
                 print("-----------")
 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

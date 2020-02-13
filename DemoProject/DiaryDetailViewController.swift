@@ -46,6 +46,11 @@ class DiaryDetailViewController: UIViewController {
                 // DataClass 에서 받은 유저 정보 반환
                 self.DiaryDetailModel = data as? DiaryDetailModel
                 self.myTable.DiaryDetailModel = data as? DiaryDetailModel
+                UserDefaults.standard.set(self.DiaryDetailModel.movie.korTitle, forKey: "titleLabel")
+                UserDefaults.standard.set(self.DiaryDetailModel.movie.makingNation, forKey: "dateLabel")
+                UserDefaults.standard.set(self.DiaryDetailModel.memo, forKey: "memo")
+                UserDefaults.standard.set(self.DiaryDetailModel.createDate, forKey: "createDate")
+
                 print("????????????")
                 print(self.DiaryDetailModel)
                 print("????????????")
@@ -110,8 +115,7 @@ class DiaryDetailViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        titleLabel.text = DiaryDetailModel.movie.korTitle
-        dateLabel.text = DiaryDetailModel.movie.makingNation
+       
 
     }
         

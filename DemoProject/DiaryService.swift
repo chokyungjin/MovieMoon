@@ -226,8 +226,8 @@ struct DiaryService {
                             switch status {
                             case 200:
                                 do {
-                                    let decoder = JSONDecoder()
                                     
+                                    print(String(data: value, encoding: .utf8))
                                     // let result = try decoder.decode(PatchImageModel.self, from: value)
                                     print("success")
                                     completion(.success("메모 변경 성공"))

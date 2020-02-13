@@ -91,8 +91,11 @@ class DiaryResultFirstCell : UITableViewCell, UITextFieldDelegate{
                 myDateField.text = "\(year)-\(month)-\(day)"
             }
         }
+        print("````````````")
         print(myDateField.text)
         UserDefaults.standard.set(myDateField.text, forKey: "createDate")
+        print("````````````")
+
     }
 }
 
