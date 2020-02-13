@@ -58,9 +58,7 @@ class DiaryCollectionViewController: UICollectionViewController {
             DiaryDetailViewController.movieId = mydiaryLists[selectedIndex.row].movieId
             DiaryDetailViewController.diaryId = mydiaryLists[selectedIndex.row].diaryId
             DiaryDetailViewController.poster = mydiaryLists[selectedIndex.row].poster
-                     
-            //movieId, diaryId 가지고 통신해야됨
-            
+                        
             
         }
         
@@ -79,7 +77,7 @@ extension DiaryCollectionViewController {
         //        let itemWidth = ((view.frame.width / 3) - (Storyboard.leftAndRightPaddings * 2))
         
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: itemWidth, height: 200)
+        layout.itemSize = CGSize(width: itemWidth, height: 175)
         //        print(itemWidth)
         
         
@@ -92,9 +90,9 @@ extension DiaryCollectionViewController {
                 
                 // DataClass 에서 받은 유저 정보 반환
                 self.mydiaryLists = data as! [DiaryGetList]
-                print("????????????")
-                print(self.mydiaryLists)
-                print("????????????")
+//                print("????????????")
+//                print(self.mydiaryLists)
+//                print("????????????")
                 self.MovielistCollectionView.reloadData()
                 
                 

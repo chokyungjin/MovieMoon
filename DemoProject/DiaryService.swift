@@ -140,22 +140,18 @@ struct DiaryService {
             
         } //DiaryGet
     
-    
-    //http://54.180.186.62/api/diary/detail?movieId=4&diaryId=135
     //다이어리 디테일 통신
-    
-    func diaryDetail(_ diaryid: Int, _ movieId: Int ,  completion: @escaping (NetworkResult<Any>) -> Void) {
+    func diaryDetail(_ diaryId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
             
             let header: HTTPHeaders = [
                 "Content-Type" : "application/json"
             ]
             let body: Parameters = [
-                "diaryid" : diaryid,
-                "movieId" : movieId
+                "diaryId" : diaryId
             ]
             
             //body에 인자 넣어줄때는 encoding = default , query로 전달할땐 encoding = queryString
-            Alamofire.request(APIConstants.GetDiaryDetailURL, method: .get, parameters: body ,encoding: URLEncoding(destination: .queryString)).responseData(){ response in
+            Alamofire.request(APIConstants.GetDiaryDetailURL, method: .get, parameters: body ,encoding: URLEncoding(destination: .queryString), headers: header).responseData(){ response in
                 switch response.result {
                 case .success:
                     if let value = response.result.value {
@@ -165,8 +161,9 @@ struct DiaryService {
                             case 200:
                                 do {
                                     let decoder = JSONDecoder()
-    //                                print(value)
-                                    let result = try decoder.decode([SearchTitleModel].self, from: value)
+                                    //print(value)
+//                                    print(String(data: value, encoding: .utf8))
+                                    let result = try! decoder.decode(DiaryDetailModel.self, from: value)
                                     
                                     completion(.success(result))
                                 }
@@ -197,5 +194,152 @@ struct DiaryService {
             }
             
         }
+        
+    //memo 변경
+    func patchMemo(_ memo: String ,_ userId: Int ,_ movieId : Int , completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        let header: HTTPHeaders = [
+            "Content-Type" : "application/json"
+        ]
+        
+        let body: Parameters = [
+            "memo" : memo,
+            "userId" : userId,
+            "movieId" : movieId
+        ]
+        
+        Alamofire.request(APIConstants.EditDiaryMemoURL, method: .patch, parameters: body, encoding: JSONEncoding.default, headers: header)
+            .responseData { response in
+                // parameter 위치
+                switch response.result {
+                    
+                // 통신 성공 - 네트워크 연결
+                case .success:
+                    if let value = response.result.value {
+                        
+                        // 서버가 보내는 http Header에 담긴 status code
+                        // Rest API에서 통신을 성공했던 실패했던 네트워크 통신이 성공했기 때문에 발생
+                        // 서버가 예측한 질문에 대해 응답이 왔다면 200 status code
+                        // 이제부터 서버 개발자가 분기할 코드에 대해 작성함 ex) 택배와 택배기사
+                        if let status = response.response?.statusCode {
+                            print(status) //200 출력
+                            switch status {
+                            case 200:
+                                do {
+                                    let decoder = JSONDecoder()
+                                    
+                                    // let result = try decoder.decode(PatchImageModel.self, from: value)
+                                    print("success")
+                                    completion(.success("메모 변경 성공"))
+                                }
+                                catch {
+                                    print("pathErr")
+                                    completion(.pathErr)
+                                    
+                                }
+                                
+                            case 400:
+                                print("400 pathERr")
+                                completion(.pathErr)
+                                
+                            case 403:
+                                print("수정 실패!")
+                                completion(.requestErr((Any).self))
+                            case 500:
+                                print("500 pathERr")
+                                completion(.serverErr)
+                            case 600:
+                                print("600 pathErr")
+                                completion(.dbErr)
+                            default:
+                                print("default")
+                                break
+                            }// switch
+                        }// iflet
+                    }
+                    break
+                    
+                // 통신 실패 - 네트워크 연결
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    completion(.networkFail)
+                    // .networkFail이라는 반환 값이 넘어감
+                    break
+                }
+        }
+    } //func patch memo
+    
+    func patchcreateDate(_ createDate: String ,_ userId: Int ,_ movieId : Int , completion: @escaping (NetworkResult<Any>) -> Void) {
+           
+           let header: HTTPHeaders = [
+               "Content-Type" : "application/json"
+           ]
+           
+           let body: Parameters = [
+               "createDate" : createDate,
+               "userId" : userId,
+               "movieId" : movieId
+           ]
+           
+        Alamofire.request(APIConstants.EditDiaryDateURL, method: .patch, parameters: body, encoding: JSONEncoding.default, headers: header)
+               .responseData { response in
+                   // parameter 위치
+                   switch response.result {
+                       
+                   // 통신 성공 - 네트워크 연결
+                   case .success:
+                       if let value = response.result.value {
+                           
+                           // 서버가 보내는 http Header에 담긴 status code
+                           // Rest API에서 통신을 성공했던 실패했던 네트워크 통신이 성공했기 때문에 발생
+                           // 서버가 예측한 질문에 대해 응답이 왔다면 200 status code
+                           // 이제부터 서버 개발자가 분기할 코드에 대해 작성함 ex) 택배와 택배기사
+                           if let status = response.response?.statusCode {
+                               print(status) //200 출력
+                               switch status {
+                               case 200:
+                                   do {
+                                       let decoder = JSONDecoder()
+                                       
+                                       // let result = try decoder.decode(PatchImageModel.self, from: value)
+                                       print("success")
+                                       completion(.success("날짜 변경 성공"))
+                                   }
+                                   catch {
+                                       print("pathErr")
+                                       completion(.pathErr)
+                                       
+                                   }
+                                   
+                               case 400:
+                                   print("400 pathERr")
+                                   completion(.pathErr)
+                                   
+                               case 403:
+                                   print("수정 실패!")
+                                   completion(.requestErr((Any).self))
+                               case 500:
+                                   print("500 pathERr")
+                                   completion(.serverErr)
+                               case 600:
+                                   print("600 pathErr")
+                                   completion(.dbErr)
+                               default:
+                                   print("default")
+                                   break
+                               }// switch
+                           }// iflet
+                       }
+                       break
+                       
+                   // 통신 실패 - 네트워크 연결
+                   case .failure(let err):
+                       print(err.localizedDescription)
+                       completion(.networkFail)
+                       // .networkFail이라는 반환 값이 넘어감
+                       break
+                   }
+           }
+       } //func patch Date
     
 }

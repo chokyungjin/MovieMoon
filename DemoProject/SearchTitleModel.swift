@@ -35,7 +35,7 @@ struct SearchTitleModel: Codable {
     var releaseDate: String? = nil
     var makingNation: String? = nil
     var poster: String? = nil
-    var id: Int
+    var id: Int? = nil
     
     
 }

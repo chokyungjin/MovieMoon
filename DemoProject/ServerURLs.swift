@@ -83,7 +83,7 @@ struct APIConstants {
     static let GetDiaryURL = BaseURL + "/api/diary"
     //상세다이어리        GET /api/diary/detail
     //userId, movieId, diaryId
-    static let GetDiaryDetailURL = BaseURL + "/api/diary"
+    static let GetDiaryDetailURL = BaseURL + "/api/diary/detail"
     //다이어리 등록        POST /api/diary
     //userId, movieId, memo, createDate
     static let RegisterDiaryURL = BaseURL + "/api/diary"

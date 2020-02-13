@@ -19,6 +19,7 @@ class DiaryDetailViewController: UIViewController {
     var titleLabel: UILabel!
     var dateLabel: UILabel!
     let myTable = DiaryStickHeaderLayout()
+    var DiaryDetailModel: DiaryDetailModel!
     
     let imageName = "account"
     let image2 = UIImage(named: "account")
@@ -34,7 +35,39 @@ class DiaryDetailViewController: UIViewController {
         view.addSubview(myTable.tableView)
         
         //Diary Detail 통신 해야됨.
-        //movieId, diaryId 가지고 통신해야됨
+        DiaryService.shared.diaryDetail(diaryId ?? 16){
+            
+            data in
+            
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                // DataClass 에서 받은 유저 정보 반환
+                self.DiaryDetailModel = data as? DiaryDetailModel
+                self.myTable.DiaryDetailModel = data as? DiaryDetailModel
+                print("????????????")
+                print(self.DiaryDetailModel)
+                print("????????????")
+                
+                
+            case .requestErr(let message):
+                self.simpleAlert(title: "다이어리 가져오기 실패", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
+            
         
         
         //이건 DiaryDetail이 아님
@@ -77,20 +110,15 @@ class DiaryDetailViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       /// inputCall()
+        titleLabel.text = DiaryDetailModel.movie.korTitle
+        dateLabel.text = DiaryDetailModel.movie.makingNation
 
     }
-    
+        
     // Status Bar Hidden..
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
-    func inputCall() {
-        print(movieSearchResultData.korTitle, movieSearchResultData.releaseDate)
-
-    }
-    
     
     
 }

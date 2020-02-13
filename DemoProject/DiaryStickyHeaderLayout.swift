@@ -23,10 +23,12 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     let dateFormatter = DateFormatter()
     let realdateFormatter = DateFormatter()
     var movieDetailData: SearchDetailModel? = nil
-    
+    var DiaryDetailModel: DiaryDetailModel!
+
     
     //inits..
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         tableView.register(DiaryContentFirstCell.self, forCellReuseIdentifier: "cell1")
         tableView.register(DiaryContentSecondCell.self, forCellReuseIdentifier: "cell2")
@@ -37,6 +39,11 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(DiaryDetailModel)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,7 +127,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             cell.myDateLabel.text = "Date"
             cell.myDateLabel.textColor = .textGray
             
-            cell.myDateField.text = "2020년 02월 20일"
+            cell.myDateField.text = DiaryDetailModel.createDate
             cell.myDateField.layer.addBorder([.bottom], color: .textGray, width: 1)
             
             cell.selectionStyle = .none
@@ -139,7 +146,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             cell.stillcutImage2.image = profileImage[1]
             cell.stillcutImage3.image = profileImage[2]
             
-            cell.plotField.text = "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!"
+            cell.plotField.text = DiaryDetailModel.memo
             cell.plotField.backgroundColor = .color130
             cell.plotField.textColor = .textGray
             cell.plotField.isUserInteractionEnabled = true
@@ -273,3 +280,76 @@ extension DiaryStickHeaderLayout : UIImagePickerControllerDelegate,UINavigationC
     }
     
 }
+
+//
+//AuthService.shared.postImage(image) {
+//    data in
+//
+//    switch data {
+//    // 매개변수에 어떤 값을 가져올 것인지
+//    case .success(let data):
+//
+//        // PostImageModel 에서 받은 유저 정보 반환
+//        let user_data = data as! PostImageModel
+//        //이부분에서 로그인이 되어있는지 쿠키검사 등을 해야되나,, 여기서 막힘
+//        print("user_data-----")
+//        self.locationLink = user_data.location
+//
+//        //location 주소를 src로 보내야함
+//        //여기서 patching을 해야하나
+//        AuthService.shared.patchImage(self.locationLink ?? "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png") {
+//            data in
+//
+//            switch data {
+//            // 매개변수에 어떤 값을 가져올 것인지
+//            case .success(let data):
+//
+//                let user_data2 = data
+//                // self.profileImageLabel.image = image
+//                //self.locationLink에 주소는 있는데
+//
+//                print("user_data2-----")
+//                print(user_data2)
+//                self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
+//                UserDefaults.standard.set(self.locationLink, forKey: "src")
+//                print("user_data2-----")
+//
+//            case .requestErr(let message):
+//                self.simpleAlert(title: "저장 실패", message: "\(message)")
+//
+//            case .pathErr:
+//                print(".pathErr")
+//
+//            case .serverErr:
+//                print(".serverErr")
+//
+//            case .networkFail:
+//                print("네트워크 오류")
+//
+//            case .dbErr:
+//                print("디비 에러")
+//            }
+//        }
+//
+//        UserDefaults.standard.set(self.locationLink, forKey: "src")
+//        self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
+//        print("user_data-----")
+//
+//
+//
+//    case .requestErr(let message):
+//        self.simpleAlert(title: "저장 실패", message: "\(message)")
+//
+//    case .pathErr:
+//        print(".pathErr")
+//
+//    case .serverErr:
+//        print(".serverErr")
+//
+//    case .networkFail:
+//        print("네트워크 오류")
+//
+//    case .dbErr:
+//        print("디비 에러")
+//    }
+//}

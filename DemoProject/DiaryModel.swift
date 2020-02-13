@@ -42,3 +42,36 @@ struct DiaryGetList: Codable {
 
 
 // diary detail struct 만들어야 됨
+//{
+//    "id": 16,
+//    "memo": "지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!",
+//    "createDate": "2020-12-13",
+//    "createdAt": "2020-02-13T12:07:28.000Z",
+//    "updatedAt": "2020-02-13T12:07:28.000Z",
+//    "movieId": 8551,
+//    "userId": 7,
+//    "movie": {
+//        "korTitle": "7공주 대리운전",
+//        "makingNation": "대한민국",
+//        "releaseDate": "20150528"
+//    },
+//    "diaryimages": []
+//}
+
+///http://54.180.186.62/api/diary/detail?diaryId=16
+struct DiaryDetailModel: Codable {
+    
+    var id: Int
+    var memo: String
+    var createDate: String
+    var createdAt: String
+    var updatedAt: String
+    var movieId : Int? = nil
+    var userId : Int? = nil
+    var movie: SearchTitleModel
+    var diaryimages : [String]? = nil
+    
+}
+
+//Optional("{\"id\":14,\"memo\":\"지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!\",\"createDate\":\"2020-04-13\",\"createdAt\":\"2020-02-13T12:05:38.000Z\",\"updatedAt\":\"2020-02-13T12:05:38.000Z\",\"movieId\":8929,\"userId\":7,\"movie\":{\"korTitle\":\"\\\"시발, 놈: 인류의 시작\\\"\",\"makingNation\":\"대한민국\",\"releaseDate\":\"20160818\"},\"diaryimages\":[]}")
+//

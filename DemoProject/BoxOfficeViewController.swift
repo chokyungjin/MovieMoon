@@ -96,6 +96,7 @@ class BoxOfficeViewController: UIViewController,UITextFieldDelegate {
         if let year = componenets.year {
             yeartextField.text = "\(year)"
         }
+        print(yeartextField.text)
         guard let temp = yeartextField.text else { return }
         SearchService.shared.boxOfficeSearch(Int(temp)!) {
             data in
@@ -108,7 +109,7 @@ class BoxOfficeViewController: UIViewController,UITextFieldDelegate {
                 self.boxOffices = data as! [BoxOfficeModel]
                 self.MovieListTableView.reloadData()
                 
-                //print(self.boxOffices)
+                print(self.boxOffices)
                 
             case .requestErr(let message):
                 self.simpleAlert(title: "검색 실패", message: "\(message)")

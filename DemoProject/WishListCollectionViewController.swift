@@ -46,7 +46,7 @@ class WishListCollectionViewController: UICollectionViewController {
         let itemWidth = ((collectionViewWidth - Storyboard.leftAndRightPaddings * 2 ) / Storyboard.numberOfItemsPerRow )
         
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: itemWidth, height: 200)
+        layout.itemSize = CGSize(width: itemWidth, height: 175)
         
         
         WishListService.shared.getWishList() {
