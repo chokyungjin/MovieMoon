@@ -24,8 +24,8 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     var movieDetailData: SearchDetailModel? = nil
     var DiaryDetailModel: DiaryDetailModel!
     
-    //    var memoText : String? = UserDefaults.standard.string(forKey: "memo")
-    //    var dateText : String? = UserDefaults.standard.string(forKey: "createDate")
+    var resultMemo: String? = nil
+    var resultDate: String? = nil
     
     //inits..
     override func viewDidLoad() {
@@ -51,6 +51,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     
     override func viewWillAppear(_ animated: Bool) {
         createGradient()
+        
         registerForKeyboardNotifications()
         tableView.reloadData()
         
@@ -132,7 +133,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             cell.myDateLabel.text = "Date"
             cell.myDateLabel.textColor = .textGray
             
-            cell.myDateField.text = UserDefaults.standard.string(forKey: "createDate")
+            cell.myDateField.text = resultDate
             cell.myDateField.layer.addBorder([.bottom], color: .textGray, width: 1)
             
             cell.selectionStyle = .none
@@ -151,8 +152,9 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             cell.stillcutImage2.image = profileImage[1]
             cell.stillcutImage3.image = profileImage[2]
             
-            cell.plotField.text = UserDefaults.standard.string(forKey: "memo")
-            print(cell.plotField.text)
+            
+            cell.plotField.text = resultMemo
+            print(cell.plotField.text ?? "memo 내용")
             cell.plotField.backgroundColor = .color130
             cell.plotField.textColor = .textGray
             cell.plotField.isUserInteractionEnabled = true
@@ -175,23 +177,8 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         imageView.frame = CGRect(origin: .zero, size: CGSize(width: scrollView.bounds.width, height: stretchedHeight))
         thumbView.frame = CGRect(origin: CGPoint(x: 20, y: thumbPosition), size: CGSize(width: 99.0, height: 141.0))
         
-        titleLabel.text = UserDefaults.standard.string(forKey: "titleLabel")
         titleLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 70), size: titleLabel.bounds.size)
         titleLabel.textColor = .textGray
-        
-        //        if UserDefaults.standard.string(forKey: "createDate") != "" {
-        //
-        //            let date = dateFormatter.date(from: UserDefaults.standard.string(forKey: "createDate")!)
-        //            let releaseDate = realdateFormatter.string(from: date!)
-        //            dateLabel.text = "개봉일 : " + releaseDate
-        //            dateLabel.textColor = .textGray
-        //
-        //        }
-        //        else {
-        //            dateLabel.text = "개봉일 정보가 없습니다"
-        //        }
-        //
-        dateLabel.text = UserDefaults.standard.string(forKey: "dateLabel")
         
         dateLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 100), size: dateLabel.bounds.size)
         
@@ -213,7 +200,7 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
         print("~~~~~~~~~~~~~~~~~")
         print(UserDefaults.standard.string(forKey: "memo")!, UserDefaults.standard.integer(forKey: "Id"), DiaryDetailModel.movieId ?? 0)
         print("~~~~~~~~~~~~~~~~~")
-
+        
         DiaryService.shared.patchMemo(UserDefaults.standard.string(forKey: "memo")!, UserDefaults.standard.integer(forKey: "Id"), DiaryDetailModel.movieId ?? 0){
             
             data in
@@ -230,7 +217,7 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
                 //UserDefaults.standard.string(forKey: "memo")
                 print("user_data2-----")
                 self.tableView.reloadData()
-
+                
             case .requestErr(let message):
                 self.simpleAlert(title: "저장 실패", message: "\(message)")
                 
@@ -251,12 +238,12 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
         }
         
         let addAlert = UIAlertController(title: "수정 완료", message: "", preferredStyle: .alert)
-
+        
         addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
             print("확인")
         }))
         present(addAlert, animated: true, completion: nil)
-
+        
     }
     
     func didClickedCancel() {

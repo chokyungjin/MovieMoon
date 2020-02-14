@@ -58,7 +58,8 @@ class DiaryCollectionViewController: UICollectionViewController {
             DiaryDetailViewController.movieId = mydiaryLists[selectedIndex.row].movieId
             DiaryDetailViewController.diaryId = mydiaryLists[selectedIndex.row].diaryId
             DiaryDetailViewController.poster = mydiaryLists[selectedIndex.row].poster
-                        
+            
+            
             
         }
         

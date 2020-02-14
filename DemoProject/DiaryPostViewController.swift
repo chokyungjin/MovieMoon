@@ -25,19 +25,22 @@ class DiaryPostViewController: UIViewController {
     var imageView = UIImageView(image: UIImage(named: "account"))
     var thumbView = UIImageView(image: UIImage(named: "account"))
     
+    let dateFormatter = DateFormatter()
+    let realdateFormatter = DateFormatter()
+    
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.addChild(myTable)
         view.addSubview(myTable.tableView)
+        
+        dateFormatter.locale = Locale.init(identifier: "ko_kr")
+        dateFormatter.dateFormat = "yyyyMMdd"
+        realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
         
         //Diary Detail 통신 해야됨.
         //movieId, diaryId 가지고 통신해야됨
         
-        
-        //이건 DiaryDetail이 아님
         imageView.imageFromUrl(poster, defaultImgPath: "img_placeholder")
         thumbView.imageFromUrl(poster, defaultImgPath: "img_placeholder")
         
@@ -74,19 +77,25 @@ class DiaryPostViewController: UIViewController {
         myTable.titleLabel = titleLabel
         myTable.dateLabel = dateLabel
         
+        myTable.titleLabel?.text = movieSearchResultData.korTitle
+        
+        if movieSearchResultData.releaseDate != "" {
+            
+            let date = dateFormatter.date(from: (movieSearchResultData.releaseDate ?? "2020년 02월 20일"))
+            let releaseDate = realdateFormatter.string(from: date!)
+            myTable.dateLabel?.text = "개봉일 : " + releaseDate
+            myTable.dateLabel?.textColor = .textGray
+        }
+        else {
+            myTable.dateLabel?.text = "개봉일 정보가 없습니다"
+        }
+        
     }
     
     // Status Bar Hidden..
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
-    func inputCall() {
-        print(movieSearchResultData.korTitle, movieSearchResultData.releaseDate)
-
-    }
-    
-    
     
 }
 

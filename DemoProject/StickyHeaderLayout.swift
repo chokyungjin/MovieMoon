@@ -38,6 +38,7 @@ class StickyHeadersLayout: UITableViewController {
         
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
         thumbView?.frame = CGRect(origin: CGPoint(x: 20, y: 76), size: CGSize(width: 99.0, height: 141.0))
@@ -46,6 +47,8 @@ class StickyHeadersLayout: UITableViewController {
         self.dateLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 174.5), size: CGSize(width: 200.0, height: 30.0))
         
     }
+    
+   
     
     //override...
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

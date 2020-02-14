@@ -30,7 +30,6 @@ class DiarySearchViewController: UIViewController , UISearchBarDelegate{
         self.view.backgroundColor = .blackgroundBlack
         searchTable.backgroundColor = .blackgroundBlack
         searchBar.delegate = self
-        searchBar.accessibilityAttributedHint = NSAttributedString(string: "영화, 배우, 감독으로 검색", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)])
         searchBar.searchTextField.textColor = UIColor.init(red: 211/255.0, green: 211/255.0, blue: 211/255.0, alpha: 1)
         setMovieSearchListTableView()
         
@@ -49,6 +48,7 @@ class DiarySearchViewController: UIViewController , UISearchBarDelegate{
             //여기서 아이디로 디테일 통신 시작해야 할듯
             DiaryPostViewController.movieId = movieSearchData[selectedIndex.row].id
             DiaryPostViewController.poster = movieSearchData[selectedIndex.row].poster
+            DiaryPostViewController.movieSearchResultData = movieSearchData[selectedIndex.row]
             UserDefaults.standard.set(DiaryPostViewController.movieId , forKey: "movieId")
 
             

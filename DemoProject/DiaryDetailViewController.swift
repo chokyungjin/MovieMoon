@@ -14,13 +14,14 @@ class DiaryDetailViewController: UIViewController {
     var movieId: Int?
     var diaryId : Int?
     var poster: String?
-    var movieSearchResultData: SearchTitleModel!
+    var movieSearchResultData: DiaryGetList!
     var heartBtn: UIButton!
     var titleLabel: UILabel!
     var dateLabel: UILabel!
     let myTable = DiaryStickHeaderLayout()
     var DiaryDetailModel: DiaryDetailModel!
-    
+    let dateFormatter = DateFormatter()
+    let realdateFormatter = DateFormatter()
     let imageName = "account"
     let image2 = UIImage(named: "account")
     var imageView = UIImageView(image: UIImage(named: "account"))
@@ -29,10 +30,12 @@ class DiaryDetailViewController: UIViewController {
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.addChild(myTable)
         view.addSubview(myTable.tableView)
+        
+        dateFormatter.locale = Locale.init(identifier: "ko_kr")
+        dateFormatter.dateFormat = "yyyyMMdd"
+        realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
         
         //Diary Detail 통신 해야됨.
         DiaryService.shared.diaryDetail(diaryId ?? 16){
@@ -46,13 +49,22 @@ class DiaryDetailViewController: UIViewController {
                 // DataClass 에서 받은 유저 정보 반환
                 self.DiaryDetailModel = data as? DiaryDetailModel
                 self.myTable.DiaryDetailModel = data as? DiaryDetailModel
-                UserDefaults.standard.set(self.DiaryDetailModel.movie.korTitle, forKey: "titleLabel")
-                UserDefaults.standard.set(self.DiaryDetailModel.movie.makingNation, forKey: "dateLabel")
-                UserDefaults.standard.set(self.DiaryDetailModel.memo, forKey: "memo")
-                UserDefaults.standard.set(self.DiaryDetailModel.createDate, forKey: "createDate")
-
+                self.myTable.titleLabel?.text = self.DiaryDetailModel.movie.korTitle
+                if self.DiaryDetailModel.movie.releaseDate != "" {
+                    
+                    let date = self.dateFormatter.date(from: (self.DiaryDetailModel.movie.releaseDate ?? "2020년 02월 20일"))
+                    let releaseDate = self.realdateFormatter.string(from: date!)
+                    self.myTable.dateLabel?.text = "개봉일 : " + releaseDate
+                    self.myTable.dateLabel?.textColor = .textGray
+                }
+                else {
+                    self.myTable.dateLabel?.text = "개봉일 정보가 없습니다"
+                }
+                self.myTable.resultMemo = self.DiaryDetailModel.memo
+                self.myTable.resultDate = self.DiaryDetailModel.createDate
+               
                 print("????????????")
-                print(self.DiaryDetailModel)
+                print(self.DiaryDetailModel ?? "파싱 실패!")
                 print("????????????")
                 
                 
@@ -114,10 +126,6 @@ class DiaryDetailViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-       
-
-    }
         
     // Status Bar Hidden..
     override var prefersStatusBarHidden: Bool {

@@ -49,7 +49,7 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //  createGradient()
+        createGradient()
         registerForKeyboardNotifications()
         
     }

@@ -138,3 +138,12 @@ extension UIView {
     }
     
 }
+
+//TextView 변경 감지 메소드
+extension UITextView {
+    // MARK: UITextViewDelegate methods
+    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+        print(textView.text!) //the textView parameter is the textView where text was changed
+
+    }
+}
