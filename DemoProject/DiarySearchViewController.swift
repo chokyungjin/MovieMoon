@@ -45,11 +45,16 @@ class DiarySearchViewController: UIViewController , UISearchBarDelegate{
         let cell = sender as! MovieDiarySearchViewCell
         
         if let selectedIndex = searchTable.indexPath(for: cell) {
-            //여기서 아이디로 디테일 통신 시작해야 할듯
+            
+            // 다이어리 등록이 엉뚱하게 되는데 이거 찍어봐야할듯 , createDate도 값대로 안들어감
+            print("::::::::::::::::::::")
+            print(movieSearchData[selectedIndex.row])
+            print("::::::::::::::::::::")
+
             DiaryPostViewController.movieId = movieSearchData[selectedIndex.row].id
             DiaryPostViewController.poster = movieSearchData[selectedIndex.row].poster
             DiaryPostViewController.movieSearchResultData = movieSearchData[selectedIndex.row]
-            UserDefaults.standard.set(DiaryPostViewController.movieId , forKey: "movieId")
+            UserDefaults.standard.set(movieSearchData[selectedIndex.row].id , forKey: "movieId")
 
             
         }

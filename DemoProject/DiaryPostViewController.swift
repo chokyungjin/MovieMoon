@@ -78,7 +78,8 @@ class DiaryPostViewController: UIViewController {
         myTable.dateLabel = dateLabel
         
         myTable.titleLabel?.text = movieSearchResultData.korTitle
-        
+        myTable.movieId = String(describing: movieSearchResultData.id!)
+                
         if movieSearchResultData.releaseDate != "" {
             
             let date = dateFormatter.date(from: (movieSearchResultData.releaseDate ?? "2020년 02월 20일"))

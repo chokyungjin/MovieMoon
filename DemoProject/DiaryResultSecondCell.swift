@@ -18,7 +18,7 @@ protocol PlusActionDelegate {
     
 }
 
-class DiaryResultSecondCell : UITableViewCell {
+class DiaryResultSecondCell : UITableViewCell , UITextViewDelegate {
     
     var delegate : PlusActionDelegate?
     
@@ -107,7 +107,9 @@ class DiaryResultSecondCell : UITableViewCell {
         OkButton.addTarget(self, action: #selector(didOk(_:)), for: .touchUpInside)
         CancelButton.addTarget(self, action: #selector(didCancel(_:)), for: .touchUpInside)
 
-        
+        self.plotField.delegate = self
+        textViewDidChange(plotField)
+
     }
     
     required init?(coder: NSCoder) {
@@ -130,4 +132,10 @@ class DiaryResultSecondCell : UITableViewCell {
            self.delegate?.didClickedCancel()
        }
     
+    // MARK: UITextViewDelegate methods
+       func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+           print(textView.text!) //the textView parameter is the textView where text was changed
+           UserDefaults.standard.set(plotField.text, forKey: "memo")
+
+       }
 }

@@ -16,7 +16,6 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     var profileImage : [UIImage] = [UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!]
     var titleLabel: UILabel? = nil
     var dateLabel: UILabel? = nil
-    var movies: [Movie] = []
     var myDateField: UITextField = .init()
     let caLayer: CAGradientLayer = CAGradientLayer()
     let picker = UIImagePickerController()
@@ -27,8 +26,8 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     
     //Post하면서 파라미터로 들어갈 Var..
     var userId: Int? = UserDefaults.standard.integer(forKey: "Id")
-    var movieId:String? = UserDefaults.standard.string(forKey: "movieId")
-    var memo:String? = nil
+    var movieId:String? = nil
+    var memo:String? = UserDefaults.standard.string(forKey: "memo")
     var createDate:String? = UserDefaults.standard.string(forKey: "createDate")
     var src: [String]? = nil
     var rating:String? = nil
@@ -37,6 +36,7 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     //inits..
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.register(DiaryResultFirstCell.self, forCellReuseIdentifier: "cell1")
         tableView.register(DiaryResultSecondCell.self, forCellReuseIdentifier: "cell2")
         tableView.contentInset = UIEdgeInsets(top: view.frame.height / 3, left: 0, bottom: 0, right: 0)
@@ -44,8 +44,11 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
         picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        
-        
+
+    }
+   
+    override func viewDidAppear(_ animated: Bool) {
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,7 +133,7 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
             cell.selectionStyle = .none
             
             rating = cell.myRatingLabel.text
-            print(rating)
+            print(rating ?? "평점 입력하셔야하옵니다.")
             
             return cell
             
@@ -155,7 +158,6 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
             
             //이미지 또 경로로 전송해야됨
             // src = [cell.stillcutImage.image , cell.stillcutImage2.image, cell.stillcutImage3.image]
-            memo = cell.plotField.text
             
             return cell
         }
@@ -204,36 +206,41 @@ extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
     
     func didClickedOk() {
         //다이어리 post 하는 통신 여기서 하면 됨.
-        print(userId ?? 1 ,movieId ?? "2",memo ?? "3",createDate ?? "4")
-        DiaryService.shared.diaryPost(userId ?? 1 ,movieId ?? "2",memo ?? "3",createDate ?? "4"){
+
+//        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
+//        print(userId ?? 1 ,movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4")
+//        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
+
+        DiaryService.shared.diaryPost(userId ?? 1 , movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4"){
             data in
-            
+
             switch data {
             // 매개변수에 어떤 값을 가져올 것인지
             case .success(let data):
                 
+                print(data)
                 print("등록 성공")
                 let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
-                
+
                 addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
                     print("확인")
                 }))
                 self.present(addAlert, animated: true, completion: nil)
-                
+
                 self.dismiss(animated: true, completion: nil)
-                
+
             case .requestErr(let message):
                 self.simpleAlert(title: "등록 실패", message: "\(message)")
-                
+
             case .pathErr:
                 print(".pathErr")
-                
+
             case .serverErr:
                 print(".serverErr")
-                
+
             case .networkFail:
                 print("네트워크 오류")
-                
+
             case .dbErr:
                 print("디비 에러")
             }

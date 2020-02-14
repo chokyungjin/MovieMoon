@@ -45,9 +45,9 @@ struct DiaryService {
                             switch status {
                             case 201:
                                 do {
-                                    let decoder = JSONDecoder()
+                                    // let decoder = JSONDecoder()
                                     print(value)
-//                                    let result = try decoder.decode(SignUpModel.self, from: value)
+                                    // let result = try decoder.decode(SignUpModel.self, from: value)
                                     
                                     print("success")
                                     
@@ -92,9 +92,9 @@ struct DiaryService {
     
     func getDiary(completion: @escaping (NetworkResult<Any>) -> Void) {
             
-            let header: HTTPHeaders = [
-                "Content-Type" : "application/json"
-            ]
+//            let header: HTTPHeaders = [
+//                "Content-Type" : "application/json"
+//            ]
             
             //body에 인자 넣어줄때는 encoding = default , query로 전달할땐 encoding = queryString
         Alamofire.request(APIConstants.GetDiaryURL, method: .get ,encoding: URLEncoding(destination: .queryString)).responseData(){ response in
@@ -227,7 +227,7 @@ struct DiaryService {
                             case 200:
                                 do {
                                     
-                                    print(String(data: value, encoding: .utf8))
+                                    print(String(data: value, encoding: .utf8) ?? "파싱 중 입니다.")
                                     // let result = try decoder.decode(PatchImageModel.self, from: value)
                                     print("success")
                                     completion(.success("메모 변경 성공"))
@@ -290,17 +290,12 @@ struct DiaryService {
                    case .success:
                        if let value = response.result.value {
                            
-                           // 서버가 보내는 http Header에 담긴 status code
-                           // Rest API에서 통신을 성공했던 실패했던 네트워크 통신이 성공했기 때문에 발생
-                           // 서버가 예측한 질문에 대해 응답이 왔다면 200 status code
-                           // 이제부터 서버 개발자가 분기할 코드에 대해 작성함 ex) 택배와 택배기사
                            if let status = response.response?.statusCode {
                                print(status) //200 출력
                                switch status {
                                case 200:
                                    do {
-                                       let decoder = JSONDecoder()
-                                       
+                                       // let decoder = JSONDecoder()
                                        // let result = try decoder.decode(PatchImageModel.self, from: value)
                                        print("success")
                                        completion(.success("날짜 변경 성공"))

@@ -37,6 +37,7 @@ class DiaryCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.MovielistCollectionView.reloadData()
+        setMovielistCollectionView()
 
     }
     

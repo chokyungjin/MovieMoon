@@ -38,7 +38,7 @@ class DiaryDetailViewController: UIViewController {
         realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
         
         //Diary Detail 통신 해야됨.
-        DiaryService.shared.diaryDetail(diaryId ?? 16){
+        DiaryService.shared.diaryDetail(diaryId ?? 16) {
             
             data in
             

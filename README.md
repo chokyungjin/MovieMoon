@@ -26,10 +26,6 @@
 
 ### Connection
 
-* 영화 검색바 (통신)
-* 푸쉬 알림 (통신)
-* 평점 주기 (통신)
-
 | Function                    | Implementation | Progressing | Priority |
 | --------------------------- | ------------ | ------------ | ------------ |
 | SignIn / SignUp             | ⭕️ | Completed , [chokyungjin](https://github.com/chokyungjin) |1|
@@ -53,10 +49,10 @@
 | 영화 제목검색     | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin)  |3|
 | 영화 상세검색 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 다이어리 리스트    | ⭕️      | ⭕️                                                       |3|
-| 상세 다이어리 | ❌       | ❌                                                         |3|
-| 다이어리 등록   | ⭕️      | ❌                                                         |3|
+| 상세 다이어리 | ⭕️     | ⭕️                                                       |3|
+| 다이어리 등록   | ⭕️      | ⭕️                                                       |3|
 | 다이어리 이미지 등록 | ❌       | ❌                                                         |3|
-| 다이어리 메모 수정 | ❌        | ❌                                                         |3|
+| 다이어리 메모 수정 | ⭕️      | ⭕️                                                       |3|
 | 다이어리 작성 날짜 수정 | ❌       | ❌                                                         |3|
 | 다이어리 사진 수정 | ❌        | ❌                                                         |3|
 | 다이어리 삭제 | ❌       | ❌                                                         |3|

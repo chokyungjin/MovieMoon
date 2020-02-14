@@ -142,6 +142,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             
             
         }
+            
         else if indexPath == [1,0] {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! DiaryContentSecondCell
@@ -154,7 +155,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             
             
             cell.plotField.text = resultMemo
-            print(cell.plotField.text ?? "memo 내용")
+            //print(cell.plotField.text ?? "memo 내용")
             cell.plotField.backgroundColor = .color130
             cell.plotField.textColor = .textGray
             cell.plotField.isUserInteractionEnabled = true
@@ -197,45 +198,79 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
         //다이어리 post 하는 통신 여기서 하면 됨.
         //여기는 패치, 수정 해야되는것들 여기서 하면 되겠당
         
-        print("~~~~~~~~~~~~~~~~~")
-        print(UserDefaults.standard.string(forKey: "memo")!, UserDefaults.standard.integer(forKey: "Id"), DiaryDetailModel.movieId ?? 0)
-        print("~~~~~~~~~~~~~~~~~")
-        
-        DiaryService.shared.patchMemo(UserDefaults.standard.string(forKey: "memo")!, UserDefaults.standard.integer(forKey: "Id"), DiaryDetailModel.movieId ?? 0){
-            
-            data in
-            switch data {
-            // 매개변수에 어떤 값을 가져올 것인지
-            case .success(let data):
+        ///print("메모수정 통신 여기")
+        if resultMemo != UserDefaults.standard.string(forKey: "memo") {
+            print("메모수정 통신 여기")
+            DiaryService.shared.patchMemo(UserDefaults.standard.string(forKey: "memo")!, UserDefaults.standard.integer(forKey: "Id"), DiaryDetailModel.movieId ?? 0){
                 
-                let user_data2 = data
-                // self.profileImageLabel.image = image
-                //self.locationLink에 주소는 있는데
+                data in
+                switch data {
+                // 매개변수에 어떤 값을 가져올 것인지
+                case .success(let data):
+                    
+                    let user_data2 = data
+                    print("-----")
+                    print(user_data2)
+                    print("-----")
+                    self.tableView.reloadData()
+                    
+                case .requestErr(let message):
+                    self.simpleAlert(title: "저장 실패", message: "\(message)")
+                    
+                case .pathErr:
+                    print(".pathErr")
+                    
+                case .serverErr:
+                    print(".serverErr")
+                    
+                case .networkFail:
+                    print("네트워크 오류")
+                    
+                case .dbErr:
+                    print("디비 에러")
+                }
                 
-                print("user_data2-----")
-                print(user_data2)
-                //UserDefaults.standard.string(forKey: "memo")
-                print("user_data2-----")
-                self.tableView.reloadData()
                 
-            case .requestErr(let message):
-                self.simpleAlert(title: "저장 실패", message: "\(message)")
-                
-            case .pathErr:
-                print(".pathErr")
-                
-            case .serverErr:
-                print(".serverErr")
-                
-            case .networkFail:
-                print("네트워크 오류")
-                
-            case .dbErr:
-                print("디비 에러")
             }
-            
-            
         }
+        ///print("날짜수정 통신 여기")
+        if resultDate != UserDefaults.standard.string(forKey: "createDate") {
+            print("날짜 수정 통신 여기서")
+            
+            DiaryService.shared.patchcreateDate(UserDefaults.standard.string(forKey: "createDate")!, UserDefaults.standard.integer(forKey: "Id"), DiaryDetailModel.movieId ?? 0){
+                
+                data in
+                switch data {
+                // 매개변수에 어떤 값을 가져올 것인지
+                case .success(let data):
+                    
+                    let user_data2 = data
+                    print("-----")
+                    print(user_data2) 
+                    print("-----")
+                    self.tableView.reloadData()
+                    
+                case .requestErr(let message):
+                    self.simpleAlert(title: "저장 실패", message: "\(message)")
+                    
+                case .pathErr:
+                    print(".pathErr")
+                    
+                case .serverErr:
+                    print(".serverErr")
+                    
+                case .networkFail:
+                    print("네트워크 오류")
+                    
+                case .dbErr:
+                    print("디비 에러")
+                }
+                
+                
+            }
+        }
+        
+        
         
         let addAlert = UIAlertController(title: "수정 완료", message: "", preferredStyle: .alert)
         
