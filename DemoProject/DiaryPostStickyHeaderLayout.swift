@@ -330,22 +330,11 @@ extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINaviga
                 case .success(let data):
                     
                     // PostImageModel 에서 받은 유저 정보 반환
-                    let user_data = data
+                    let user_data = data as! [String]
+                    
                     print("user_data-----")
                     //여기서 받아오는 경로를 post하는 이미지에 넣어줘야함!, 이게 이미지 등록까지!
-                    print(user_data)
-                   // testString.componentsSeparatedByString
-
-                    let ttt = user_data.components(separatedBy: ["[" ,"," , "]"])
-                    print("////////////////////")
-                    ttt.map { user_data in
-                        return print(user_data)
-                    }
-                    print("////////////////////")
-                   
-
-                    //                    self.LocationLink = user_data
-                    //                    print(self.LocationLink?)
+                    self.LocationLink = user_data
                     print("user_data-----")
                     
                 case .requestErr(let message):

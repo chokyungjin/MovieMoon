@@ -337,7 +337,7 @@ struct DiaryService {
         }
     } //func patch Date
     
-    func postImage(_ image: [UIImage], completion: @escaping (NetworkResult<String>) -> Void) {
+    func postImage(_ image: [UIImage], completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let header: HTTPHeaders = [
             "Content-Type" : "application/json"
@@ -378,11 +378,11 @@ struct DiaryService {
                                 case 200:
                                     do {
                                         //이미지 올리는데 디코딩으로 되어있지 않음!!
-                                        // let decoder = JSONDecoder()
-                                        //print(String(data: value, encoding: .utf8))
-                                        let temp = String(data: value, encoding: .utf8)!
+                                         let decoder = JSONDecoder()
+                                        let result = try decoder.decode([String].self, from: value)
+                                        
                                         print("post Image Success")
-                                        completion(.success(temp))
+                                        completion(.success(result))
                                     }
                                     catch {
                                         completion(.pathErr)
