@@ -73,5 +73,5 @@ struct DiaryDetailModel: Codable {
     
 }
 
-//Optional("{\"id\":14,\"memo\":\"지금까지 이런 맛은 없었다. 이것은 갈비인가 통닭인가, 예 수원 왕갈비 통닭입니다!\",\"createDate\":\"2020-04-13\",\"createdAt\":\"2020-02-13T12:05:38.000Z\",\"updatedAt\":\"2020-02-13T12:05:38.000Z\",\"movieId\":8929,\"userId\":7,\"movie\":{\"korTitle\":\"\\\"시발, 놈: 인류의 시작\\\"\",\"makingNation\":\"대한민국\",\"releaseDate\":\"20160818\"},\"diaryimages\":[]}")
-//
+
+var DiaryPostImageModel: [String]? = nil

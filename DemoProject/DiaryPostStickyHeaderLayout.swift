@@ -14,6 +14,7 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     var imageView: UIImageView? = nil
     var thumbView: UIImageView? = nil
     var profileImage : [UIImage] = [UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!]
+    var profileImageLink : [String]? = nil
     var titleLabel: UILabel? = nil
     var dateLabel: UILabel? = nil
     var myDateField: UITextField = .init()
@@ -30,7 +31,10 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     var memo:String? = UserDefaults.standard.string(forKey: "memo")
     var createDate:String? = UserDefaults.standard.string(forKey: "createDate")
     var src: [String]? = nil
-    var rating:String? = nil
+    var rating: String? = nil
+    
+    //Post Image Data...
+    var LocationLink: [String]? = nil
     
     
     //inits..
@@ -44,11 +48,11 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
         tableView.dataSource = self
         tableView.backgroundColor = .blackgroundBlack
         picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-
+        
     }
-   
+    
     override func viewDidAppear(_ animated: Bool) {
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -206,46 +210,45 @@ extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
     
     func didClickedOk() {
         //다이어리 post 하는 통신 여기서 하면 됨.
-
-//        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
-//        print(userId ?? 1 ,movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4")
-//        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
-
+        
+        //        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
+        //        print(userId ?? 1 ,movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4")
+        //        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
+        
         DiaryService.shared.diaryPost(userId ?? 1 , movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4"){
             data in
-
+            
             switch data {
             // 매개변수에 어떤 값을 가져올 것인지
             case .success(let data):
                 
                 print(data)
                 print("등록 성공")
-                let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
-
-                addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
-                    print("확인")
-                }))
-                self.present(addAlert, animated: true, completion: nil)
-
-                self.dismiss(animated: true, completion: nil)
-
+                //                let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
+                //
+                //                addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
+                //                    print("확인")
+                //                }))
+                //                self.present(addAlert, animated: true, completion: nil)
+                
+                //                self.dismiss(animated: true, completion: nil)
+                
             case .requestErr(let message):
                 self.simpleAlert(title: "등록 실패", message: "\(message)")
-
+                
             case .pathErr:
                 print(".pathErr")
-
+                
             case .serverErr:
                 print(".serverErr")
-
+                
             case .networkFail:
                 print("네트워크 오류")
-
+                
             case .dbErr:
                 print("디비 에러")
             }
         }
-        
         
         
     }
@@ -308,12 +311,60 @@ extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINaviga
             }
             else if profileImage[1] == UIImage(named: "img_placeholder") {
                 profileImage[1] = image
+                
             }
             else if profileImage[2] == UIImage(named: "img_placeholder") {
                 profileImage[2] = image
             }
             
-            print(image)
+        }
+        
+        //여기서 이미지 통신 배열로 받아서 한번에 하는 메소드!
+        if profileImage.contains(UIImage(named: "img_placeholder")!) == true {
+            //여기서 이미지 통신 배열로 받아서 한번에 하는 메소드!
+            DiaryService.shared.postImage(profileImage){
+                data in
+                
+                switch data {
+                // 매개변수에 어떤 값을 가져올 것인지
+                case .success(let data):
+                    
+                    // PostImageModel 에서 받은 유저 정보 반환
+                    let user_data = data
+                    print("user_data-----")
+                    //여기서 받아오는 경로를 post하는 이미지에 넣어줘야함!, 이게 이미지 등록까지!
+                    print(user_data)
+                   // testString.componentsSeparatedByString
+
+                    let ttt = user_data.components(separatedBy: ["[" ,"," , "]"])
+                    print("////////////////////")
+                    ttt.map { user_data in
+                        return print(user_data)
+                    }
+                    print("////////////////////")
+                   
+
+                    //                    self.LocationLink = user_data
+                    //                    print(self.LocationLink?)
+                    print("user_data-----")
+                    
+                case .requestErr(let message):
+                    self.simpleAlert(title: "저장 실패", message: "\(message)")
+                    
+                case .pathErr:
+                    print(".pathErr")
+                    
+                case .serverErr:
+                    print(".serverErr")
+                    
+                case .networkFail:
+                    print("네트워크 오류")
+                    
+                case .dbErr:
+                    print("디비 에러")
+                }
+            }
+            
         }
         
         picker.dismiss(animated: true)

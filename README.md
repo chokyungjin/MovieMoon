@@ -40,7 +40,7 @@
 | SplashLaunchScreen         | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
 | 로그아웃            | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 닉네임 변경 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 회원탈퇴         | △       | △                                                         |3|
+| 회원탈퇴         | ❌      | ❌                                                        |3|
 | 프로필사진 업로드 | ⭕️    | Completed, [chokyungjin](https://github.com/chokyungjin)  |3|
 | 위시리스트 불러오기 | ⭕️      | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
 | 위시리스트 등록 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
@@ -53,7 +53,7 @@
 | 다이어리 등록   | ⭕️      | ⭕️                                                       |3|
 | 다이어리 이미지 등록 | ❌       | ❌                                                         |3|
 | 다이어리 메모 수정 | ⭕️      | ⭕️                                                       |3|
-| 다이어리 작성 날짜 수정 | ❌       | ❌                                                         |3|
+| 다이어리 작성 날짜 수정 | ⭕️     | ⭕️                                                       |3|
 | 다이어리 사진 수정 | ❌        | ❌                                                         |3|
 | 다이어리 삭제 | ❌       | ❌                                                         |3|
 

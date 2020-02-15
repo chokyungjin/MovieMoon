@@ -202,10 +202,9 @@ struct AuthService {
                                 switch status {
                                 case 200:
                                     do {
-                                        let decoder = JSONDecoder()
-                                        let result = try decoder.decode(PostImageModel.self, from: value)
-                                        print("post Image Success")
-                                        completion(.success(result))
+                                        //디코딩 할 필요 없음!!
+                                        print(String(data: value, encoding: .utf8) ?? "파싱 오류일걸?")
+                                        completion(.success(String(data: value, encoding: .utf8) ?? "파싱 오류")!)
                                     }
                                     catch {
                                         completion(.pathErr)
@@ -270,6 +269,7 @@ struct AuthService {
                                     let decoder = JSONDecoder()
                                     
                                     // 디코더에서 문제인듯
+                                    
                                     // let result = try decoder.decode(PatchImageModel.self, from: value)
                                     print("success")
                                     completion(.success("SUCCESS"))

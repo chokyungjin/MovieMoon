@@ -228,10 +228,10 @@ extension MenuTableViewController : UIImagePickerControllerDelegate,UINavigation
                 case .success(let data):
                     
                     // PostImageModel 에서 받은 유저 정보 반환
-                    let user_data = data as! PostImageModel
+                    let user_data = data as! String
                     //이부분에서 로그인이 되어있는지 쿠키검사 등을 해야되나,, 여기서 막힘
                     print("user_data-----")
-                    self.locationLink = user_data.location
+                    self.locationLink = user_data
                     
                     //location 주소를 src로 보내야함
                     //여기서 patching을 해야하나
