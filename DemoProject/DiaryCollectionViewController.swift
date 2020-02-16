@@ -50,7 +50,7 @@ class DiaryCollectionViewController: UICollectionViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // 다이어리에 작성 기록이 있으면 이 뷰 컨트롤러로
+        // 포스트에 성공했으면 이미지 패치까지 해야할듯 여기서!!!!
         guard let DiaryDetailViewController = segue.destination as? DiaryDetailViewController else {return}
         
         let cell = sender as! MovieCollectionViewCell

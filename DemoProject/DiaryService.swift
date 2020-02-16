@@ -14,7 +14,7 @@ struct DiaryService {
     
     static let shared = DiaryService()
     
-    func diaryPost(_ userId: Int, _ movieId: String, _ memo: String, _ createDate: String  ,completion: @escaping (NetworkResult<Any>) -> Void) {
+    func diaryPost(_ userId: Int, _ movieId: String, _ memo: String, _ createDate: String ,_ src: [String] ,completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let header: HTTPHeaders = [
             "Content-Type" : "application/json"
@@ -24,7 +24,8 @@ struct DiaryService {
             "userId" : userId,
             "movieId" : movieId,
             "memo" : memo,
-            "createDate" : createDate
+            "createDate" : createDate,
+            "src": src
         ]
         
         Alamofire.request(APIConstants.RegisterDiaryURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header)

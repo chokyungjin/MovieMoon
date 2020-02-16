@@ -44,8 +44,8 @@ struct AuthService {
                                 do {
                                     //쿠키 넣어줌!!!
                                     let cookies = Alamofire.SessionManager.default.session.configuration.httpCookieStorage?.cookies(for: URL(string:APIConstants.LoginURL)!)
-
-
+                                    
+                                    
                                     let decoder = JSONDecoder()
                                     print("!!!!!")
                                     let result = try decoder.decode(LoginModel.self, from: value)
@@ -202,9 +202,11 @@ struct AuthService {
                                 switch status {
                                 case 200:
                                     do {
-                                        //디코딩 할 필요 없음!!
-                                        print(String(data: value, encoding: .utf8) ?? "파싱 오류일걸?")
-                                        completion(.success(String(data: value, encoding: .utf8) ?? "파싱 오류")!)
+                                        //이미지 올리는데 디코딩으로 되어있지 않음!!
+                                        let decoder = JSONDecoder()
+                                        let result = try decoder.decode(String.self, from: value)
+                                        completion(.success(result))
+                                        
                                     }
                                     catch {
                                         completion(.pathErr)

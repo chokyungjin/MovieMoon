@@ -209,13 +209,14 @@ extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
     
     
     func didClickedOk() {
-        //다이어리 post 하는 통신 여기서 하면 됨.
-        
+        //다이어리 post 하는 통신 , userId, movieId, memo, createDate에서 locationLink까지 통신 되는지 확인!
+
         //        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
         //        print(userId ?? 1 ,movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4")
         //        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
         
-        DiaryService.shared.diaryPost(userId ?? 1 , movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4"){
+        print("location link = \(LocationLink)")
+        DiaryService.shared.diaryPost(userId ?? 1 , movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4", LocationLink ?? ["https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581745310126file.jpg","https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581745310126file.jpg","https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581745310126file.jpg"]){
             data in
             
             switch data {
@@ -223,15 +224,15 @@ extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
             case .success(let data):
                 
                 print(data)
-                print("등록 성공")
-                //                let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
-                //
-                //                addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
-                //                    print("확인")
-                //                }))
-                //                self.present(addAlert, animated: true, completion: nil)
                 
-                //                self.dismiss(animated: true, completion: nil)
+                print("등록 성공")
+                let addAlert = UIAlertController(title: "다이어리 추가", message: "", preferredStyle: .alert)
+                
+                addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
+                    print("확인")
+                }))
+                self.present(addAlert, animated: true, completion: nil)
+                
                 
             case .requestErr(let message):
                 self.simpleAlert(title: "등록 실패", message: "\(message)")
@@ -319,36 +320,36 @@ extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINaviga
             
         }
         
-        //여기서 이미지 통신 배열로 받아서 한번에 하는 메소드!
-        if profileImage.contains(UIImage(named: "img_placeholder")!) == true {
-            //여기서 이미지 통신 배열로 받아서 한번에 하는 메소드!
+        //여기서 이미지 통신 배열로 받아서 한번에 하는 메소드! 세 장 모두 올리면!
+        if profileImage[0] != UIImage(named: "img_placeholder")  && profileImage[1] != UIImage(named: "img_placeholder") && profileImage[2] != UIImage(named: "img_placeholder")  {
             DiaryService.shared.postImage(profileImage){
                 data in
-                
+
                 switch data {
                 // 매개변수에 어떤 값을 가져올 것인지
                 case .success(let data):
-                    
+
                     // PostImageModel 에서 받은 유저 정보 반환
                     let user_data = data as! [String]
-                    
+
                     print("user_data-----")
                     //여기서 받아오는 경로를 post하는 이미지에 넣어줘야함!, 이게 이미지 등록까지!
                     self.LocationLink = user_data
+                    print(self.LocationLink)
                     print("user_data-----")
-                    
+
                 case .requestErr(let message):
                     self.simpleAlert(title: "저장 실패", message: "\(message)")
-                    
+
                 case .pathErr:
                     print(".pathErr")
-                    
+
                 case .serverErr:
                     print(".serverErr")
-                    
+
                 case .networkFail:
                     print("네트워크 오류")
-                    
+
                 case .dbErr:
                     print("디비 에러")
                 }

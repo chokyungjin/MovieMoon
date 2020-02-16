@@ -249,6 +249,7 @@ extension MenuTableViewController : UIImagePickerControllerDelegate,UINavigation
                             print("user_data2-----")
                             print(user_data2)
                             self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
+                            print(self.locationLink)
                             UserDefaults.standard.set(self.locationLink, forKey: "src")
                             print("user_data2-----")
 
@@ -269,8 +270,9 @@ extension MenuTableViewController : UIImagePickerControllerDelegate,UINavigation
                         }
                     }
                     
-                    UserDefaults.standard.set(self.locationLink, forKey: "src")
-                    self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
+                    print(UserDefaults.standard.string(forKey: "srcs"))
+//                    UserDefaults.standard.set(self.locationLink, forKey: "src")
+//                    self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
                     print("user_data-----")
 
                     
