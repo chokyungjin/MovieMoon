@@ -12,7 +12,6 @@
 		39163A5323F325360066AA0E /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39163A5223F325360066AA0E /* DiaryModel.swift */; };
 		3916597B2346604900CCF20F /* movieRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916597A2346604900CCF20F /* movieRatingCell.swift */; };
 		391BC89C23F11AA200074E55 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BC89B23F11AA200074E55 /* SignUpModel.swift */; };
-		392F6B6C237E507B0032E9C6 /* moonFix.gif in Resources */ = {isa = PBXBuildFile; fileRef = 392F6B6B237E507B0032E9C6 /* moonFix.gif */; };
 		393501462385AC0300282D7B /* NanumSquareRoundB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393501432385ABE100282D7B /* NanumSquareRoundB.ttf */; };
 		393501472385AC0600282D7B /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393501442385ABE100282D7B /* NanumSquareRegular.ttf */; };
 		393501492385AE6B00282D7B /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393501482385AE6B00282D7B /* Extension+Font.swift */; };
@@ -47,7 +46,6 @@
 		397C953C23FA67680020F8A6 /* KakaoOpenSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39B7CA2523228DD100A765A9 /* KakaoOpenSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		397C953E23FA676A0020F8A6 /* Pods_DemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */; };
 		397C953F23FA676A0020F8A6 /* Pods_DemoProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		397C955723FA677B0020F8A6 /* Pods_DemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */; };
 		39856F182323DF930006B58E /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39856F172323DF930006B58E /* TabbarViewController.swift */; };
 		39856F1A2323E34F0006B58E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39856F192323E34E0006B58E /* RegisterViewController.swift */; };
 		398854602367E90D008765FF /* DiaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988545F2367E90D008765FF /* DiaryCollectionViewController.swift */; };
@@ -118,7 +116,6 @@
 		39163FCE232F6C7700B7EAC0 /* Lumina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lumina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3916597A2346604900CCF20F /* movieRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieRatingCell.swift; sourceTree = "<group>"; };
 		391BC89B23F11AA200074E55 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
-		392F6B6B237E507B0032E9C6 /* moonFix.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = moonFix.gif; sourceTree = "<group>"; };
 		393501432385ABE100282D7B /* NanumSquareRoundB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundB.ttf; sourceTree = "<group>"; };
 		393501442385ABE100282D7B /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
 		393501482385AE6B00282D7B /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
@@ -220,7 +217,6 @@
 			files = (
 				397C953B23FA67680020F8A6 /* KakaoOpenSDK.framework in Frameworks */,
 				397C953E23FA676A0020F8A6 /* Pods_DemoProject.framework in Frameworks */,
-				397C955723FA677B0020F8A6 /* Pods_DemoProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +261,6 @@
 				393501502385AF1A00282D7B /* NanumSquareRoundL.ttf */,
 				393501512385AF1A00282D7B /* NanumSquareRoundR.ttf */,
 				397C953423FA32A10020F8A6 /* SplashFix.gif */,
-				392F6B6B237E507B0032E9C6 /* moonFix.gif */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -547,7 +542,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "조경진";
 				TargetAttributes = {
 					39B7CA0C23228D7500A765A9 = {
@@ -593,7 +588,6 @@
 				39B7CA1623228D7500A765A9 /* Main.storyboard in Resources */,
 				393501572385B11700282D7B /* NanumSquareRoundR.ttf in Resources */,
 				39E26439232B830800EC8CBC /* HamburgerMenuScreen.storyboard in Resources */,
-				392F6B6C237E507B0032E9C6 /* moonFix.gif in Resources */,
 				397C953523FA32A10020F8A6 /* SplashFix.gif in Resources */,
 				393501542385B10D00282D7B /* NanumSquareLight.ttf in Resources */,
 				393501562385B11400282D7B /* NanumSquareRoundL.ttf in Resources */,

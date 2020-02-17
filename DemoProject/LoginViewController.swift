@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         self.kakaoBut.tintColor = .textGray
         self.signUpBut.tintColor = .textGray
         self.loginBut.tintColor = .textGray
-        self.kakaoBut.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        self.kakaoBut.titleLabel?.font = UIFont.systemFont(ofSize: 8)
         
         initGestureRecognizer()
         

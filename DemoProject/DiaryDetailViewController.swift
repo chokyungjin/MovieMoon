@@ -63,7 +63,7 @@ class DiaryDetailViewController: UIViewController {
                 self.myTable.resultMemo = self.DiaryDetailModel.memo
                 self.myTable.resultDate = self.DiaryDetailModel.createDate
                 self.myTable.resultImage = self.DiaryDetailModel.diaryimages
-
+                
                 print("????????????")
                 print(self.DiaryDetailModel ?? "파싱 실패!")
                 print("????????????")
@@ -124,6 +124,7 @@ class DiaryDetailViewController: UIViewController {
         myTable.thumbView = thumbView
         myTable.titleLabel = titleLabel
         myTable.dateLabel = dateLabel
+        myTable.resultDeleteDiaryId = diaryId
         
     }
     

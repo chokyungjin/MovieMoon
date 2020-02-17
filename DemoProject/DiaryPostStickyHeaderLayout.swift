@@ -320,6 +320,7 @@ extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINaviga
             
         }
         
+        print(profileImage)
         //여기서 이미지 통신 배열로 받아서 한번에 하는 메소드! 세 장 모두 올리면!
         if profileImage[0] != UIImage(named: "EmptyView")  && profileImage[1] != UIImage(named: "EmptyView") && profileImage[2] != UIImage(named: "EmptyView")  {
             DiaryService.shared.postImage(profileImage){
@@ -332,11 +333,11 @@ extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINaviga
                     // PostImageModel 에서 받은 유저 정보 반환
                     let user_data = data as! [String]
 
-                    print("user_data-----")
+                    print("Post LocationLink-----")
                     //여기서 받아오는 경로를 post하는 이미지에 넣어줘야함!, 이게 이미지 등록까지!
                     self.LocationLink = user_data
                     print(self.LocationLink ?? "이미지 포스트 경로 문제 있음")
-                    print("user_data-----")
+                    print("Post LocationLink-----")
 
                 case .requestErr(let message):
                     self.simpleAlert(title: "저장 실패", message: "\(message)")

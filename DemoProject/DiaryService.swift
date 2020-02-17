@@ -340,15 +340,15 @@ struct DiaryService {
     
     func postImage(_ image: [UIImage], completion: @escaping (NetworkResult<Any>) -> Void) {
         
-        let header: HTTPHeaders = [
-            "Content-Type" : "application/json"
-        ]
+//        let header: HTTPHeaders = [
+//            "Content-Type" : "application/json"
+//        ]
         let body: Parameters = [
             "image" : image
         ]
         let imgData1 = image[0].jpegData(compressionQuality: 0.2) ?? UIImage(named: "img_placeholder")?.jpegData(compressionQuality: 0.2)
         let imgData2 = image[1].jpegData(compressionQuality: 0.2) ?? UIImage(named: "img_placeholder")?.jpegData(compressionQuality: 0.2)!
-         let imgData3 = image[1].jpegData(compressionQuality: 0.2) ?? UIImage(named: "img_placeholder")?.jpegData(compressionQuality: 0.2)
+         let imgData3 = image[2].jpegData(compressionQuality: 0.2) ?? UIImage(named: "img_placeholder")?.jpegData(compressionQuality: 0.2)
                 
         Alamofire.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imgData1!, withName: "image",fileName: "file.jpg", mimeType: "image/jpeg" )
@@ -489,6 +489,71 @@ struct DiaryService {
         }
     } //func patch Image
     
+    func deleteDiary(_ diaryId : Int , completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        let header: HTTPHeaders = [
+            "Content-Type" : "application/json"
+        ]
+        
+        let body: Parameters = [
+            "diaryId" : diaryId
+        ]
+        
+        Alamofire.request(APIConstants.DeleteDiaryURL, method: .delete, parameters: body, encoding: JSONEncoding.default, headers: header)
+            .responseData { response in
+                // parameter 위치
+                switch response.result {
+                    
+                // 통신 성공 - 네트워크 연결
+                case .success:
+                    if let value = response.result.value {
+                        
+                        if let status = response.response?.statusCode {
+                            print(status) //201 출력
+                            switch status {
+                            case 201:
+                                do {
+                                    // let decoder = JSONDecoder()
+                                    // let result = try decoder.decode(PatchImageModel.self, from: value)
+                                    print("success")
+                                    completion(.success("다이어리 삭제 성공"))
+                                }
+                                catch {
+                                    print("pathErr")
+                                    completion(.pathErr)
+                                    
+                                }
+                                
+                            case 400:
+                                print("400 pathERr")
+                                completion(.pathErr)
+                                
+                            case 403:
+                                print("수정 실패!")
+                                completion(.requestErr((Any).self))
+                            case 500:
+                                print("500 pathERr")
+                                completion(.serverErr)
+                            case 600:
+                                print("600 pathErr")
+                                completion(.dbErr)
+                            default:
+                                print("default")
+                                break
+                            }// switch
+                        }// iflet
+                    }
+                    break
+                    
+                // 통신 실패 - 네트워크 연결
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    completion(.networkFail)
+                    // .networkFail이라는 반환 값이 넘어감
+                    break
+                }
+        }
+    } //func patch Date
     
     
 }

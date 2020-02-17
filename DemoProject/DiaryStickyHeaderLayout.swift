@@ -22,14 +22,14 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     let picker = UIImagePickerController()
     let dateFormatter = DateFormatter()
     let realdateFormatter = DateFormatter()
-    var movieDetailData: SearchDetailModel? = nil
     var DiaryDetailModel: DiaryDetailModel!
     
     var resultMemo: String? = nil
     var resultDate: String? = nil
     var src: String? = nil
     var resultImage: [src]? = nil
-    
+    var resultDeleteDiaryId: Int? = nil
+
     //inits..
     override func viewDidLoad() {
         
@@ -42,7 +42,6 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         tableView.backgroundColor = .blackgroundBlack
         picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
-        
         tableView.reloadData()
         
         
@@ -50,7 +49,6 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,6 +150,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! DiaryContentSecondCell
             
             cell.delegate = self
+            cell.deleteDelegate = self
             
             if resultImage != nil {
                 cell.stillcutImage.imageFromUrl(resultImage?[0].src, defaultImgPath: "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png")
@@ -196,9 +195,8 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     }
 }
 
-extension DiaryStickHeaderLayout: PlusActionDelegate {
-    
-    
+extension DiaryStickHeaderLayout: PlusActionDelegate, DeleteActionDelegate {
+   
     func didClickedOk() {
         //다이어리 post 하는 통신 여기서 하면 됨.
         //여기는 패치, 수정 해야되는것들 여기서 하면 되겠당
@@ -240,7 +238,6 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
         }
         ///print("날짜수정 통신 여기")
         if resultDate != UserDefaults.standard.string(forKey: "createDate") {
-            print("날짜 수정 통신 여기서")
             
             DiaryService.shared.patchcreateDate(UserDefaults.standard.string(forKey: "createDate")!, UserDefaults.standard.integer(forKey: "Id"), DiaryDetailModel.movieId ?? 0){
                 
@@ -276,8 +273,7 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
         }
         
         
-        
-        let addAlert = UIAlertController(title: "수정 완료", message: "", preferredStyle: .alert)
+        let addAlert = UIAlertController(title: "수정 완료", message: "수정이 완료되었습니다.", preferredStyle: .alert)
         
         addAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (action: UIAlertAction!) in
             print("확인")
@@ -287,12 +283,10 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
     }
     
     func didClickedCancel() {
-        
+                
         self.navigationController?.popViewController(animated: true)
     }
-    
     func didClickedPlus() {
-        print(11111)
         
         let alert =  UIAlertController(title: "", message: "다이어리 사진 추가", preferredStyle: .actionSheet)
         
@@ -309,6 +303,39 @@ extension DiaryStickHeaderLayout: PlusActionDelegate {
         alert.addAction(camera)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func didDelete() {
+        //다이어리 삭제 통신 여기에..
+        print("다이어리 삭제 통신 여기에..")
+        DiaryService.shared.deleteDiary(resultDeleteDiaryId ?? 1){
+            data in
+            
+            switch data {
+            // 매개변수에 어떤 값을 가져올 것인지
+            case .success(let data):
+                
+                print(data)
+                self.simpleAlert(title: "삭제 성공", message: "다이어리를 삭제하였습니다.")
+                
+            case .requestErr(let message):
+                self.simpleAlert(title: "삭제 실패", message: "\(message)")
+                
+            case .pathErr:
+                print(".pathErr")
+                
+            case .serverErr:
+                print(".serverErr")
+                
+            case .networkFail:
+                print("네트워크 오류")
+                
+            case .dbErr:
+                print("디비 에러")
+            }
+        }
+            
         
     }
     

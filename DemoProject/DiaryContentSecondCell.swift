@@ -18,9 +18,14 @@ import Foundation
 //    
 //}
 
+protocol DeleteActionDelegate {
+    func didDelete()
+}
+
 class DiaryContentSecondCell : UITableViewCell, UITextViewDelegate {
     
     var delegate : PlusActionDelegate?
+    var deleteDelegate : DeleteActionDelegate?
     
     
     var plotField: UITextView = {
@@ -56,7 +61,7 @@ class DiaryContentSecondCell : UITableViewCell, UITextViewDelegate {
     
     var OkButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Ok", for: .normal)
+        button.setTitle("수정", for: .normal)
         button.setTitleColor(.textGray, for: UIControl.State.normal)
         button.frame = CGRect(x: 0 , y: 600, width: 375 / 2, height: 69.5)
         return button
@@ -64,7 +69,7 @@ class DiaryContentSecondCell : UITableViewCell, UITextViewDelegate {
     
     var CancelButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle("삭제", for: .normal)
         button.setTitleColor(.textGray, for: UIControl.State.normal)
         button.frame = CGRect(x: 375 / 2, y: 600, width: 375 / 2, height: 69.5)
         return button
@@ -88,7 +93,7 @@ class DiaryContentSecondCell : UITableViewCell, UITextViewDelegate {
         CancelButton.layer.addBorder([.top , .bottom], color: .color130, width: 1)
 
         OkButton.addTarget(self, action: #selector(didOk(_:)), for: .touchUpInside)
-        CancelButton.addTarget(self, action: #selector(didCancel(_:)), for: .touchUpInside)
+        CancelButton.addTarget(self, action: #selector(didDelete(_:)), for: .touchUpInside)
 
         
     }
@@ -112,6 +117,9 @@ class DiaryContentSecondCell : UITableViewCell, UITextViewDelegate {
     @objc func didCancel(_ sender: Any) {
            self.delegate?.didClickedCancel()
        }
+    @objc func didDelete(_ sender: Any) {
+        self.deleteDelegate?.didDelete()
+    }
     
     // MARK: UITextViewDelegate methods
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here

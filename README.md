@@ -24,6 +24,11 @@
 
 ## TODO list
 
+* Rating Connection
+* Latest Movie
+* Edit Contents..
+* Recommend View
+
 ### Connection
 
 | Function                    | Implementation | Progressing | Priority |
@@ -56,19 +61,9 @@
 | 다이어리 메모 수정 | ⭕️      | ⭕️                                                       |3|
 | 다이어리 작성 날짜 수정 | ⭕️     | ⭕️                                                       |3|
 | 다이어리 사진 수정 | ❌        | ❌                                                         |3|
-| 다이어리 삭제 | ❌       | ❌                                                         |3|
+| 다이어리 삭제 | ⭕️     | ⭕️                                                       |3|
 
 
-* ~~다이어리 작성 화면~~
-* ~~박스 오피스 화면~~
-* 추천 화면
-* ~~상세 설정 화면~~
-* ~~햄버거 메뉴 클릭시 이전 뷰 터치 비할성화~~
-* ~~포토 슬라이드~~
-* ~~외부 font import~~
-* ~~Extension+Color, UIView, UITextField~~
-* ~~StickyHeaderLayout~~
-* ~~LaunchScreen Using GIF~~
 * Gradient Layer △
 
 ---
