@@ -14,6 +14,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     var imageView: UIImageView? = nil
     var thumbView: UIImageView? = nil
     var profileImage : [UIImage] = [UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!]
+    
     var titleLabel: UILabel? = nil
     var dateLabel: UILabel? = nil
     var myDateField: UITextField = .init()
@@ -26,6 +27,8 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     
     var resultMemo: String? = nil
     var resultDate: String? = nil
+    var src: String? = nil
+    var resultImage: [src]? = nil
     
     //inits..
     override func viewDidLoad() {
@@ -39,6 +42,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
         tableView.backgroundColor = .blackgroundBlack
         picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
+        
         tableView.reloadData()
         
         
@@ -51,9 +55,9 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     
     override func viewWillAppear(_ animated: Bool) {
         createGradient()
-        
         registerForKeyboardNotifications()
         tableView.reloadData()
+        
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -149,10 +153,11 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             
             cell.delegate = self
             
-            cell.stillcutImage.image = profileImage[0]
-            cell.stillcutImage2.image = profileImage[1]
-            cell.stillcutImage3.image = profileImage[2]
-            
+            if resultImage != nil {
+                cell.stillcutImage.imageFromUrl(resultImage?[0].src, defaultImgPath: "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png")
+                cell.stillcutImage2.imageFromUrl(resultImage?[1].src, defaultImgPath: "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png")
+                cell.stillcutImage3.imageFromUrl(resultImage?[2].src, defaultImgPath: "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png")
+            }
             
             cell.plotField.text = resultMemo
             //print(cell.plotField.text ?? "memo 내용")
@@ -353,76 +358,3 @@ extension DiaryStickHeaderLayout : UIImagePickerControllerDelegate,UINavigationC
     }
     
 }
-
-//
-//AuthService.shared.postImage(image) {
-//    data in
-//
-//    switch data {
-//    // 매개변수에 어떤 값을 가져올 것인지
-//    case .success(let data):
-//
-//        // PostImageModel 에서 받은 유저 정보 반환
-//        let user_data = data as! PostImageModel
-//        //이부분에서 로그인이 되어있는지 쿠키검사 등을 해야되나,, 여기서 막힘
-//        print("user_data-----")
-//        self.locationLink = user_data.location
-//
-//        //location 주소를 src로 보내야함
-//        //여기서 patching을 해야하나
-//        AuthService.shared.patchImage(self.locationLink ?? "https://user-images.githubusercontent.com/46750574/71548829-55b7ef00-29f7-11ea-9048-343674ae2774.png") {
-//            data in
-//
-//            switch data {
-//            // 매개변수에 어떤 값을 가져올 것인지
-//            case .success(let data):
-//
-//                let user_data2 = data
-//                // self.profileImageLabel.image = image
-//                //self.locationLink에 주소는 있는데
-//
-//                print("user_data2-----")
-//                print(user_data2)
-//                self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
-//                UserDefaults.standard.set(self.locationLink, forKey: "src")
-//                print("user_data2-----")
-//
-//            case .requestErr(let message):
-//                self.simpleAlert(title: "저장 실패", message: "\(message)")
-//
-//            case .pathErr:
-//                print(".pathErr")
-//
-//            case .serverErr:
-//                print(".serverErr")
-//
-//            case .networkFail:
-//                print("네트워크 오류")
-//
-//            case .dbErr:
-//                print("디비 에러")
-//            }
-//        }
-//
-//        UserDefaults.standard.set(self.locationLink, forKey: "src")
-//        self.profileImageLabel.imageFromUrl(self.locationLink, defaultImgPath: "account")
-//        print("user_data-----")
-//
-//
-//
-//    case .requestErr(let message):
-//        self.simpleAlert(title: "저장 실패", message: "\(message)")
-//
-//    case .pathErr:
-//        print(".pathErr")
-//
-//    case .serverErr:
-//        print(".serverErr")
-//
-//    case .networkFail:
-//        print("네트워크 오류")
-//
-//    case .dbErr:
-//        print("디비 에러")
-//    }
-//}

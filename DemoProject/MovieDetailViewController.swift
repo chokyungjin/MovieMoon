@@ -108,13 +108,13 @@ class MovieDetailViewController: UIViewController {
                     
                     // DataClass 에서 받은 유저 정보 반환
                     self.WishList = data as? WishListModel
-                    print(self.WishList)
+                    print(self.WishList ?? "위시리스트 잘못됨")
                     let Alert = UIAlertController(title: "", message: "위시리스트에 추가합니다", preferredStyle: .alert)
                     Alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                     }))
                     self.present(Alert, animated: true, completion: nil)
                     
-                case .requestErr(let message):
+                case .requestErr( _):
                     self.simpleAlert(title: "등록된 위시리스트 였네요!", message: "갱신합니다")
                     let image = UIImage(named: "like")?.withRenderingMode(.alwaysTemplate)
                     self.heartBtn!.setImage(image, for: .normal)
@@ -150,7 +150,7 @@ class MovieDetailViewController: UIViewController {
                 
                 switch data {
                 // 매개변수에 어떤 값을 가져올 것인지
-                case .success(let data):
+                case .success( _):
                     
                     // DataClass 에서 받은 유저 정보 반환
 //                    self.WishList = data as! WishListModel
@@ -161,7 +161,7 @@ class MovieDetailViewController: UIViewController {
                     }))
                     self.present(Alert, animated: true, completion: nil)
                     
-                case .requestErr(let message):
+                case .requestErr( _):
                     self.simpleAlert(title: "없는 위시리스트 였네요!", message: "갱신합니다")
                     let image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
                     self.heartBtn!.setImage(image, for: .normal)

@@ -13,11 +13,11 @@ import Lottie
 class LaunchScreenViewController : UIViewController {
     
     //IBO...
-    @IBOutlet weak var loadingImage: LottieView!
+    @IBOutlet weak var loadingImage: UIImageView!
     
     
     //vars..
-    var gifName : String = "moonFix"
+    var gifName : String = "SplashFix"
     let gifManager = SwiftyGifManager(memoryLimit: 60)
     var mTimer:  Timer? = nil
     var number: Double = 0.0
@@ -26,27 +26,27 @@ class LaunchScreenViewController : UIViewController {
     //init..
     override func viewDidLoad() {
         super.viewDidLoad()
-        startAnimation()
+        //startAnimation()
 
-//        if let image = try? UIImage(imageName: gifName) {
-//            self.loadingImage.setImage(image, manager: gifManager)
-//        } else { self.loadingImage.clear() }
-//
-//        self.loadingImage.startAnimatingGif()
+        if let image = try? UIImage(imageName: gifName) {
+            self.loadingImage.setImage(image, manager: gifManager)
+        } else { self.loadingImage.clear() }
+
+        self.loadingImage.startAnimatingGif()
         
         ticktok()
     }
     
-    func startAnimation() {
-        let animationView = Lottie.AnimationView(name:"moviemoonsplash")
-        
-        animationView.frame = CGRect(x:0, y:0, width:375, height:812)
-        animationView.center = self.view.center
-        animationView.contentMode = .scaleToFill
-        
-        loadingImage.addSubview(animationView)
-        animationView.play()
-    }
+//    func startAnimation() {
+//        let animationView = Lottie.AnimationView(name:"moviemoonsplash")
+//
+//        animationView.frame = CGRect(x:0, y:0, width:375, height:812)
+//        animationView.center = self.view.center
+//        animationView.contentMode = .scaleToFill
+//
+//        loadingImage.addSubview(animationView)
+//        animationView.play()
+//    }
     
     
     func ticktok(){
@@ -64,35 +64,36 @@ class LaunchScreenViewController : UIViewController {
     }
     
     //for GIF...
-//    @objc func timerCallback(){
-//        number += 1
-//        if number == 3 {
-//            //Thread.sleep(forTimeInterval: 1) //1초만 재우기
-//            loadingImage.stopAnimatingGif()
-//
-//            loadingImage.removeFromSuperview()
-//
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-//            vc.modalPresentationStyle = .fullScreen
-//            self.present(vc, animated: true, completion: nil)
-//
-//        }
-//    }
+    
+    @objc func timerCallback(){
+        number += 1
+        if number == 3 {
+            //Thread.sleep(forTimeInterval: 1) //1초만 재우기
+            loadingImage.stopAnimatingGif()
+
+            loadingImage.removeFromSuperview()
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+
+        }
+    }
     
     //for Lottie...
-     @objc func timerCallback(){
-            number += 1
-        if number == 3{
-                //Thread.sleep(forTimeInterval: 1) //1초만 재우기
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-//                vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-                
-            }
-        }
+//     @objc func timerCallback(){
+//            number += 1
+//        if number == 3{
+//                //Thread.sleep(forTimeInterval: 1) //1초만 재우기
+//                
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+////                vc.modalTransitionStyle = .crossDissolve
+//                vc.modalPresentationStyle = .fullScreen
+//                self.present(vc, animated: true, completion: nil)
+//                
+//            }
+//        }
     
 }

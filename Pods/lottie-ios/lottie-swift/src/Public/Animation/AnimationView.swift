@@ -618,10 +618,6 @@ final public class AnimationView: LottieView {
     commonInit()
   }
   
-  deinit {
-    NotificationCenter.default.removeObserver(self)
-  }
-  
   // MARK: - Public (UIView Overrides)
   
   override public var intrinsicContentSize: CGSize {
@@ -718,6 +714,8 @@ final public class AnimationView: LottieView {
      UIView Animation does not implicitly set CAAnimation time or timing fuctions.
      If layout is changed in an animation we must get the current animation duration
      and timing function and then manually create a CAAnimation to match the UIView animation.
+     If layout is changed without animation, explicitly set animation duration to 0.0
+     inside CATransaction to avoid unwanted artifacts.
      */
 
     /// Check if any animation exist on the view's layer, and grab the duration and timing functions of the animation.
@@ -748,8 +746,12 @@ final public class AnimationView: LottieView {
       animationLayer.transform = xform
       animationLayer.add(group, forKey: animationKey)
     } else {
+      CATransaction.begin()
+      CATransaction.setAnimationDuration(0.0)
+      CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .linear))
       animationLayer.position = position
       animationLayer.transform = xform
+      CATransaction.commit()
     }
     
     if shouldForceUpdates {
@@ -824,6 +826,9 @@ final public class AnimationView: LottieView {
   }
   
   override func animationMovedToWindow() {
+    /// Don't update any state if both the `superview` and `window` is `nil`
+    guard window != nil && superview != nil else { return }
+
     if window != nil {
       updateAnimationForForegroundState()
     } else {
@@ -959,7 +964,7 @@ final public class AnimationView: LottieView {
     layerAnimation.isRemovedOnCompletion = false
     if timeOffset != 0 {
       let currentLayerTime = viewLayer?.convertTime(CACurrentMediaTime(), from: nil) ?? 0
-      layerAnimation.beginTime = currentLayerTime - (timeOffset * 1 / Double(animationSpeed))
+      layerAnimation.beginTime = currentLayerTime - (timeOffset * 1 / Double(abs(animationSpeed)))
     }
     layerAnimation.delegate = animationContext.closure
     animationContext.closure.animationLayer = animationlayer

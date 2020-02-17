@@ -13,7 +13,7 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     //vars..
     var imageView: UIImageView? = nil
     var thumbView: UIImageView? = nil
-    var profileImage : [UIImage] = [UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!, UIImage(named: "img_placeholder")!]
+    var profileImage : [UIImage] = [UIImage(named: "EmptyView")!, UIImage(named: "EmptyView")!, UIImage(named: "EmptyView")!]
     var profileImageLink : [String]? = nil
     var titleLabel: UILabel? = nil
     var dateLabel: UILabel? = nil
@@ -215,8 +215,8 @@ extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
         //        print(userId ?? 1 ,movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4")
         //        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
         
-        print("location link = \(LocationLink)")
-        DiaryService.shared.diaryPost(userId ?? 1 , movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4", LocationLink ?? ["https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581745310126file.jpg","https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581745310126file.jpg","https://moviemoon1.s3.ap-northeast-2.amazonaws.com/original/1581745310126file.jpg"]){
+        print("location link = \(LocationLink ?? ["다이어리 이미지 링크 잘못됨!"])")
+        DiaryService.shared.diaryPost(userId ?? 1 , movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4", LocationLink ?? ["https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png","https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png","https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png"]){
             data in
             
             switch data {
@@ -307,21 +307,21 @@ extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINaviga
     func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-            if profileImage[0] == UIImage(named: "img_placeholder") {
+            if profileImage[0] == UIImage(named: "EmptyView") {
                 profileImage[0] = image
             }
-            else if profileImage[1] == UIImage(named: "img_placeholder") {
+            else if profileImage[1] == UIImage(named: "EmptyView") {
                 profileImage[1] = image
                 
             }
-            else if profileImage[2] == UIImage(named: "img_placeholder") {
+            else if profileImage[2] == UIImage(named: "EmptyView") {
                 profileImage[2] = image
             }
             
         }
         
         //여기서 이미지 통신 배열로 받아서 한번에 하는 메소드! 세 장 모두 올리면!
-        if profileImage[0] != UIImage(named: "img_placeholder")  && profileImage[1] != UIImage(named: "img_placeholder") && profileImage[2] != UIImage(named: "img_placeholder")  {
+        if profileImage[0] != UIImage(named: "EmptyView")  && profileImage[1] != UIImage(named: "EmptyView") && profileImage[2] != UIImage(named: "EmptyView")  {
             DiaryService.shared.postImage(profileImage){
                 data in
 
@@ -335,7 +335,7 @@ extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINaviga
                     print("user_data-----")
                     //여기서 받아오는 경로를 post하는 이미지에 넣어줘야함!, 이게 이미지 등록까지!
                     self.LocationLink = user_data
-                    print(self.LocationLink)
+                    print(self.LocationLink ?? "이미지 포스트 경로 문제 있음")
                     print("user_data-----")
 
                 case .requestErr(let message):

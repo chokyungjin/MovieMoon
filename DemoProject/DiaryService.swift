@@ -25,9 +25,9 @@ struct DiaryService {
             "movieId" : movieId,
             "memo" : memo,
             "createDate" : createDate,
-            "src": src
+            "image": src
         ]
-        
+    
         Alamofire.request(APIConstants.RegisterDiaryURL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header)
             .responseData { response in
                 // parameter 위치
