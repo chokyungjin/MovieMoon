@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1130"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2443674F756B3314267E7AD76BC62FF2"
-               BuildableName = "Pods_DemoProject.framework"
-               BlueprintName = "Pods-DemoProject"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "39B7CA0C23228D7500A765A9"
+               BuildableName = "MovieMoon.app"
+               BlueprintName = "DemoProject"
+               ReferencedContainer = "container:DemoProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "39B7CA0C23228D7500A765A9"
+            BuildableName = "MovieMoon.app"
+            BlueprintName = "DemoProject"
+            ReferencedContainer = "container:DemoProject.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "39B7CA0C23228D7500A765A9"
+            BuildableName = "MovieMoon.app"
+            BlueprintName = "DemoProject"
+            ReferencedContainer = "container:DemoProject.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

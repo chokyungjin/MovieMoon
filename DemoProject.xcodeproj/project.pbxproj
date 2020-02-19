@@ -12,15 +12,7 @@
 		39163A5323F325360066AA0E /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39163A5223F325360066AA0E /* DiaryModel.swift */; };
 		3916597B2346604900CCF20F /* movieRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3916597A2346604900CCF20F /* movieRatingCell.swift */; };
 		391BC89C23F11AA200074E55 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BC89B23F11AA200074E55 /* SignUpModel.swift */; };
-		393501462385AC0300282D7B /* NanumSquareRoundB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393501432385ABE100282D7B /* NanumSquareRoundB.ttf */; };
-		393501472385AC0600282D7B /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393501442385ABE100282D7B /* NanumSquareRegular.ttf */; };
 		393501492385AE6B00282D7B /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393501482385AE6B00282D7B /* Extension+Font.swift */; };
-		393501522385B10300282D7B /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3935014E2385AF1A00282D7B /* NanumSquareBold.ttf */; };
-		393501532385B10900282D7B /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3935014C2385AF1900282D7B /* NanumSquareExtraBold.ttf */; };
-		393501542385B10D00282D7B /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3935014B2385AF1900282D7B /* NanumSquareLight.ttf */; };
-		393501552385B11200282D7B /* NanumSquareRoundEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3935014D2385AF1900282D7B /* NanumSquareRoundEB.ttf */; };
-		393501562385B11400282D7B /* NanumSquareRoundL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393501502385AF1A00282D7B /* NanumSquareRoundL.ttf */; };
-		393501572385B11700282D7B /* NanumSquareRoundR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 393501512385AF1A00282D7B /* NanumSquareRoundR.ttf */; };
 		393A1ED5238057BA0038DA1B /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A1ED4238057BA0038DA1B /* Extension+CALayer.swift */; };
 		39447D422369243800C56BE6 /* WishListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39447D412369243800C56BE6 /* WishListCollectionViewController.swift */; };
 		39464885237E3770004EFBF4 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39464884237E3770004EFBF4 /* FloatRatingView.swift */; };
@@ -42,10 +34,6 @@
 		396ED70623758F3400C8BB3C /* Extension+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396ED70523758F3400C8BB3C /* Extension+GIF.swift */; };
 		3974D88B234485FC00422D91 /* StickyHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974D88A234485FC00422D91 /* StickyHeaderLayout.swift */; };
 		397C953523FA32A10020F8A6 /* SplashFix.gif in Resources */ = {isa = PBXBuildFile; fileRef = 397C953423FA32A10020F8A6 /* SplashFix.gif */; };
-		397C953B23FA67680020F8A6 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B7CA2523228DD100A765A9 /* KakaoOpenSDK.framework */; };
-		397C953C23FA67680020F8A6 /* KakaoOpenSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39B7CA2523228DD100A765A9 /* KakaoOpenSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		397C953E23FA676A0020F8A6 /* Pods_DemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */; };
-		397C953F23FA676A0020F8A6 /* Pods_DemoProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39856F182323DF930006B58E /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39856F172323DF930006B58E /* TabbarViewController.swift */; };
 		39856F1A2323E34F0006B58E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39856F192323E34E0006B58E /* RegisterViewController.swift */; };
 		398854602367E90D008765FF /* DiaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988545F2367E90D008765FF /* DiaryCollectionViewController.swift */; };
@@ -71,6 +59,10 @@
 		39BC021E232A3E72002737B4 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC021D232A3E72002737B4 /* RecommendViewController.swift */; };
 		39BC0220232A3E99002737B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC021F232A3E99002737B4 /* LoginViewController.swift */; };
 		39BFB9932392BAFC00D7A401 /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BFB9922392BAFC00D7A401 /* MovieListTableViewCell.swift */; };
+		39D7E3E223FC030500002941 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B7CA2523228DD100A765A9 /* KakaoOpenSDK.framework */; };
+		39D7E3E323FC030500002941 /* KakaoOpenSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39B7CA2523228DD100A765A9 /* KakaoOpenSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		39D7E3E523FC030700002941 /* Pods_DemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */; };
+		39D7E3E623FC030700002941 /* Pods_DemoProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 640E9D16FF2294B060DEDA10 /* Pods_DemoProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39E06C5123F2809600267153 /* MovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E06C5023F2809600267153 /* MovieSearchViewController.swift */; };
 		39E06C5323F2867400267153 /* MovieSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E06C5223F2867400267153 /* MovieSearchTableViewCell.swift */; };
 		39E06C5523F293CF00267153 /* SearchDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E06C5423F293CF00267153 /* SearchDetailModel.swift */; };
@@ -94,14 +86,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		397C953D23FA67680020F8A6 /* Embed Frameworks */ = {
+		39C60A7F23FC0601003AF0E3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39D7E3E423FC030500002941 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				397C953C23FA67680020F8A6 /* KakaoOpenSDK.framework in Embed Frameworks */,
-				397C953F23FA676A0020F8A6 /* Pods_DemoProject.framework in Embed Frameworks */,
+				39D7E3E323FC030500002941 /* KakaoOpenSDK.framework in Embed Frameworks */,
+				39D7E3E623FC030700002941 /* Pods_DemoProject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,15 +117,7 @@
 		39163FCE232F6C7700B7EAC0 /* Lumina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lumina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3916597A2346604900CCF20F /* movieRatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieRatingCell.swift; sourceTree = "<group>"; };
 		391BC89B23F11AA200074E55 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
-		393501432385ABE100282D7B /* NanumSquareRoundB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundB.ttf; sourceTree = "<group>"; };
-		393501442385ABE100282D7B /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
 		393501482385AE6B00282D7B /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
-		3935014B2385AF1900282D7B /* NanumSquareLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareLight.ttf; sourceTree = "<group>"; };
-		3935014C2385AF1900282D7B /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
-		3935014D2385AF1900282D7B /* NanumSquareRoundEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundEB.ttf; sourceTree = "<group>"; };
-		3935014E2385AF1A00282D7B /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
-		393501502385AF1A00282D7B /* NanumSquareRoundL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundL.ttf; sourceTree = "<group>"; };
-		393501512385AF1A00282D7B /* NanumSquareRoundR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundR.ttf; sourceTree = "<group>"; };
 		393A1ED4238057BA0038DA1B /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		39447D412369243800C56BE6 /* WishListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewController.swift; sourceTree = "<group>"; };
 		39464884237E3770004EFBF4 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
@@ -184,6 +177,7 @@
 		39BC021D232A3E72002737B4 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		39BC021F232A3E99002737B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		39BFB9922392BAFC00D7A401 /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
+		39C60A8223FC06F2003AF0E3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C97B57232F70070018A8E1 /* Lumina.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lumina.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E06C5023F2809600267153 /* MovieSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewController.swift; sourceTree = "<group>"; };
 		39E06C5223F2867400267153 /* MovieSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -215,8 +209,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				397C953B23FA67680020F8A6 /* KakaoOpenSDK.framework in Frameworks */,
-				397C953E23FA676A0020F8A6 /* Pods_DemoProject.framework in Frameworks */,
+				39D7E3E223FC030500002941 /* KakaoOpenSDK.framework in Frameworks */,
+				39D7E3E523FC030700002941 /* Pods_DemoProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,14 +246,6 @@
 		393501452385ABE500282D7B /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				3935014E2385AF1A00282D7B /* NanumSquareBold.ttf */,
-				3935014C2385AF1900282D7B /* NanumSquareExtraBold.ttf */,
-				3935014B2385AF1900282D7B /* NanumSquareLight.ttf */,
-				393501442385ABE100282D7B /* NanumSquareRegular.ttf */,
-				393501432385ABE100282D7B /* NanumSquareRoundB.ttf */,
-				3935014D2385AF1900282D7B /* NanumSquareRoundEB.ttf */,
-				393501502385AF1A00282D7B /* NanumSquareRoundL.ttf */,
-				393501512385AF1A00282D7B /* NanumSquareRoundR.ttf */,
 				397C953423FA32A10020F8A6 /* SplashFix.gif */,
 			);
 			name = Font;
@@ -487,6 +473,7 @@
 		4A10F81444177BF3F0ED2E03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39C60A8223FC06F2003AF0E3 /* Alamofire.framework */,
 				397C954023FA677B0020F8A6 /* Alamofire.framework */,
 				397C954123FA677B0020F8A6 /* AlamofireImage.framework */,
 				397C954223FA677B0020F8A6 /* FloatRatingView.framework */,
@@ -524,7 +511,8 @@
 				39B7CA0A23228D7500A765A9 /* Frameworks */,
 				39B7CA0B23228D7500A765A9 /* Resources */,
 				34B5229511D75D6377E5392B /* [CP] Embed Pods Frameworks */,
-				397C953D23FA67680020F8A6 /* Embed Frameworks */,
+				39D7E3E423FC030500002941 /* Embed Frameworks */,
+				39C60A7F23FC0601003AF0E3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -574,23 +562,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				393501472385AC0600282D7B /* NanumSquareRegular.ttf in Resources */,
-				393501552385B11200282D7B /* NanumSquareRoundEB.ttf in Resources */,
 				39F0E078238843FB007C43A8 /* Launch Screen.storyboard in Resources */,
-				393501532385B10900282D7B /* NanumSquareExtraBold.ttf in Resources */,
 				39E26431232B7EC000EC8CBC /* HomeScreen.storyboard in Resources */,
 				39E26437232B823100EC8CBC /* RecommendScreen.storyboard in Resources */,
 				39E26435232B819100EC8CBC /* DiaryScreen.storyboard in Resources */,
-				393501522385B10300282D7B /* NanumSquareBold.ttf in Resources */,
 				39B7CA1B23228D7600A765A9 /* Assets.xcassets in Resources */,
 				39E26433232B80E200EC8CBC /* BoxOfficeScreen.storyboard in Resources */,
-				393501462385AC0300282D7B /* NanumSquareRoundB.ttf in Resources */,
 				39B7CA1623228D7500A765A9 /* Main.storyboard in Resources */,
-				393501572385B11700282D7B /* NanumSquareRoundR.ttf in Resources */,
 				39E26439232B830800EC8CBC /* HamburgerMenuScreen.storyboard in Resources */,
 				397C953523FA32A10020F8A6 /* SplashFix.gif in Resources */,
-				393501542385B10D00282D7B /* NanumSquareLight.ttf in Resources */,
-				393501562385B11400282D7B /* NanumSquareRoundL.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +832,7 @@
 					"$(PROJECT_DIR)/kakao-ios-sdk-1",
 				);
 				INFOPLIST_FILE = DemoProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -879,6 +860,7 @@
 					"$(PROJECT_DIR)/kakao-ios-sdk-1",
 				);
 				INFOPLIST_FILE = DemoProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
