@@ -46,5 +46,6 @@ struct BoxOfficeModel : Codable {
     var producer: String
     var year: Int
     var poster: String
+    var movieId: Int
     
 }

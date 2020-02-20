@@ -83,7 +83,7 @@ class BoxOfficeViewController: UIViewController,UITextFieldDelegate {
         let cell = sender as! MovieListTableViewCell
         
         if let selectedIndex = MovieListTableView.indexPath(for: cell) {
-            MovieDetailViewController.movieId = boxOffices[selectedIndex.row].id
+            MovieDetailViewController.movieId = boxOffices[selectedIndex.row].movieId
             
             
         }

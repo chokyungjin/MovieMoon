@@ -6,9 +6,9 @@ PODS:
   - ImageSlideshow (1.8.3):
     - ImageSlideshow/Core (= 1.8.3)
   - ImageSlideshow/Core (1.8.3)
-  - Kingfisher (5.13.0):
-    - Kingfisher/Core (= 5.13.0)
-  - Kingfisher/Core (5.13.0)
+  - Kingfisher (5.13.1):
+    - Kingfisher/Core (= 5.13.1)
+  - Kingfisher/Core (5.13.1)
   - lottie-ios (3.1.6)
   - PagingCollectionViewLayout (0.0.3)
   - SwiftGifOrigin (1.7.0)
@@ -42,7 +42,7 @@ SPEC CHECKSUMS:
   AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   FloatRatingView: bb6bdddfbeec51b1d387b4bd50abc27b4dfccd48
   ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
-  Kingfisher: 0d334cada987fcddbe9b5cec516406e1ee9d4748
+  Kingfisher: f33a848445e33c543620812158dc5d47f6bf90df
   lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
   PagingCollectionViewLayout: 56a3094c246c5fbaab0057b0aa7f789338a5fdb0
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
