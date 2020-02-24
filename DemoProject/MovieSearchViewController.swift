@@ -25,8 +25,9 @@ class MovieSearchViewController: UIViewController {
         self.view.backgroundColor = .blackgroundBlack
         MovieSearchTableView.backgroundColor = .blackgroundBlack
         navigationItem.title = "검색 결과"
-        navigationItem.backBarButtonItem?.tintColor = .white
-        
+       // navigationItem.backBarButtonItem?.tintColor = .white
+        self.navigationItem.backBarButtonItem?.tintColor = .white
+
         dateFormatter.locale = Locale.init(identifier: "ko_kr")
         dateFormatter.dateFormat = "yyyyMMdd"
         realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
@@ -40,28 +41,6 @@ class MovieSearchViewController: UIViewController {
         if let selectedIndex = MovieSearchTableView.indexPath(for: cell) {
             //여기서 아이디로 디테일 통신 시작해야 할듯
             MovieDetailViewController.movieId = movieSearchData[selectedIndex.row].id
-            
-            
-            
-            //            MovieDetailViewController.movieId = String(describing: movie.id)
-            //            //StickyHeaderLayout에 들어가는 movie.id , RatingImageView는 Cell에서 처리하므로 싱글톤으로 돌려야할듯
-            //            dataManager.setId(haveId:  String(describing: movie.id))
-            //            dataManager.setRating(haveRating: Double(movie.id))
-            //
-            //            //개선시켜보았으나 Data Loading 과정이 오래걸림 , 애초에  thumbnailImage와 posterImage를 잘 써야할듯
-            //            //            DataManager.sharedManager.fetchMovieDetail(movieId: movie.id, completion: { [weak self] (movie) in
-            //            //                 guard let self = self else { return }
-            //            //                 self.movieDetail = movie
-            //            //             })
-            //            //             { self.showAlertController(title: "요청 실패", message: "알 수 없는 네트워크 에러 입니다.") }
-            //            //            let thumnailImage = UIImageView()
-            //            //            thumnailImage.imageFromUrl(movieDetail?.image , defaultImgPath: "img_placeholder")
-            //            //            MovieDetailViewController.imageView = thumnailImage
-            //
-            //            //    기존에 쓰던 방식이지만 thumbanilImage의 화질이 좋지 않음
-            //            let thumnailImage = UIImageView()
-            //            thumnailImage.imageFromUrl(movie.poster , defaultImgPath: "img_placeholder")
-            //            MovieDetailViewController.imageView = thumnailImage
             
         }
     }

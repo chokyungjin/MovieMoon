@@ -13,7 +13,7 @@
         <scene sceneID="dWz-fP-KhF">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="nWa-Y6-HgR" customClass="HomeViewController" customModule="MovieMoon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="6lQ-7O-vMr">
+                    <view key="view" contentMode="scaleToFill" id="6lQ-7O-vMr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -115,11 +115,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="MovieSearchCell" rowHeight="160" id="95w-w3-LR5" customClass="MovieSearchTableViewCell" customModule="MovieMoon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieSearchCell" rowHeight="160" id="95w-w3-LR5" customClass="MovieSearchTableViewCell" customModule="MovieMoon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="95w-w3-LR5" id="HAn-pa-ups">
-                                            <rect key="frame" x="0.0" y="0.0" width="317" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Z-yv-3jj">
@@ -189,7 +189,7 @@
                                             <outlet property="nationLabel" destination="xAf-Tb-by0" id="2Ff-5r-ElU"/>
                                             <outlet property="thumnailImageView" destination="Vu4-kB-Da9" id="QE8-0w-YA1"/>
                                             <outlet property="titleLabel" destination="nGu-dk-hhv" id="0Ic-mJ-XYz"/>
-                                            <segue destination="5Ho-f6-nKQ" kind="push" trigger="accessoryAction" id="9df-qs-sPo"/>
+                                            <segue destination="5Ho-f6-nKQ" kind="show" id="DyT-Zo-hQI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

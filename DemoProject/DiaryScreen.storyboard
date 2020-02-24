@@ -81,11 +81,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="MovieDiarySearchViewCell" rowHeight="160" id="Vkm-Hm-JS2" customClass="MovieDiarySearchViewCell" customModule="MovieMoon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieDiarySearchViewCell" rowHeight="160" id="Vkm-Hm-JS2" customClass="MovieDiarySearchViewCell" customModule="MovieMoon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vkm-Hm-JS2" id="xOC-fE-Krj">
-                                            <rect key="frame" x="0.0" y="0.0" width="317" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9w-1F-ZDV">
@@ -155,7 +155,7 @@
                                             <outlet property="NationLabel" destination="cSP-Th-zrt" id="nVB-eA-TaJ"/>
                                             <outlet property="ThumnailImageView" destination="VxZ-OQ-svz" id="Waz-oL-khd"/>
                                             <outlet property="TitleLabel" destination="jBF-IM-tV1" id="bWq-zf-fsH"/>
-                                            <segue destination="ZqE-R6-61Q" kind="push" trigger="accessoryAction" id="jhe-UY-0kc"/>
+                                            <segue destination="ZqE-R6-61Q" kind="show" id="Dtr-Xn-38B"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

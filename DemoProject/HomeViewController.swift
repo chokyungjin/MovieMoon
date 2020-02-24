@@ -20,9 +20,6 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     //Variables
     let dataManager = DataManager.sharedManager
     
-    let baseURL: String = {
-        return ServerURLs.base.rawValue
-    }()
     
     let movieListCellID: String = "MovieListCell"
     var movies: [Movie] = []
@@ -84,7 +81,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        setMovielistCollectionView()
+//        setMovielistCollectionView()
 
     }
     
@@ -172,57 +169,43 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     func setMovieListCollectionView() {
         movieCollectionView.delegate = self
         movieCollectionView.dataSource = self
+        
+        WishListService.shared.getWishList() {
+                    data in
+                    
+                    switch data {
+                    // 매개변수에 어떤 값을 가져올 것인지
+                    case .success(let data):
+                        
+                        // DataClass 에서 받은 유저 정보 반환
+                        self.expectationList = data as! [WishListModel]
+                        print("????????????")
+                        print(self.expectationList)
+                        print("????????????")
+                        self.movieCollectionView.reloadData()
+                        
+                        
+                    case .requestErr(let message):
+                        self.simpleAlert(title: "위시리스트 가져오기 실패", message: "\(message)")
+                        
+                    case .pathErr:
+                        print(".pathErr")
+                        
+                    case .serverErr:
+                        print(".serverErr")
+                        
+                    case .networkFail:
+                        print("네트워크 오류")
+                        
+                    case .dbErr:
+                        print("디비 에러")
+                    }
+                }
     }
     
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func setMovielistCollectionView() {
-        
-        movieCollectionView.delegate = self
-        movieCollectionView.dataSource = self
-        
-//        let collectionViewWidth = (collectionView?.frame.width)!
-//        let itemWidth = ((collectionViewWidth - Storyboard.leftAndRightPaddings * 2 ) / Storyboard.numberOfItemsPerRow )
-//
-//        let layout = collectionViewLayout as! UICollectionViewFlowLayout
-//        layout.itemSize = CGSize(width: itemWidth, height: 200)
-        
-        
-        WishListService.shared.getWishList() {
-            data in
-            
-            switch data {
-            // 매개변수에 어떤 값을 가져올 것인지
-            case .success(let data):
-                
-                // DataClass 에서 받은 유저 정보 반환
-                self.expectationList = data as! [WishListModel]
-//                print("????????????")
-//                print(self.expectationList)
-//                print("????????????")
-                self.movieCollectionView.reloadData()
-                
-                
-            case .requestErr(let message):
-                self.simpleAlert(title: "다이어리 가져오기 실패", message: "\(message)")
-                
-            case .pathErr:
-                print(".pathErr")
-                
-            case .serverErr:
-                print(".serverErr")
-                
-            case .networkFail:
-                print("네트워크 오류")
-                
-            case .dbErr:
-                print("디비 에러")
-            }
-        }
-        
-    }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

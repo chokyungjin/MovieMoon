@@ -38,6 +38,9 @@ class StickyHeadersLayout: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -45,7 +48,17 @@ class StickyHeadersLayout: UITableViewController {
         self.heartBtn?.frame = CGRect(origin: CGPoint(x: 315.0, y: 194.5), size: CGSize(width: 30.0, height: 30.0))
         self.titleLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 144.5), size: CGSize(width: 200.0, height: 30.0))
         self.dateLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 174.5), size: CGSize(width: 200.0, height: 30.0))
-        
+        createGradient()
+
+    }
+    func createGradient() {
+        // print(111)
+        caLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        caLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        caLayer.locations = [0,1]
+        caLayer.frame = imageSlideView!.frame
+        caLayer.colors = [UIColor.clear.cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor]
+        imageSlideView!.layer.addSublayer(caLayer)
     }
     
    
