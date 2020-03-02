@@ -1,22 +1,19 @@
 PODS:
-  - Alamofire (4.9.1)
-  - AlamofireImage (3.6.0):
-    - Alamofire (~> 4.9)
+  - Alamofire (4.8.2)
   - FloatRatingView (4.0)
   - ImageSlideshow (1.8.3):
     - ImageSlideshow/Core (= 1.8.3)
   - ImageSlideshow/Core (1.8.3)
-  - Kingfisher (5.13.1):
-    - Kingfisher/Core (= 5.13.1)
-  - Kingfisher/Core (5.13.1)
+  - Kingfisher (5.13.2):
+    - Kingfisher/Core (= 5.13.2)
+  - Kingfisher/Core (5.13.2)
   - lottie-ios (3.1.6)
   - PagingCollectionViewLayout (0.0.3)
   - SwiftGifOrigin (1.7.0)
   - SwiftyGif (5.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.8)
-  - AlamofireImage (~> 3.5)
+  - Alamofire (~> 4.8.2)
   - FloatRatingView (~> 4)
   - ImageSlideshow (~> 1.8.1)
   - Kingfisher (~> 5.0)
@@ -28,7 +25,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - AlamofireImage
     - FloatRatingView
     - ImageSlideshow
     - Kingfisher
@@ -38,16 +34,15 @@ SPEC REPOS:
     - SwiftyGif
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   FloatRatingView: bb6bdddfbeec51b1d387b4bd50abc27b4dfccd48
   ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
-  Kingfisher: f33a848445e33c543620812158dc5d47f6bf90df
+  Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
   PagingCollectionViewLayout: 56a3094c246c5fbaab0057b0aa7f789338a5fdb0
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
 
-PODFILE CHECKSUM: ad4de7ed51401acfffc17dc9198b37bcf9df55d1
+PODFILE CHECKSUM: dfef5d379b5ea7559a353766c262dd57db7228e9
 
 COCOAPODS: 1.8.4

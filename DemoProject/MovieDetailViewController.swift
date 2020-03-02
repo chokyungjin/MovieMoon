@@ -62,9 +62,9 @@ class MovieDetailViewController: UIViewController {
                 self.movieDetailData = data as? SearchDetailModel
                 self.myTable.movieDetailData = self.movieDetailData
                
-//                print("!!!!!!!!!!!!!")
-//                print(self.movieDetailData)
-//                print("!!!!!!!!!!!!!")
+                print("!!!!!!!!!!!!!")
+                print(self.movieDetailData)
+                print("!!!!!!!!!!!!!")
                 self.UICall()
                 
                 
