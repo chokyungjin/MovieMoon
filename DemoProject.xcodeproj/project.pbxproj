@@ -20,6 +20,8 @@
 		394B0FA823F04C5600ADE804 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B0FA723F04C5600ADE804 /* AuthService.swift */; };
 		394B0FAA23F04CCE00ADE804 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B0FA923F04CCE00ADE804 /* LoginModel.swift */; };
 		394B0FAC23F04EA800ADE804 /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B0FAB23F04EA800ADE804 /* Extension+ViewController.swift */; };
+		3952C4A42413E45E008CC19D /* KakaoLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3952C4A32413E45E008CC19D /* KakaoLink.framework */; };
+		3952C4A62413E61A008CC19D /* KakaoMessageTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3952C4A52413E61A008CC19D /* KakaoMessageTemplate.framework */; };
 		3959674623801AB600D63C8A /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959674523801AB600D63C8A /* Extension+UITextField.swift */; };
 		3959674A23801B9900D63C8A /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959674923801B9900D63C8A /* UIColor+Additions.swift */; };
 		395967512380446F00D63C8A /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395967502380446F00D63C8A /* DiaryDetailViewController.swift */; };
@@ -125,6 +127,8 @@
 		394B0FA723F04C5600ADE804 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		394B0FA923F04CCE00ADE804 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		394B0FAB23F04EA800ADE804 /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
+		3952C4A32413E45E008CC19D /* KakaoLink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoLink.framework; path = "kakao-ios-sdk-1/KakaoLink.framework"; sourceTree = "<group>"; };
+		3952C4A52413E61A008CC19D /* KakaoMessageTemplate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoMessageTemplate.framework; path = "kakao-ios-sdk-1/KakaoMessageTemplate.framework"; sourceTree = "<group>"; };
 		3959674523801AB600D63C8A /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		3959674923801B9900D63C8A /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		395967502380446F00D63C8A /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 			files = (
 				39D7E3E223FC030500002941 /* KakaoOpenSDK.framework in Frameworks */,
 				39D7E3E523FC030700002941 /* Pods_DemoProject.framework in Frameworks */,
+				3952C4A62413E61A008CC19D /* KakaoMessageTemplate.framework in Frameworks */,
+				3952C4A42413E45E008CC19D /* KakaoLink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +479,8 @@
 		4A10F81444177BF3F0ED2E03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3952C4A52413E61A008CC19D /* KakaoMessageTemplate.framework */,
+				3952C4A32413E45E008CC19D /* KakaoLink.framework */,
 				39C60A8223FC06F2003AF0E3 /* Alamofire.framework */,
 				397C954023FA677B0020F8A6 /* Alamofire.framework */,
 				397C954123FA677B0020F8A6 /* AlamofireImage.framework */,

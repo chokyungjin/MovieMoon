@@ -38,6 +38,65 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func kakaolink(_ sender: Any) {
+        
+        // Feed 타입 템플릿 오브젝트 생성
+        let template = KMTFeedTemplate { (feedTemplateBuilder) in
+            
+            // 컨텐츠
+            feedTemplateBuilder.content = KMTContentObject(builderBlock: { (contentBuilder) in
+                contentBuilder.title = "딸기 치즈 케익"
+                contentBuilder.desc = "#케익 #딸기 #삼평동 #까페 #분위기 #소개팅"
+                contentBuilder.imageURL = URL(string: "http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png")!
+                contentBuilder.link = KMTLinkObject(builderBlock: { (linkBuilder) in
+                    linkBuilder.mobileWebURL = URL(string: "https://developers.kakao.com")
+                })
+            })
+            
+            // 소셜
+            feedTemplateBuilder.social = KMTSocialObject(builderBlock: { (socialBuilder) in
+                socialBuilder.likeCount = 286
+                socialBuilder.commnentCount = 45
+                socialBuilder.sharedCount = 845
+            })
+            
+            // 버튼
+            feedTemplateBuilder.addButton(KMTButtonObject(builderBlock: { (buttonBuilder) in
+                buttonBuilder.title = "웹으로 보기"
+                buttonBuilder.link = KMTLinkObject(builderBlock: { (linkBuilder) in
+                    linkBuilder.mobileWebURL = URL(string: "https://developers.kakao.com")
+                })
+            }))
+            feedTemplateBuilder.addButton(KMTButtonObject(builderBlock: { (buttonBuilder) in
+                buttonBuilder.title = "앱으로 보기"
+                buttonBuilder.link = KMTLinkObject(builderBlock: { (linkBuilder) in
+                    linkBuilder.iosExecutionParams = "param1=value1&param2=value2"
+                    linkBuilder.androidExecutionParams = "param1=value1&param2=value2"
+                })
+            }))
+        }
+        
+        // 서버에서 콜백으로 받을 정보
+        let serverCallbackArgs = ["user_id": "abcd",
+                                  "product_id": "1234"]
+
+        // 카카오링크 실행
+        KLKTalkLinkCenter.shared().sendDefault(with: template, serverCallbackArgs: serverCallbackArgs, success: { (warningMsg, argumentMsg) in
+            
+            // 성공
+            print("warning message: \(String(describing: warningMsg))")
+            print("argument message: \(String(describing: argumentMsg))")
+            
+        }, failure: { (error) in
+            
+            // 실패
+            UIAlertController.showMessage(error.localizedDescription)
+            print("error \(error)")
+            
+        })
+        
+    }
+    
     @IBAction func LoginBut(_ sender: Any) {
         
         guard let id = idTextField.text else {return}
@@ -183,3 +242,23 @@ extension LoginViewController: UIGestureRecognizerDelegate {
         return true
     }
 }
+
+extension UIAlertController {
+    
+    static func showMessage(_ message: String) {
+        showAlert(title: "", message: message, actions: [UIAlertAction(title: "OK", style: .cancel, handler: nil)])
+    }
+    
+    static func showAlert(title: String?, message: String?, actions: [UIAlertAction]) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            for action in actions {
+                alert.addAction(action)
+            }
+            if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController, let presenting = navigationController.topViewController {
+                presenting.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+}
+

@@ -15,6 +15,9 @@
 
 #include <stdio.h>
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
+#import <KakaoLink/KakaoLink.h>
+#import <KakaoMessageTemplate/KMTTemplate.h>
+
 #import "SWRevealViewController.h"
 
 #endif /* kakaotest_hpp */
