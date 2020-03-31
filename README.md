@@ -33,18 +33,18 @@
 
 | Function                    | Implementation | Progressing | Priority |
 | --------------------------- | ------------ | ------------ | ------------ |
-| SignIn / SignUp             | ⭕️ | Completed , [chokyungjin](https://github.com/chokyungjin) |1|
-| Rating                      | ⭕️            | Completed , [chokyungjin](https://github.com/chokyungjin) |2|
-| Tabbar On Top               | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
-| GradientLayer               | △ | Completed, [chokyungjin](https://github.com/chokyungjin) |2|
-| Custom PickerView           | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
-| Photo Iibrary | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
-| CustomNavigationBar         | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
-| Thread Sleep                | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
-| KeyboardConstraint          | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
-| SplashLaunchScreen         | ⭕️            | Completed, [chokyungjin](https://github.com/chokyungjin) |1|
-| 로그아웃            | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
-| 닉네임 변경 | ⭕️     | Completed, [chokyungjin](https://github.com/chokyungjin) |3|
+| SignIn / SignUp             | ⭕️ | ⭕️           |1|
+| Rating                      | ⭕️            | ⭕️           |2|
+| Tabbar On Top               | ⭕️            | ⭕️           |1|
+| GradientLayer               | △ | ⭕️           |2|
+| Custom PickerView           | ⭕️            | ⭕️           |1|
+| Photo Iibrary | ⭕️            | ⭕️           |1|
+| CustomNavigationBar         | ⭕️            | ⭕️           |1|
+| Thread Sleep                | ⭕️            | ⭕️           |1|
+| KeyboardConstraint          | ⭕️            | ⭕️           |1|
+| SplashLaunchScreen         | ⭕️            | ⭕️           |1|
+| 로그아웃            | ⭕️     | ⭕️           |3|
+| 닉네임 변경 | ⭕️     | ⭕️           |3|
 | 회원탈퇴         | ❌      | ❌                                                        |3|
 | 프로필사진 업로드 | ⭕️    | ⭕️                                                         |3|
 | 위시리스트 불러오기 | ⭕️      | ⭕️                                                         |3|
