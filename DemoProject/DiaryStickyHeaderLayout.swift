@@ -238,8 +238,10 @@ extension DiaryStickHeaderLayout: PlusActionDelegate, DeleteActionDelegate {
         }
         ///print("날짜수정 통신 여기")
         if resultDate != UserDefaults.standard.string(forKey: "createDate") {
-            
-            DiaryService.shared.patchcreateDate(UserDefaults.standard.string(forKey: "createDate")!, UserDefaults.standard.integer(forKey: "Id"), DiaryDetailModel.movieId ?? 0){
+
+            DiaryService.shared.patchcreateDate(resultDate ?? "2019-06-07",
+                                                UserDefaults.standard.integer(forKey: "Id"),
+                                                DiaryDetailModel.movieId ?? 0){
                 
                 data in
                 switch data {

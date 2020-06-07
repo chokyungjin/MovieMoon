@@ -26,3 +26,34 @@ struct WishListModel: Codable {
     var updatedAt: String
 
 }
+
+struct MoviePoster: Codable {
+    var poster : String? = nil
+}
+
+
+struct RecommendModel: Codable {
+
+    var id : Int
+    var userId: Int
+    var movieId: Int
+    var movie : MoviePoster
+    
+}
+
+//{
+//    "id": 1,
+//    "userId": 14,
+//    "movieId": 5154,
+//    "movie": {
+//        "poster": "http://file.koreafilm.or.kr/thm/02/00/04/07/tn_DPF011599.jpg"
+//    }
+//},
+//{
+//    "id": 2,
+//    "userId": 14,
+//    "movieId": 2388,
+//    "movie": {
+//        "poster": "http://file.koreafilm.or.kr/thm/02/00/00/98/tn_DPF000235.jpg"
+//    }
+//},

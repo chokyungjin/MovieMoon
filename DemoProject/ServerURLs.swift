@@ -109,5 +109,8 @@ struct APIConstants {
     //다이어리 삭제        DELETE    /api/diayr
     //diaryId
     static let DeleteDiaryURL = BaseURL + "/api/diary"
+    
+    //추천 Get
+    static let GetRecommendlistURL = BaseURL + "/api/recommend"
 
 }

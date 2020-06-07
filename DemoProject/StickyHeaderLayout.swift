@@ -23,7 +23,7 @@ class StickyHeadersLayout: UITableViewController {
     let dateFormatter = DateFormatter()
     let realdateFormatter = DateFormatter()
     
-
+    
     //inits..
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,22 +39,17 @@ class StickyHeadersLayout: UITableViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         thumbView?.frame = CGRect(origin: CGPoint(x: 20, y: 76), size: CGSize(width: 99.0, height: 141.0))
-                self.heartBtn?.frame = CGRect(origin: CGPoint(x: 315.0, y: 194.5), size: CGSize(width: 30.0, height: 30.0))
-                self.titleLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 144.5), size: CGSize(width: 200.0, height: 30.0))
-                self.dateLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 174.5), size: CGSize(width: 200.0, height: 30.0))
+        self.heartBtn?.frame = CGRect(origin: CGPoint(x: 315.0, y: 194.5), size: CGSize(width: 30.0, height: 30.0))
+        self.titleLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 144.5), size: CGSize(width: 200.0, height: 30.0))
+        self.dateLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 174.5), size: CGSize(width: 200.0, height: 30.0))
         //        createGradient()
-                tableView.reloadData()
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-                
+        tableView.reloadData()
         
-
     }
+    
     func createGradient() {
         // print(111)
         caLayer.startPoint = CGPoint(x: 0.5, y: 0)
@@ -65,7 +60,7 @@ class StickyHeadersLayout: UITableViewController {
         imageSlideView!.layer.addSublayer(caLayer)
     }
     
-   
+    
     
     //override...
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -142,7 +137,7 @@ class StickyHeadersLayout: UITableViewController {
         
         let stretchedHeight = -scrollView.contentOffset.y + 10
         let thumbPosition = stretchedHeight - thumbView.bounds.height - 50
-
+        
         imageView.frame = CGRect(origin: .zero, size: CGSize(width: scrollView.bounds.width, height: stretchedHeight))
         thumbView.frame = CGRect(origin: CGPoint(x: 20, y: thumbPosition), size: CGSize(width: 99.0, height: 141.0))
         heartBtn.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 60, y: thumbView.frame.origin.y + 120), size: heartBtn.bounds.size)
@@ -158,12 +153,12 @@ class StickyHeadersLayout: UITableViewController {
             let releaseDate = realdateFormatter.string(from: date!)
             dateLabel.text = "개봉일 : " + releaseDate
             dateLabel.textColor = .textGray
-
+            
         }
         else {
             dateLabel.text = "개봉일 정보가 없습니다"
         }
-                
+        
         caLayer.frame = CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: stretchedHeight))
         
     }

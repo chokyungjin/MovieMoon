@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
         guard let id = idTextField.text else {return}
         guard let pw = pwTextField.text else {return}
         
-        AuthService.shared.login("cho", "0000") {
+        AuthService.shared.login("jojo123", "111111") {
             data in
             
             switch data {
