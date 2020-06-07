@@ -12,12 +12,23 @@ class DiaryContentFirstCell : UITableViewCell, UITextFieldDelegate{
     
     var plotField: UITextView?
     let datePickerView:UIDatePicker = UIDatePicker()    //데이트피커로 객체 선언
+    static var rating : Double = 0
 
+    
+    var RatingLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Rating"
+        label.textColor = .textGray
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.frame = CGRect(x: 10, y: 15, width: 70, height: 30)
+        return label
+    }()
+    
     var myRatingLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .textGray
         label.font = UIFont.systemFont(ofSize: 14)
-        label.frame = CGRect(x: 10, y: 15, width: 100, height: 30)
+        label.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
         return label
     }()
     
@@ -28,7 +39,7 @@ class DiaryContentFirstCell : UITableViewCell, UITextFieldDelegate{
         label.emptyImage = UIImage(named: "ic_star_large")
         label.fullImage = UIImage(named: "ic_star_large_full")
         label.contentMode = UIView.ContentMode.scaleAspectFit
-        
+        label.rating = 0.0
         return label
     }()
     
@@ -55,6 +66,7 @@ class DiaryContentFirstCell : UITableViewCell, UITextFieldDelegate{
         self.addSubview(myRatingLabel)
         self.addSubview(myDateLabel)
         self.addSubview(myDateField)
+        self.addSubview(RatingLabel)
         
         self.myRatingView.delegate = self
         self.myDateField.delegate = self
@@ -82,11 +94,14 @@ extension DiaryContentFirstCell: FloatRatingViewDelegate {
     // MARK: FloatRatingViewDelegate
     
     func floatRatingView(_ ratingView: FloatRatingView, isUpdating rating: Double) {
-        myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
+        myRatingLabel.text = String(format:"%.2f" + "점", ratingView.rating)
+        DiaryContentFirstCell.rating = ratingView.rating
+
     }
     
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Double) {
-        myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
+        myRatingLabel.text = String(format:"%.2f" + "점", ratingView.rating)
+        DiaryContentFirstCell.rating = ratingView.rating
     }
             
 }
@@ -94,11 +109,7 @@ extension DiaryContentFirstCell: FloatRatingViewDelegate {
 extension DiaryContentFirstCell {
     
     
-    func initGestureRecognizer() {
-        let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
-        textFieldTap.delegate = self
-        addGestureRecognizer(textFieldTap)
-    }
+    
     
     @objc func datePickerValueChanged(sender:UIDatePicker) {
         //날짜 바뀌면 쓰는 메소드
@@ -117,6 +128,12 @@ extension DiaryContentFirstCell {
         }
         print(myDateField.text)
         UserDefaults.standard.set(myDateField.text, forKey: "createDate")
+    }
+    
+    func initGestureRecognizer() {
+        let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
+        textFieldTap.delegate = self
+        addGestureRecognizer(textFieldTap)
     }
     
     @objc func handleTapTextField(_ sender: UITapGestureRecognizer) {

@@ -34,5 +34,5 @@ struct SearchDetailModel: Codable {
     var runningtime: Int? = nil
     var director: String? = nil
     var actor: String? = nil
-    
+    var plot: String? = nil
 }

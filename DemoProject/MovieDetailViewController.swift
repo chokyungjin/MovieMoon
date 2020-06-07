@@ -51,6 +51,12 @@ class MovieDetailViewController: UIViewController {
         self.view.backgroundColor = .blackgroundBlack
         self.addChild(myTable)
         view.addSubview(myTable.tableView)
+        print(type(of: movieId))
+        print(movieId)
+        
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         SearchService.shared.detailSearch(movieId!) {
             data in
             
@@ -84,7 +90,6 @@ class MovieDetailViewController: UIViewController {
                 print("디비 에러")
             }
         }
-        
     }
     
     @objc func heartClick(sender: UIButton) {

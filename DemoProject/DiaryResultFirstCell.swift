@@ -13,12 +13,22 @@ class DiaryResultFirstCell : UITableViewCell, UITextFieldDelegate{
     var yearLabel: UILabel?
     var plotField: UITextView?
     let datePickerView:UIDatePicker = UIDatePicker()    //데이트피커로 객체 선언
-
+    static var rating : Double = 0
+    
+    var RatingLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .textGray
+        label.text = "Rating"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.frame = CGRect(x: 10, y: 15, width: 70, height: 30)
+        return label
+    }()
+    
     var myRatingLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 14)
-        label.frame = CGRect(x: 10, y: 15, width: 100, height: 30)
+        label.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
         return label
     }()
     
@@ -56,6 +66,7 @@ class DiaryResultFirstCell : UITableViewCell, UITextFieldDelegate{
         self.addSubview(myRatingLabel)
         self.addSubview(myDateLabel)
         self.addSubview(myDateField)
+        self.addSubview(RatingLabel)
         
         self.myRatingView.delegate = self
         self.myDateField.delegate = self
@@ -104,11 +115,16 @@ extension DiaryResultFirstCell: FloatRatingViewDelegate {
     // MARK: FloatRatingViewDelegate
     
     func floatRatingView(_ ratingView: FloatRatingView, isUpdating rating: Double) {
-        myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
+//        myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
+        myRatingLabel.text = String(describing: ratingView.rating)
+        DiaryResultFirstCell.rating = ratingView.rating
     }
     
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Double) {
-        myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
+//        myRatingLabel.text = String(format: "Rate "  + "%.2f" + "점", ratingView.rating)
+        myRatingLabel.text = String(describing: ratingView.rating)
+        DiaryResultFirstCell.rating = ratingView.rating
+
     }
             
 }

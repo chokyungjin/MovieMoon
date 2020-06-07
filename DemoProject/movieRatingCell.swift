@@ -22,7 +22,6 @@ class movieRatingCell : UITableViewCell {
         label.type = .halfRatings
         label.emptyImage = UIImage(named: "ic_star_large")
         label.fullImage = UIImage(named: "ic_star_large_full")
-        //label.backgroundColor = .red
         label.contentMode = UIView.ContentMode.scaleAspectFit
         
         return label
@@ -41,7 +40,7 @@ class movieRatingCell : UITableViewCell {
         label.emptyImage = UIImage(named: "ic_star_large")
         label.fullImage = UIImage(named: "ic_star_large_full")
         label.contentMode = UIView.ContentMode.scaleAspectFit
-        label.rating = (DataManager.sharedManager.getRating()) / 2
+        label.rating = (DataManager.sharedManager.getRating())
         label.isUserInteractionEnabled = false
 
         return label

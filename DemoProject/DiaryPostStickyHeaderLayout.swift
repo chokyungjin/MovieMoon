@@ -31,7 +31,7 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     var memo:String? = UserDefaults.standard.string(forKey: "memo")
     var createDate:String? = UserDefaults.standard.string(forKey: "createDate")
     var src: [String]? = nil
-    var rating: String? = nil
+    var rating: Double = 0
     
     //Post Image Data...
     var LocationLink: [String]? = nil
@@ -129,15 +129,16 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! DiaryResultFirstCell
             
             cell.backgroundColor = .blackgroundBlack
-            cell.myRatingLabel.text = "Rate 0점"
+//            cell.myRatingLabel.text = "0"
+            
             cell.myRatingLabel.textColor = .textGray
             cell.myDateLabel.text = "Date"
             cell.myDateLabel.textColor = .textGray
             cell.myDateField.layer.addBorder([.bottom], color: .textGray, width: 1)
             cell.selectionStyle = .none
             
-            rating = cell.myRatingLabel.text
-            print(rating ?? "평점 입력하셔야하옵니다.")
+            
+            
             
             return cell
             
@@ -171,6 +172,10 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        rating = DiaryResultFirstCell.rating
+        print(rating)
+        
         guard let imageView = imageView, let thumbView = thumbView, let titleLabel = titleLabel, let dateLabel = dateLabel else{return}
         
         let stretchedHeight = -scrollView.contentOffset.y + 10
@@ -196,10 +201,7 @@ class DiaryPostStickyHeaderLayout: UITableViewController ,UIPickerViewDelegate, 
         //        }
         
         dateLabel.frame = CGRect(origin: CGPoint(x: scrollView.bounds.width - 250, y: thumbView.frame.origin.y + 100), size: dateLabel.bounds.size)
-        
         dateLabel.textColor = .textGray
-        
-        
         caLayer.frame = CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: stretchedHeight))
         
     }
@@ -210,13 +212,10 @@ extension DiaryPostStickyHeaderLayout: PlusActionDelegate {
     
     func didClickedOk() {
         //다이어리 post 하는 통신 , userId, movieId, memo, createDate에서 locationLink까지 통신 되는지 확인!
-
-        //        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
-        //        print(userId ?? 1 ,movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4")
-        //        print("$$$$$$$$$$$$$$$$$$$$$$$$$")
         
         print("location link = \(LocationLink ?? ["다이어리 이미지 링크 잘못됨!"])")
-        DiaryService.shared.diaryPost(userId ?? 1 , movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4", LocationLink ?? ["https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png","https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png","https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png"]){
+            
+        DiaryService.shared.diaryPost(userId ?? 1 , movieId ?? "16" , UserDefaults.standard.string(forKey: "memo") ?? "3",UserDefaults.standard.string(forKey: "createDate") ?? "4", LocationLink ?? ["https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png","https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png","https://user-images.githubusercontent.com/46750574/74629041-a4356e80-519a-11ea-813e-04fdea29a7fc.png"], rating: (Int(self.rating)) ){
             data in
             
             switch data {
@@ -364,3 +363,5 @@ extension DiaryPostStickyHeaderLayout : UIImagePickerControllerDelegate,UINaviga
     }
     
 }
+
+

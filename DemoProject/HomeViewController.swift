@@ -81,8 +81,7 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//        setMovielistCollectionView()
-
+        setMovieListCollectionView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,11 +89,13 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
         
         let cell = sender as! MovieCollectionViewCell
         if let selectedIndex = movieCollectionView.indexPath(for: cell) {
-            let movie = movies[selectedIndex.row]
-            //  MovieDetailViewController.movieId = movie.id
+//            print(selectedIndex)
+            let movie = expectationList[selectedIndex.row]
+            MovieDetailViewController.movieId = movie.movieId
             //StickyHeaderLayout에 들어가는 movie.id , RatingImageView는 Cell에서 처리하므로 싱글톤으로 돌려야할듯
-            dataManager.setId(haveId: movie.id)
-            dataManager.setRating(haveRating: movie.userRating)
+            dataManager.setId(haveId: String(describing: movie.movieId))
+//            DataManager.sharedManager.setRating(haveRating: Double((movieDetailData?.id)! / 100))
+            dataManager.setRating(haveRating: 4.5)
             
             //개선시켜보았으나 Data Loading 과정이 오래걸림 , 애초에  thumbnailImage와 posterImage를 잘 써야할듯
             //            DataManager.sharedManager.fetchMovieDetail(movieId: movie.id, completion: { [weak self] (movie) in
@@ -107,9 +108,9 @@ class HomeViewController: UIViewController,UISearchBarDelegate {
             //            MovieDetailViewController.imageView = thumnailImage
             
             //    기존에 쓰던 방식이지만 thumbanilImage의 화질이 좋지 않음
-            let thumnailImage = UIImageView()
-            thumnailImage.imageFromUrl(movie.thumnailImageURL , defaultImgPath: "img_placeholder")
-            MovieDetailViewController.imageView = thumnailImage
+//            let thumnailImage = UIImageView()
+//            thumnailImage.imageFromUrl(movie.thumnailImageURL , defaultImgPath: "img_placeholder")
+//            MovieDetailViewController.imageView = thumnailImage
             
         }
         

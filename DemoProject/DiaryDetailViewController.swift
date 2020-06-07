@@ -11,6 +11,7 @@ import UIKit
 class DiaryDetailViewController: UIViewController {
     
     //Vars..
+    var rating : Double?
     var movieId: Int?
     var diaryId : Int?
     var poster: String?
@@ -27,15 +28,7 @@ class DiaryDetailViewController: UIViewController {
     var imageView = UIImageView(image: UIImage(named: "account"))
     var thumbView = UIImageView(image: UIImage(named: "account"))
     
-    //init..
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.addChild(myTable)
-        view.addSubview(myTable.tableView)
-        
-        dateFormatter.locale = Locale.init(identifier: "ko_kr")
-        dateFormatter.dateFormat = "yyyyMMdd"
-        realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
+    override func viewWillAppear(_ animated: Bool) {
         
         //Diary Detail 통신 해야됨.
         DiaryService.shared.diaryDetail(diaryId ?? 16) {
@@ -63,11 +56,9 @@ class DiaryDetailViewController: UIViewController {
                 self.myTable.resultMemo = self.DiaryDetailModel.memo
                 self.myTable.resultDate = self.DiaryDetailModel.createDate
                 self.myTable.resultImage = self.DiaryDetailModel.diaryimages
-                
-                print("????????????")
-                print(self.DiaryDetailModel ?? "파싱 실패!")
-                print("????????????")
-                
+                self.myTable.myRating = self.DiaryDetailModel.myRating
+
+                self.myTable.tableView.reloadData()
                 
             case .requestErr(let message):
                 self.simpleAlert(title: "다이어리 가져오기 실패", message: "\(message)")
@@ -85,7 +76,19 @@ class DiaryDetailViewController: UIViewController {
                 print("디비 에러")
             }
         }
-            
+    }
+    //init..
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.addChild(myTable)
+        view.addSubview(myTable.tableView)
+        
+        dateFormatter.locale = Locale.init(identifier: "ko_kr")
+        dateFormatter.dateFormat = "yyyyMMdd"
+        realdateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        
+        
+        
         
         
         //이건 DiaryDetail이 아님
@@ -128,7 +131,7 @@ class DiaryDetailViewController: UIViewController {
         
     }
     
-        
+    
     // Status Bar Hidden..
     override var prefersStatusBarHidden: Bool {
         return true

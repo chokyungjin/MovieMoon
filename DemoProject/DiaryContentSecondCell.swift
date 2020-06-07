@@ -130,3 +130,25 @@ class DiaryContentSecondCell : UITableViewCell, UITextViewDelegate {
     
 }
 
+
+extension DiaryContentSecondCell {
+    
+    
+    func initGestureRecognizer() {
+        let textFieldTap = UITapGestureRecognizer(target: self, action: #selector(handleTapTextField(_:)))
+        textFieldTap.delegate = self
+        addGestureRecognizer(textFieldTap)
+    }
+    
+    @objc func handleTapTextField(_ sender: UITapGestureRecognizer) {
+        print(111)
+        self.plotField.resignFirstResponder()
+    }
+    
+    override func gestureRecognizer(_ gestrueRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view?.isDescendant(of: plotField))! {
+            return false
+        }
+        return true
+    }
+}

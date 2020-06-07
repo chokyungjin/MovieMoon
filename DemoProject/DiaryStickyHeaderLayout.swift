@@ -29,6 +29,7 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
     var src: String? = nil
     var resultImage: [src]? = nil
     var resultDeleteDiaryId: Int? = nil
+    var myRating : Double? = nil
 
     //inits..
     override func viewDidLoad() {
@@ -128,10 +129,9 @@ class DiaryStickHeaderLayout: UITableViewController ,UIPickerViewDelegate, UITex
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! DiaryContentFirstCell
             
             cell.backgroundColor = .blackgroundBlack
-            cell.myRatingLabel.text = "내 평점"
-            //cell.myRatingLabel.text = "Rate " + String(format:"%.2f", cell.myRatingView.rating) + "점"
+
+            cell.myRatingView.rating = myRating ?? 0.0
             cell.myRatingLabel.textColor = .textGray
-            
             cell.myDateLabel.text = "Date"
             cell.myDateLabel.textColor = .textGray
             

@@ -17,8 +17,9 @@ enum ServerURLs: String {
 
 struct APIConstants {
     // 전역 변수로 사용할 수 있게 APIConstants 선언하여 사용
-    static let BaseURL = "http://54.180.186.62"
-    
+    static let BaseURL = "http://3.34.66.42"
+    //기본 접속 ip주소 : 3.34.66.42
+
     //-user-
     //회원가입     POST /api/user
     //userId, password, nickname

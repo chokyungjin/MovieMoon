@@ -10,18 +10,26 @@ import UIKit
 
 class movieContentCell : UITableViewCell {
     
-    var plotField: UITextView = {
+    var peopleField: UITextView = {
         let label = UITextView()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
         label.frame = CGRect(x: 15, y: 15, width: 350, height: 100)
         return label
     }()
+    
+    var plotField: UITextView = {
+        let label = UITextView()
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.frame = CGRect(x: 15, y: 125, width: 350, height: 350)
+        return label
+    }()
     var stillcutImage: UIImageView = {
         let ImageView = UIImageView()
         let defaultImage = UIImage(named: "testImage.jpg")
         ImageView.image = defaultImage
-        ImageView.frame = CGRect(x: 15, y: 120, width: 100, height: 150)
+        ImageView.frame = CGRect(x: 15, y: 490, width: 100, height: 150)
        
         return ImageView
     }()
@@ -33,6 +41,7 @@ class movieContentCell : UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(plotField)
         self.addSubview(stillcutImage)
+        self.addSubview(peopleField)
     }
     
     required init?(coder: NSCoder) {

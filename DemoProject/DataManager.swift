@@ -63,10 +63,10 @@ class DataManager {
         self.haveDate = haveDate
     }
     
-    private var haveRating: Double!
+    private var haveRating: Double! = 0
     
     func getRating() -> Double {
-        return 4.5
+        return haveRating
     }
     func setRating(haveRating : Double) {
         self.haveRating = haveRating

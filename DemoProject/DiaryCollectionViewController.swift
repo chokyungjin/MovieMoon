@@ -61,7 +61,6 @@ class DiaryCollectionViewController: UICollectionViewController {
             DiaryDetailViewController.poster = mydiaryLists[selectedIndex.row].poster
             
             
-            
         }
         
         
@@ -134,33 +133,5 @@ extension DiaryCollectionViewController {
         
         return cell
     }
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        //        let movie = diaryLists[indexPath.row]
-        //        let thumnailImage = self.getThumnailImage(withURL: movie.thumnailImageURL)
-        //        self.selectedImage = thumnailImage
-        //        dataManager.setImage(haveImage: self.selectedImage)
-        //
-        //        let movietitle = self.getTitle(title: movie.title)
-        //        self.selectedTitle = movietitle
-        //        dataManager.setTitle(haveTitle: self.selectedTitle)
-        //
-        //        let movieRating = self.getRating(rating: movie.userRating)
-        //        self.selectedRating = movieRating
-        //        dataManager.setRating(haveRating: self.selectedRating)
-        //
-        //        let movieDate = self.getDate(date: movie.date)
-        //        self.selectedDate = movieDate
-        //        dataManager.setDate(haveDate: self.selectedDate)
-        //
-        //        let mainStoryboard: UIStoryboard = UIStoryboard(name: "DiaryScreen", bundle: nil)
-        //
-        //            let vc = mainStoryboard.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailViewController
-        //
-        //                    self.navigationController?.pushViewController(vc, animated: true)
-        //
-        
-    }
-    
-    
 }

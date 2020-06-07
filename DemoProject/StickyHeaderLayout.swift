@@ -23,6 +23,7 @@ class StickyHeadersLayout: UITableViewController {
     let dateFormatter = DateFormatter()
     let realdateFormatter = DateFormatter()
     
+
     //inits..
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,16 +40,19 @@ class StickyHeadersLayout: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        thumbView?.frame = CGRect(origin: CGPoint(x: 20, y: 76), size: CGSize(width: 99.0, height: 141.0))
+                self.heartBtn?.frame = CGRect(origin: CGPoint(x: 315.0, y: 194.5), size: CGSize(width: 30.0, height: 30.0))
+                self.titleLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 144.5), size: CGSize(width: 200.0, height: 30.0))
+                self.dateLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 174.5), size: CGSize(width: 200.0, height: 30.0))
+        //        createGradient()
+                tableView.reloadData()
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
-        thumbView?.frame = CGRect(origin: CGPoint(x: 20, y: 76), size: CGSize(width: 99.0, height: 141.0))
-        self.heartBtn?.frame = CGRect(origin: CGPoint(x: 315.0, y: 194.5), size: CGSize(width: 30.0, height: 30.0))
-        self.titleLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 144.5), size: CGSize(width: 200.0, height: 30.0))
-        self.dateLabel?.frame = CGRect(origin: CGPoint(x: 125, y: 174.5), size: CGSize(width: 200.0, height: 30.0))
-        createGradient()
+                
+        
 
     }
     func createGradient() {
@@ -77,7 +81,7 @@ class StickyHeadersLayout: UITableViewController {
             return 150
         }
         else if indexPath == [1,0] {
-            return 500
+            return 1000
         }
         
         return 50
@@ -90,7 +94,8 @@ class StickyHeadersLayout: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! movieRatingCell
             
             if movieDetailData?.id != nil {
-                cell.appRatingLabel.text = "앱 기준 " + String(describing: (movieDetailData?.id)!)  + "점"
+                cell.appRatingLabel.text = "무비 문 기준 " + String(describing: (4.5))  + "점"
+                DataManager.sharedManager.setRating(haveRating: Double(4.5))
             }
             cell.backgroundColor = .blackgroundBlack
             cell.myRatingLabel.text = "내 기준 " + String(format:"%.2f", cell.myRatingView.rating) + "점"
@@ -110,8 +115,15 @@ class StickyHeadersLayout: UITableViewController {
             cell.stillcutImage.imageFromUrl(movieDetailData?.poster , defaultImgPath: "img_placeholder")
             
             if movieDetailData?.director != nil && movieDetailData?.actor != nil {
-                cell.plotField.text = String(describing: "감독 및 배우들:  " + (movieDetailData!.director! + movieDetailData!.actor!) )
+                cell.peopleField.text = String(describing: "감독 및 배우들 \n  " + (movieDetailData!.director! + movieDetailData!.actor!) )
             }
+            if movieDetailData?.plot != nil {
+                cell.plotField.text = String(describing: "줄거리 \n " + (movieDetailData!.plot!))
+            }
+            
+            cell.peopleField.backgroundColor = .blackgroundBlack
+            cell.peopleField.textColor = .textGray
+            cell.peopleField.isUserInteractionEnabled = false
             
             cell.plotField.backgroundColor = .blackgroundBlack
             cell.plotField.textColor = .textGray
